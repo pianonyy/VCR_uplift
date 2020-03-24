@@ -929,6 +929,11 @@ cdef class UpliftRadcliffeSurryTSplit(ClassificationCriterion):
             p_t = (n_t + 0.5) / (n + 1)
             p_c = 1 - p_t
 
+            #data manipulation stat tests
+            full_variance = self.variance(&n_t, &n_lt) + self.variance(&n_c, &n_lc)
+            p_value = ((p_t_l - p_c_l) - (p_t_r - p_c_r)) / sqrt(full_variance)
+            self.p_value = p_value
+
             # E_gain
             self.children_impurity(&impurity_left, &impurity_right)
             E_gain = impurity_left + impurity_right  - self.node_impurity()
@@ -1167,6 +1172,12 @@ cdef class UpliftEntropy(ClassificationCriterion):
             p_t = (n_t + 0.5) / (n + 1)
             p_c = 1 - p_t
 
+
+            #data manipulation stat tests
+            full_variance = self.variance(&n_t, &n_lt) + self.variance(&n_c, &n_lc)
+            p_value = ((p_t_l - p_c_l) - (p_t_r - p_c_r)) / sqrt(full_variance)
+            self.p_value = p_value
+            
             # KL_gain
             self.children_impurity(&impurity_left, &impurity_right)
             KL_gain = impurity_left + impurity_right  - self.node_impurity()
@@ -1283,7 +1294,7 @@ cdef class Gini(ClassificationCriterion):
         index = \sum_{k=0}^{K-1} count_k (1 - count_k)
               = 1 - \sum_{k=0}^{K-1} count_k ** 2
     """
-    
+
     cdef double variance (self, double *N, double *n) :
         cdef double react_rate = (n + 0.5) / (N + 0.1)
         cdef double variance = 0.0
