@@ -1,8 +1,14 @@
 README.md
 setup.py
+./uplift/__init__.py
+./uplift/base.py
 uplift.egg-info/PKG-INFO
 uplift.egg-info/SOURCES.txt
 uplift.egg-info/dependency_links.txt
 uplift.egg-info/not-zip-safe
 uplift.egg-info/requires.txt
 uplift.egg-info/top_level.txt
+uplift/tree/_criterion.c
+uplift/tree/_splitter.c
+uplift/tree/_tree.c
+uplift/tree/_utils.c

@@ -10,6 +10,7 @@ from libc.string cimport memcpy
 from libc.string cimport memset
 
 import numpy as np
+import math
 cimport numpy as np
 np.import_array()
 
@@ -612,8 +613,7 @@ cdef class UpliftGini(ClassificationCriterion):
         impurity_right[0] = val_impurity_right
 
     cdef double proxy_impurity_improvement(self) nogil:
-        """TODO
-        """
+
 
         cdef SIZE_t* n_classes = self.n_classes
         cdef double* sum_left = self.sum_left
@@ -704,7 +704,7 @@ cdef class UpliftGini(ClassificationCriterion):
             variance_c += (n_c * n_c * react_rate_c * (1 - react_rate_c)) / (n_lc * (n_c - n_lc) * (n_c - 1))
             #calculate full variance and p_value
             full_variance = variance_t + variance_c
-            p_value = ((p_t_l - p_c_l) - (p_t_r - p_c_r)) / sqrt(full_variance)
+            p_value = ((p_t_l - p_c_l) - (p_t_r - p_c_r)) / (full_variance)
             self.p_value = p_value
 
 
