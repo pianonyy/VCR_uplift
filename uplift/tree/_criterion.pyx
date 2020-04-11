@@ -661,6 +661,11 @@ cdef class UpliftGini(ClassificationCriterion):
         cdef double full_variance
         cdef double p_value
 
+        cdef double react_rate_t
+        cdef double react_rate_c
+        cdef double variance_c
+        cdef double variance_t
+
         for k in range(self.n_outputs):
 
             n_lc0 = self.sum_left[0]
@@ -692,7 +697,17 @@ cdef class UpliftGini(ClassificationCriterion):
             p_c = 1 - p_t
 
             #data manipulation stat tests
-            full_variance = self.variance(&n_t, &n_lt) + self.variance(&n_c, &n_lc)
+
+            #calculate for treatment group left node
+            react_rate_t = (n_lt + 0.5) / (n_t + 0.1)
+            variance_t = 0.0
+            variance_t += (n_t * n_t * react_rate_t * (1 - react_rate_t)) / (n_lt * (n_t - n_lt) * (n_t - 1))
+            #calculate for control group left node
+            react_rate_c = (n_lc + 0.5) / (n_c + 0.1)
+            variance_c = 0.0
+            variance_c += (n_c * n_c * react_rate_c * (1 - react_rate_c)) / (n_lc * (n_c - n_lc) * (n_c - 1))
+            #calculate full variance and p_value
+            full_variance = variance_t + variance_c
             p_value = ((p_t_l - p_c_l) - (p_t_r - p_c_r)) / sqrt(full_variance)
             self.p_value = p_value
 
@@ -1177,7 +1192,7 @@ cdef class UpliftEntropy(ClassificationCriterion):
             full_variance = self.variance(&n_t, &n_lt) + self.variance(&n_c, &n_lc)
             p_value = ((p_t_l - p_c_l) - (p_t_r - p_c_r)) / sqrt(full_variance)
             self.p_value = p_value
-            
+
             # KL_gain
             self.children_impurity(&impurity_left, &impurity_right)
             KL_gain = impurity_left + impurity_right  - self.node_impurity()
