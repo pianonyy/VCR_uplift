@@ -1351,7 +1351,7 @@ struct __pyx_obj_6uplift_4tree_10_criterion_Criterion {
 };
 
 
-/* "uplift/tree/_criterion.pyx":199
+/* "uplift/tree/_criterion.pyx":200
  * 
  * 
  * cdef class ClassificationCriterion(Criterion):             # <<<<<<<<<<<<<<
@@ -1366,7 +1366,7 @@ struct __pyx_obj_6uplift_4tree_10_criterion_ClassificationCriterion {
 };
 
 
-/* "uplift/tree/_criterion.pyx":490
+/* "uplift/tree/_criterion.pyx":491
  *             sum_total += self.sum_stride
  * 
  * cdef class UpliftGini(ClassificationCriterion):             # <<<<<<<<<<<<<<
@@ -1378,7 +1378,7 @@ struct __pyx_obj_6uplift_4tree_10_criterion_UpliftGini {
 };
 
 
-/* "uplift/tree/_criterion.pyx":732
+/* "uplift/tree/_criterion.pyx":735
  * 
  * 
  * cdef class UpliftRadcliffeSurryTSplit(ClassificationCriterion):             # <<<<<<<<<<<<<<
@@ -1390,7 +1390,7 @@ struct __pyx_obj_6uplift_4tree_10_criterion_UpliftRadcliffeSurryTSplit {
 };
 
 
-/* "uplift/tree/_criterion.pyx":960
+/* "uplift/tree/_criterion.pyx":963
  *         return impurity_improvement
  * 
  * cdef class UpliftEntropy(ClassificationCriterion):             # <<<<<<<<<<<<<<
@@ -1402,7 +1402,7 @@ struct __pyx_obj_6uplift_4tree_10_criterion_UpliftEntropy {
 };
 
 
-/* "uplift/tree/_criterion.pyx":1196
+/* "uplift/tree/_criterion.pyx":1199
  * 
  * 
  * cdef class Entropy(ClassificationCriterion):             # <<<<<<<<<<<<<<
@@ -1414,7 +1414,7 @@ struct __pyx_obj_6uplift_4tree_10_criterion_Entropy {
 };
 
 
-/* "uplift/tree/_criterion.pyx":1277
+/* "uplift/tree/_criterion.pyx":1280
  * 
  * 
  * cdef class Gini(ClassificationCriterion):             # <<<<<<<<<<<<<<
@@ -1426,7 +1426,7 @@ struct __pyx_obj_6uplift_4tree_10_criterion_Gini {
 };
 
 
-/* "uplift/tree/_criterion.pyx":1373
+/* "uplift/tree/_criterion.pyx":1376
  * 
  * 
  * cdef class RegressionCriterion(Criterion):             # <<<<<<<<<<<<<<
@@ -1439,7 +1439,7 @@ struct __pyx_obj_6uplift_4tree_10_criterion_RegressionCriterion {
 };
 
 
-/* "uplift/tree/_criterion.pyx":1573
+/* "uplift/tree/_criterion.pyx":1576
  * 
  * 
  * cdef class MSE(RegressionCriterion):             # <<<<<<<<<<<<<<
@@ -1451,7 +1451,7 @@ struct __pyx_obj_6uplift_4tree_10_criterion_MSE {
 };
 
 
-/* "uplift/tree/_criterion.pyx":1666
+/* "uplift/tree/_criterion.pyx":1669
  * 
  * 
  * cdef class FriedmanMSE(MSE):             # <<<<<<<<<<<<<<
@@ -1496,7 +1496,7 @@ struct __pyx_vtabstruct_6uplift_4tree_6_utils_PriorityHeap {
 static struct __pyx_vtabstruct_6uplift_4tree_6_utils_PriorityHeap *__pyx_vtabptr_6uplift_4tree_6_utils_PriorityHeap;
 
 
-/* "uplift/tree/_criterion.pyx":23
+/* "uplift/tree/_criterion.pyx":24
  * from ._utils cimport sizet_ptr_to_ndarray
  * 
  * cdef class Criterion:             # <<<<<<<<<<<<<<
@@ -1518,7 +1518,7 @@ struct __pyx_vtabstruct_6uplift_4tree_10_criterion_Criterion {
 static struct __pyx_vtabstruct_6uplift_4tree_10_criterion_Criterion *__pyx_vtabptr_6uplift_4tree_10_criterion_Criterion;
 
 
-/* "uplift/tree/_criterion.pyx":199
+/* "uplift/tree/_criterion.pyx":200
  * 
  * 
  * cdef class ClassificationCriterion(Criterion):             # <<<<<<<<<<<<<<
@@ -1532,7 +1532,7 @@ struct __pyx_vtabstruct_6uplift_4tree_10_criterion_ClassificationCriterion {
 static struct __pyx_vtabstruct_6uplift_4tree_10_criterion_ClassificationCriterion *__pyx_vtabptr_6uplift_4tree_10_criterion_ClassificationCriterion;
 
 
-/* "uplift/tree/_criterion.pyx":490
+/* "uplift/tree/_criterion.pyx":491
  *             sum_total += self.sum_stride
  * 
  * cdef class UpliftGini(ClassificationCriterion):             # <<<<<<<<<<<<<<
@@ -1546,7 +1546,7 @@ struct __pyx_vtabstruct_6uplift_4tree_10_criterion_UpliftGini {
 static struct __pyx_vtabstruct_6uplift_4tree_10_criterion_UpliftGini *__pyx_vtabptr_6uplift_4tree_10_criterion_UpliftGini;
 
 
-/* "uplift/tree/_criterion.pyx":732
+/* "uplift/tree/_criterion.pyx":735
  * 
  * 
  * cdef class UpliftRadcliffeSurryTSplit(ClassificationCriterion):             # <<<<<<<<<<<<<<
@@ -1560,7 +1560,7 @@ struct __pyx_vtabstruct_6uplift_4tree_10_criterion_UpliftRadcliffeSurryTSplit {
 static struct __pyx_vtabstruct_6uplift_4tree_10_criterion_UpliftRadcliffeSurryTSplit *__pyx_vtabptr_6uplift_4tree_10_criterion_UpliftRadcliffeSurryTSplit;
 
 
-/* "uplift/tree/_criterion.pyx":960
+/* "uplift/tree/_criterion.pyx":963
  *         return impurity_improvement
  * 
  * cdef class UpliftEntropy(ClassificationCriterion):             # <<<<<<<<<<<<<<
@@ -1574,7 +1574,7 @@ struct __pyx_vtabstruct_6uplift_4tree_10_criterion_UpliftEntropy {
 static struct __pyx_vtabstruct_6uplift_4tree_10_criterion_UpliftEntropy *__pyx_vtabptr_6uplift_4tree_10_criterion_UpliftEntropy;
 
 
-/* "uplift/tree/_criterion.pyx":1196
+/* "uplift/tree/_criterion.pyx":1199
  * 
  * 
  * cdef class Entropy(ClassificationCriterion):             # <<<<<<<<<<<<<<
@@ -1588,7 +1588,7 @@ struct __pyx_vtabstruct_6uplift_4tree_10_criterion_Entropy {
 static struct __pyx_vtabstruct_6uplift_4tree_10_criterion_Entropy *__pyx_vtabptr_6uplift_4tree_10_criterion_Entropy;
 
 
-/* "uplift/tree/_criterion.pyx":1277
+/* "uplift/tree/_criterion.pyx":1280
  * 
  * 
  * cdef class Gini(ClassificationCriterion):             # <<<<<<<<<<<<<<
@@ -1602,7 +1602,7 @@ struct __pyx_vtabstruct_6uplift_4tree_10_criterion_Gini {
 static struct __pyx_vtabstruct_6uplift_4tree_10_criterion_Gini *__pyx_vtabptr_6uplift_4tree_10_criterion_Gini;
 
 
-/* "uplift/tree/_criterion.pyx":1373
+/* "uplift/tree/_criterion.pyx":1376
  * 
  * 
  * cdef class RegressionCriterion(Criterion):             # <<<<<<<<<<<<<<
@@ -1616,7 +1616,7 @@ struct __pyx_vtabstruct_6uplift_4tree_10_criterion_RegressionCriterion {
 static struct __pyx_vtabstruct_6uplift_4tree_10_criterion_RegressionCriterion *__pyx_vtabptr_6uplift_4tree_10_criterion_RegressionCriterion;
 
 
-/* "uplift/tree/_criterion.pyx":1573
+/* "uplift/tree/_criterion.pyx":1576
  * 
  * 
  * cdef class MSE(RegressionCriterion):             # <<<<<<<<<<<<<<
@@ -1630,7 +1630,7 @@ struct __pyx_vtabstruct_6uplift_4tree_10_criterion_MSE {
 static struct __pyx_vtabstruct_6uplift_4tree_10_criterion_MSE *__pyx_vtabptr_6uplift_4tree_10_criterion_MSE;
 
 
-/* "uplift/tree/_criterion.pyx":1666
+/* "uplift/tree/_criterion.pyx":1669
  * 
  * 
  * cdef class FriedmanMSE(MSE):             # <<<<<<<<<<<<<<
@@ -2379,7 +2379,7 @@ static PyObject *__pyx_tuple__8;
 static PyObject *__pyx_tuple__9;
 /* Late includes */
 
-/* "uplift/tree/_criterion.pyx":30
+/* "uplift/tree/_criterion.pyx":31
  *     """
  * 
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -2402,7 +2402,7 @@ static void __pyx_pf_6uplift_4tree_10_criterion_9Criterion___dealloc__(struct __
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__dealloc__", 0);
 
-  /* "uplift/tree/_criterion.pyx":33
+  /* "uplift/tree/_criterion.pyx":34
  *         """Destructor."""
  * 
  *         free(self.sum_total)             # <<<<<<<<<<<<<<
@@ -2411,7 +2411,7 @@ static void __pyx_pf_6uplift_4tree_10_criterion_9Criterion___dealloc__(struct __
  */
   free(__pyx_v_self->sum_total);
 
-  /* "uplift/tree/_criterion.pyx":34
+  /* "uplift/tree/_criterion.pyx":35
  * 
  *         free(self.sum_total)
  *         free(self.sum_left)             # <<<<<<<<<<<<<<
@@ -2420,7 +2420,7 @@ static void __pyx_pf_6uplift_4tree_10_criterion_9Criterion___dealloc__(struct __
  */
   free(__pyx_v_self->sum_left);
 
-  /* "uplift/tree/_criterion.pyx":35
+  /* "uplift/tree/_criterion.pyx":36
  *         free(self.sum_total)
  *         free(self.sum_left)
  *         free(self.sum_right)             # <<<<<<<<<<<<<<
@@ -2429,7 +2429,7 @@ static void __pyx_pf_6uplift_4tree_10_criterion_9Criterion___dealloc__(struct __
  */
   free(__pyx_v_self->sum_right);
 
-  /* "uplift/tree/_criterion.pyx":30
+  /* "uplift/tree/_criterion.pyx":31
  *     """
  * 
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -2441,7 +2441,7 @@ static void __pyx_pf_6uplift_4tree_10_criterion_9Criterion___dealloc__(struct __
   __Pyx_RefNannyFinishContext();
 }
 
-/* "uplift/tree/_criterion.pyx":37
+/* "uplift/tree/_criterion.pyx":38
  *         free(self.sum_right)
  * 
  *     def __getstate__(self):             # <<<<<<<<<<<<<<
@@ -2468,7 +2468,7 @@ static PyObject *__pyx_pf_6uplift_4tree_10_criterion_9Criterion_2__getstate__(CY
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("__getstate__", 0);
 
-  /* "uplift/tree/_criterion.pyx":38
+  /* "uplift/tree/_criterion.pyx":39
  * 
  *     def __getstate__(self):
  *         return {}             # <<<<<<<<<<<<<<
@@ -2476,13 +2476,13 @@ static PyObject *__pyx_pf_6uplift_4tree_10_criterion_9Criterion_2__getstate__(CY
  *     def __setstate__(self, d):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 38, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 39, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "uplift/tree/_criterion.pyx":37
+  /* "uplift/tree/_criterion.pyx":38
  *         free(self.sum_right)
  * 
  *     def __getstate__(self):             # <<<<<<<<<<<<<<
@@ -2501,7 +2501,7 @@ static PyObject *__pyx_pf_6uplift_4tree_10_criterion_9Criterion_2__getstate__(CY
   return __pyx_r;
 }
 
-/* "uplift/tree/_criterion.pyx":40
+/* "uplift/tree/_criterion.pyx":41
  *         return {}
  * 
  *     def __setstate__(self, d):             # <<<<<<<<<<<<<<
@@ -2534,7 +2534,7 @@ static PyObject *__pyx_pf_6uplift_4tree_10_criterion_9Criterion_4__setstate__(CY
   return __pyx_r;
 }
 
-/* "uplift/tree/_criterion.pyx":43
+/* "uplift/tree/_criterion.pyx":44
  *         pass
  * 
  *     cdef void init(self, DOUBLE_t* y, SIZE_t y_stride, DOUBLE_t* sample_weight,             # <<<<<<<<<<<<<<
@@ -2547,7 +2547,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_9Criterion_init(CYTHON_UNUSED str
   /* function exit code */
 }
 
-/* "uplift/tree/_criterion.pyx":71
+/* "uplift/tree/_criterion.pyx":72
  *         pass
  * 
  *     cdef void reset(self) nogil:             # <<<<<<<<<<<<<<
@@ -2560,7 +2560,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_9Criterion_reset(CYTHON_UNUSED st
   /* function exit code */
 }
 
-/* "uplift/tree/_criterion.pyx":79
+/* "uplift/tree/_criterion.pyx":80
  *         pass
  * 
  *     cdef void reverse_reset(self) nogil:             # <<<<<<<<<<<<<<
@@ -2573,7 +2573,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_9Criterion_reverse_reset(CYTHON_U
   /* function exit code */
 }
 
-/* "uplift/tree/_criterion.pyx":86
+/* "uplift/tree/_criterion.pyx":87
  *         pass
  * 
  *     cdef void update(self, SIZE_t new_pos) nogil:             # <<<<<<<<<<<<<<
@@ -2586,7 +2586,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_9Criterion_update(CYTHON_UNUSED s
   /* function exit code */
 }
 
-/* "uplift/tree/_criterion.pyx":101
+/* "uplift/tree/_criterion.pyx":102
  *         pass
  * 
  *     cdef double node_impurity(self) nogil:             # <<<<<<<<<<<<<<
@@ -2602,7 +2602,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_9Criterion_node_impurity(CYTHON
   return __pyx_r;
 }
 
-/* "uplift/tree/_criterion.pyx":111
+/* "uplift/tree/_criterion.pyx":112
  *         pass
  * 
  *     cdef void children_impurity(self, double* impurity_left,             # <<<<<<<<<<<<<<
@@ -2615,7 +2615,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_9Criterion_children_impurity(CYTH
   /* function exit code */
 }
 
-/* "uplift/tree/_criterion.pyx":131
+/* "uplift/tree/_criterion.pyx":132
  *         pass
  * 
  *     cdef void node_value(self, double* dest) nogil:             # <<<<<<<<<<<<<<
@@ -2628,7 +2628,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_9Criterion_node_value(CYTHON_UNUS
   /* function exit code */
 }
 
-/* "uplift/tree/_criterion.pyx":145
+/* "uplift/tree/_criterion.pyx":146
  *         pass
  * 
  *     cdef double proxy_impurity_improvement(self) nogil:             # <<<<<<<<<<<<<<
@@ -2641,7 +2641,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_9Criterion_proxy_impurity_impro
   double __pyx_v_impurity_right;
   double __pyx_r;
 
-  /* "uplift/tree/_criterion.pyx":158
+  /* "uplift/tree/_criterion.pyx":159
  *         cdef double impurity_left
  *         cdef double impurity_right
  *         self.children_impurity(&impurity_left, &impurity_right)             # <<<<<<<<<<<<<<
@@ -2650,7 +2650,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_9Criterion_proxy_impurity_impro
  */
   ((struct __pyx_vtabstruct_6uplift_4tree_10_criterion_Criterion *)__pyx_v_self->__pyx_vtab)->children_impurity(__pyx_v_self, (&__pyx_v_impurity_left), (&__pyx_v_impurity_right));
 
-  /* "uplift/tree/_criterion.pyx":161
+  /* "uplift/tree/_criterion.pyx":162
  * 
  *         return (- self.weighted_n_right * impurity_right
  *                 - self.weighted_n_left * impurity_left)             # <<<<<<<<<<<<<<
@@ -2660,7 +2660,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_9Criterion_proxy_impurity_impro
   __pyx_r = (((-__pyx_v_self->weighted_n_right) * __pyx_v_impurity_right) - (__pyx_v_self->weighted_n_left * __pyx_v_impurity_left));
   goto __pyx_L0;
 
-  /* "uplift/tree/_criterion.pyx":145
+  /* "uplift/tree/_criterion.pyx":146
  *         pass
  * 
  *     cdef double proxy_impurity_improvement(self) nogil:             # <<<<<<<<<<<<<<
@@ -2673,7 +2673,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_9Criterion_proxy_impurity_impro
   return __pyx_r;
 }
 
-/* "uplift/tree/_criterion.pyx":163
+/* "uplift/tree/_criterion.pyx":164
  *                 - self.weighted_n_left * impurity_left)
  * 
  *     cdef double impurity_improvement(self, double impurity) nogil:             # <<<<<<<<<<<<<<
@@ -2686,7 +2686,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_9Criterion_impurity_improvement
   double __pyx_v_impurity_right;
   double __pyx_r;
 
-  /* "uplift/tree/_criterion.pyx":190
+  /* "uplift/tree/_criterion.pyx":191
  *         cdef double impurity_right
  * 
  *         self.children_impurity(&impurity_left, &impurity_right)             # <<<<<<<<<<<<<<
@@ -2695,7 +2695,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_9Criterion_impurity_improvement
  */
   ((struct __pyx_vtabstruct_6uplift_4tree_10_criterion_Criterion *)__pyx_v_self->__pyx_vtab)->children_impurity(__pyx_v_self, (&__pyx_v_impurity_left), (&__pyx_v_impurity_right));
 
-  /* "uplift/tree/_criterion.pyx":192
+  /* "uplift/tree/_criterion.pyx":193
  *         self.children_impurity(&impurity_left, &impurity_right)
  * 
  *         return ((self.weighted_n_node_samples / self.weighted_n_samples) *             # <<<<<<<<<<<<<<
@@ -2705,7 +2705,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_9Criterion_impurity_improvement
   __pyx_r = ((__pyx_v_self->weighted_n_node_samples / __pyx_v_self->weighted_n_samples) * ((__pyx_v_impurity - ((__pyx_v_self->weighted_n_right / __pyx_v_self->weighted_n_node_samples) * __pyx_v_impurity_right)) - ((__pyx_v_self->weighted_n_left / __pyx_v_self->weighted_n_node_samples) * __pyx_v_impurity_left)));
   goto __pyx_L0;
 
-  /* "uplift/tree/_criterion.pyx":163
+  /* "uplift/tree/_criterion.pyx":164
  *                 - self.weighted_n_left * impurity_left)
  * 
  *     cdef double impurity_improvement(self, double impurity) nogil:             # <<<<<<<<<<<<<<
@@ -2825,7 +2825,7 @@ static PyObject *__pyx_pf_6uplift_4tree_10_criterion_9Criterion_8__setstate_cyth
   return __pyx_r;
 }
 
-/* "uplift/tree/_criterion.pyx":206
+/* "uplift/tree/_criterion.pyx":207
  *     cdef double p_value
  * 
  *     def __cinit__(self, SIZE_t n_outputs,             # <<<<<<<<<<<<<<
@@ -2864,11 +2864,11 @@ static int __pyx_pw_6uplift_4tree_10_criterion_23ClassificationCriterion_1__cini
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_n_classes)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 2, 2, 1); __PYX_ERR(1, 206, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 2, 2, 1); __PYX_ERR(1, 207, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__cinit__") < 0)) __PYX_ERR(1, 206, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__cinit__") < 0)) __PYX_ERR(1, 207, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -2876,18 +2876,18 @@ static int __pyx_pw_6uplift_4tree_10_criterion_23ClassificationCriterion_1__cini
       values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
     }
-    __pyx_v_n_outputs = __Pyx_PyInt_As_Py_intptr_t(values[0]); if (unlikely((__pyx_v_n_outputs == ((npy_intp)-1)) && PyErr_Occurred())) __PYX_ERR(1, 206, __pyx_L3_error)
+    __pyx_v_n_outputs = __Pyx_PyInt_As_Py_intptr_t(values[0]); if (unlikely((__pyx_v_n_outputs == ((npy_intp)-1)) && PyErr_Occurred())) __PYX_ERR(1, 207, __pyx_L3_error)
     __pyx_v_n_classes = ((PyArrayObject *)values[1]);
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(1, 206, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(1, 207, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("uplift.tree._criterion.ClassificationCriterion.__cinit__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return -1;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_n_classes), __pyx_ptype_5numpy_ndarray, 1, "n_classes", 0))) __PYX_ERR(1, 207, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_n_classes), __pyx_ptype_5numpy_ndarray, 1, "n_classes", 0))) __PYX_ERR(1, 208, __pyx_L1_error)
   __pyx_r = __pyx_pf_6uplift_4tree_10_criterion_23ClassificationCriterion___cinit__(((struct __pyx_obj_6uplift_4tree_10_criterion_ClassificationCriterion *)__pyx_v_self), __pyx_v_n_outputs, __pyx_v_n_classes);
 
   /* function exit code */
@@ -2922,11 +2922,11 @@ static int __pyx_pf_6uplift_4tree_10_criterion_23ClassificationCriterion___cinit
   __pyx_pybuffernd_n_classes.rcbuffer = &__pyx_pybuffer_n_classes;
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_n_classes.rcbuffer->pybuffer, (PyObject*)__pyx_v_n_classes, &__Pyx_TypeInfo_nn___pyx_t_6uplift_4tree_10_criterion_SIZE_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) __PYX_ERR(1, 206, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_n_classes.rcbuffer->pybuffer, (PyObject*)__pyx_v_n_classes, &__Pyx_TypeInfo_nn___pyx_t_6uplift_4tree_10_criterion_SIZE_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) __PYX_ERR(1, 207, __pyx_L1_error)
   }
   __pyx_pybuffernd_n_classes.diminfo[0].strides = __pyx_pybuffernd_n_classes.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_n_classes.diminfo[0].shape = __pyx_pybuffernd_n_classes.rcbuffer->pybuffer.shape[0];
 
-  /* "uplift/tree/_criterion.pyx":218
+  /* "uplift/tree/_criterion.pyx":219
  *         """
  * 
  *         self.y = NULL             # <<<<<<<<<<<<<<
@@ -2935,7 +2935,7 @@ static int __pyx_pf_6uplift_4tree_10_criterion_23ClassificationCriterion___cinit
  */
   __pyx_v_self->__pyx_base.y = NULL;
 
-  /* "uplift/tree/_criterion.pyx":219
+  /* "uplift/tree/_criterion.pyx":220
  * 
  *         self.y = NULL
  *         self.y_stride = 0             # <<<<<<<<<<<<<<
@@ -2944,7 +2944,7 @@ static int __pyx_pf_6uplift_4tree_10_criterion_23ClassificationCriterion___cinit
  */
   __pyx_v_self->__pyx_base.y_stride = 0;
 
-  /* "uplift/tree/_criterion.pyx":220
+  /* "uplift/tree/_criterion.pyx":221
  *         self.y = NULL
  *         self.y_stride = 0
  *         self.sample_weight = NULL             # <<<<<<<<<<<<<<
@@ -2953,7 +2953,7 @@ static int __pyx_pf_6uplift_4tree_10_criterion_23ClassificationCriterion___cinit
  */
   __pyx_v_self->__pyx_base.sample_weight = NULL;
 
-  /* "uplift/tree/_criterion.pyx":222
+  /* "uplift/tree/_criterion.pyx":223
  *         self.sample_weight = NULL
  * 
  *         self.samples = NULL             # <<<<<<<<<<<<<<
@@ -2962,7 +2962,7 @@ static int __pyx_pf_6uplift_4tree_10_criterion_23ClassificationCriterion___cinit
  */
   __pyx_v_self->__pyx_base.samples = NULL;
 
-  /* "uplift/tree/_criterion.pyx":223
+  /* "uplift/tree/_criterion.pyx":224
  * 
  *         self.samples = NULL
  *         self.start = 0             # <<<<<<<<<<<<<<
@@ -2971,7 +2971,7 @@ static int __pyx_pf_6uplift_4tree_10_criterion_23ClassificationCriterion___cinit
  */
   __pyx_v_self->__pyx_base.start = 0;
 
-  /* "uplift/tree/_criterion.pyx":224
+  /* "uplift/tree/_criterion.pyx":225
  *         self.samples = NULL
  *         self.start = 0
  *         self.pos = 0             # <<<<<<<<<<<<<<
@@ -2980,7 +2980,7 @@ static int __pyx_pf_6uplift_4tree_10_criterion_23ClassificationCriterion___cinit
  */
   __pyx_v_self->__pyx_base.pos = 0;
 
-  /* "uplift/tree/_criterion.pyx":225
+  /* "uplift/tree/_criterion.pyx":226
  *         self.start = 0
  *         self.pos = 0
  *         self.end = 0             # <<<<<<<<<<<<<<
@@ -2989,7 +2989,7 @@ static int __pyx_pf_6uplift_4tree_10_criterion_23ClassificationCriterion___cinit
  */
   __pyx_v_self->__pyx_base.end = 0;
 
-  /* "uplift/tree/_criterion.pyx":227
+  /* "uplift/tree/_criterion.pyx":228
  *         self.end = 0
  * 
  *         self.n_outputs = n_outputs             # <<<<<<<<<<<<<<
@@ -2998,7 +2998,7 @@ static int __pyx_pf_6uplift_4tree_10_criterion_23ClassificationCriterion___cinit
  */
   __pyx_v_self->__pyx_base.n_outputs = __pyx_v_n_outputs;
 
-  /* "uplift/tree/_criterion.pyx":228
+  /* "uplift/tree/_criterion.pyx":229
  * 
  *         self.n_outputs = n_outputs
  *         self.n_node_samples = 0             # <<<<<<<<<<<<<<
@@ -3007,7 +3007,7 @@ static int __pyx_pf_6uplift_4tree_10_criterion_23ClassificationCriterion___cinit
  */
   __pyx_v_self->__pyx_base.n_node_samples = 0;
 
-  /* "uplift/tree/_criterion.pyx":229
+  /* "uplift/tree/_criterion.pyx":230
  *         self.n_outputs = n_outputs
  *         self.n_node_samples = 0
  *         self.weighted_n_node_samples = 0.0             # <<<<<<<<<<<<<<
@@ -3016,7 +3016,7 @@ static int __pyx_pf_6uplift_4tree_10_criterion_23ClassificationCriterion___cinit
  */
   __pyx_v_self->__pyx_base.weighted_n_node_samples = 0.0;
 
-  /* "uplift/tree/_criterion.pyx":230
+  /* "uplift/tree/_criterion.pyx":231
  *         self.n_node_samples = 0
  *         self.weighted_n_node_samples = 0.0
  *         self.weighted_n_left = 0.0             # <<<<<<<<<<<<<<
@@ -3025,7 +3025,7 @@ static int __pyx_pf_6uplift_4tree_10_criterion_23ClassificationCriterion___cinit
  */
   __pyx_v_self->__pyx_base.weighted_n_left = 0.0;
 
-  /* "uplift/tree/_criterion.pyx":231
+  /* "uplift/tree/_criterion.pyx":232
  *         self.weighted_n_node_samples = 0.0
  *         self.weighted_n_left = 0.0
  *         self.weighted_n_right = 0.0             # <<<<<<<<<<<<<<
@@ -3034,7 +3034,7 @@ static int __pyx_pf_6uplift_4tree_10_criterion_23ClassificationCriterion___cinit
  */
   __pyx_v_self->__pyx_base.weighted_n_right = 0.0;
 
-  /* "uplift/tree/_criterion.pyx":234
+  /* "uplift/tree/_criterion.pyx":235
  * 
  *         # Count labels for each output
  *         self.sum_total = NULL             # <<<<<<<<<<<<<<
@@ -3043,7 +3043,7 @@ static int __pyx_pf_6uplift_4tree_10_criterion_23ClassificationCriterion___cinit
  */
   __pyx_v_self->__pyx_base.sum_total = NULL;
 
-  /* "uplift/tree/_criterion.pyx":235
+  /* "uplift/tree/_criterion.pyx":236
  *         # Count labels for each output
  *         self.sum_total = NULL
  *         self.sum_left = NULL             # <<<<<<<<<<<<<<
@@ -3052,7 +3052,7 @@ static int __pyx_pf_6uplift_4tree_10_criterion_23ClassificationCriterion___cinit
  */
   __pyx_v_self->__pyx_base.sum_left = NULL;
 
-  /* "uplift/tree/_criterion.pyx":236
+  /* "uplift/tree/_criterion.pyx":237
  *         self.sum_total = NULL
  *         self.sum_left = NULL
  *         self.sum_right = NULL             # <<<<<<<<<<<<<<
@@ -3061,7 +3061,7 @@ static int __pyx_pf_6uplift_4tree_10_criterion_23ClassificationCriterion___cinit
  */
   __pyx_v_self->__pyx_base.sum_right = NULL;
 
-  /* "uplift/tree/_criterion.pyx":237
+  /* "uplift/tree/_criterion.pyx":238
  *         self.sum_left = NULL
  *         self.sum_right = NULL
  *         self.n_classes = NULL             # <<<<<<<<<<<<<<
@@ -3070,16 +3070,16 @@ static int __pyx_pf_6uplift_4tree_10_criterion_23ClassificationCriterion___cinit
  */
   __pyx_v_self->n_classes = NULL;
 
-  /* "uplift/tree/_criterion.pyx":239
+  /* "uplift/tree/_criterion.pyx":240
  *         self.n_classes = NULL
  * 
  *         safe_realloc(&self.n_classes, n_outputs)             # <<<<<<<<<<<<<<
  * 
  *         cdef SIZE_t k = 0
  */
-  __pyx_fuse_1__pyx_f_6uplift_4tree_6_utils_safe_realloc((&__pyx_v_self->n_classes), __pyx_v_n_outputs); if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 239, __pyx_L1_error)
+  __pyx_fuse_1__pyx_f_6uplift_4tree_6_utils_safe_realloc((&__pyx_v_self->n_classes), __pyx_v_n_outputs); if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 240, __pyx_L1_error)
 
-  /* "uplift/tree/_criterion.pyx":241
+  /* "uplift/tree/_criterion.pyx":242
  *         safe_realloc(&self.n_classes, n_outputs)
  * 
  *         cdef SIZE_t k = 0             # <<<<<<<<<<<<<<
@@ -3088,7 +3088,7 @@ static int __pyx_pf_6uplift_4tree_10_criterion_23ClassificationCriterion___cinit
  */
   __pyx_v_k = 0;
 
-  /* "uplift/tree/_criterion.pyx":242
+  /* "uplift/tree/_criterion.pyx":243
  * 
  *         cdef SIZE_t k = 0
  *         cdef SIZE_t sum_stride = 0             # <<<<<<<<<<<<<<
@@ -3097,7 +3097,7 @@ static int __pyx_pf_6uplift_4tree_10_criterion_23ClassificationCriterion___cinit
  */
   __pyx_v_sum_stride = 0;
 
-  /* "uplift/tree/_criterion.pyx":246
+  /* "uplift/tree/_criterion.pyx":247
  *         # For each target, set the number of unique classes in that target,
  *         # and also compute the maximal stride of all targets
  *         for k in range(n_outputs):             # <<<<<<<<<<<<<<
@@ -3109,7 +3109,7 @@ static int __pyx_pf_6uplift_4tree_10_criterion_23ClassificationCriterion___cinit
   for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_k = __pyx_t_3;
 
-    /* "uplift/tree/_criterion.pyx":247
+    /* "uplift/tree/_criterion.pyx":248
  *         # and also compute the maximal stride of all targets
  *         for k in range(n_outputs):
  *             self.n_classes[k] = n_classes[k]             # <<<<<<<<<<<<<<
@@ -3119,7 +3119,7 @@ static int __pyx_pf_6uplift_4tree_10_criterion_23ClassificationCriterion___cinit
     __pyx_t_4 = __pyx_v_k;
     (__pyx_v_self->n_classes[__pyx_v_k]) = (*__Pyx_BufPtrStrided1d(__pyx_t_6uplift_4tree_10_criterion_SIZE_t *, __pyx_pybuffernd_n_classes.rcbuffer->pybuffer.buf, __pyx_t_4, __pyx_pybuffernd_n_classes.diminfo[0].strides));
 
-    /* "uplift/tree/_criterion.pyx":249
+    /* "uplift/tree/_criterion.pyx":250
  *             self.n_classes[k] = n_classes[k]
  * 
  *             if n_classes[k] > sum_stride:             # <<<<<<<<<<<<<<
@@ -3130,7 +3130,7 @@ static int __pyx_pf_6uplift_4tree_10_criterion_23ClassificationCriterion___cinit
     __pyx_t_6 = (((*__Pyx_BufPtrStrided1d(__pyx_t_6uplift_4tree_10_criterion_SIZE_t *, __pyx_pybuffernd_n_classes.rcbuffer->pybuffer.buf, __pyx_t_5, __pyx_pybuffernd_n_classes.diminfo[0].strides)) > __pyx_v_sum_stride) != 0);
     if (__pyx_t_6) {
 
-      /* "uplift/tree/_criterion.pyx":250
+      /* "uplift/tree/_criterion.pyx":251
  * 
  *             if n_classes[k] > sum_stride:
  *                 sum_stride = n_classes[k]             # <<<<<<<<<<<<<<
@@ -3140,7 +3140,7 @@ static int __pyx_pf_6uplift_4tree_10_criterion_23ClassificationCriterion___cinit
       __pyx_t_7 = __pyx_v_k;
       __pyx_v_sum_stride = (*__Pyx_BufPtrStrided1d(__pyx_t_6uplift_4tree_10_criterion_SIZE_t *, __pyx_pybuffernd_n_classes.rcbuffer->pybuffer.buf, __pyx_t_7, __pyx_pybuffernd_n_classes.diminfo[0].strides));
 
-      /* "uplift/tree/_criterion.pyx":249
+      /* "uplift/tree/_criterion.pyx":250
  *             self.n_classes[k] = n_classes[k]
  * 
  *             if n_classes[k] > sum_stride:             # <<<<<<<<<<<<<<
@@ -3150,7 +3150,7 @@ static int __pyx_pf_6uplift_4tree_10_criterion_23ClassificationCriterion___cinit
     }
   }
 
-  /* "uplift/tree/_criterion.pyx":252
+  /* "uplift/tree/_criterion.pyx":253
  *                 sum_stride = n_classes[k]
  * 
  *         self.sum_stride = sum_stride             # <<<<<<<<<<<<<<
@@ -3159,7 +3159,7 @@ static int __pyx_pf_6uplift_4tree_10_criterion_23ClassificationCriterion___cinit
  */
   __pyx_v_self->sum_stride = __pyx_v_sum_stride;
 
-  /* "uplift/tree/_criterion.pyx":254
+  /* "uplift/tree/_criterion.pyx":255
  *         self.sum_stride = sum_stride
  * 
  *         cdef SIZE_t n_elements = n_outputs * sum_stride             # <<<<<<<<<<<<<<
@@ -3168,7 +3168,7 @@ static int __pyx_pf_6uplift_4tree_10_criterion_23ClassificationCriterion___cinit
  */
   __pyx_v_n_elements = (__pyx_v_n_outputs * __pyx_v_sum_stride);
 
-  /* "uplift/tree/_criterion.pyx":255
+  /* "uplift/tree/_criterion.pyx":256
  * 
  *         cdef SIZE_t n_elements = n_outputs * sum_stride
  *         self.sum_total = <double*> calloc(n_elements, sizeof(double))             # <<<<<<<<<<<<<<
@@ -3177,7 +3177,7 @@ static int __pyx_pf_6uplift_4tree_10_criterion_23ClassificationCriterion___cinit
  */
   __pyx_v_self->__pyx_base.sum_total = ((double *)calloc(__pyx_v_n_elements, (sizeof(double))));
 
-  /* "uplift/tree/_criterion.pyx":256
+  /* "uplift/tree/_criterion.pyx":257
  *         cdef SIZE_t n_elements = n_outputs * sum_stride
  *         self.sum_total = <double*> calloc(n_elements, sizeof(double))
  *         self.sum_left = <double*> calloc(n_elements, sizeof(double))             # <<<<<<<<<<<<<<
@@ -3186,7 +3186,7 @@ static int __pyx_pf_6uplift_4tree_10_criterion_23ClassificationCriterion___cinit
  */
   __pyx_v_self->__pyx_base.sum_left = ((double *)calloc(__pyx_v_n_elements, (sizeof(double))));
 
-  /* "uplift/tree/_criterion.pyx":257
+  /* "uplift/tree/_criterion.pyx":258
  *         self.sum_total = <double*> calloc(n_elements, sizeof(double))
  *         self.sum_left = <double*> calloc(n_elements, sizeof(double))
  *         self.sum_right = <double*> calloc(n_elements, sizeof(double))             # <<<<<<<<<<<<<<
@@ -3195,7 +3195,7 @@ static int __pyx_pf_6uplift_4tree_10_criterion_23ClassificationCriterion___cinit
  */
   __pyx_v_self->__pyx_base.sum_right = ((double *)calloc(__pyx_v_n_elements, (sizeof(double))));
 
-  /* "uplift/tree/_criterion.pyx":259
+  /* "uplift/tree/_criterion.pyx":260
  *         self.sum_right = <double*> calloc(n_elements, sizeof(double))
  * 
  *         if (self.sum_total == NULL or             # <<<<<<<<<<<<<<
@@ -3209,7 +3209,7 @@ static int __pyx_pf_6uplift_4tree_10_criterion_23ClassificationCriterion___cinit
     goto __pyx_L7_bool_binop_done;
   }
 
-  /* "uplift/tree/_criterion.pyx":260
+  /* "uplift/tree/_criterion.pyx":261
  * 
  *         if (self.sum_total == NULL or
  *                 self.sum_left == NULL or             # <<<<<<<<<<<<<<
@@ -3223,7 +3223,7 @@ static int __pyx_pf_6uplift_4tree_10_criterion_23ClassificationCriterion___cinit
     goto __pyx_L7_bool_binop_done;
   }
 
-  /* "uplift/tree/_criterion.pyx":261
+  /* "uplift/tree/_criterion.pyx":262
  *         if (self.sum_total == NULL or
  *                 self.sum_left == NULL or
  *                 self.sum_right == NULL):             # <<<<<<<<<<<<<<
@@ -3234,7 +3234,7 @@ static int __pyx_pf_6uplift_4tree_10_criterion_23ClassificationCriterion___cinit
   __pyx_t_6 = __pyx_t_8;
   __pyx_L7_bool_binop_done:;
 
-  /* "uplift/tree/_criterion.pyx":259
+  /* "uplift/tree/_criterion.pyx":260
  *         self.sum_right = <double*> calloc(n_elements, sizeof(double))
  * 
  *         if (self.sum_total == NULL or             # <<<<<<<<<<<<<<
@@ -3243,16 +3243,16 @@ static int __pyx_pf_6uplift_4tree_10_criterion_23ClassificationCriterion___cinit
  */
   if (unlikely(__pyx_t_6)) {
 
-    /* "uplift/tree/_criterion.pyx":262
+    /* "uplift/tree/_criterion.pyx":263
  *                 self.sum_left == NULL or
  *                 self.sum_right == NULL):
  *             raise MemoryError()             # <<<<<<<<<<<<<<
  * 
  *     def __dealloc__(self):
  */
-    PyErr_NoMemory(); __PYX_ERR(1, 262, __pyx_L1_error)
+    PyErr_NoMemory(); __PYX_ERR(1, 263, __pyx_L1_error)
 
-    /* "uplift/tree/_criterion.pyx":259
+    /* "uplift/tree/_criterion.pyx":260
  *         self.sum_right = <double*> calloc(n_elements, sizeof(double))
  * 
  *         if (self.sum_total == NULL or             # <<<<<<<<<<<<<<
@@ -3261,7 +3261,7 @@ static int __pyx_pf_6uplift_4tree_10_criterion_23ClassificationCriterion___cinit
  */
   }
 
-  /* "uplift/tree/_criterion.pyx":206
+  /* "uplift/tree/_criterion.pyx":207
  *     cdef double p_value
  * 
  *     def __cinit__(self, SIZE_t n_outputs,             # <<<<<<<<<<<<<<
@@ -3289,7 +3289,7 @@ static int __pyx_pf_6uplift_4tree_10_criterion_23ClassificationCriterion___cinit
   return __pyx_r;
 }
 
-/* "uplift/tree/_criterion.pyx":264
+/* "uplift/tree/_criterion.pyx":265
  *             raise MemoryError()
  * 
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -3312,7 +3312,7 @@ static void __pyx_pf_6uplift_4tree_10_criterion_23ClassificationCriterion_2__dea
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__dealloc__", 0);
 
-  /* "uplift/tree/_criterion.pyx":267
+  /* "uplift/tree/_criterion.pyx":268
  *         """Destructor."""
  * 
  *         free(self.n_classes)             # <<<<<<<<<<<<<<
@@ -3321,7 +3321,7 @@ static void __pyx_pf_6uplift_4tree_10_criterion_23ClassificationCriterion_2__dea
  */
   free(__pyx_v_self->n_classes);
 
-  /* "uplift/tree/_criterion.pyx":264
+  /* "uplift/tree/_criterion.pyx":265
  *             raise MemoryError()
  * 
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -3333,7 +3333,7 @@ static void __pyx_pf_6uplift_4tree_10_criterion_23ClassificationCriterion_2__dea
   __Pyx_RefNannyFinishContext();
 }
 
-/* "uplift/tree/_criterion.pyx":269
+/* "uplift/tree/_criterion.pyx":270
  *         free(self.n_classes)
  * 
  *     def __reduce__(self):             # <<<<<<<<<<<<<<
@@ -3363,7 +3363,7 @@ static PyObject *__pyx_pf_6uplift_4tree_10_criterion_23ClassificationCriterion_4
   PyObject *__pyx_t_4 = NULL;
   __Pyx_RefNannySetupContext("__reduce__", 0);
 
-  /* "uplift/tree/_criterion.pyx":270
+  /* "uplift/tree/_criterion.pyx":271
  * 
  *     def __reduce__(self):
  *         return (ClassificationCriterion,             # <<<<<<<<<<<<<<
@@ -3372,34 +3372,34 @@ static PyObject *__pyx_pf_6uplift_4tree_10_criterion_23ClassificationCriterion_4
  */
   __Pyx_XDECREF(__pyx_r);
 
-  /* "uplift/tree/_criterion.pyx":271
+  /* "uplift/tree/_criterion.pyx":272
  *     def __reduce__(self):
  *         return (ClassificationCriterion,
  *                 (self.n_outputs,             # <<<<<<<<<<<<<<
  *                  sizet_ptr_to_ndarray(self.n_classes, self.n_outputs)),
  *                 self.__getstate__())
  */
-  __pyx_t_1 = __Pyx_PyInt_From_Py_intptr_t(__pyx_v_self->__pyx_base.n_outputs); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 271, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_Py_intptr_t(__pyx_v_self->__pyx_base.n_outputs); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 272, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
 
-  /* "uplift/tree/_criterion.pyx":272
+  /* "uplift/tree/_criterion.pyx":273
  *         return (ClassificationCriterion,
  *                 (self.n_outputs,
  *                  sizet_ptr_to_ndarray(self.n_classes, self.n_outputs)),             # <<<<<<<<<<<<<<
  *                 self.__getstate__())
  * 
  */
-  __pyx_t_2 = ((PyObject *)__pyx_f_6uplift_4tree_6_utils_sizet_ptr_to_ndarray(__pyx_v_self->n_classes, __pyx_v_self->__pyx_base.n_outputs)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 272, __pyx_L1_error)
+  __pyx_t_2 = ((PyObject *)__pyx_f_6uplift_4tree_6_utils_sizet_ptr_to_ndarray(__pyx_v_self->n_classes, __pyx_v_self->__pyx_base.n_outputs)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 273, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
 
-  /* "uplift/tree/_criterion.pyx":271
+  /* "uplift/tree/_criterion.pyx":272
  *     def __reduce__(self):
  *         return (ClassificationCriterion,
  *                 (self.n_outputs,             # <<<<<<<<<<<<<<
  *                  sizet_ptr_to_ndarray(self.n_classes, self.n_outputs)),
  *                 self.__getstate__())
  */
-  __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 271, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 272, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_1);
   PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_1);
@@ -3408,14 +3408,14 @@ static PyObject *__pyx_pf_6uplift_4tree_10_criterion_23ClassificationCriterion_4
   __pyx_t_1 = 0;
   __pyx_t_2 = 0;
 
-  /* "uplift/tree/_criterion.pyx":273
+  /* "uplift/tree/_criterion.pyx":274
  *                 (self.n_outputs,
  *                  sizet_ptr_to_ndarray(self.n_classes, self.n_outputs)),
  *                 self.__getstate__())             # <<<<<<<<<<<<<<
  * 
  *     cdef void init(self, DOUBLE_t* y, SIZE_t y_stride,
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_getstate); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 273, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_getstate); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 274, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_4 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_1))) {
@@ -3429,18 +3429,18 @@ static PyObject *__pyx_pf_6uplift_4tree_10_criterion_23ClassificationCriterion_4
   }
   __pyx_t_2 = (__pyx_t_4) ? __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_4) : __Pyx_PyObject_CallNoArg(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 273, __pyx_L1_error)
+  if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 274, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "uplift/tree/_criterion.pyx":270
+  /* "uplift/tree/_criterion.pyx":271
  * 
  *     def __reduce__(self):
  *         return (ClassificationCriterion,             # <<<<<<<<<<<<<<
  *                 (self.n_outputs,
  *                  sizet_ptr_to_ndarray(self.n_classes, self.n_outputs)),
  */
-  __pyx_t_1 = PyTuple_New(3); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 270, __pyx_L1_error)
+  __pyx_t_1 = PyTuple_New(3); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 271, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(((PyObject *)__pyx_ptype_6uplift_4tree_10_criterion_ClassificationCriterion));
   __Pyx_GIVEREF(((PyObject *)__pyx_ptype_6uplift_4tree_10_criterion_ClassificationCriterion));
@@ -3455,7 +3455,7 @@ static PyObject *__pyx_pf_6uplift_4tree_10_criterion_23ClassificationCriterion_4
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "uplift/tree/_criterion.pyx":269
+  /* "uplift/tree/_criterion.pyx":270
  *         free(self.n_classes)
  * 
  *     def __reduce__(self):             # <<<<<<<<<<<<<<
@@ -3477,7 +3477,7 @@ static PyObject *__pyx_pf_6uplift_4tree_10_criterion_23ClassificationCriterion_4
   return __pyx_r;
 }
 
-/* "uplift/tree/_criterion.pyx":275
+/* "uplift/tree/_criterion.pyx":276
  *                 self.__getstate__())
  * 
  *     cdef void init(self, DOUBLE_t* y, SIZE_t y_stride,             # <<<<<<<<<<<<<<
@@ -3505,7 +3505,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_init(st
   __pyx_t_6uplift_4tree_10_criterion_SIZE_t __pyx_t_9;
   __pyx_t_6uplift_4tree_10_criterion_SIZE_t __pyx_t_10;
 
-  /* "uplift/tree/_criterion.pyx":300
+  /* "uplift/tree/_criterion.pyx":301
  *         """
  * 
  *         self.y = y             # <<<<<<<<<<<<<<
@@ -3514,7 +3514,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_init(st
  */
   __pyx_v_self->__pyx_base.y = __pyx_v_y;
 
-  /* "uplift/tree/_criterion.pyx":301
+  /* "uplift/tree/_criterion.pyx":302
  * 
  *         self.y = y
  *         self.y_stride = y_stride             # <<<<<<<<<<<<<<
@@ -3523,7 +3523,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_init(st
  */
   __pyx_v_self->__pyx_base.y_stride = __pyx_v_y_stride;
 
-  /* "uplift/tree/_criterion.pyx":302
+  /* "uplift/tree/_criterion.pyx":303
  *         self.y = y
  *         self.y_stride = y_stride
  *         self.sample_weight = sample_weight             # <<<<<<<<<<<<<<
@@ -3532,7 +3532,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_init(st
  */
   __pyx_v_self->__pyx_base.sample_weight = __pyx_v_sample_weight;
 
-  /* "uplift/tree/_criterion.pyx":303
+  /* "uplift/tree/_criterion.pyx":304
  *         self.y_stride = y_stride
  *         self.sample_weight = sample_weight
  *         self.samples = samples             # <<<<<<<<<<<<<<
@@ -3541,7 +3541,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_init(st
  */
   __pyx_v_self->__pyx_base.samples = __pyx_v_samples;
 
-  /* "uplift/tree/_criterion.pyx":304
+  /* "uplift/tree/_criterion.pyx":305
  *         self.sample_weight = sample_weight
  *         self.samples = samples
  *         self.start = start             # <<<<<<<<<<<<<<
@@ -3550,7 +3550,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_init(st
  */
   __pyx_v_self->__pyx_base.start = __pyx_v_start;
 
-  /* "uplift/tree/_criterion.pyx":305
+  /* "uplift/tree/_criterion.pyx":306
  *         self.samples = samples
  *         self.start = start
  *         self.end = end             # <<<<<<<<<<<<<<
@@ -3559,7 +3559,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_init(st
  */
   __pyx_v_self->__pyx_base.end = __pyx_v_end;
 
-  /* "uplift/tree/_criterion.pyx":306
+  /* "uplift/tree/_criterion.pyx":307
  *         self.start = start
  *         self.end = end
  *         self.n_node_samples = end - start             # <<<<<<<<<<<<<<
@@ -3568,7 +3568,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_init(st
  */
   __pyx_v_self->__pyx_base.n_node_samples = (__pyx_v_end - __pyx_v_start);
 
-  /* "uplift/tree/_criterion.pyx":307
+  /* "uplift/tree/_criterion.pyx":308
  *         self.end = end
  *         self.n_node_samples = end - start
  *         self.weighted_n_samples = weighted_n_samples             # <<<<<<<<<<<<<<
@@ -3577,7 +3577,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_init(st
  */
   __pyx_v_self->__pyx_base.weighted_n_samples = __pyx_v_weighted_n_samples;
 
-  /* "uplift/tree/_criterion.pyx":308
+  /* "uplift/tree/_criterion.pyx":309
  *         self.n_node_samples = end - start
  *         self.weighted_n_samples = weighted_n_samples
  *         self.weighted_n_node_samples = 0.0             # <<<<<<<<<<<<<<
@@ -3586,7 +3586,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_init(st
  */
   __pyx_v_self->__pyx_base.weighted_n_node_samples = 0.0;
 
-  /* "uplift/tree/_criterion.pyx":310
+  /* "uplift/tree/_criterion.pyx":311
  *         self.weighted_n_node_samples = 0.0
  * 
  *         cdef SIZE_t* n_classes = self.n_classes             # <<<<<<<<<<<<<<
@@ -3596,7 +3596,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_init(st
   __pyx_t_1 = __pyx_v_self->n_classes;
   __pyx_v_n_classes = __pyx_t_1;
 
-  /* "uplift/tree/_criterion.pyx":311
+  /* "uplift/tree/_criterion.pyx":312
  * 
  *         cdef SIZE_t* n_classes = self.n_classes
  *         cdef double* sum_total = self.sum_total             # <<<<<<<<<<<<<<
@@ -3606,7 +3606,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_init(st
   __pyx_t_2 = __pyx_v_self->__pyx_base.sum_total;
   __pyx_v_sum_total = __pyx_t_2;
 
-  /* "uplift/tree/_criterion.pyx":317
+  /* "uplift/tree/_criterion.pyx":318
  *         cdef SIZE_t k
  *         cdef SIZE_t c
  *         cdef DOUBLE_t w = 1.0             # <<<<<<<<<<<<<<
@@ -3615,7 +3615,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_init(st
  */
   __pyx_v_w = 1.0;
 
-  /* "uplift/tree/_criterion.pyx":318
+  /* "uplift/tree/_criterion.pyx":319
  *         cdef SIZE_t c
  *         cdef DOUBLE_t w = 1.0
  *         cdef SIZE_t offset = 0             # <<<<<<<<<<<<<<
@@ -3624,7 +3624,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_init(st
  */
   __pyx_v_offset = 0;
 
-  /* "uplift/tree/_criterion.pyx":320
+  /* "uplift/tree/_criterion.pyx":321
  *         cdef SIZE_t offset = 0
  * 
  *         for k in range(self.n_outputs):             # <<<<<<<<<<<<<<
@@ -3636,7 +3636,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_init(st
   for (__pyx_t_5 = 0; __pyx_t_5 < __pyx_t_4; __pyx_t_5+=1) {
     __pyx_v_k = __pyx_t_5;
 
-    /* "uplift/tree/_criterion.pyx":321
+    /* "uplift/tree/_criterion.pyx":322
  * 
  *         for k in range(self.n_outputs):
  *             memset(sum_total + offset, 0, n_classes[k] * sizeof(double))             # <<<<<<<<<<<<<<
@@ -3645,7 +3645,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_init(st
  */
     (void)(memset((__pyx_v_sum_total + __pyx_v_offset), 0, ((__pyx_v_n_classes[__pyx_v_k]) * (sizeof(double)))));
 
-    /* "uplift/tree/_criterion.pyx":322
+    /* "uplift/tree/_criterion.pyx":323
  *         for k in range(self.n_outputs):
  *             memset(sum_total + offset, 0, n_classes[k] * sizeof(double))
  *             offset += self.sum_stride             # <<<<<<<<<<<<<<
@@ -3655,7 +3655,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_init(st
     __pyx_v_offset = (__pyx_v_offset + __pyx_v_self->sum_stride);
   }
 
-  /* "uplift/tree/_criterion.pyx":324
+  /* "uplift/tree/_criterion.pyx":325
  *             offset += self.sum_stride
  * 
  *         for p in range(start, end):             # <<<<<<<<<<<<<<
@@ -3667,7 +3667,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_init(st
   for (__pyx_t_5 = __pyx_v_start; __pyx_t_5 < __pyx_t_4; __pyx_t_5+=1) {
     __pyx_v_p = __pyx_t_5;
 
-    /* "uplift/tree/_criterion.pyx":325
+    /* "uplift/tree/_criterion.pyx":326
  * 
  *         for p in range(start, end):
  *             i = samples[p]             # <<<<<<<<<<<<<<
@@ -3676,7 +3676,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_init(st
  */
     __pyx_v_i = (__pyx_v_samples[__pyx_v_p]);
 
-    /* "uplift/tree/_criterion.pyx":329
+    /* "uplift/tree/_criterion.pyx":330
  *             # w is originally set to be 1.0, meaning that if no sample weights
  *             # are given, the default weight of each sample is 1.0
  *             if sample_weight != NULL:             # <<<<<<<<<<<<<<
@@ -3686,7 +3686,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_init(st
     __pyx_t_6 = ((__pyx_v_sample_weight != NULL) != 0);
     if (__pyx_t_6) {
 
-      /* "uplift/tree/_criterion.pyx":330
+      /* "uplift/tree/_criterion.pyx":331
  *             # are given, the default weight of each sample is 1.0
  *             if sample_weight != NULL:
  *                 w = sample_weight[i]             # <<<<<<<<<<<<<<
@@ -3695,7 +3695,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_init(st
  */
       __pyx_v_w = (__pyx_v_sample_weight[__pyx_v_i]);
 
-      /* "uplift/tree/_criterion.pyx":329
+      /* "uplift/tree/_criterion.pyx":330
  *             # w is originally set to be 1.0, meaning that if no sample weights
  *             # are given, the default weight of each sample is 1.0
  *             if sample_weight != NULL:             # <<<<<<<<<<<<<<
@@ -3704,7 +3704,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_init(st
  */
     }
 
-    /* "uplift/tree/_criterion.pyx":333
+    /* "uplift/tree/_criterion.pyx":334
  * 
  *             # Count weighted class frequency for each target
  *             for k in range(self.n_outputs):             # <<<<<<<<<<<<<<
@@ -3716,7 +3716,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_init(st
     for (__pyx_t_9 = 0; __pyx_t_9 < __pyx_t_8; __pyx_t_9+=1) {
       __pyx_v_k = __pyx_t_9;
 
-      /* "uplift/tree/_criterion.pyx":334
+      /* "uplift/tree/_criterion.pyx":335
  *             # Count weighted class frequency for each target
  *             for k in range(self.n_outputs):
  *                 c = <SIZE_t> y[i * y_stride + k]             # <<<<<<<<<<<<<<
@@ -3725,7 +3725,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_init(st
  */
       __pyx_v_c = ((__pyx_t_6uplift_4tree_10_criterion_SIZE_t)(__pyx_v_y[((__pyx_v_i * __pyx_v_y_stride) + __pyx_v_k)]));
 
-      /* "uplift/tree/_criterion.pyx":335
+      /* "uplift/tree/_criterion.pyx":336
  *             for k in range(self.n_outputs):
  *                 c = <SIZE_t> y[i * y_stride + k]
  *                 sum_total[k * self.sum_stride + c] += w             # <<<<<<<<<<<<<<
@@ -3736,7 +3736,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_init(st
       (__pyx_v_sum_total[__pyx_t_10]) = ((__pyx_v_sum_total[__pyx_t_10]) + __pyx_v_w);
     }
 
-    /* "uplift/tree/_criterion.pyx":337
+    /* "uplift/tree/_criterion.pyx":338
  *                 sum_total[k * self.sum_stride + c] += w
  * 
  *             self.weighted_n_node_samples += w             # <<<<<<<<<<<<<<
@@ -3746,7 +3746,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_init(st
     __pyx_v_self->__pyx_base.weighted_n_node_samples = (__pyx_v_self->__pyx_base.weighted_n_node_samples + __pyx_v_w);
   }
 
-  /* "uplift/tree/_criterion.pyx":340
+  /* "uplift/tree/_criterion.pyx":341
  * 
  *         # Reset to pos=start
  *         self.reset()             # <<<<<<<<<<<<<<
@@ -3755,7 +3755,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_init(st
  */
   ((struct __pyx_vtabstruct_6uplift_4tree_10_criterion_ClassificationCriterion *)__pyx_v_self->__pyx_base.__pyx_vtab)->__pyx_base.reset(((struct __pyx_obj_6uplift_4tree_10_criterion_Criterion *)__pyx_v_self));
 
-  /* "uplift/tree/_criterion.pyx":275
+  /* "uplift/tree/_criterion.pyx":276
  *                 self.__getstate__())
  * 
  *     cdef void init(self, DOUBLE_t* y, SIZE_t y_stride,             # <<<<<<<<<<<<<<
@@ -3766,7 +3766,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_init(st
   /* function exit code */
 }
 
-/* "uplift/tree/_criterion.pyx":342
+/* "uplift/tree/_criterion.pyx":343
  *         self.reset()
  * 
  *     cdef void reset(self) nogil:             # <<<<<<<<<<<<<<
@@ -3787,7 +3787,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_reset(s
   __pyx_t_6uplift_4tree_10_criterion_SIZE_t __pyx_t_5;
   __pyx_t_6uplift_4tree_10_criterion_SIZE_t __pyx_t_6;
 
-  /* "uplift/tree/_criterion.pyx":345
+  /* "uplift/tree/_criterion.pyx":346
  *         """Reset the criterion at pos=start."""
  * 
  *         self.pos = self.start             # <<<<<<<<<<<<<<
@@ -3797,7 +3797,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_reset(s
   __pyx_t_1 = __pyx_v_self->__pyx_base.start;
   __pyx_v_self->__pyx_base.pos = __pyx_t_1;
 
-  /* "uplift/tree/_criterion.pyx":347
+  /* "uplift/tree/_criterion.pyx":348
  *         self.pos = self.start
  * 
  *         self.weighted_n_left = 0.0             # <<<<<<<<<<<<<<
@@ -3806,7 +3806,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_reset(s
  */
   __pyx_v_self->__pyx_base.weighted_n_left = 0.0;
 
-  /* "uplift/tree/_criterion.pyx":348
+  /* "uplift/tree/_criterion.pyx":349
  * 
  *         self.weighted_n_left = 0.0
  *         self.weighted_n_right = self.weighted_n_node_samples             # <<<<<<<<<<<<<<
@@ -3816,7 +3816,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_reset(s
   __pyx_t_2 = __pyx_v_self->__pyx_base.weighted_n_node_samples;
   __pyx_v_self->__pyx_base.weighted_n_right = __pyx_t_2;
 
-  /* "uplift/tree/_criterion.pyx":350
+  /* "uplift/tree/_criterion.pyx":351
  *         self.weighted_n_right = self.weighted_n_node_samples
  * 
  *         cdef double* sum_total = self.sum_total             # <<<<<<<<<<<<<<
@@ -3826,7 +3826,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_reset(s
   __pyx_t_3 = __pyx_v_self->__pyx_base.sum_total;
   __pyx_v_sum_total = __pyx_t_3;
 
-  /* "uplift/tree/_criterion.pyx":351
+  /* "uplift/tree/_criterion.pyx":352
  * 
  *         cdef double* sum_total = self.sum_total
  *         cdef double* sum_left = self.sum_left             # <<<<<<<<<<<<<<
@@ -3836,7 +3836,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_reset(s
   __pyx_t_3 = __pyx_v_self->__pyx_base.sum_left;
   __pyx_v_sum_left = __pyx_t_3;
 
-  /* "uplift/tree/_criterion.pyx":352
+  /* "uplift/tree/_criterion.pyx":353
  *         cdef double* sum_total = self.sum_total
  *         cdef double* sum_left = self.sum_left
  *         cdef double* sum_right = self.sum_right             # <<<<<<<<<<<<<<
@@ -3846,7 +3846,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_reset(s
   __pyx_t_3 = __pyx_v_self->__pyx_base.sum_right;
   __pyx_v_sum_right = __pyx_t_3;
 
-  /* "uplift/tree/_criterion.pyx":354
+  /* "uplift/tree/_criterion.pyx":355
  *         cdef double* sum_right = self.sum_right
  * 
  *         cdef SIZE_t* n_classes = self.n_classes             # <<<<<<<<<<<<<<
@@ -3856,7 +3856,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_reset(s
   __pyx_t_4 = __pyx_v_self->n_classes;
   __pyx_v_n_classes = __pyx_t_4;
 
-  /* "uplift/tree/_criterion.pyx":357
+  /* "uplift/tree/_criterion.pyx":358
  *         cdef SIZE_t k
  * 
  *         for k in range(self.n_outputs):             # <<<<<<<<<<<<<<
@@ -3868,7 +3868,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_reset(s
   for (__pyx_t_6 = 0; __pyx_t_6 < __pyx_t_5; __pyx_t_6+=1) {
     __pyx_v_k = __pyx_t_6;
 
-    /* "uplift/tree/_criterion.pyx":358
+    /* "uplift/tree/_criterion.pyx":359
  * 
  *         for k in range(self.n_outputs):
  *             memset(sum_left, 0, n_classes[k] * sizeof(double))             # <<<<<<<<<<<<<<
@@ -3877,7 +3877,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_reset(s
  */
     (void)(memset(__pyx_v_sum_left, 0, ((__pyx_v_n_classes[__pyx_v_k]) * (sizeof(double)))));
 
-    /* "uplift/tree/_criterion.pyx":359
+    /* "uplift/tree/_criterion.pyx":360
  *         for k in range(self.n_outputs):
  *             memset(sum_left, 0, n_classes[k] * sizeof(double))
  *             memcpy(sum_right, sum_total, n_classes[k] * sizeof(double))             # <<<<<<<<<<<<<<
@@ -3886,7 +3886,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_reset(s
  */
     (void)(memcpy(__pyx_v_sum_right, __pyx_v_sum_total, ((__pyx_v_n_classes[__pyx_v_k]) * (sizeof(double)))));
 
-    /* "uplift/tree/_criterion.pyx":361
+    /* "uplift/tree/_criterion.pyx":362
  *             memcpy(sum_right, sum_total, n_classes[k] * sizeof(double))
  * 
  *             sum_total += self.sum_stride             # <<<<<<<<<<<<<<
@@ -3895,7 +3895,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_reset(s
  */
     __pyx_v_sum_total = (__pyx_v_sum_total + __pyx_v_self->sum_stride);
 
-    /* "uplift/tree/_criterion.pyx":362
+    /* "uplift/tree/_criterion.pyx":363
  * 
  *             sum_total += self.sum_stride
  *             sum_left += self.sum_stride             # <<<<<<<<<<<<<<
@@ -3904,7 +3904,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_reset(s
  */
     __pyx_v_sum_left = (__pyx_v_sum_left + __pyx_v_self->sum_stride);
 
-    /* "uplift/tree/_criterion.pyx":363
+    /* "uplift/tree/_criterion.pyx":364
  *             sum_total += self.sum_stride
  *             sum_left += self.sum_stride
  *             sum_right += self.sum_stride             # <<<<<<<<<<<<<<
@@ -3914,7 +3914,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_reset(s
     __pyx_v_sum_right = (__pyx_v_sum_right + __pyx_v_self->sum_stride);
   }
 
-  /* "uplift/tree/_criterion.pyx":342
+  /* "uplift/tree/_criterion.pyx":343
  *         self.reset()
  * 
  *     cdef void reset(self) nogil:             # <<<<<<<<<<<<<<
@@ -3925,7 +3925,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_reset(s
   /* function exit code */
 }
 
-/* "uplift/tree/_criterion.pyx":365
+/* "uplift/tree/_criterion.pyx":366
  *             sum_right += self.sum_stride
  * 
  *     cdef void reverse_reset(self) nogil:             # <<<<<<<<<<<<<<
@@ -3946,7 +3946,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_reverse
   __pyx_t_6uplift_4tree_10_criterion_SIZE_t __pyx_t_5;
   __pyx_t_6uplift_4tree_10_criterion_SIZE_t __pyx_t_6;
 
-  /* "uplift/tree/_criterion.pyx":367
+  /* "uplift/tree/_criterion.pyx":368
  *     cdef void reverse_reset(self) nogil:
  *         """Reset the criterion at pos=end."""
  *         self.pos = self.end             # <<<<<<<<<<<<<<
@@ -3956,7 +3956,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_reverse
   __pyx_t_1 = __pyx_v_self->__pyx_base.end;
   __pyx_v_self->__pyx_base.pos = __pyx_t_1;
 
-  /* "uplift/tree/_criterion.pyx":369
+  /* "uplift/tree/_criterion.pyx":370
  *         self.pos = self.end
  * 
  *         self.weighted_n_left = self.weighted_n_node_samples             # <<<<<<<<<<<<<<
@@ -3966,7 +3966,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_reverse
   __pyx_t_2 = __pyx_v_self->__pyx_base.weighted_n_node_samples;
   __pyx_v_self->__pyx_base.weighted_n_left = __pyx_t_2;
 
-  /* "uplift/tree/_criterion.pyx":370
+  /* "uplift/tree/_criterion.pyx":371
  * 
  *         self.weighted_n_left = self.weighted_n_node_samples
  *         self.weighted_n_right = 0.0             # <<<<<<<<<<<<<<
@@ -3975,7 +3975,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_reverse
  */
   __pyx_v_self->__pyx_base.weighted_n_right = 0.0;
 
-  /* "uplift/tree/_criterion.pyx":372
+  /* "uplift/tree/_criterion.pyx":373
  *         self.weighted_n_right = 0.0
  * 
  *         cdef double* sum_total = self.sum_total             # <<<<<<<<<<<<<<
@@ -3985,7 +3985,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_reverse
   __pyx_t_3 = __pyx_v_self->__pyx_base.sum_total;
   __pyx_v_sum_total = __pyx_t_3;
 
-  /* "uplift/tree/_criterion.pyx":373
+  /* "uplift/tree/_criterion.pyx":374
  * 
  *         cdef double* sum_total = self.sum_total
  *         cdef double* sum_left = self.sum_left             # <<<<<<<<<<<<<<
@@ -3995,7 +3995,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_reverse
   __pyx_t_3 = __pyx_v_self->__pyx_base.sum_left;
   __pyx_v_sum_left = __pyx_t_3;
 
-  /* "uplift/tree/_criterion.pyx":374
+  /* "uplift/tree/_criterion.pyx":375
  *         cdef double* sum_total = self.sum_total
  *         cdef double* sum_left = self.sum_left
  *         cdef double* sum_right = self.sum_right             # <<<<<<<<<<<<<<
@@ -4005,7 +4005,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_reverse
   __pyx_t_3 = __pyx_v_self->__pyx_base.sum_right;
   __pyx_v_sum_right = __pyx_t_3;
 
-  /* "uplift/tree/_criterion.pyx":376
+  /* "uplift/tree/_criterion.pyx":377
  *         cdef double* sum_right = self.sum_right
  * 
  *         cdef SIZE_t* n_classes = self.n_classes             # <<<<<<<<<<<<<<
@@ -4015,7 +4015,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_reverse
   __pyx_t_4 = __pyx_v_self->n_classes;
   __pyx_v_n_classes = __pyx_t_4;
 
-  /* "uplift/tree/_criterion.pyx":379
+  /* "uplift/tree/_criterion.pyx":380
  *         cdef SIZE_t k
  * 
  *         for k in range(self.n_outputs):             # <<<<<<<<<<<<<<
@@ -4027,7 +4027,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_reverse
   for (__pyx_t_6 = 0; __pyx_t_6 < __pyx_t_5; __pyx_t_6+=1) {
     __pyx_v_k = __pyx_t_6;
 
-    /* "uplift/tree/_criterion.pyx":380
+    /* "uplift/tree/_criterion.pyx":381
  * 
  *         for k in range(self.n_outputs):
  *             memset(sum_right, 0, n_classes[k] * sizeof(double))             # <<<<<<<<<<<<<<
@@ -4036,7 +4036,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_reverse
  */
     (void)(memset(__pyx_v_sum_right, 0, ((__pyx_v_n_classes[__pyx_v_k]) * (sizeof(double)))));
 
-    /* "uplift/tree/_criterion.pyx":381
+    /* "uplift/tree/_criterion.pyx":382
  *         for k in range(self.n_outputs):
  *             memset(sum_right, 0, n_classes[k] * sizeof(double))
  *             memcpy(sum_left, sum_total, n_classes[k] * sizeof(double))             # <<<<<<<<<<<<<<
@@ -4045,7 +4045,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_reverse
  */
     (void)(memcpy(__pyx_v_sum_left, __pyx_v_sum_total, ((__pyx_v_n_classes[__pyx_v_k]) * (sizeof(double)))));
 
-    /* "uplift/tree/_criterion.pyx":383
+    /* "uplift/tree/_criterion.pyx":384
  *             memcpy(sum_left, sum_total, n_classes[k] * sizeof(double))
  * 
  *             sum_total += self.sum_stride             # <<<<<<<<<<<<<<
@@ -4054,7 +4054,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_reverse
  */
     __pyx_v_sum_total = (__pyx_v_sum_total + __pyx_v_self->sum_stride);
 
-    /* "uplift/tree/_criterion.pyx":384
+    /* "uplift/tree/_criterion.pyx":385
  * 
  *             sum_total += self.sum_stride
  *             sum_left += self.sum_stride             # <<<<<<<<<<<<<<
@@ -4063,7 +4063,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_reverse
  */
     __pyx_v_sum_left = (__pyx_v_sum_left + __pyx_v_self->sum_stride);
 
-    /* "uplift/tree/_criterion.pyx":385
+    /* "uplift/tree/_criterion.pyx":386
  *             sum_total += self.sum_stride
  *             sum_left += self.sum_stride
  *             sum_right += self.sum_stride             # <<<<<<<<<<<<<<
@@ -4073,7 +4073,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_reverse
     __pyx_v_sum_right = (__pyx_v_sum_right + __pyx_v_self->sum_stride);
   }
 
-  /* "uplift/tree/_criterion.pyx":365
+  /* "uplift/tree/_criterion.pyx":366
  *             sum_right += self.sum_stride
  * 
  *     cdef void reverse_reset(self) nogil:             # <<<<<<<<<<<<<<
@@ -4084,7 +4084,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_reverse
   /* function exit code */
 }
 
-/* "uplift/tree/_criterion.pyx":387
+/* "uplift/tree/_criterion.pyx":388
  *             sum_right += self.sum_stride
  * 
  *     cdef void update(self, SIZE_t new_pos) nogil:             # <<<<<<<<<<<<<<
@@ -4122,7 +4122,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_update(
   long __pyx_t_12;
   long __pyx_t_13;
 
-  /* "uplift/tree/_criterion.pyx":396
+  /* "uplift/tree/_criterion.pyx":397
  *             child to the left child.
  *         """
  *         cdef DOUBLE_t* y = self.y             # <<<<<<<<<<<<<<
@@ -4132,7 +4132,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_update(
   __pyx_t_1 = __pyx_v_self->__pyx_base.y;
   __pyx_v_y = __pyx_t_1;
 
-  /* "uplift/tree/_criterion.pyx":397
+  /* "uplift/tree/_criterion.pyx":398
  *         """
  *         cdef DOUBLE_t* y = self.y
  *         cdef SIZE_t pos = self.pos             # <<<<<<<<<<<<<<
@@ -4142,7 +4142,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_update(
   __pyx_t_2 = __pyx_v_self->__pyx_base.pos;
   __pyx_v_pos = __pyx_t_2;
 
-  /* "uplift/tree/_criterion.pyx":398
+  /* "uplift/tree/_criterion.pyx":399
  *         cdef DOUBLE_t* y = self.y
  *         cdef SIZE_t pos = self.pos
  *         cdef SIZE_t end = self.end             # <<<<<<<<<<<<<<
@@ -4152,7 +4152,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_update(
   __pyx_t_2 = __pyx_v_self->__pyx_base.end;
   __pyx_v_end = __pyx_t_2;
 
-  /* "uplift/tree/_criterion.pyx":400
+  /* "uplift/tree/_criterion.pyx":401
  *         cdef SIZE_t end = self.end
  * 
  *         cdef double* sum_left = self.sum_left             # <<<<<<<<<<<<<<
@@ -4162,7 +4162,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_update(
   __pyx_t_3 = __pyx_v_self->__pyx_base.sum_left;
   __pyx_v_sum_left = __pyx_t_3;
 
-  /* "uplift/tree/_criterion.pyx":401
+  /* "uplift/tree/_criterion.pyx":402
  * 
  *         cdef double* sum_left = self.sum_left
  *         cdef double* sum_right = self.sum_right             # <<<<<<<<<<<<<<
@@ -4172,7 +4172,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_update(
   __pyx_t_3 = __pyx_v_self->__pyx_base.sum_right;
   __pyx_v_sum_right = __pyx_t_3;
 
-  /* "uplift/tree/_criterion.pyx":402
+  /* "uplift/tree/_criterion.pyx":403
  *         cdef double* sum_left = self.sum_left
  *         cdef double* sum_right = self.sum_right
  *         cdef double* sum_total = self.sum_total             # <<<<<<<<<<<<<<
@@ -4182,7 +4182,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_update(
   __pyx_t_3 = __pyx_v_self->__pyx_base.sum_total;
   __pyx_v_sum_total = __pyx_t_3;
 
-  /* "uplift/tree/_criterion.pyx":404
+  /* "uplift/tree/_criterion.pyx":405
  *         cdef double* sum_total = self.sum_total
  * 
  *         cdef SIZE_t* n_classes = self.n_classes             # <<<<<<<<<<<<<<
@@ -4192,7 +4192,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_update(
   __pyx_t_4 = __pyx_v_self->n_classes;
   __pyx_v_n_classes = __pyx_t_4;
 
-  /* "uplift/tree/_criterion.pyx":405
+  /* "uplift/tree/_criterion.pyx":406
  * 
  *         cdef SIZE_t* n_classes = self.n_classes
  *         cdef SIZE_t* samples = self.samples             # <<<<<<<<<<<<<<
@@ -4202,7 +4202,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_update(
   __pyx_t_4 = __pyx_v_self->__pyx_base.samples;
   __pyx_v_samples = __pyx_t_4;
 
-  /* "uplift/tree/_criterion.pyx":406
+  /* "uplift/tree/_criterion.pyx":407
  *         cdef SIZE_t* n_classes = self.n_classes
  *         cdef SIZE_t* samples = self.samples
  *         cdef DOUBLE_t* sample_weight = self.sample_weight             # <<<<<<<<<<<<<<
@@ -4212,7 +4212,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_update(
   __pyx_t_1 = __pyx_v_self->__pyx_base.sample_weight;
   __pyx_v_sample_weight = __pyx_t_1;
 
-  /* "uplift/tree/_criterion.pyx":413
+  /* "uplift/tree/_criterion.pyx":414
  *         cdef SIZE_t c
  *         cdef SIZE_t label_index
  *         cdef DOUBLE_t w = 1.0             # <<<<<<<<<<<<<<
@@ -4221,7 +4221,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_update(
  */
   __pyx_v_w = 1.0;
 
-  /* "uplift/tree/_criterion.pyx":423
+  /* "uplift/tree/_criterion.pyx":424
  *         # of computations, i.e. from pos to new_pos or from end to new_po.
  * 
  *         if (new_pos - pos) <= (end - new_pos):             # <<<<<<<<<<<<<<
@@ -4231,7 +4231,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_update(
   __pyx_t_5 = (((__pyx_v_new_pos - __pyx_v_pos) <= (__pyx_v_end - __pyx_v_new_pos)) != 0);
   if (__pyx_t_5) {
 
-    /* "uplift/tree/_criterion.pyx":424
+    /* "uplift/tree/_criterion.pyx":425
  * 
  *         if (new_pos - pos) <= (end - new_pos):
  *             for p in range(pos, new_pos):             # <<<<<<<<<<<<<<
@@ -4243,7 +4243,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_update(
     for (__pyx_t_7 = __pyx_v_pos; __pyx_t_7 < __pyx_t_6; __pyx_t_7+=1) {
       __pyx_v_p = __pyx_t_7;
 
-      /* "uplift/tree/_criterion.pyx":425
+      /* "uplift/tree/_criterion.pyx":426
  *         if (new_pos - pos) <= (end - new_pos):
  *             for p in range(pos, new_pos):
  *                 i = samples[p]             # <<<<<<<<<<<<<<
@@ -4252,7 +4252,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_update(
  */
       __pyx_v_i = (__pyx_v_samples[__pyx_v_p]);
 
-      /* "uplift/tree/_criterion.pyx":427
+      /* "uplift/tree/_criterion.pyx":428
  *                 i = samples[p]
  * 
  *                 if sample_weight != NULL:             # <<<<<<<<<<<<<<
@@ -4262,7 +4262,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_update(
       __pyx_t_5 = ((__pyx_v_sample_weight != NULL) != 0);
       if (__pyx_t_5) {
 
-        /* "uplift/tree/_criterion.pyx":428
+        /* "uplift/tree/_criterion.pyx":429
  * 
  *                 if sample_weight != NULL:
  *                     w = sample_weight[i]             # <<<<<<<<<<<<<<
@@ -4271,7 +4271,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_update(
  */
         __pyx_v_w = (__pyx_v_sample_weight[__pyx_v_i]);
 
-        /* "uplift/tree/_criterion.pyx":427
+        /* "uplift/tree/_criterion.pyx":428
  *                 i = samples[p]
  * 
  *                 if sample_weight != NULL:             # <<<<<<<<<<<<<<
@@ -4280,7 +4280,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_update(
  */
       }
 
-      /* "uplift/tree/_criterion.pyx":430
+      /* "uplift/tree/_criterion.pyx":431
  *                     w = sample_weight[i]
  * 
  *                 for k in range(self.n_outputs):             # <<<<<<<<<<<<<<
@@ -4292,7 +4292,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_update(
       for (__pyx_t_10 = 0; __pyx_t_10 < __pyx_t_9; __pyx_t_10+=1) {
         __pyx_v_k = __pyx_t_10;
 
-        /* "uplift/tree/_criterion.pyx":431
+        /* "uplift/tree/_criterion.pyx":432
  * 
  *                 for k in range(self.n_outputs):
  *                     label_index = (k * self.sum_stride +             # <<<<<<<<<<<<<<
@@ -4301,7 +4301,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_update(
  */
         __pyx_v_label_index = ((__pyx_v_k * __pyx_v_self->sum_stride) + ((__pyx_t_6uplift_4tree_10_criterion_SIZE_t)(__pyx_v_y[((__pyx_v_i * __pyx_v_self->__pyx_base.y_stride) + __pyx_v_k)])));
 
-        /* "uplift/tree/_criterion.pyx":433
+        /* "uplift/tree/_criterion.pyx":434
  *                     label_index = (k * self.sum_stride +
  *                                    <SIZE_t> y[i * self.y_stride + k])
  *                     sum_left[label_index] += w             # <<<<<<<<<<<<<<
@@ -4312,7 +4312,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_update(
         (__pyx_v_sum_left[__pyx_t_11]) = ((__pyx_v_sum_left[__pyx_t_11]) + __pyx_v_w);
       }
 
-      /* "uplift/tree/_criterion.pyx":435
+      /* "uplift/tree/_criterion.pyx":436
  *                     sum_left[label_index] += w
  * 
  *                 self.weighted_n_left += w             # <<<<<<<<<<<<<<
@@ -4322,7 +4322,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_update(
       __pyx_v_self->__pyx_base.weighted_n_left = (__pyx_v_self->__pyx_base.weighted_n_left + __pyx_v_w);
     }
 
-    /* "uplift/tree/_criterion.pyx":423
+    /* "uplift/tree/_criterion.pyx":424
  *         # of computations, i.e. from pos to new_pos or from end to new_po.
  * 
  *         if (new_pos - pos) <= (end - new_pos):             # <<<<<<<<<<<<<<
@@ -4332,7 +4332,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_update(
     goto __pyx_L3;
   }
 
-  /* "uplift/tree/_criterion.pyx":438
+  /* "uplift/tree/_criterion.pyx":439
  * 
  *         else:
  *             self.reverse_reset()             # <<<<<<<<<<<<<<
@@ -4342,7 +4342,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_update(
   /*else*/ {
     ((struct __pyx_vtabstruct_6uplift_4tree_10_criterion_ClassificationCriterion *)__pyx_v_self->__pyx_base.__pyx_vtab)->__pyx_base.reverse_reset(((struct __pyx_obj_6uplift_4tree_10_criterion_Criterion *)__pyx_v_self));
 
-    /* "uplift/tree/_criterion.pyx":440
+    /* "uplift/tree/_criterion.pyx":441
  *             self.reverse_reset()
  * 
  *             for p in range(end - 1, new_pos - 1, -1):             # <<<<<<<<<<<<<<
@@ -4354,7 +4354,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_update(
     for (__pyx_t_2 = (__pyx_v_end - 1); __pyx_t_2 > __pyx_t_13; __pyx_t_2-=1) {
       __pyx_v_p = __pyx_t_2;
 
-      /* "uplift/tree/_criterion.pyx":441
+      /* "uplift/tree/_criterion.pyx":442
  * 
  *             for p in range(end - 1, new_pos - 1, -1):
  *                 i = samples[p]             # <<<<<<<<<<<<<<
@@ -4363,7 +4363,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_update(
  */
       __pyx_v_i = (__pyx_v_samples[__pyx_v_p]);
 
-      /* "uplift/tree/_criterion.pyx":443
+      /* "uplift/tree/_criterion.pyx":444
  *                 i = samples[p]
  * 
  *                 if sample_weight != NULL:             # <<<<<<<<<<<<<<
@@ -4373,7 +4373,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_update(
       __pyx_t_5 = ((__pyx_v_sample_weight != NULL) != 0);
       if (__pyx_t_5) {
 
-        /* "uplift/tree/_criterion.pyx":444
+        /* "uplift/tree/_criterion.pyx":445
  * 
  *                 if sample_weight != NULL:
  *                     w = sample_weight[i]             # <<<<<<<<<<<<<<
@@ -4382,7 +4382,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_update(
  */
         __pyx_v_w = (__pyx_v_sample_weight[__pyx_v_i]);
 
-        /* "uplift/tree/_criterion.pyx":443
+        /* "uplift/tree/_criterion.pyx":444
  *                 i = samples[p]
  * 
  *                 if sample_weight != NULL:             # <<<<<<<<<<<<<<
@@ -4391,7 +4391,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_update(
  */
       }
 
-      /* "uplift/tree/_criterion.pyx":446
+      /* "uplift/tree/_criterion.pyx":447
  *                     w = sample_weight[i]
  * 
  *                 for k in range(self.n_outputs):             # <<<<<<<<<<<<<<
@@ -4403,7 +4403,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_update(
       for (__pyx_t_8 = 0; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
         __pyx_v_k = __pyx_t_8;
 
-        /* "uplift/tree/_criterion.pyx":447
+        /* "uplift/tree/_criterion.pyx":448
  * 
  *                 for k in range(self.n_outputs):
  *                     label_index = (k * self.sum_stride +             # <<<<<<<<<<<<<<
@@ -4412,7 +4412,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_update(
  */
         __pyx_v_label_index = ((__pyx_v_k * __pyx_v_self->sum_stride) + ((__pyx_t_6uplift_4tree_10_criterion_SIZE_t)(__pyx_v_y[((__pyx_v_i * __pyx_v_self->__pyx_base.y_stride) + __pyx_v_k)])));
 
-        /* "uplift/tree/_criterion.pyx":449
+        /* "uplift/tree/_criterion.pyx":450
  *                     label_index = (k * self.sum_stride +
  *                                    <SIZE_t> y[i * self.y_stride + k])
  *                     sum_left[label_index] -= w             # <<<<<<<<<<<<<<
@@ -4423,7 +4423,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_update(
         (__pyx_v_sum_left[__pyx_t_9]) = ((__pyx_v_sum_left[__pyx_t_9]) - __pyx_v_w);
       }
 
-      /* "uplift/tree/_criterion.pyx":451
+      /* "uplift/tree/_criterion.pyx":452
  *                     sum_left[label_index] -= w
  * 
  *                 self.weighted_n_left -= w             # <<<<<<<<<<<<<<
@@ -4435,7 +4435,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_update(
   }
   __pyx_L3:;
 
-  /* "uplift/tree/_criterion.pyx":454
+  /* "uplift/tree/_criterion.pyx":455
  * 
  *         # Update right part statistics
  *         self.weighted_n_right = self.weighted_n_node_samples - self.weighted_n_left             # <<<<<<<<<<<<<<
@@ -4444,7 +4444,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_update(
  */
   __pyx_v_self->__pyx_base.weighted_n_right = (__pyx_v_self->__pyx_base.weighted_n_node_samples - __pyx_v_self->__pyx_base.weighted_n_left);
 
-  /* "uplift/tree/_criterion.pyx":455
+  /* "uplift/tree/_criterion.pyx":456
  *         # Update right part statistics
  *         self.weighted_n_right = self.weighted_n_node_samples - self.weighted_n_left
  *         for k in range(self.n_outputs):             # <<<<<<<<<<<<<<
@@ -4456,7 +4456,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_update(
   for (__pyx_t_7 = 0; __pyx_t_7 < __pyx_t_6; __pyx_t_7+=1) {
     __pyx_v_k = __pyx_t_7;
 
-    /* "uplift/tree/_criterion.pyx":456
+    /* "uplift/tree/_criterion.pyx":457
  *         self.weighted_n_right = self.weighted_n_node_samples - self.weighted_n_left
  *         for k in range(self.n_outputs):
  *             for c in range(n_classes[k]):             # <<<<<<<<<<<<<<
@@ -4468,7 +4468,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_update(
     for (__pyx_t_10 = 0; __pyx_t_10 < __pyx_t_9; __pyx_t_10+=1) {
       __pyx_v_c = __pyx_t_10;
 
-      /* "uplift/tree/_criterion.pyx":457
+      /* "uplift/tree/_criterion.pyx":458
  *         for k in range(self.n_outputs):
  *             for c in range(n_classes[k]):
  *                 sum_right[c] = sum_total[c] - sum_left[c]             # <<<<<<<<<<<<<<
@@ -4478,7 +4478,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_update(
       (__pyx_v_sum_right[__pyx_v_c]) = ((__pyx_v_sum_total[__pyx_v_c]) - (__pyx_v_sum_left[__pyx_v_c]));
     }
 
-    /* "uplift/tree/_criterion.pyx":459
+    /* "uplift/tree/_criterion.pyx":460
  *                 sum_right[c] = sum_total[c] - sum_left[c]
  * 
  *             sum_right += self.sum_stride             # <<<<<<<<<<<<<<
@@ -4487,7 +4487,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_update(
  */
     __pyx_v_sum_right = (__pyx_v_sum_right + __pyx_v_self->sum_stride);
 
-    /* "uplift/tree/_criterion.pyx":460
+    /* "uplift/tree/_criterion.pyx":461
  * 
  *             sum_right += self.sum_stride
  *             sum_left += self.sum_stride             # <<<<<<<<<<<<<<
@@ -4496,7 +4496,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_update(
  */
     __pyx_v_sum_left = (__pyx_v_sum_left + __pyx_v_self->sum_stride);
 
-    /* "uplift/tree/_criterion.pyx":461
+    /* "uplift/tree/_criterion.pyx":462
  *             sum_right += self.sum_stride
  *             sum_left += self.sum_stride
  *             sum_total += self.sum_stride             # <<<<<<<<<<<<<<
@@ -4506,7 +4506,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_update(
     __pyx_v_sum_total = (__pyx_v_sum_total + __pyx_v_self->sum_stride);
   }
 
-  /* "uplift/tree/_criterion.pyx":463
+  /* "uplift/tree/_criterion.pyx":464
  *             sum_total += self.sum_stride
  * 
  *         self.pos = new_pos             # <<<<<<<<<<<<<<
@@ -4515,7 +4515,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_update(
  */
   __pyx_v_self->__pyx_base.pos = __pyx_v_new_pos;
 
-  /* "uplift/tree/_criterion.pyx":387
+  /* "uplift/tree/_criterion.pyx":388
  *             sum_right += self.sum_stride
  * 
  *     cdef void update(self, SIZE_t new_pos) nogil:             # <<<<<<<<<<<<<<
@@ -4526,7 +4526,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_update(
   /* function exit code */
 }
 
-/* "uplift/tree/_criterion.pyx":465
+/* "uplift/tree/_criterion.pyx":466
  *         self.pos = new_pos
  * 
  *     cdef double node_impurity(self) nogil:             # <<<<<<<<<<<<<<
@@ -4542,7 +4542,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_node_
   return __pyx_r;
 }
 
-/* "uplift/tree/_criterion.pyx":468
+/* "uplift/tree/_criterion.pyx":469
  *         pass
  * 
  *     cdef void children_impurity(self, double* impurity_left,             # <<<<<<<<<<<<<<
@@ -4555,7 +4555,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_childre
   /* function exit code */
 }
 
-/* "uplift/tree/_criterion.pyx":472
+/* "uplift/tree/_criterion.pyx":473
  *         pass
  * 
  *     cdef void node_value(self, double* dest) nogil:             # <<<<<<<<<<<<<<
@@ -4573,7 +4573,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_node_va
   __pyx_t_6uplift_4tree_10_criterion_SIZE_t __pyx_t_4;
   __pyx_t_6uplift_4tree_10_criterion_SIZE_t __pyx_t_5;
 
-  /* "uplift/tree/_criterion.pyx":481
+  /* "uplift/tree/_criterion.pyx":482
  *         """
  * 
  *         cdef double* sum_total = self.sum_total             # <<<<<<<<<<<<<<
@@ -4583,7 +4583,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_node_va
   __pyx_t_1 = __pyx_v_self->__pyx_base.sum_total;
   __pyx_v_sum_total = __pyx_t_1;
 
-  /* "uplift/tree/_criterion.pyx":482
+  /* "uplift/tree/_criterion.pyx":483
  * 
  *         cdef double* sum_total = self.sum_total
  *         cdef SIZE_t* n_classes = self.n_classes             # <<<<<<<<<<<<<<
@@ -4593,7 +4593,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_node_va
   __pyx_t_2 = __pyx_v_self->n_classes;
   __pyx_v_n_classes = __pyx_t_2;
 
-  /* "uplift/tree/_criterion.pyx":485
+  /* "uplift/tree/_criterion.pyx":486
  *         cdef SIZE_t k
  * 
  *         for k in range(self.n_outputs):             # <<<<<<<<<<<<<<
@@ -4605,7 +4605,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_node_va
   for (__pyx_t_5 = 0; __pyx_t_5 < __pyx_t_4; __pyx_t_5+=1) {
     __pyx_v_k = __pyx_t_5;
 
-    /* "uplift/tree/_criterion.pyx":486
+    /* "uplift/tree/_criterion.pyx":487
  * 
  *         for k in range(self.n_outputs):
  *             memcpy(dest, sum_total, n_classes[k] * sizeof(double))             # <<<<<<<<<<<<<<
@@ -4614,7 +4614,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_node_va
  */
     (void)(memcpy(__pyx_v_dest, __pyx_v_sum_total, ((__pyx_v_n_classes[__pyx_v_k]) * (sizeof(double)))));
 
-    /* "uplift/tree/_criterion.pyx":487
+    /* "uplift/tree/_criterion.pyx":488
  *         for k in range(self.n_outputs):
  *             memcpy(dest, sum_total, n_classes[k] * sizeof(double))
  *             dest += self.sum_stride             # <<<<<<<<<<<<<<
@@ -4623,7 +4623,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_node_va
  */
     __pyx_v_dest = (__pyx_v_dest + __pyx_v_self->sum_stride);
 
-    /* "uplift/tree/_criterion.pyx":488
+    /* "uplift/tree/_criterion.pyx":489
  *             memcpy(dest, sum_total, n_classes[k] * sizeof(double))
  *             dest += self.sum_stride
  *             sum_total += self.sum_stride             # <<<<<<<<<<<<<<
@@ -4633,7 +4633,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_node_va
     __pyx_v_sum_total = (__pyx_v_sum_total + __pyx_v_self->sum_stride);
   }
 
-  /* "uplift/tree/_criterion.pyx":472
+  /* "uplift/tree/_criterion.pyx":473
  *         pass
  * 
  *     cdef void node_value(self, double* dest) nogil:             # <<<<<<<<<<<<<<
@@ -4644,7 +4644,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_node_va
   /* function exit code */
 }
 
-/* "uplift/tree/_criterion.pyx":493
+/* "uplift/tree/_criterion.pyx":494
  * 
  * 
  *     cdef double node_impurity(self) nogil:             # <<<<<<<<<<<<<<
@@ -4672,7 +4672,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_node_impurity(stru
   __pyx_t_6uplift_4tree_10_criterion_SIZE_t __pyx_t_3;
   __pyx_t_6uplift_4tree_10_criterion_SIZE_t __pyx_t_4;
 
-  /* "uplift/tree/_criterion.pyx":497
+  /* "uplift/tree/_criterion.pyx":498
  *         samples[start:end], using the cross-entropy criterion."""
  * 
  *         cdef double* sum_total = self.sum_total             # <<<<<<<<<<<<<<
@@ -4682,7 +4682,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_node_impurity(stru
   __pyx_t_1 = __pyx_v_self->__pyx_base.__pyx_base.sum_total;
   __pyx_v_sum_total = __pyx_t_1;
 
-  /* "uplift/tree/_criterion.pyx":498
+  /* "uplift/tree/_criterion.pyx":499
  * 
  *         cdef double* sum_total = self.sum_total
  *         cdef double impurity = 0.0             # <<<<<<<<<<<<<<
@@ -4691,7 +4691,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_node_impurity(stru
  */
   __pyx_v_impurity = 0.0;
 
-  /* "uplift/tree/_criterion.pyx":514
+  /* "uplift/tree/_criterion.pyx":515
  *         cdef double p_c_0
  * 
  *         for k in range(self.n_outputs):             # <<<<<<<<<<<<<<
@@ -4703,7 +4703,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_node_impurity(stru
   for (__pyx_t_4 = 0; __pyx_t_4 < __pyx_t_3; __pyx_t_4+=1) {
     __pyx_v_k = __pyx_t_4;
 
-    /* "uplift/tree/_criterion.pyx":516
+    /* "uplift/tree/_criterion.pyx":517
  *         for k in range(self.n_outputs):
  * 
  *             n_c0 = sum_total[0]             # <<<<<<<<<<<<<<
@@ -4712,7 +4712,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_node_impurity(stru
  */
     __pyx_v_n_c0 = (__pyx_v_sum_total[0]);
 
-    /* "uplift/tree/_criterion.pyx":517
+    /* "uplift/tree/_criterion.pyx":518
  * 
  *             n_c0 = sum_total[0]
  *             n_c1 = sum_total[1]             # <<<<<<<<<<<<<<
@@ -4721,7 +4721,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_node_impurity(stru
  */
     __pyx_v_n_c1 = (__pyx_v_sum_total[1]);
 
-    /* "uplift/tree/_criterion.pyx":518
+    /* "uplift/tree/_criterion.pyx":519
  *             n_c0 = sum_total[0]
  *             n_c1 = sum_total[1]
  *             n_t0 = sum_total[2]             # <<<<<<<<<<<<<<
@@ -4730,7 +4730,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_node_impurity(stru
  */
     __pyx_v_n_t0 = (__pyx_v_sum_total[2]);
 
-    /* "uplift/tree/_criterion.pyx":519
+    /* "uplift/tree/_criterion.pyx":520
  *             n_c1 = sum_total[1]
  *             n_t0 = sum_total[2]
  *             n_t1 = sum_total[3]             # <<<<<<<<<<<<<<
@@ -4739,7 +4739,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_node_impurity(stru
  */
     __pyx_v_n_t1 = (__pyx_v_sum_total[3]);
 
-    /* "uplift/tree/_criterion.pyx":521
+    /* "uplift/tree/_criterion.pyx":522
  *             n_t1 = sum_total[3]
  * 
  *             n_t = n_t0 + n_t1             # <<<<<<<<<<<<<<
@@ -4748,7 +4748,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_node_impurity(stru
  */
     __pyx_v_n_t = (__pyx_v_n_t0 + __pyx_v_n_t1);
 
-    /* "uplift/tree/_criterion.pyx":522
+    /* "uplift/tree/_criterion.pyx":523
  * 
  *             n_t = n_t0 + n_t1
  *             n_c = n_c0 + n_c1             # <<<<<<<<<<<<<<
@@ -4757,7 +4757,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_node_impurity(stru
  */
     __pyx_v_n_c = (__pyx_v_n_c0 + __pyx_v_n_c1);
 
-    /* "uplift/tree/_criterion.pyx":524
+    /* "uplift/tree/_criterion.pyx":525
  *             n_c = n_c0 + n_c1
  * 
  *             p_t_1 = (n_t1 + 0.5) / (n_t + 1)             # <<<<<<<<<<<<<<
@@ -4766,7 +4766,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_node_impurity(stru
  */
     __pyx_v_p_t_1 = ((__pyx_v_n_t1 + 0.5) / (__pyx_v_n_t + 1.0));
 
-    /* "uplift/tree/_criterion.pyx":525
+    /* "uplift/tree/_criterion.pyx":526
  * 
  *             p_t_1 = (n_t1 + 0.5) / (n_t + 1)
  *             p_t_0 = 1 - p_t_1             # <<<<<<<<<<<<<<
@@ -4775,7 +4775,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_node_impurity(stru
  */
     __pyx_v_p_t_0 = (1.0 - __pyx_v_p_t_1);
 
-    /* "uplift/tree/_criterion.pyx":526
+    /* "uplift/tree/_criterion.pyx":527
  *             p_t_1 = (n_t1 + 0.5) / (n_t + 1)
  *             p_t_0 = 1 - p_t_1
  *             p_c_1 = (n_c1 + 0.5) / (n_c + 1)             # <<<<<<<<<<<<<<
@@ -4784,7 +4784,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_node_impurity(stru
  */
     __pyx_v_p_c_1 = ((__pyx_v_n_c1 + 0.5) / (__pyx_v_n_c + 1.0));
 
-    /* "uplift/tree/_criterion.pyx":527
+    /* "uplift/tree/_criterion.pyx":528
  *             p_t_0 = 1 - p_t_1
  *             p_c_1 = (n_c1 + 0.5) / (n_c + 1)
  *             p_c_0 = 1 - p_c_1             # <<<<<<<<<<<<<<
@@ -4793,7 +4793,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_node_impurity(stru
  */
     __pyx_v_p_c_0 = (1.0 - __pyx_v_p_c_1);
 
-    /* "uplift/tree/_criterion.pyx":530
+    /* "uplift/tree/_criterion.pyx":531
  * 
  * 
  *             impurity += (p_t_1 - p_c_1)**2 + (p_t_0 - p_c_0)**2             # <<<<<<<<<<<<<<
@@ -4802,7 +4802,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_node_impurity(stru
  */
     __pyx_v_impurity = (__pyx_v_impurity + (pow((__pyx_v_p_t_1 - __pyx_v_p_c_1), 2.0) + pow((__pyx_v_p_t_0 - __pyx_v_p_c_0), 2.0)));
 
-    /* "uplift/tree/_criterion.pyx":531
+    /* "uplift/tree/_criterion.pyx":532
  * 
  *             impurity += (p_t_1 - p_c_1)**2 + (p_t_0 - p_c_0)**2
  *             sum_total += self.sum_stride             # <<<<<<<<<<<<<<
@@ -4812,7 +4812,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_node_impurity(stru
     __pyx_v_sum_total = (__pyx_v_sum_total + __pyx_v_self->__pyx_base.sum_stride);
   }
 
-  /* "uplift/tree/_criterion.pyx":533
+  /* "uplift/tree/_criterion.pyx":534
  *             sum_total += self.sum_stride
  * 
  *         return impurity             # <<<<<<<<<<<<<<
@@ -4822,7 +4822,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_node_impurity(stru
   __pyx_r = __pyx_v_impurity;
   goto __pyx_L0;
 
-  /* "uplift/tree/_criterion.pyx":493
+  /* "uplift/tree/_criterion.pyx":494
  * 
  * 
  *     cdef double node_impurity(self) nogil:             # <<<<<<<<<<<<<<
@@ -4835,7 +4835,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_node_impurity(stru
   return __pyx_r;
 }
 
-/* "uplift/tree/_criterion.pyx":537
+/* "uplift/tree/_criterion.pyx":538
  * 
  * 
  *     cdef void children_impurity(self, double* impurity_left, double* impurity_right) nogil:             # <<<<<<<<<<<<<<
@@ -4879,7 +4879,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_children_impurity(st
   __pyx_t_6uplift_4tree_10_criterion_SIZE_t __pyx_t_3;
   __pyx_t_6uplift_4tree_10_criterion_SIZE_t __pyx_t_4;
 
-  /* "uplift/tree/_criterion.pyx":539
+  /* "uplift/tree/_criterion.pyx":540
  *     cdef void children_impurity(self, double* impurity_left, double* impurity_right) nogil:
  * 
  *         cdef double* sum_left = self.sum_left             # <<<<<<<<<<<<<<
@@ -4889,7 +4889,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_children_impurity(st
   __pyx_t_1 = __pyx_v_self->__pyx_base.__pyx_base.sum_left;
   __pyx_v_sum_left = __pyx_t_1;
 
-  /* "uplift/tree/_criterion.pyx":540
+  /* "uplift/tree/_criterion.pyx":541
  * 
  *         cdef double* sum_left = self.sum_left
  *         cdef double* sum_right = self.sum_right             # <<<<<<<<<<<<<<
@@ -4899,7 +4899,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_children_impurity(st
   __pyx_t_1 = __pyx_v_self->__pyx_base.__pyx_base.sum_right;
   __pyx_v_sum_right = __pyx_t_1;
 
-  /* "uplift/tree/_criterion.pyx":541
+  /* "uplift/tree/_criterion.pyx":542
  *         cdef double* sum_left = self.sum_left
  *         cdef double* sum_right = self.sum_right
  *         cdef double val_impurity_left = 0.0             # <<<<<<<<<<<<<<
@@ -4908,7 +4908,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_children_impurity(st
  */
   __pyx_v_val_impurity_left = 0.0;
 
-  /* "uplift/tree/_criterion.pyx":542
+  /* "uplift/tree/_criterion.pyx":543
  *         cdef double* sum_right = self.sum_right
  *         cdef double val_impurity_left = 0.0
  *         cdef double val_impurity_right = 0.0             # <<<<<<<<<<<<<<
@@ -4917,7 +4917,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_children_impurity(st
  */
   __pyx_v_val_impurity_right = 0.0;
 
-  /* "uplift/tree/_criterion.pyx":572
+  /* "uplift/tree/_criterion.pyx":573
  *         cdef double p_r
  * 
  *         for k in range(self.n_outputs):             # <<<<<<<<<<<<<<
@@ -4929,7 +4929,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_children_impurity(st
   for (__pyx_t_4 = 0; __pyx_t_4 < __pyx_t_3; __pyx_t_4+=1) {
     __pyx_v_k = __pyx_t_4;
 
-    /* "uplift/tree/_criterion.pyx":574
+    /* "uplift/tree/_criterion.pyx":575
  *         for k in range(self.n_outputs):
  * 
  *             n_lc0 = self.sum_left[0]             # <<<<<<<<<<<<<<
@@ -4938,7 +4938,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_children_impurity(st
  */
     __pyx_v_n_lc0 = (__pyx_v_self->__pyx_base.__pyx_base.sum_left[0]);
 
-    /* "uplift/tree/_criterion.pyx":575
+    /* "uplift/tree/_criterion.pyx":576
  * 
  *             n_lc0 = self.sum_left[0]
  *             n_lc1 = self.sum_left[1]             # <<<<<<<<<<<<<<
@@ -4947,7 +4947,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_children_impurity(st
  */
     __pyx_v_n_lc1 = (__pyx_v_self->__pyx_base.__pyx_base.sum_left[1]);
 
-    /* "uplift/tree/_criterion.pyx":576
+    /* "uplift/tree/_criterion.pyx":577
  *             n_lc0 = self.sum_left[0]
  *             n_lc1 = self.sum_left[1]
  *             n_lt0 = self.sum_left[2]             # <<<<<<<<<<<<<<
@@ -4956,7 +4956,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_children_impurity(st
  */
     __pyx_v_n_lt0 = (__pyx_v_self->__pyx_base.__pyx_base.sum_left[2]);
 
-    /* "uplift/tree/_criterion.pyx":577
+    /* "uplift/tree/_criterion.pyx":578
  *             n_lc1 = self.sum_left[1]
  *             n_lt0 = self.sum_left[2]
  *             n_lt1 = self.sum_left[3]             # <<<<<<<<<<<<<<
@@ -4965,7 +4965,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_children_impurity(st
  */
     __pyx_v_n_lt1 = (__pyx_v_self->__pyx_base.__pyx_base.sum_left[3]);
 
-    /* "uplift/tree/_criterion.pyx":579
+    /* "uplift/tree/_criterion.pyx":580
  *             n_lt1 = self.sum_left[3]
  * 
  *             n_rc0 = self.sum_right[0]             # <<<<<<<<<<<<<<
@@ -4974,7 +4974,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_children_impurity(st
  */
     __pyx_v_n_rc0 = (__pyx_v_self->__pyx_base.__pyx_base.sum_right[0]);
 
-    /* "uplift/tree/_criterion.pyx":580
+    /* "uplift/tree/_criterion.pyx":581
  * 
  *             n_rc0 = self.sum_right[0]
  *             n_rc1 = self.sum_right[1]             # <<<<<<<<<<<<<<
@@ -4983,7 +4983,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_children_impurity(st
  */
     __pyx_v_n_rc1 = (__pyx_v_self->__pyx_base.__pyx_base.sum_right[1]);
 
-    /* "uplift/tree/_criterion.pyx":581
+    /* "uplift/tree/_criterion.pyx":582
  *             n_rc0 = self.sum_right[0]
  *             n_rc1 = self.sum_right[1]
  *             n_rt0 = self.sum_right[2]             # <<<<<<<<<<<<<<
@@ -4992,7 +4992,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_children_impurity(st
  */
     __pyx_v_n_rt0 = (__pyx_v_self->__pyx_base.__pyx_base.sum_right[2]);
 
-    /* "uplift/tree/_criterion.pyx":582
+    /* "uplift/tree/_criterion.pyx":583
  *             n_rc1 = self.sum_right[1]
  *             n_rt0 = self.sum_right[2]
  *             n_rt1 = self.sum_right[3]             # <<<<<<<<<<<<<<
@@ -5001,7 +5001,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_children_impurity(st
  */
     __pyx_v_n_rt1 = (__pyx_v_self->__pyx_base.__pyx_base.sum_right[3]);
 
-    /* "uplift/tree/_criterion.pyx":584
+    /* "uplift/tree/_criterion.pyx":585
  *             n_rt1 = self.sum_right[3]
  * 
  *             n_lt = n_lt1 + n_lt0             # <<<<<<<<<<<<<<
@@ -5010,7 +5010,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_children_impurity(st
  */
     __pyx_v_n_lt = (__pyx_v_n_lt1 + __pyx_v_n_lt0);
 
-    /* "uplift/tree/_criterion.pyx":585
+    /* "uplift/tree/_criterion.pyx":586
  * 
  *             n_lt = n_lt1 + n_lt0
  *             n_rt = n_rt1 + n_rt0             # <<<<<<<<<<<<<<
@@ -5019,7 +5019,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_children_impurity(st
  */
     __pyx_v_n_rt = (__pyx_v_n_rt1 + __pyx_v_n_rt0);
 
-    /* "uplift/tree/_criterion.pyx":586
+    /* "uplift/tree/_criterion.pyx":587
  *             n_lt = n_lt1 + n_lt0
  *             n_rt = n_rt1 + n_rt0
  *             n_lc = n_lc1 + n_lc0             # <<<<<<<<<<<<<<
@@ -5028,7 +5028,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_children_impurity(st
  */
     __pyx_v_n_lc = (__pyx_v_n_lc1 + __pyx_v_n_lc0);
 
-    /* "uplift/tree/_criterion.pyx":587
+    /* "uplift/tree/_criterion.pyx":588
  *             n_rt = n_rt1 + n_rt0
  *             n_lc = n_lc1 + n_lc0
  *             n_rc = n_rc1 + n_rc0             # <<<<<<<<<<<<<<
@@ -5037,7 +5037,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_children_impurity(st
  */
     __pyx_v_n_rc = (__pyx_v_n_rc1 + __pyx_v_n_rc0);
 
-    /* "uplift/tree/_criterion.pyx":589
+    /* "uplift/tree/_criterion.pyx":590
  *             n_rc = n_rc1 + n_rc0
  * 
  *             n_l = n_lt + n_lc             # <<<<<<<<<<<<<<
@@ -5046,7 +5046,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_children_impurity(st
  */
     __pyx_v_n_l = (__pyx_v_n_lt + __pyx_v_n_lc);
 
-    /* "uplift/tree/_criterion.pyx":590
+    /* "uplift/tree/_criterion.pyx":591
  * 
  *             n_l = n_lt + n_lc
  *             n_r = n_rt + n_rc             # <<<<<<<<<<<<<<
@@ -5055,7 +5055,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_children_impurity(st
  */
     __pyx_v_n_r = (__pyx_v_n_rt + __pyx_v_n_rc);
 
-    /* "uplift/tree/_criterion.pyx":592
+    /* "uplift/tree/_criterion.pyx":593
  *             n_r = n_rt + n_rc
  * 
  *             n = n_l + n_r             # <<<<<<<<<<<<<<
@@ -5064,7 +5064,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_children_impurity(st
  */
     __pyx_v_n = (__pyx_v_n_l + __pyx_v_n_r);
 
-    /* "uplift/tree/_criterion.pyx":594
+    /* "uplift/tree/_criterion.pyx":595
  *             n = n_l + n_r
  * 
  *             p_lt_1 = (n_lt1 + 0.5) / (n_lt + 1)             # <<<<<<<<<<<<<<
@@ -5073,7 +5073,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_children_impurity(st
  */
     __pyx_v_p_lt_1 = ((__pyx_v_n_lt1 + 0.5) / (__pyx_v_n_lt + 1.0));
 
-    /* "uplift/tree/_criterion.pyx":595
+    /* "uplift/tree/_criterion.pyx":596
  * 
  *             p_lt_1 = (n_lt1 + 0.5) / (n_lt + 1)
  *             p_lt_0 = 1 - p_lt_1             # <<<<<<<<<<<<<<
@@ -5082,7 +5082,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_children_impurity(st
  */
     __pyx_v_p_lt_0 = (1.0 - __pyx_v_p_lt_1);
 
-    /* "uplift/tree/_criterion.pyx":596
+    /* "uplift/tree/_criterion.pyx":597
  *             p_lt_1 = (n_lt1 + 0.5) / (n_lt + 1)
  *             p_lt_0 = 1 - p_lt_1
  *             p_lc_1 = (n_lc1 + 0.5) / (n_lc + 1)             # <<<<<<<<<<<<<<
@@ -5091,7 +5091,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_children_impurity(st
  */
     __pyx_v_p_lc_1 = ((__pyx_v_n_lc1 + 0.5) / (__pyx_v_n_lc + 1.0));
 
-    /* "uplift/tree/_criterion.pyx":597
+    /* "uplift/tree/_criterion.pyx":598
  *             p_lt_0 = 1 - p_lt_1
  *             p_lc_1 = (n_lc1 + 0.5) / (n_lc + 1)
  *             p_lc_0 = 1 - p_lc_1             # <<<<<<<<<<<<<<
@@ -5100,7 +5100,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_children_impurity(st
  */
     __pyx_v_p_lc_0 = (1.0 - __pyx_v_p_lc_1);
 
-    /* "uplift/tree/_criterion.pyx":598
+    /* "uplift/tree/_criterion.pyx":599
  *             p_lc_1 = (n_lc1 + 0.5) / (n_lc + 1)
  *             p_lc_0 = 1 - p_lc_1
  *             p_rt_1 = (n_rt1 + 0.5) / (n_rt + 1)             # <<<<<<<<<<<<<<
@@ -5109,7 +5109,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_children_impurity(st
  */
     __pyx_v_p_rt_1 = ((__pyx_v_n_rt1 + 0.5) / (__pyx_v_n_rt + 1.0));
 
-    /* "uplift/tree/_criterion.pyx":599
+    /* "uplift/tree/_criterion.pyx":600
  *             p_lc_0 = 1 - p_lc_1
  *             p_rt_1 = (n_rt1 + 0.5) / (n_rt + 1)
  *             p_rt_0 = 1 - p_rt_1             # <<<<<<<<<<<<<<
@@ -5118,7 +5118,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_children_impurity(st
  */
     __pyx_v_p_rt_0 = (1.0 - __pyx_v_p_rt_1);
 
-    /* "uplift/tree/_criterion.pyx":600
+    /* "uplift/tree/_criterion.pyx":601
  *             p_rt_1 = (n_rt1 + 0.5) / (n_rt + 1)
  *             p_rt_0 = 1 - p_rt_1
  *             p_rc_1 = (n_rc1 + 0.5) / (n_rc + 1)             # <<<<<<<<<<<<<<
@@ -5127,7 +5127,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_children_impurity(st
  */
     __pyx_v_p_rc_1 = ((__pyx_v_n_rc1 + 0.5) / (__pyx_v_n_rc + 1.0));
 
-    /* "uplift/tree/_criterion.pyx":601
+    /* "uplift/tree/_criterion.pyx":602
  *             p_rt_0 = 1 - p_rt_1
  *             p_rc_1 = (n_rc1 + 0.5) / (n_rc + 1)
  *             p_rc_0 = 1 - p_rc_1             # <<<<<<<<<<<<<<
@@ -5136,7 +5136,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_children_impurity(st
  */
     __pyx_v_p_rc_0 = (1.0 - __pyx_v_p_rc_1);
 
-    /* "uplift/tree/_criterion.pyx":603
+    /* "uplift/tree/_criterion.pyx":604
  *             p_rc_0 = 1 - p_rc_1
  * 
  *             p_l = (n_l + 0.5) / (n + 1)             # <<<<<<<<<<<<<<
@@ -5145,7 +5145,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_children_impurity(st
  */
     __pyx_v_p_l = ((__pyx_v_n_l + 0.5) / (__pyx_v_n + 1.0));
 
-    /* "uplift/tree/_criterion.pyx":604
+    /* "uplift/tree/_criterion.pyx":605
  * 
  *             p_l = (n_l + 0.5) / (n + 1)
  *             p_r = 1 - p_l             # <<<<<<<<<<<<<<
@@ -5154,7 +5154,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_children_impurity(st
  */
     __pyx_v_p_r = (1.0 - __pyx_v_p_l);
 
-    /* "uplift/tree/_criterion.pyx":607
+    /* "uplift/tree/_criterion.pyx":608
  * 
  * 
  *             val_impurity_left += p_l * ((p_lt_1 - p_lc_1)**2 + (p_lt_0 - p_lc_0)**2)             # <<<<<<<<<<<<<<
@@ -5163,7 +5163,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_children_impurity(st
  */
     __pyx_v_val_impurity_left = (__pyx_v_val_impurity_left + (__pyx_v_p_l * (pow((__pyx_v_p_lt_1 - __pyx_v_p_lc_1), 2.0) + pow((__pyx_v_p_lt_0 - __pyx_v_p_lc_0), 2.0))));
 
-    /* "uplift/tree/_criterion.pyx":608
+    /* "uplift/tree/_criterion.pyx":609
  * 
  *             val_impurity_left += p_l * ((p_lt_1 - p_lc_1)**2 + (p_lt_0 - p_lc_0)**2)
  *             val_impurity_right += p_r * ((p_rt_1 - p_rc_1)**2 + (p_rt_0 - p_rc_0)**2)             # <<<<<<<<<<<<<<
@@ -5172,7 +5172,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_children_impurity(st
  */
     __pyx_v_val_impurity_right = (__pyx_v_val_impurity_right + (__pyx_v_p_r * (pow((__pyx_v_p_rt_1 - __pyx_v_p_rc_1), 2.0) + pow((__pyx_v_p_rt_0 - __pyx_v_p_rc_0), 2.0))));
 
-    /* "uplift/tree/_criterion.pyx":610
+    /* "uplift/tree/_criterion.pyx":611
  *             val_impurity_right += p_r * ((p_rt_1 - p_rc_1)**2 + (p_rt_0 - p_rc_0)**2)
  * 
  *             sum_left += self.sum_stride             # <<<<<<<<<<<<<<
@@ -5181,7 +5181,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_children_impurity(st
  */
     __pyx_v_sum_left = (__pyx_v_sum_left + __pyx_v_self->__pyx_base.sum_stride);
 
-    /* "uplift/tree/_criterion.pyx":611
+    /* "uplift/tree/_criterion.pyx":612
  * 
  *             sum_left += self.sum_stride
  *             sum_right += self.sum_stride             # <<<<<<<<<<<<<<
@@ -5191,7 +5191,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_children_impurity(st
     __pyx_v_sum_right = (__pyx_v_sum_right + __pyx_v_self->__pyx_base.sum_stride);
   }
 
-  /* "uplift/tree/_criterion.pyx":614
+  /* "uplift/tree/_criterion.pyx":615
  * 
  * 
  *         impurity_left[0] = val_impurity_left             # <<<<<<<<<<<<<<
@@ -5200,7 +5200,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_children_impurity(st
  */
   (__pyx_v_impurity_left[0]) = __pyx_v_val_impurity_left;
 
-  /* "uplift/tree/_criterion.pyx":615
+  /* "uplift/tree/_criterion.pyx":616
  * 
  *         impurity_left[0] = val_impurity_left
  *         impurity_right[0] = val_impurity_right             # <<<<<<<<<<<<<<
@@ -5209,7 +5209,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_children_impurity(st
  */
   (__pyx_v_impurity_right[0]) = __pyx_v_val_impurity_right;
 
-  /* "uplift/tree/_criterion.pyx":537
+  /* "uplift/tree/_criterion.pyx":538
  * 
  * 
  *     cdef void children_impurity(self, double* impurity_left, double* impurity_right) nogil:             # <<<<<<<<<<<<<<
@@ -5220,7 +5220,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_children_impurity(st
   /* function exit code */
 }
 
-/* "uplift/tree/_criterion.pyx":617
+/* "uplift/tree/_criterion.pyx":618
  *         impurity_right[0] = val_impurity_right
  * 
  *     cdef double proxy_impurity_improvement(self) nogil:             # <<<<<<<<<<<<<<
@@ -5276,7 +5276,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_proxy_impurity_imp
   __pyx_t_6uplift_4tree_10_criterion_SIZE_t __pyx_t_4;
   __pyx_t_6uplift_4tree_10_criterion_SIZE_t __pyx_t_5;
 
-  /* "uplift/tree/_criterion.pyx":620
+  /* "uplift/tree/_criterion.pyx":621
  * 
  * 
  *         cdef SIZE_t* n_classes = self.n_classes             # <<<<<<<<<<<<<<
@@ -5286,7 +5286,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_proxy_impurity_imp
   __pyx_t_1 = __pyx_v_self->__pyx_base.n_classes;
   __pyx_v_n_classes = __pyx_t_1;
 
-  /* "uplift/tree/_criterion.pyx":621
+  /* "uplift/tree/_criterion.pyx":622
  * 
  *         cdef SIZE_t* n_classes = self.n_classes
  *         cdef double* sum_left = self.sum_left             # <<<<<<<<<<<<<<
@@ -5296,7 +5296,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_proxy_impurity_imp
   __pyx_t_2 = __pyx_v_self->__pyx_base.__pyx_base.sum_left;
   __pyx_v_sum_left = __pyx_t_2;
 
-  /* "uplift/tree/_criterion.pyx":622
+  /* "uplift/tree/_criterion.pyx":623
  *         cdef SIZE_t* n_classes = self.n_classes
  *         cdef double* sum_left = self.sum_left
  *         cdef double* sum_right = self.sum_right             # <<<<<<<<<<<<<<
@@ -5306,7 +5306,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_proxy_impurity_imp
   __pyx_t_2 = __pyx_v_self->__pyx_base.__pyx_base.sum_right;
   __pyx_v_sum_right = __pyx_t_2;
 
-  /* "uplift/tree/_criterion.pyx":623
+  /* "uplift/tree/_criterion.pyx":624
  *         cdef double* sum_left = self.sum_left
  *         cdef double* sum_right = self.sum_right
  *         cdef double impurity_improvement = 0.0             # <<<<<<<<<<<<<<
@@ -5315,7 +5315,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_proxy_impurity_imp
  */
   __pyx_v_impurity_improvement = 0.0;
 
-  /* "uplift/tree/_criterion.pyx":667
+  /* "uplift/tree/_criterion.pyx":668
  *         cdef double variance_t
  * 
  *         for k in range(self.n_outputs):             # <<<<<<<<<<<<<<
@@ -5327,7 +5327,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_proxy_impurity_imp
   for (__pyx_t_5 = 0; __pyx_t_5 < __pyx_t_4; __pyx_t_5+=1) {
     __pyx_v_k = __pyx_t_5;
 
-    /* "uplift/tree/_criterion.pyx":669
+    /* "uplift/tree/_criterion.pyx":670
  *         for k in range(self.n_outputs):
  * 
  *             n_lc0 = self.sum_left[0]             # <<<<<<<<<<<<<<
@@ -5336,7 +5336,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_proxy_impurity_imp
  */
     __pyx_v_n_lc0 = (__pyx_v_self->__pyx_base.__pyx_base.sum_left[0]);
 
-    /* "uplift/tree/_criterion.pyx":670
+    /* "uplift/tree/_criterion.pyx":671
  * 
  *             n_lc0 = self.sum_left[0]
  *             n_lc1 = self.sum_left[1]             # <<<<<<<<<<<<<<
@@ -5345,7 +5345,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_proxy_impurity_imp
  */
     __pyx_v_n_lc1 = (__pyx_v_self->__pyx_base.__pyx_base.sum_left[1]);
 
-    /* "uplift/tree/_criterion.pyx":671
+    /* "uplift/tree/_criterion.pyx":672
  *             n_lc0 = self.sum_left[0]
  *             n_lc1 = self.sum_left[1]
  *             n_lt0 = self.sum_left[2]             # <<<<<<<<<<<<<<
@@ -5354,7 +5354,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_proxy_impurity_imp
  */
     __pyx_v_n_lt0 = (__pyx_v_self->__pyx_base.__pyx_base.sum_left[2]);
 
-    /* "uplift/tree/_criterion.pyx":672
+    /* "uplift/tree/_criterion.pyx":673
  *             n_lc1 = self.sum_left[1]
  *             n_lt0 = self.sum_left[2]
  *             n_lt1 = self.sum_left[3]             # <<<<<<<<<<<<<<
@@ -5363,7 +5363,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_proxy_impurity_imp
  */
     __pyx_v_n_lt1 = (__pyx_v_self->__pyx_base.__pyx_base.sum_left[3]);
 
-    /* "uplift/tree/_criterion.pyx":674
+    /* "uplift/tree/_criterion.pyx":675
  *             n_lt1 = self.sum_left[3]
  * 
  *             n_rc0 = self.sum_right[0]             # <<<<<<<<<<<<<<
@@ -5372,7 +5372,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_proxy_impurity_imp
  */
     __pyx_v_n_rc0 = (__pyx_v_self->__pyx_base.__pyx_base.sum_right[0]);
 
-    /* "uplift/tree/_criterion.pyx":675
+    /* "uplift/tree/_criterion.pyx":676
  * 
  *             n_rc0 = self.sum_right[0]
  *             n_rc1 = self.sum_right[1]             # <<<<<<<<<<<<<<
@@ -5381,7 +5381,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_proxy_impurity_imp
  */
     __pyx_v_n_rc1 = (__pyx_v_self->__pyx_base.__pyx_base.sum_right[1]);
 
-    /* "uplift/tree/_criterion.pyx":676
+    /* "uplift/tree/_criterion.pyx":677
  *             n_rc0 = self.sum_right[0]
  *             n_rc1 = self.sum_right[1]
  *             n_rt0 = self.sum_right[2]             # <<<<<<<<<<<<<<
@@ -5390,7 +5390,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_proxy_impurity_imp
  */
     __pyx_v_n_rt0 = (__pyx_v_self->__pyx_base.__pyx_base.sum_right[2]);
 
-    /* "uplift/tree/_criterion.pyx":677
+    /* "uplift/tree/_criterion.pyx":678
  *             n_rc1 = self.sum_right[1]
  *             n_rt0 = self.sum_right[2]
  *             n_rt1 = self.sum_right[3]             # <<<<<<<<<<<<<<
@@ -5399,7 +5399,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_proxy_impurity_imp
  */
     __pyx_v_n_rt1 = (__pyx_v_self->__pyx_base.__pyx_base.sum_right[3]);
 
-    /* "uplift/tree/_criterion.pyx":679
+    /* "uplift/tree/_criterion.pyx":680
  *             n_rt1 = self.sum_right[3]
  * 
  *             n_lt = n_lt1 + n_lt0             # <<<<<<<<<<<<<<
@@ -5408,7 +5408,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_proxy_impurity_imp
  */
     __pyx_v_n_lt = (__pyx_v_n_lt1 + __pyx_v_n_lt0);
 
-    /* "uplift/tree/_criterion.pyx":680
+    /* "uplift/tree/_criterion.pyx":681
  * 
  *             n_lt = n_lt1 + n_lt0
  *             n_rt = n_rt1 + n_rt0             # <<<<<<<<<<<<<<
@@ -5417,7 +5417,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_proxy_impurity_imp
  */
     __pyx_v_n_rt = (__pyx_v_n_rt1 + __pyx_v_n_rt0);
 
-    /* "uplift/tree/_criterion.pyx":681
+    /* "uplift/tree/_criterion.pyx":682
  *             n_lt = n_lt1 + n_lt0
  *             n_rt = n_rt1 + n_rt0
  *             n_lc = n_lc1 + n_lc0             # <<<<<<<<<<<<<<
@@ -5426,7 +5426,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_proxy_impurity_imp
  */
     __pyx_v_n_lc = (__pyx_v_n_lc1 + __pyx_v_n_lc0);
 
-    /* "uplift/tree/_criterion.pyx":682
+    /* "uplift/tree/_criterion.pyx":683
  *             n_rt = n_rt1 + n_rt0
  *             n_lc = n_lc1 + n_lc0
  *             n_rc = n_rc1 + n_rc0             # <<<<<<<<<<<<<<
@@ -5435,7 +5435,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_proxy_impurity_imp
  */
     __pyx_v_n_rc = (__pyx_v_n_rc1 + __pyx_v_n_rc0);
 
-    /* "uplift/tree/_criterion.pyx":684
+    /* "uplift/tree/_criterion.pyx":685
  *             n_rc = n_rc1 + n_rc0
  * 
  *             n_t = n_lt + n_rt             # <<<<<<<<<<<<<<
@@ -5444,7 +5444,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_proxy_impurity_imp
  */
     __pyx_v_n_t = (__pyx_v_n_lt + __pyx_v_n_rt);
 
-    /* "uplift/tree/_criterion.pyx":685
+    /* "uplift/tree/_criterion.pyx":686
  * 
  *             n_t = n_lt + n_rt
  *             n_c = n_lc + n_rc             # <<<<<<<<<<<<<<
@@ -5453,7 +5453,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_proxy_impurity_imp
  */
     __pyx_v_n_c = (__pyx_v_n_lc + __pyx_v_n_rc);
 
-    /* "uplift/tree/_criterion.pyx":687
+    /* "uplift/tree/_criterion.pyx":688
  *             n_c = n_lc + n_rc
  * 
  *             n = n_t + n_c             # <<<<<<<<<<<<<<
@@ -5462,7 +5462,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_proxy_impurity_imp
  */
     __pyx_v_n = (__pyx_v_n_t + __pyx_v_n_c);
 
-    /* "uplift/tree/_criterion.pyx":689
+    /* "uplift/tree/_criterion.pyx":690
  *             n = n_t + n_c
  * 
  *             p_t_l = (n_lt + 0.5) / (n_t + 1)             # <<<<<<<<<<<<<<
@@ -5471,7 +5471,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_proxy_impurity_imp
  */
     __pyx_v_p_t_l = ((__pyx_v_n_lt + 0.5) / (__pyx_v_n_t + 1.0));
 
-    /* "uplift/tree/_criterion.pyx":690
+    /* "uplift/tree/_criterion.pyx":691
  * 
  *             p_t_l = (n_lt + 0.5) / (n_t + 1)
  *             p_t_r = 1 - p_t_l             # <<<<<<<<<<<<<<
@@ -5480,7 +5480,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_proxy_impurity_imp
  */
     __pyx_v_p_t_r = (1.0 - __pyx_v_p_t_l);
 
-    /* "uplift/tree/_criterion.pyx":691
+    /* "uplift/tree/_criterion.pyx":692
  *             p_t_l = (n_lt + 0.5) / (n_t + 1)
  *             p_t_r = 1 - p_t_l
  *             p_c_l = (n_lc + 0.5) / (n_c + 1)             # <<<<<<<<<<<<<<
@@ -5489,7 +5489,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_proxy_impurity_imp
  */
     __pyx_v_p_c_l = ((__pyx_v_n_lc + 0.5) / (__pyx_v_n_c + 1.0));
 
-    /* "uplift/tree/_criterion.pyx":692
+    /* "uplift/tree/_criterion.pyx":693
  *             p_t_r = 1 - p_t_l
  *             p_c_l = (n_lc + 0.5) / (n_c + 1)
  *             p_c_r = 1 - p_c_l             # <<<<<<<<<<<<<<
@@ -5498,7 +5498,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_proxy_impurity_imp
  */
     __pyx_v_p_c_r = (1.0 - __pyx_v_p_c_l);
 
-    /* "uplift/tree/_criterion.pyx":694
+    /* "uplift/tree/_criterion.pyx":695
  *             p_c_r = 1 - p_c_l
  * 
  *             p_t = (n_t + 0.5) / (n + 1)             # <<<<<<<<<<<<<<
@@ -5507,7 +5507,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_proxy_impurity_imp
  */
     __pyx_v_p_t = ((__pyx_v_n_t + 0.5) / (__pyx_v_n + 1.0));
 
-    /* "uplift/tree/_criterion.pyx":695
+    /* "uplift/tree/_criterion.pyx":696
  * 
  *             p_t = (n_t + 0.5) / (n + 1)
  *             p_c = 1 - p_t             # <<<<<<<<<<<<<<
@@ -5516,7 +5516,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_proxy_impurity_imp
  */
     __pyx_v_p_c = (1.0 - __pyx_v_p_t);
 
-    /* "uplift/tree/_criterion.pyx":700
+    /* "uplift/tree/_criterion.pyx":701
  * 
  *             #calculate for treatment group left node
  *             react_rate_t = (n_lt + 0.5) / (n_t + 0.1)             # <<<<<<<<<<<<<<
@@ -5525,7 +5525,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_proxy_impurity_imp
  */
     __pyx_v_react_rate_t = ((__pyx_v_n_lt + 0.5) / (__pyx_v_n_t + 0.1));
 
-    /* "uplift/tree/_criterion.pyx":701
+    /* "uplift/tree/_criterion.pyx":702
  *             #calculate for treatment group left node
  *             react_rate_t = (n_lt + 0.5) / (n_t + 0.1)
  *             variance_t = 0.0             # <<<<<<<<<<<<<<
@@ -5534,7 +5534,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_proxy_impurity_imp
  */
     __pyx_v_variance_t = 0.0;
 
-    /* "uplift/tree/_criterion.pyx":702
+    /* "uplift/tree/_criterion.pyx":703
  *             react_rate_t = (n_lt + 0.5) / (n_t + 0.1)
  *             variance_t = 0.0
  *             variance_t += (n_t * n_t * react_rate_t * (1 - react_rate_t)) / (n_lt * (n_t - n_lt) * (n_t - 1))             # <<<<<<<<<<<<<<
@@ -5543,7 +5543,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_proxy_impurity_imp
  */
     __pyx_v_variance_t = (__pyx_v_variance_t + ((((__pyx_v_n_t * __pyx_v_n_t) * __pyx_v_react_rate_t) * (1.0 - __pyx_v_react_rate_t)) / ((__pyx_v_n_lt * (__pyx_v_n_t - __pyx_v_n_lt)) * (__pyx_v_n_t - 1.0))));
 
-    /* "uplift/tree/_criterion.pyx":704
+    /* "uplift/tree/_criterion.pyx":705
  *             variance_t += (n_t * n_t * react_rate_t * (1 - react_rate_t)) / (n_lt * (n_t - n_lt) * (n_t - 1))
  *             #calculate for control group left node
  *             react_rate_c = (n_lc + 0.5) / (n_c + 0.1)             # <<<<<<<<<<<<<<
@@ -5552,7 +5552,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_proxy_impurity_imp
  */
     __pyx_v_react_rate_c = ((__pyx_v_n_lc + 0.5) / (__pyx_v_n_c + 0.1));
 
-    /* "uplift/tree/_criterion.pyx":705
+    /* "uplift/tree/_criterion.pyx":706
  *             #calculate for control group left node
  *             react_rate_c = (n_lc + 0.5) / (n_c + 0.1)
  *             variance_c = 0.0             # <<<<<<<<<<<<<<
@@ -5561,7 +5561,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_proxy_impurity_imp
  */
     __pyx_v_variance_c = 0.0;
 
-    /* "uplift/tree/_criterion.pyx":706
+    /* "uplift/tree/_criterion.pyx":707
  *             react_rate_c = (n_lc + 0.5) / (n_c + 0.1)
  *             variance_c = 0.0
  *             variance_c += (n_c * n_c * react_rate_c * (1 - react_rate_c)) / (n_lc * (n_c - n_lc) * (n_c - 1))             # <<<<<<<<<<<<<<
@@ -5570,34 +5570,43 @@ static double __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_proxy_impurity_imp
  */
     __pyx_v_variance_c = (__pyx_v_variance_c + ((((__pyx_v_n_c * __pyx_v_n_c) * __pyx_v_react_rate_c) * (1.0 - __pyx_v_react_rate_c)) / ((__pyx_v_n_lc * (__pyx_v_n_c - __pyx_v_n_lc)) * (__pyx_v_n_c - 1.0))));
 
-    /* "uplift/tree/_criterion.pyx":708
+    /* "uplift/tree/_criterion.pyx":709
  *             variance_c += (n_c * n_c * react_rate_c * (1 - react_rate_c)) / (n_lc * (n_c - n_lc) * (n_c - 1))
  *             #calculate full variance and p_value
  *             full_variance = variance_t + variance_c             # <<<<<<<<<<<<<<
  *             p_value = ((p_t_l - p_c_l) - (p_t_r - p_c_r)) / sqrt(full_variance)
- *             self.p_value = p_value
+ * 
  */
     __pyx_v_full_variance = (__pyx_v_variance_t + __pyx_v_variance_c);
 
-    /* "uplift/tree/_criterion.pyx":709
+    /* "uplift/tree/_criterion.pyx":710
  *             #calculate full variance and p_value
  *             full_variance = variance_t + variance_c
  *             p_value = ((p_t_l - p_c_l) - (p_t_r - p_c_r)) / sqrt(full_variance)             # <<<<<<<<<<<<<<
- *             self.p_value = p_value
  * 
+ *             printf("here")
  */
     __pyx_v_p_value = (((__pyx_v_p_t_l - __pyx_v_p_c_l) - (__pyx_v_p_t_r - __pyx_v_p_c_r)) / sqrt(__pyx_v_full_variance));
 
-    /* "uplift/tree/_criterion.pyx":710
- *             full_variance = variance_t + variance_c
+    /* "uplift/tree/_criterion.pyx":712
  *             p_value = ((p_t_l - p_c_l) - (p_t_r - p_c_r)) / sqrt(full_variance)
+ * 
+ *             printf("here")             # <<<<<<<<<<<<<<
+ *             self.p_value = p_value
+ * 
+ */
+    (void)(printf(((char const *)"here")));
+
+    /* "uplift/tree/_criterion.pyx":713
+ * 
+ *             printf("here")
  *             self.p_value = p_value             # <<<<<<<<<<<<<<
  * 
  * 
  */
     __pyx_v_self->__pyx_base.p_value = __pyx_v_p_value;
 
-    /* "uplift/tree/_criterion.pyx":714
+    /* "uplift/tree/_criterion.pyx":717
  * 
  *             # E_gain
  *             self.children_impurity(&impurity_left, &impurity_right)             # <<<<<<<<<<<<<<
@@ -5606,7 +5615,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_proxy_impurity_imp
  */
     ((struct __pyx_vtabstruct_6uplift_4tree_10_criterion_UpliftGini *)__pyx_v_self->__pyx_base.__pyx_base.__pyx_vtab)->__pyx_base.__pyx_base.children_impurity(((struct __pyx_obj_6uplift_4tree_10_criterion_Criterion *)__pyx_v_self), (&__pyx_v_impurity_left), (&__pyx_v_impurity_right));
 
-    /* "uplift/tree/_criterion.pyx":715
+    /* "uplift/tree/_criterion.pyx":718
  *             # E_gain
  *             self.children_impurity(&impurity_left, &impurity_right)
  *             E_gain = impurity_left + impurity_right  - self.node_impurity()             # <<<<<<<<<<<<<<
@@ -5615,7 +5624,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_proxy_impurity_imp
  */
     __pyx_v_E_gain = ((__pyx_v_impurity_left + __pyx_v_impurity_right) - ((struct __pyx_vtabstruct_6uplift_4tree_10_criterion_UpliftGini *)__pyx_v_self->__pyx_base.__pyx_base.__pyx_vtab)->__pyx_base.__pyx_base.node_impurity(((struct __pyx_obj_6uplift_4tree_10_criterion_Criterion *)__pyx_v_self)));
 
-    /* "uplift/tree/_criterion.pyx":718
+    /* "uplift/tree/_criterion.pyx":721
  * 
  *             # J penalty
  *             Gini = p_t * p_c             # <<<<<<<<<<<<<<
@@ -5624,7 +5633,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_proxy_impurity_imp
  */
     __pyx_v_Gini = (__pyx_v_p_t * __pyx_v_p_c);
 
-    /* "uplift/tree/_criterion.pyx":719
+    /* "uplift/tree/_criterion.pyx":722
  *             # J penalty
  *             Gini = p_t * p_c
  *             E = (p_t_l - p_c_l)**2 + (p_t_r - p_c_r)**2             # <<<<<<<<<<<<<<
@@ -5633,7 +5642,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_proxy_impurity_imp
  */
     __pyx_v_E = (pow((__pyx_v_p_t_l - __pyx_v_p_c_l), 2.0) + pow((__pyx_v_p_t_r - __pyx_v_p_c_r), 2.0));
 
-    /* "uplift/tree/_criterion.pyx":720
+    /* "uplift/tree/_criterion.pyx":723
  *             Gini = p_t * p_c
  *             E = (p_t_l - p_c_l)**2 + (p_t_r - p_c_r)**2
  *             Gini_t = p_t * p_t_l * p_t_r             # <<<<<<<<<<<<<<
@@ -5642,7 +5651,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_proxy_impurity_imp
  */
     __pyx_v_Gini_t = ((__pyx_v_p_t * __pyx_v_p_t_l) * __pyx_v_p_t_r);
 
-    /* "uplift/tree/_criterion.pyx":721
+    /* "uplift/tree/_criterion.pyx":724
  *             E = (p_t_l - p_c_l)**2 + (p_t_r - p_c_r)**2
  *             Gini_t = p_t * p_t_l * p_t_r
  *             Gini_c = p_c * p_c_l * p_c_r             # <<<<<<<<<<<<<<
@@ -5651,7 +5660,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_proxy_impurity_imp
  */
     __pyx_v_Gini_c = ((__pyx_v_p_c * __pyx_v_p_c_l) * __pyx_v_p_c_r);
 
-    /* "uplift/tree/_criterion.pyx":722
+    /* "uplift/tree/_criterion.pyx":725
  *             Gini_t = p_t * p_t_l * p_t_r
  *             Gini_c = p_c * p_c_l * p_c_r
  *             J = Gini * E + Gini_t + Gini_c + 0.5             # <<<<<<<<<<<<<<
@@ -5660,7 +5669,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_proxy_impurity_imp
  */
     __pyx_v_J = ((((__pyx_v_Gini * __pyx_v_E) + __pyx_v_Gini_t) + __pyx_v_Gini_c) + 0.5);
 
-    /* "uplift/tree/_criterion.pyx":724
+    /* "uplift/tree/_criterion.pyx":727
  *             J = Gini * E + Gini_t + Gini_c + 0.5
  * 
  *             impurity_improvement += (E_gain / J)             # <<<<<<<<<<<<<<
@@ -5669,7 +5678,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_proxy_impurity_imp
  */
     __pyx_v_impurity_improvement = (__pyx_v_impurity_improvement + (__pyx_v_E_gain / __pyx_v_J));
 
-    /* "uplift/tree/_criterion.pyx":726
+    /* "uplift/tree/_criterion.pyx":729
  *             impurity_improvement += (E_gain / J)
  * 
  *             sum_left += self.sum_stride             # <<<<<<<<<<<<<<
@@ -5678,7 +5687,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_proxy_impurity_imp
  */
     __pyx_v_sum_left = (__pyx_v_sum_left + __pyx_v_self->__pyx_base.sum_stride);
 
-    /* "uplift/tree/_criterion.pyx":727
+    /* "uplift/tree/_criterion.pyx":730
  * 
  *             sum_left += self.sum_stride
  *             sum_right += self.sum_stride             # <<<<<<<<<<<<<<
@@ -5688,7 +5697,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_proxy_impurity_imp
     __pyx_v_sum_right = (__pyx_v_sum_right + __pyx_v_self->__pyx_base.sum_stride);
   }
 
-  /* "uplift/tree/_criterion.pyx":729
+  /* "uplift/tree/_criterion.pyx":732
  *             sum_right += self.sum_stride
  * 
  *         return impurity_improvement             # <<<<<<<<<<<<<<
@@ -5698,7 +5707,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_proxy_impurity_imp
   __pyx_r = __pyx_v_impurity_improvement;
   goto __pyx_L0;
 
-  /* "uplift/tree/_criterion.pyx":617
+  /* "uplift/tree/_criterion.pyx":618
  *         impurity_right[0] = val_impurity_right
  * 
  *     cdef double proxy_impurity_improvement(self) nogil:             # <<<<<<<<<<<<<<
@@ -5711,7 +5720,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_10UpliftGini_proxy_impurity_imp
   return __pyx_r;
 }
 
-/* "uplift/tree/_criterion.pyx":736
+/* "uplift/tree/_criterion.pyx":739
  *     """
  * 
  *     cdef double node_impurity(self) nogil:             # <<<<<<<<<<<<<<
@@ -5741,7 +5750,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_no
   __pyx_t_6uplift_4tree_10_criterion_SIZE_t __pyx_t_3;
   __pyx_t_6uplift_4tree_10_criterion_SIZE_t __pyx_t_4;
 
-  /* "uplift/tree/_criterion.pyx":740
+  /* "uplift/tree/_criterion.pyx":743
  *         samples[start:end], using the cross-entropy criterion."""
  * 
  *         cdef double* sum_total = self.sum_total             # <<<<<<<<<<<<<<
@@ -5751,7 +5760,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_no
   __pyx_t_1 = __pyx_v_self->__pyx_base.__pyx_base.sum_total;
   __pyx_v_sum_total = __pyx_t_1;
 
-  /* "uplift/tree/_criterion.pyx":741
+  /* "uplift/tree/_criterion.pyx":744
  * 
  *         cdef double* sum_total = self.sum_total
  *         cdef double impurity = 0.0             # <<<<<<<<<<<<<<
@@ -5760,7 +5769,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_no
  */
   __pyx_v_impurity = 0.0;
 
-  /* "uplift/tree/_criterion.pyx":763
+  /* "uplift/tree/_criterion.pyx":766
  * 
  *         #  p_t_0 - p_c_0 = p_t_1 - p_c_0
  *         for k in range(self.n_outputs):             # <<<<<<<<<<<<<<
@@ -5772,7 +5781,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_no
   for (__pyx_t_4 = 0; __pyx_t_4 < __pyx_t_3; __pyx_t_4+=1) {
     __pyx_v_k = __pyx_t_4;
 
-    /* "uplift/tree/_criterion.pyx":765
+    /* "uplift/tree/_criterion.pyx":768
  *         for k in range(self.n_outputs):
  * 
  *             n_c0 = sum_total[0]             # <<<<<<<<<<<<<<
@@ -5781,7 +5790,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_no
  */
     __pyx_v_n_c0 = (__pyx_v_sum_total[0]);
 
-    /* "uplift/tree/_criterion.pyx":766
+    /* "uplift/tree/_criterion.pyx":769
  * 
  *             n_c0 = sum_total[0]
  *             n_c1 = sum_total[1]             # <<<<<<<<<<<<<<
@@ -5790,7 +5799,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_no
  */
     __pyx_v_n_c1 = (__pyx_v_sum_total[1]);
 
-    /* "uplift/tree/_criterion.pyx":767
+    /* "uplift/tree/_criterion.pyx":770
  *             n_c0 = sum_total[0]
  *             n_c1 = sum_total[1]
  *             n_t0 = sum_total[2]             # <<<<<<<<<<<<<<
@@ -5799,7 +5808,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_no
  */
     __pyx_v_n_t0 = (__pyx_v_sum_total[2]);
 
-    /* "uplift/tree/_criterion.pyx":768
+    /* "uplift/tree/_criterion.pyx":771
  *             n_c1 = sum_total[1]
  *             n_t0 = sum_total[2]
  *             n_t1 = sum_total[3]             # <<<<<<<<<<<<<<
@@ -5808,7 +5817,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_no
  */
     __pyx_v_n_t1 = (__pyx_v_sum_total[3]);
 
-    /* "uplift/tree/_criterion.pyx":770
+    /* "uplift/tree/_criterion.pyx":773
  *             n_t1 = sum_total[3]
  * 
  *             n_t = n_t0 + n_t1             # <<<<<<<<<<<<<<
@@ -5817,7 +5826,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_no
  */
     __pyx_v_n_t = (__pyx_v_n_t0 + __pyx_v_n_t1);
 
-    /* "uplift/tree/_criterion.pyx":771
+    /* "uplift/tree/_criterion.pyx":774
  * 
  *             n_t = n_t0 + n_t1
  *             n_c = n_c0 + n_c1             # <<<<<<<<<<<<<<
@@ -5826,7 +5835,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_no
  */
     __pyx_v_n_c = (__pyx_v_n_c0 + __pyx_v_n_c1);
 
-    /* "uplift/tree/_criterion.pyx":773
+    /* "uplift/tree/_criterion.pyx":776
  *             n_c = n_c0 + n_c1
  * 
  *             p_t_1 = (n_t1 + 0.5) / (n_t + 1)    ## +0.5  + 1 ???             # <<<<<<<<<<<<<<
@@ -5835,7 +5844,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_no
  */
     __pyx_v_p_t_1 = ((__pyx_v_n_t1 + 0.5) / (__pyx_v_n_t + 1.0));
 
-    /* "uplift/tree/_criterion.pyx":774
+    /* "uplift/tree/_criterion.pyx":777
  * 
  *             p_t_1 = (n_t1 + 0.5) / (n_t + 1)    ## +0.5  + 1 ???
  *             p_t_0 = 1 - p_t_1             # <<<<<<<<<<<<<<
@@ -5844,7 +5853,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_no
  */
     __pyx_v_p_t_0 = (1.0 - __pyx_v_p_t_1);
 
-    /* "uplift/tree/_criterion.pyx":775
+    /* "uplift/tree/_criterion.pyx":778
  *             p_t_1 = (n_t1 + 0.5) / (n_t + 1)    ## +0.5  + 1 ???
  *             p_t_0 = 1 - p_t_1
  *             p_c_1 = (n_c1 + 0.5) / (n_c + 1)             # <<<<<<<<<<<<<<
@@ -5853,7 +5862,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_no
  */
     __pyx_v_p_c_1 = ((__pyx_v_n_c1 + 0.5) / (__pyx_v_n_c + 1.0));
 
-    /* "uplift/tree/_criterion.pyx":776
+    /* "uplift/tree/_criterion.pyx":779
  *             p_t_0 = 1 - p_t_1
  *             p_c_1 = (n_c1 + 0.5) / (n_c + 1)
  *             p_c_0 = 1 - p_c_1             # <<<<<<<<<<<<<<
@@ -5862,7 +5871,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_no
  */
     __pyx_v_p_c_0 = (1.0 - __pyx_v_p_c_1);
 
-    /* "uplift/tree/_criterion.pyx":778
+    /* "uplift/tree/_criterion.pyx":781
  *             p_c_0 = 1 - p_c_1
  * 
  *             C_44 = (1 / n_t0) + (1 / n_t1) + (1/ n_c0) + (1 / n_c1)             # <<<<<<<<<<<<<<
@@ -5871,7 +5880,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_no
  */
     __pyx_v_C_44 = ((((1.0 / __pyx_v_n_t0) + (1.0 / __pyx_v_n_t1)) + (1.0 / __pyx_v_n_c0)) + (1.0 / __pyx_v_n_c1));
 
-    /* "uplift/tree/_criterion.pyx":779
+    /* "uplift/tree/_criterion.pyx":782
  * 
  *             C_44 = (1 / n_t0) + (1 / n_t1) + (1/ n_c0) + (1 / n_c1)
  *             SSE = n_t0 * p_t_0 * (1 - p_t_0) + n_t1 * p_t_1 * (1 - p_t_1) + n_c0 * p_c_0 * (1 - p_c_0) + n_c1 * p_c_1 * (1 - p_c_1)             # <<<<<<<<<<<<<<
@@ -5880,7 +5889,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_no
  */
     __pyx_v_SSE = (((((__pyx_v_n_t0 * __pyx_v_p_t_0) * (1.0 - __pyx_v_p_t_0)) + ((__pyx_v_n_t1 * __pyx_v_p_t_1) * (1.0 - __pyx_v_p_t_1))) + ((__pyx_v_n_c0 * __pyx_v_p_c_0) * (1.0 - __pyx_v_p_c_0))) + ((__pyx_v_n_c1 * __pyx_v_p_c_1) * (1.0 - __pyx_v_p_c_1)));
 
-    /* "uplift/tree/_criterion.pyx":781
+    /* "uplift/tree/_criterion.pyx":784
  *             SSE = n_t0 * p_t_0 * (1 - p_t_0) + n_t1 * p_t_1 * (1 - p_t_1) + n_c0 * p_c_0 * (1 - p_c_0) + n_c1 * p_c_1 * (1 - p_c_1)
  * 
  *             impurity += ((n_t + n_c - 4)*( p_t_0 - p_c_0 - (p_t_1 - p_c_1))**2 ) / (C_44 * SSE)             # <<<<<<<<<<<<<<
@@ -5889,7 +5898,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_no
  */
     __pyx_v_impurity = (__pyx_v_impurity + ((((__pyx_v_n_t + __pyx_v_n_c) - 4.0) * pow(((__pyx_v_p_t_0 - __pyx_v_p_c_0) - (__pyx_v_p_t_1 - __pyx_v_p_c_1)), 2.0)) / (__pyx_v_C_44 * __pyx_v_SSE)));
 
-    /* "uplift/tree/_criterion.pyx":783
+    /* "uplift/tree/_criterion.pyx":786
  *             impurity += ((n_t + n_c - 4)*( p_t_0 - p_c_0 - (p_t_1 - p_c_1))**2 ) / (C_44 * SSE)
  * 
  *             sum_total += self.sum_stride             # <<<<<<<<<<<<<<
@@ -5899,7 +5908,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_no
     __pyx_v_sum_total = (__pyx_v_sum_total + __pyx_v_self->__pyx_base.sum_stride);
   }
 
-  /* "uplift/tree/_criterion.pyx":785
+  /* "uplift/tree/_criterion.pyx":788
  *             sum_total += self.sum_stride
  * 
  *         return impurity             # <<<<<<<<<<<<<<
@@ -5909,7 +5918,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_no
   __pyx_r = __pyx_v_impurity;
   goto __pyx_L0;
 
-  /* "uplift/tree/_criterion.pyx":736
+  /* "uplift/tree/_criterion.pyx":739
  *     """
  * 
  *     cdef double node_impurity(self) nogil:             # <<<<<<<<<<<<<<
@@ -5922,7 +5931,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_no
   return __pyx_r;
 }
 
-/* "uplift/tree/_criterion.pyx":789
+/* "uplift/tree/_criterion.pyx":792
  * 
  * 
  *     cdef void children_impurity(self, double* impurity_left, double* impurity_right) nogil:             # <<<<<<<<<<<<<<
@@ -5966,7 +5975,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_chil
   __pyx_t_6uplift_4tree_10_criterion_SIZE_t __pyx_t_3;
   __pyx_t_6uplift_4tree_10_criterion_SIZE_t __pyx_t_4;
 
-  /* "uplift/tree/_criterion.pyx":791
+  /* "uplift/tree/_criterion.pyx":794
  *     cdef void children_impurity(self, double* impurity_left, double* impurity_right) nogil:
  * 
  *         cdef double* sum_left = self.sum_left             # <<<<<<<<<<<<<<
@@ -5976,7 +5985,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_chil
   __pyx_t_1 = __pyx_v_self->__pyx_base.__pyx_base.sum_left;
   __pyx_v_sum_left = __pyx_t_1;
 
-  /* "uplift/tree/_criterion.pyx":792
+  /* "uplift/tree/_criterion.pyx":795
  * 
  *         cdef double* sum_left = self.sum_left
  *         cdef double* sum_right = self.sum_right             # <<<<<<<<<<<<<<
@@ -5986,7 +5995,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_chil
   __pyx_t_1 = __pyx_v_self->__pyx_base.__pyx_base.sum_right;
   __pyx_v_sum_right = __pyx_t_1;
 
-  /* "uplift/tree/_criterion.pyx":793
+  /* "uplift/tree/_criterion.pyx":796
  *         cdef double* sum_left = self.sum_left
  *         cdef double* sum_right = self.sum_right
  *         cdef double val_impurity_left = 0.0             # <<<<<<<<<<<<<<
@@ -5995,7 +6004,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_chil
  */
   __pyx_v_val_impurity_left = 0.0;
 
-  /* "uplift/tree/_criterion.pyx":794
+  /* "uplift/tree/_criterion.pyx":797
  *         cdef double* sum_right = self.sum_right
  *         cdef double val_impurity_left = 0.0
  *         cdef double val_impurity_right = 0.0             # <<<<<<<<<<<<<<
@@ -6004,7 +6013,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_chil
  */
   __pyx_v_val_impurity_right = 0.0;
 
-  /* "uplift/tree/_criterion.pyx":824
+  /* "uplift/tree/_criterion.pyx":827
  *         cdef double p_r
  * 
  *         for k in range(self.n_outputs):             # <<<<<<<<<<<<<<
@@ -6016,7 +6025,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_chil
   for (__pyx_t_4 = 0; __pyx_t_4 < __pyx_t_3; __pyx_t_4+=1) {
     __pyx_v_k = __pyx_t_4;
 
-    /* "uplift/tree/_criterion.pyx":826
+    /* "uplift/tree/_criterion.pyx":829
  *         for k in range(self.n_outputs):
  * 
  *             n_lc0 = self.sum_left[0]             # <<<<<<<<<<<<<<
@@ -6025,7 +6034,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_chil
  */
     __pyx_v_n_lc0 = (__pyx_v_self->__pyx_base.__pyx_base.sum_left[0]);
 
-    /* "uplift/tree/_criterion.pyx":827
+    /* "uplift/tree/_criterion.pyx":830
  * 
  *             n_lc0 = self.sum_left[0]
  *             n_lc1 = self.sum_left[1]             # <<<<<<<<<<<<<<
@@ -6034,7 +6043,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_chil
  */
     __pyx_v_n_lc1 = (__pyx_v_self->__pyx_base.__pyx_base.sum_left[1]);
 
-    /* "uplift/tree/_criterion.pyx":828
+    /* "uplift/tree/_criterion.pyx":831
  *             n_lc0 = self.sum_left[0]
  *             n_lc1 = self.sum_left[1]
  *             n_lt0 = self.sum_left[2]             # <<<<<<<<<<<<<<
@@ -6043,7 +6052,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_chil
  */
     __pyx_v_n_lt0 = (__pyx_v_self->__pyx_base.__pyx_base.sum_left[2]);
 
-    /* "uplift/tree/_criterion.pyx":829
+    /* "uplift/tree/_criterion.pyx":832
  *             n_lc1 = self.sum_left[1]
  *             n_lt0 = self.sum_left[2]
  *             n_lt1 = self.sum_left[3]             # <<<<<<<<<<<<<<
@@ -6052,7 +6061,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_chil
  */
     __pyx_v_n_lt1 = (__pyx_v_self->__pyx_base.__pyx_base.sum_left[3]);
 
-    /* "uplift/tree/_criterion.pyx":831
+    /* "uplift/tree/_criterion.pyx":834
  *             n_lt1 = self.sum_left[3]
  * 
  *             n_rc0 = self.sum_right[0]             # <<<<<<<<<<<<<<
@@ -6061,7 +6070,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_chil
  */
     __pyx_v_n_rc0 = (__pyx_v_self->__pyx_base.__pyx_base.sum_right[0]);
 
-    /* "uplift/tree/_criterion.pyx":832
+    /* "uplift/tree/_criterion.pyx":835
  * 
  *             n_rc0 = self.sum_right[0]
  *             n_rc1 = self.sum_right[1]             # <<<<<<<<<<<<<<
@@ -6070,7 +6079,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_chil
  */
     __pyx_v_n_rc1 = (__pyx_v_self->__pyx_base.__pyx_base.sum_right[1]);
 
-    /* "uplift/tree/_criterion.pyx":833
+    /* "uplift/tree/_criterion.pyx":836
  *             n_rc0 = self.sum_right[0]
  *             n_rc1 = self.sum_right[1]
  *             n_rt0 = self.sum_right[2]             # <<<<<<<<<<<<<<
@@ -6079,7 +6088,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_chil
  */
     __pyx_v_n_rt0 = (__pyx_v_self->__pyx_base.__pyx_base.sum_right[2]);
 
-    /* "uplift/tree/_criterion.pyx":834
+    /* "uplift/tree/_criterion.pyx":837
  *             n_rc1 = self.sum_right[1]
  *             n_rt0 = self.sum_right[2]
  *             n_rt1 = self.sum_right[3]             # <<<<<<<<<<<<<<
@@ -6088,7 +6097,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_chil
  */
     __pyx_v_n_rt1 = (__pyx_v_self->__pyx_base.__pyx_base.sum_right[3]);
 
-    /* "uplift/tree/_criterion.pyx":836
+    /* "uplift/tree/_criterion.pyx":839
  *             n_rt1 = self.sum_right[3]
  * 
  *             n_lt = n_lt1 + n_lt0             # <<<<<<<<<<<<<<
@@ -6097,7 +6106,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_chil
  */
     __pyx_v_n_lt = (__pyx_v_n_lt1 + __pyx_v_n_lt0);
 
-    /* "uplift/tree/_criterion.pyx":837
+    /* "uplift/tree/_criterion.pyx":840
  * 
  *             n_lt = n_lt1 + n_lt0
  *             n_rt = n_rt1 + n_rt0             # <<<<<<<<<<<<<<
@@ -6106,7 +6115,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_chil
  */
     __pyx_v_n_rt = (__pyx_v_n_rt1 + __pyx_v_n_rt0);
 
-    /* "uplift/tree/_criterion.pyx":838
+    /* "uplift/tree/_criterion.pyx":841
  *             n_lt = n_lt1 + n_lt0
  *             n_rt = n_rt1 + n_rt0
  *             n_lc = n_lc1 + n_lc0             # <<<<<<<<<<<<<<
@@ -6115,7 +6124,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_chil
  */
     __pyx_v_n_lc = (__pyx_v_n_lc1 + __pyx_v_n_lc0);
 
-    /* "uplift/tree/_criterion.pyx":839
+    /* "uplift/tree/_criterion.pyx":842
  *             n_rt = n_rt1 + n_rt0
  *             n_lc = n_lc1 + n_lc0
  *             n_rc = n_rc1 + n_rc0             # <<<<<<<<<<<<<<
@@ -6124,7 +6133,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_chil
  */
     __pyx_v_n_rc = (__pyx_v_n_rc1 + __pyx_v_n_rc0);
 
-    /* "uplift/tree/_criterion.pyx":841
+    /* "uplift/tree/_criterion.pyx":844
  *             n_rc = n_rc1 + n_rc0
  * 
  *             n_l = n_lt + n_lc             # <<<<<<<<<<<<<<
@@ -6133,7 +6142,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_chil
  */
     __pyx_v_n_l = (__pyx_v_n_lt + __pyx_v_n_lc);
 
-    /* "uplift/tree/_criterion.pyx":842
+    /* "uplift/tree/_criterion.pyx":845
  * 
  *             n_l = n_lt + n_lc
  *             n_r = n_rt + n_rc             # <<<<<<<<<<<<<<
@@ -6142,7 +6151,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_chil
  */
     __pyx_v_n_r = (__pyx_v_n_rt + __pyx_v_n_rc);
 
-    /* "uplift/tree/_criterion.pyx":844
+    /* "uplift/tree/_criterion.pyx":847
  *             n_r = n_rt + n_rc
  * 
  *             n = n_l + n_r             # <<<<<<<<<<<<<<
@@ -6151,7 +6160,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_chil
  */
     __pyx_v_n = (__pyx_v_n_l + __pyx_v_n_r);
 
-    /* "uplift/tree/_criterion.pyx":846
+    /* "uplift/tree/_criterion.pyx":849
  *             n = n_l + n_r
  * 
  *             p_lt_1 = (n_lt1 + 0.5) / (n_lt + 1)             # <<<<<<<<<<<<<<
@@ -6160,7 +6169,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_chil
  */
     __pyx_v_p_lt_1 = ((__pyx_v_n_lt1 + 0.5) / (__pyx_v_n_lt + 1.0));
 
-    /* "uplift/tree/_criterion.pyx":847
+    /* "uplift/tree/_criterion.pyx":850
  * 
  *             p_lt_1 = (n_lt1 + 0.5) / (n_lt + 1)
  *             p_lt_0 = 1 - p_lt_1             # <<<<<<<<<<<<<<
@@ -6169,7 +6178,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_chil
  */
     __pyx_v_p_lt_0 = (1.0 - __pyx_v_p_lt_1);
 
-    /* "uplift/tree/_criterion.pyx":848
+    /* "uplift/tree/_criterion.pyx":851
  *             p_lt_1 = (n_lt1 + 0.5) / (n_lt + 1)
  *             p_lt_0 = 1 - p_lt_1
  *             p_lc_1 = (n_lc1 + 0.5) / (n_lc + 1)             # <<<<<<<<<<<<<<
@@ -6178,7 +6187,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_chil
  */
     __pyx_v_p_lc_1 = ((__pyx_v_n_lc1 + 0.5) / (__pyx_v_n_lc + 1.0));
 
-    /* "uplift/tree/_criterion.pyx":849
+    /* "uplift/tree/_criterion.pyx":852
  *             p_lt_0 = 1 - p_lt_1
  *             p_lc_1 = (n_lc1 + 0.5) / (n_lc + 1)
  *             p_lc_0 = 1 - p_lc_1             # <<<<<<<<<<<<<<
@@ -6187,7 +6196,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_chil
  */
     __pyx_v_p_lc_0 = (1.0 - __pyx_v_p_lc_1);
 
-    /* "uplift/tree/_criterion.pyx":850
+    /* "uplift/tree/_criterion.pyx":853
  *             p_lc_1 = (n_lc1 + 0.5) / (n_lc + 1)
  *             p_lc_0 = 1 - p_lc_1
  *             p_rt_1 = (n_rt1 + 0.5) / (n_rt + 1)             # <<<<<<<<<<<<<<
@@ -6196,7 +6205,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_chil
  */
     __pyx_v_p_rt_1 = ((__pyx_v_n_rt1 + 0.5) / (__pyx_v_n_rt + 1.0));
 
-    /* "uplift/tree/_criterion.pyx":851
+    /* "uplift/tree/_criterion.pyx":854
  *             p_lc_0 = 1 - p_lc_1
  *             p_rt_1 = (n_rt1 + 0.5) / (n_rt + 1)
  *             p_rt_0 = 1 - p_rt_1             # <<<<<<<<<<<<<<
@@ -6205,7 +6214,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_chil
  */
     __pyx_v_p_rt_0 = (1.0 - __pyx_v_p_rt_1);
 
-    /* "uplift/tree/_criterion.pyx":852
+    /* "uplift/tree/_criterion.pyx":855
  *             p_rt_1 = (n_rt1 + 0.5) / (n_rt + 1)
  *             p_rt_0 = 1 - p_rt_1
  *             p_rc_1 = (n_rc1 + 0.5) / (n_rc + 1)             # <<<<<<<<<<<<<<
@@ -6214,7 +6223,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_chil
  */
     __pyx_v_p_rc_1 = ((__pyx_v_n_rc1 + 0.5) / (__pyx_v_n_rc + 1.0));
 
-    /* "uplift/tree/_criterion.pyx":853
+    /* "uplift/tree/_criterion.pyx":856
  *             p_rt_0 = 1 - p_rt_1
  *             p_rc_1 = (n_rc1 + 0.5) / (n_rc + 1)
  *             p_rc_0 = 1 - p_rc_1             # <<<<<<<<<<<<<<
@@ -6223,7 +6232,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_chil
  */
     __pyx_v_p_rc_0 = (1.0 - __pyx_v_p_rc_1);
 
-    /* "uplift/tree/_criterion.pyx":855
+    /* "uplift/tree/_criterion.pyx":858
  *             p_rc_0 = 1 - p_rc_1
  * 
  *             p_l = (n_l + 0.5) / (n + 1)             # <<<<<<<<<<<<<<
@@ -6232,7 +6241,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_chil
  */
     __pyx_v_p_l = ((__pyx_v_n_l + 0.5) / (__pyx_v_n + 1.0));
 
-    /* "uplift/tree/_criterion.pyx":856
+    /* "uplift/tree/_criterion.pyx":859
  * 
  *             p_l = (n_l + 0.5) / (n + 1)
  *             p_r = 1 - p_l             # <<<<<<<<<<<<<<
@@ -6241,7 +6250,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_chil
  */
     __pyx_v_p_r = (1.0 - __pyx_v_p_l);
 
-    /* "uplift/tree/_criterion.pyx":858
+    /* "uplift/tree/_criterion.pyx":861
  *             p_r = 1 - p_l
  * 
  *             val_impurity_left += p_l * ((p_lt_1 - p_lc_1)**2 + (p_lt_0 - p_lc_0)**2)             # <<<<<<<<<<<<<<
@@ -6250,7 +6259,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_chil
  */
     __pyx_v_val_impurity_left = (__pyx_v_val_impurity_left + (__pyx_v_p_l * (pow((__pyx_v_p_lt_1 - __pyx_v_p_lc_1), 2.0) + pow((__pyx_v_p_lt_0 - __pyx_v_p_lc_0), 2.0))));
 
-    /* "uplift/tree/_criterion.pyx":859
+    /* "uplift/tree/_criterion.pyx":862
  * 
  *             val_impurity_left += p_l * ((p_lt_1 - p_lc_1)**2 + (p_lt_0 - p_lc_0)**2)
  *             val_impurity_right += p_r * ((p_rt_1 - p_rc_1)**2 + (p_rt_0 - p_rc_0)**2)             # <<<<<<<<<<<<<<
@@ -6259,7 +6268,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_chil
  */
     __pyx_v_val_impurity_right = (__pyx_v_val_impurity_right + (__pyx_v_p_r * (pow((__pyx_v_p_rt_1 - __pyx_v_p_rc_1), 2.0) + pow((__pyx_v_p_rt_0 - __pyx_v_p_rc_0), 2.0))));
 
-    /* "uplift/tree/_criterion.pyx":861
+    /* "uplift/tree/_criterion.pyx":864
  *             val_impurity_right += p_r * ((p_rt_1 - p_rc_1)**2 + (p_rt_0 - p_rc_0)**2)
  * 
  *             sum_left += self.sum_stride             # <<<<<<<<<<<<<<
@@ -6268,7 +6277,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_chil
  */
     __pyx_v_sum_left = (__pyx_v_sum_left + __pyx_v_self->__pyx_base.sum_stride);
 
-    /* "uplift/tree/_criterion.pyx":862
+    /* "uplift/tree/_criterion.pyx":865
  * 
  *             sum_left += self.sum_stride
  *             sum_right += self.sum_stride             # <<<<<<<<<<<<<<
@@ -6278,7 +6287,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_chil
     __pyx_v_sum_right = (__pyx_v_sum_right + __pyx_v_self->__pyx_base.sum_stride);
   }
 
-  /* "uplift/tree/_criterion.pyx":865
+  /* "uplift/tree/_criterion.pyx":868
  * 
  * 
  *         impurity_left[0] = val_impurity_left             # <<<<<<<<<<<<<<
@@ -6287,7 +6296,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_chil
  */
   (__pyx_v_impurity_left[0]) = __pyx_v_val_impurity_left;
 
-  /* "uplift/tree/_criterion.pyx":866
+  /* "uplift/tree/_criterion.pyx":869
  * 
  *         impurity_left[0] = val_impurity_left
  *         impurity_right[0] = val_impurity_right             # <<<<<<<<<<<<<<
@@ -6296,7 +6305,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_chil
  */
   (__pyx_v_impurity_right[0]) = __pyx_v_val_impurity_right;
 
-  /* "uplift/tree/_criterion.pyx":789
+  /* "uplift/tree/_criterion.pyx":792
  * 
  * 
  *     cdef void children_impurity(self, double* impurity_left, double* impurity_right) nogil:             # <<<<<<<<<<<<<<
@@ -6307,7 +6316,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_chil
   /* function exit code */
 }
 
-/* "uplift/tree/_criterion.pyx":868
+/* "uplift/tree/_criterion.pyx":871
  *         impurity_right[0] = val_impurity_right
  * 
  *     cdef double proxy_impurity_improvement(self) nogil:             # <<<<<<<<<<<<<<
@@ -6357,7 +6366,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_pr
   __pyx_t_6uplift_4tree_10_criterion_SIZE_t __pyx_t_4;
   __pyx_t_6uplift_4tree_10_criterion_SIZE_t __pyx_t_5;
 
-  /* "uplift/tree/_criterion.pyx":872
+  /* "uplift/tree/_criterion.pyx":875
  *         """
  * 
  *         cdef SIZE_t* n_classes = self.n_classes             # <<<<<<<<<<<<<<
@@ -6367,7 +6376,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_pr
   __pyx_t_1 = __pyx_v_self->__pyx_base.n_classes;
   __pyx_v_n_classes = __pyx_t_1;
 
-  /* "uplift/tree/_criterion.pyx":873
+  /* "uplift/tree/_criterion.pyx":876
  * 
  *         cdef SIZE_t* n_classes = self.n_classes
  *         cdef double* sum_left = self.sum_left             # <<<<<<<<<<<<<<
@@ -6377,7 +6386,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_pr
   __pyx_t_2 = __pyx_v_self->__pyx_base.__pyx_base.sum_left;
   __pyx_v_sum_left = __pyx_t_2;
 
-  /* "uplift/tree/_criterion.pyx":874
+  /* "uplift/tree/_criterion.pyx":877
  *         cdef SIZE_t* n_classes = self.n_classes
  *         cdef double* sum_left = self.sum_left
  *         cdef double* sum_right = self.sum_right             # <<<<<<<<<<<<<<
@@ -6387,7 +6396,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_pr
   __pyx_t_2 = __pyx_v_self->__pyx_base.__pyx_base.sum_right;
   __pyx_v_sum_right = __pyx_t_2;
 
-  /* "uplift/tree/_criterion.pyx":875
+  /* "uplift/tree/_criterion.pyx":878
  *         cdef double* sum_left = self.sum_left
  *         cdef double* sum_right = self.sum_right
  *         cdef double impurity_improvement = 0.0             # <<<<<<<<<<<<<<
@@ -6396,7 +6405,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_pr
  */
   __pyx_v_impurity_improvement = 0.0;
 
-  /* "uplift/tree/_criterion.pyx":911
+  /* "uplift/tree/_criterion.pyx":914
  *         cdef double p_c
  * 
  *         for k in range(self.n_outputs):             # <<<<<<<<<<<<<<
@@ -6408,7 +6417,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_pr
   for (__pyx_t_5 = 0; __pyx_t_5 < __pyx_t_4; __pyx_t_5+=1) {
     __pyx_v_k = __pyx_t_5;
 
-    /* "uplift/tree/_criterion.pyx":913
+    /* "uplift/tree/_criterion.pyx":916
  *         for k in range(self.n_outputs):
  * 
  *             n_lc0 = self.sum_left[0]             # <<<<<<<<<<<<<<
@@ -6417,7 +6426,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_pr
  */
     __pyx_v_n_lc0 = (__pyx_v_self->__pyx_base.__pyx_base.sum_left[0]);
 
-    /* "uplift/tree/_criterion.pyx":914
+    /* "uplift/tree/_criterion.pyx":917
  * 
  *             n_lc0 = self.sum_left[0]
  *             n_lc1 = self.sum_left[1]             # <<<<<<<<<<<<<<
@@ -6426,7 +6435,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_pr
  */
     __pyx_v_n_lc1 = (__pyx_v_self->__pyx_base.__pyx_base.sum_left[1]);
 
-    /* "uplift/tree/_criterion.pyx":915
+    /* "uplift/tree/_criterion.pyx":918
  *             n_lc0 = self.sum_left[0]
  *             n_lc1 = self.sum_left[1]
  *             n_lt0 = self.sum_left[2]             # <<<<<<<<<<<<<<
@@ -6435,7 +6444,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_pr
  */
     __pyx_v_n_lt0 = (__pyx_v_self->__pyx_base.__pyx_base.sum_left[2]);
 
-    /* "uplift/tree/_criterion.pyx":916
+    /* "uplift/tree/_criterion.pyx":919
  *             n_lc1 = self.sum_left[1]
  *             n_lt0 = self.sum_left[2]
  *             n_lt1 = self.sum_left[3]             # <<<<<<<<<<<<<<
@@ -6444,7 +6453,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_pr
  */
     __pyx_v_n_lt1 = (__pyx_v_self->__pyx_base.__pyx_base.sum_left[3]);
 
-    /* "uplift/tree/_criterion.pyx":918
+    /* "uplift/tree/_criterion.pyx":921
  *             n_lt1 = self.sum_left[3]
  * 
  *             n_rc0 = self.sum_right[0]             # <<<<<<<<<<<<<<
@@ -6453,7 +6462,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_pr
  */
     __pyx_v_n_rc0 = (__pyx_v_self->__pyx_base.__pyx_base.sum_right[0]);
 
-    /* "uplift/tree/_criterion.pyx":919
+    /* "uplift/tree/_criterion.pyx":922
  * 
  *             n_rc0 = self.sum_right[0]
  *             n_rc1 = self.sum_right[1]             # <<<<<<<<<<<<<<
@@ -6462,7 +6471,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_pr
  */
     __pyx_v_n_rc1 = (__pyx_v_self->__pyx_base.__pyx_base.sum_right[1]);
 
-    /* "uplift/tree/_criterion.pyx":920
+    /* "uplift/tree/_criterion.pyx":923
  *             n_rc0 = self.sum_right[0]
  *             n_rc1 = self.sum_right[1]
  *             n_rt0 = self.sum_right[2]             # <<<<<<<<<<<<<<
@@ -6471,7 +6480,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_pr
  */
     __pyx_v_n_rt0 = (__pyx_v_self->__pyx_base.__pyx_base.sum_right[2]);
 
-    /* "uplift/tree/_criterion.pyx":921
+    /* "uplift/tree/_criterion.pyx":924
  *             n_rc1 = self.sum_right[1]
  *             n_rt0 = self.sum_right[2]
  *             n_rt1 = self.sum_right[3]             # <<<<<<<<<<<<<<
@@ -6480,7 +6489,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_pr
  */
     __pyx_v_n_rt1 = (__pyx_v_self->__pyx_base.__pyx_base.sum_right[3]);
 
-    /* "uplift/tree/_criterion.pyx":923
+    /* "uplift/tree/_criterion.pyx":926
  *             n_rt1 = self.sum_right[3]
  * 
  *             n_lt = n_lt1 + n_lt0             # <<<<<<<<<<<<<<
@@ -6489,7 +6498,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_pr
  */
     __pyx_v_n_lt = (__pyx_v_n_lt1 + __pyx_v_n_lt0);
 
-    /* "uplift/tree/_criterion.pyx":924
+    /* "uplift/tree/_criterion.pyx":927
  * 
  *             n_lt = n_lt1 + n_lt0
  *             n_rt = n_rt1 + n_rt0             # <<<<<<<<<<<<<<
@@ -6498,7 +6507,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_pr
  */
     __pyx_v_n_rt = (__pyx_v_n_rt1 + __pyx_v_n_rt0);
 
-    /* "uplift/tree/_criterion.pyx":925
+    /* "uplift/tree/_criterion.pyx":928
  *             n_lt = n_lt1 + n_lt0
  *             n_rt = n_rt1 + n_rt0
  *             n_lc = n_lc1 + n_lc0             # <<<<<<<<<<<<<<
@@ -6507,7 +6516,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_pr
  */
     __pyx_v_n_lc = (__pyx_v_n_lc1 + __pyx_v_n_lc0);
 
-    /* "uplift/tree/_criterion.pyx":926
+    /* "uplift/tree/_criterion.pyx":929
  *             n_rt = n_rt1 + n_rt0
  *             n_lc = n_lc1 + n_lc0
  *             n_rc = n_rc1 + n_rc0             # <<<<<<<<<<<<<<
@@ -6516,7 +6525,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_pr
  */
     __pyx_v_n_rc = (__pyx_v_n_rc1 + __pyx_v_n_rc0);
 
-    /* "uplift/tree/_criterion.pyx":928
+    /* "uplift/tree/_criterion.pyx":931
  *             n_rc = n_rc1 + n_rc0
  * 
  *             n_t = n_lt + n_rt             # <<<<<<<<<<<<<<
@@ -6525,7 +6534,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_pr
  */
     __pyx_v_n_t = (__pyx_v_n_lt + __pyx_v_n_rt);
 
-    /* "uplift/tree/_criterion.pyx":929
+    /* "uplift/tree/_criterion.pyx":932
  * 
  *             n_t = n_lt + n_rt
  *             n_c = n_lc + n_rc             # <<<<<<<<<<<<<<
@@ -6534,7 +6543,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_pr
  */
     __pyx_v_n_c = (__pyx_v_n_lc + __pyx_v_n_rc);
 
-    /* "uplift/tree/_criterion.pyx":931
+    /* "uplift/tree/_criterion.pyx":934
  *             n_c = n_lc + n_rc
  * 
  *             n = n_t + n_c             # <<<<<<<<<<<<<<
@@ -6543,7 +6552,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_pr
  */
     __pyx_v_n = (__pyx_v_n_t + __pyx_v_n_c);
 
-    /* "uplift/tree/_criterion.pyx":933
+    /* "uplift/tree/_criterion.pyx":936
  *             n = n_t + n_c
  * 
  *             p_t_l = (n_lt + 0.5) / (n_t + 1)             # <<<<<<<<<<<<<<
@@ -6552,7 +6561,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_pr
  */
     __pyx_v_p_t_l = ((__pyx_v_n_lt + 0.5) / (__pyx_v_n_t + 1.0));
 
-    /* "uplift/tree/_criterion.pyx":934
+    /* "uplift/tree/_criterion.pyx":937
  * 
  *             p_t_l = (n_lt + 0.5) / (n_t + 1)
  *             p_t_r = 1 - p_t_l             # <<<<<<<<<<<<<<
@@ -6561,7 +6570,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_pr
  */
     __pyx_v_p_t_r = (1.0 - __pyx_v_p_t_l);
 
-    /* "uplift/tree/_criterion.pyx":935
+    /* "uplift/tree/_criterion.pyx":938
  *             p_t_l = (n_lt + 0.5) / (n_t + 1)
  *             p_t_r = 1 - p_t_l
  *             p_c_l = (n_lc + 0.5) / (n_c + 1)             # <<<<<<<<<<<<<<
@@ -6570,7 +6579,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_pr
  */
     __pyx_v_p_c_l = ((__pyx_v_n_lc + 0.5) / (__pyx_v_n_c + 1.0));
 
-    /* "uplift/tree/_criterion.pyx":936
+    /* "uplift/tree/_criterion.pyx":939
  *             p_t_r = 1 - p_t_l
  *             p_c_l = (n_lc + 0.5) / (n_c + 1)
  *             p_c_r = 1 - p_c_l             # <<<<<<<<<<<<<<
@@ -6579,7 +6588,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_pr
  */
     __pyx_v_p_c_r = (1.0 - __pyx_v_p_c_l);
 
-    /* "uplift/tree/_criterion.pyx":938
+    /* "uplift/tree/_criterion.pyx":941
  *             p_c_r = 1 - p_c_l
  * 
  *             p_t = (n_t + 0.5) / (n + 1)             # <<<<<<<<<<<<<<
@@ -6588,7 +6597,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_pr
  */
     __pyx_v_p_t = ((__pyx_v_n_t + 0.5) / (__pyx_v_n + 1.0));
 
-    /* "uplift/tree/_criterion.pyx":939
+    /* "uplift/tree/_criterion.pyx":942
  * 
  *             p_t = (n_t + 0.5) / (n + 1)
  *             p_c = 1 - p_t             # <<<<<<<<<<<<<<
@@ -6597,7 +6606,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_pr
  */
     __pyx_v_p_c = (1.0 - __pyx_v_p_t);
 
-    /* "uplift/tree/_criterion.pyx":943
+    /* "uplift/tree/_criterion.pyx":946
  * 
  *             # E_gain
  *             self.children_impurity(&impurity_left, &impurity_right)             # <<<<<<<<<<<<<<
@@ -6606,7 +6615,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_pr
  */
     ((struct __pyx_vtabstruct_6uplift_4tree_10_criterion_UpliftRadcliffeSurryTSplit *)__pyx_v_self->__pyx_base.__pyx_base.__pyx_vtab)->__pyx_base.__pyx_base.children_impurity(((struct __pyx_obj_6uplift_4tree_10_criterion_Criterion *)__pyx_v_self), (&__pyx_v_impurity_left), (&__pyx_v_impurity_right));
 
-    /* "uplift/tree/_criterion.pyx":944
+    /* "uplift/tree/_criterion.pyx":947
  *             # E_gain
  *             self.children_impurity(&impurity_left, &impurity_right)
  *             E_gain = impurity_left + impurity_right  - self.node_impurity()             # <<<<<<<<<<<<<<
@@ -6615,7 +6624,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_pr
  */
     __pyx_v_E_gain = ((__pyx_v_impurity_left + __pyx_v_impurity_right) - ((struct __pyx_vtabstruct_6uplift_4tree_10_criterion_UpliftRadcliffeSurryTSplit *)__pyx_v_self->__pyx_base.__pyx_base.__pyx_vtab)->__pyx_base.__pyx_base.node_impurity(((struct __pyx_obj_6uplift_4tree_10_criterion_Criterion *)__pyx_v_self)));
 
-    /* "uplift/tree/_criterion.pyx":947
+    /* "uplift/tree/_criterion.pyx":950
  * 
  *             # J penalty
  *             Gini = p_t * p_c             # <<<<<<<<<<<<<<
@@ -6624,7 +6633,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_pr
  */
     __pyx_v_Gini = (__pyx_v_p_t * __pyx_v_p_c);
 
-    /* "uplift/tree/_criterion.pyx":948
+    /* "uplift/tree/_criterion.pyx":951
  *             # J penalty
  *             Gini = p_t * p_c
  *             E = (p_t_l - p_c_l)**2 + (p_t_r - p_c_r)**2             # <<<<<<<<<<<<<<
@@ -6633,7 +6642,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_pr
  */
     __pyx_v_E = (pow((__pyx_v_p_t_l - __pyx_v_p_c_l), 2.0) + pow((__pyx_v_p_t_r - __pyx_v_p_c_r), 2.0));
 
-    /* "uplift/tree/_criterion.pyx":949
+    /* "uplift/tree/_criterion.pyx":952
  *             Gini = p_t * p_c
  *             E = (p_t_l - p_c_l)**2 + (p_t_r - p_c_r)**2
  *             Gini_t = p_t * p_t_l * p_t_r             # <<<<<<<<<<<<<<
@@ -6642,7 +6651,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_pr
  */
     __pyx_v_Gini_t = ((__pyx_v_p_t * __pyx_v_p_t_l) * __pyx_v_p_t_r);
 
-    /* "uplift/tree/_criterion.pyx":950
+    /* "uplift/tree/_criterion.pyx":953
  *             E = (p_t_l - p_c_l)**2 + (p_t_r - p_c_r)**2
  *             Gini_t = p_t * p_t_l * p_t_r
  *             Gini_c = p_c * p_c_l * p_c_r             # <<<<<<<<<<<<<<
@@ -6651,7 +6660,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_pr
  */
     __pyx_v_Gini_c = ((__pyx_v_p_c * __pyx_v_p_c_l) * __pyx_v_p_c_r);
 
-    /* "uplift/tree/_criterion.pyx":951
+    /* "uplift/tree/_criterion.pyx":954
  *             Gini_t = p_t * p_t_l * p_t_r
  *             Gini_c = p_c * p_c_l * p_c_r
  *             J = Gini * E + Gini_t + Gini_c + 0.5             # <<<<<<<<<<<<<<
@@ -6660,7 +6669,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_pr
  */
     __pyx_v_J = ((((__pyx_v_Gini * __pyx_v_E) + __pyx_v_Gini_t) + __pyx_v_Gini_c) + 0.5);
 
-    /* "uplift/tree/_criterion.pyx":953
+    /* "uplift/tree/_criterion.pyx":956
  *             J = Gini * E + Gini_t + Gini_c + 0.5
  * 
  *             impurity_improvement += (E_gain / J)             # <<<<<<<<<<<<<<
@@ -6669,7 +6678,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_pr
  */
     __pyx_v_impurity_improvement = (__pyx_v_impurity_improvement + (__pyx_v_E_gain / __pyx_v_J));
 
-    /* "uplift/tree/_criterion.pyx":955
+    /* "uplift/tree/_criterion.pyx":958
  *             impurity_improvement += (E_gain / J)
  * 
  *             sum_left += self.sum_stride             # <<<<<<<<<<<<<<
@@ -6678,7 +6687,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_pr
  */
     __pyx_v_sum_left = (__pyx_v_sum_left + __pyx_v_self->__pyx_base.sum_stride);
 
-    /* "uplift/tree/_criterion.pyx":956
+    /* "uplift/tree/_criterion.pyx":959
  * 
  *             sum_left += self.sum_stride
  *             sum_right += self.sum_stride             # <<<<<<<<<<<<<<
@@ -6688,7 +6697,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_pr
     __pyx_v_sum_right = (__pyx_v_sum_right + __pyx_v_self->__pyx_base.sum_stride);
   }
 
-  /* "uplift/tree/_criterion.pyx":958
+  /* "uplift/tree/_criterion.pyx":961
  *             sum_right += self.sum_stride
  * 
  *         return impurity_improvement             # <<<<<<<<<<<<<<
@@ -6698,7 +6707,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_pr
   __pyx_r = __pyx_v_impurity_improvement;
   goto __pyx_L0;
 
-  /* "uplift/tree/_criterion.pyx":868
+  /* "uplift/tree/_criterion.pyx":871
  *         impurity_right[0] = val_impurity_right
  * 
  *     cdef double proxy_impurity_improvement(self) nogil:             # <<<<<<<<<<<<<<
@@ -6711,7 +6720,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_pr
   return __pyx_r;
 }
 
-/* "uplift/tree/_criterion.pyx":964
+/* "uplift/tree/_criterion.pyx":967
  *     """
  * 
  *     cdef double node_impurity(self) nogil:             # <<<<<<<<<<<<<<
@@ -6739,7 +6748,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_node_impurity(s
   __pyx_t_6uplift_4tree_10_criterion_SIZE_t __pyx_t_3;
   __pyx_t_6uplift_4tree_10_criterion_SIZE_t __pyx_t_4;
 
-  /* "uplift/tree/_criterion.pyx":968
+  /* "uplift/tree/_criterion.pyx":971
  *         samples[start:end], using the cross-entropy criterion."""
  * 
  *         cdef double* sum_total = self.sum_total             # <<<<<<<<<<<<<<
@@ -6749,7 +6758,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_node_impurity(s
   __pyx_t_1 = __pyx_v_self->__pyx_base.__pyx_base.sum_total;
   __pyx_v_sum_total = __pyx_t_1;
 
-  /* "uplift/tree/_criterion.pyx":969
+  /* "uplift/tree/_criterion.pyx":972
  * 
  *         cdef double* sum_total = self.sum_total
  *         cdef double impurity = 0.0             # <<<<<<<<<<<<<<
@@ -6758,7 +6767,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_node_impurity(s
  */
   __pyx_v_impurity = 0.0;
 
-  /* "uplift/tree/_criterion.pyx":985
+  /* "uplift/tree/_criterion.pyx":988
  *         cdef double p_c_0
  * 
  *         for k in range(self.n_outputs):             # <<<<<<<<<<<<<<
@@ -6770,7 +6779,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_node_impurity(s
   for (__pyx_t_4 = 0; __pyx_t_4 < __pyx_t_3; __pyx_t_4+=1) {
     __pyx_v_k = __pyx_t_4;
 
-    /* "uplift/tree/_criterion.pyx":987
+    /* "uplift/tree/_criterion.pyx":990
  *         for k in range(self.n_outputs):
  * 
  *             n_c0 = sum_total[0]             # <<<<<<<<<<<<<<
@@ -6779,7 +6788,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_node_impurity(s
  */
     __pyx_v_n_c0 = (__pyx_v_sum_total[0]);
 
-    /* "uplift/tree/_criterion.pyx":988
+    /* "uplift/tree/_criterion.pyx":991
  * 
  *             n_c0 = sum_total[0]
  *             n_c1 = sum_total[1]             # <<<<<<<<<<<<<<
@@ -6788,7 +6797,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_node_impurity(s
  */
     __pyx_v_n_c1 = (__pyx_v_sum_total[1]);
 
-    /* "uplift/tree/_criterion.pyx":989
+    /* "uplift/tree/_criterion.pyx":992
  *             n_c0 = sum_total[0]
  *             n_c1 = sum_total[1]
  *             n_t0 = sum_total[2]             # <<<<<<<<<<<<<<
@@ -6797,7 +6806,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_node_impurity(s
  */
     __pyx_v_n_t0 = (__pyx_v_sum_total[2]);
 
-    /* "uplift/tree/_criterion.pyx":990
+    /* "uplift/tree/_criterion.pyx":993
  *             n_c1 = sum_total[1]
  *             n_t0 = sum_total[2]
  *             n_t1 = sum_total[3]             # <<<<<<<<<<<<<<
@@ -6806,7 +6815,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_node_impurity(s
  */
     __pyx_v_n_t1 = (__pyx_v_sum_total[3]);
 
-    /* "uplift/tree/_criterion.pyx":992
+    /* "uplift/tree/_criterion.pyx":995
  *             n_t1 = sum_total[3]
  * 
  *             n_t = n_t0 + n_t1             # <<<<<<<<<<<<<<
@@ -6815,7 +6824,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_node_impurity(s
  */
     __pyx_v_n_t = (__pyx_v_n_t0 + __pyx_v_n_t1);
 
-    /* "uplift/tree/_criterion.pyx":993
+    /* "uplift/tree/_criterion.pyx":996
  * 
  *             n_t = n_t0 + n_t1
  *             n_c = n_c0 + n_c1             # <<<<<<<<<<<<<<
@@ -6824,7 +6833,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_node_impurity(s
  */
     __pyx_v_n_c = (__pyx_v_n_c0 + __pyx_v_n_c1);
 
-    /* "uplift/tree/_criterion.pyx":995
+    /* "uplift/tree/_criterion.pyx":998
  *             n_c = n_c0 + n_c1
  * 
  *             p_t_1 = (n_t1 + 0.5) / (n_t + 1)             # <<<<<<<<<<<<<<
@@ -6833,7 +6842,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_node_impurity(s
  */
     __pyx_v_p_t_1 = ((__pyx_v_n_t1 + 0.5) / (__pyx_v_n_t + 1.0));
 
-    /* "uplift/tree/_criterion.pyx":996
+    /* "uplift/tree/_criterion.pyx":999
  * 
  *             p_t_1 = (n_t1 + 0.5) / (n_t + 1)
  *             p_t_0 = 1 - p_t_1             # <<<<<<<<<<<<<<
@@ -6842,7 +6851,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_node_impurity(s
  */
     __pyx_v_p_t_0 = (1.0 - __pyx_v_p_t_1);
 
-    /* "uplift/tree/_criterion.pyx":997
+    /* "uplift/tree/_criterion.pyx":1000
  *             p_t_1 = (n_t1 + 0.5) / (n_t + 1)
  *             p_t_0 = 1 - p_t_1
  *             p_c_1 = (n_c1 + 0.5) / (n_c + 1)             # <<<<<<<<<<<<<<
@@ -6851,7 +6860,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_node_impurity(s
  */
     __pyx_v_p_c_1 = ((__pyx_v_n_c1 + 0.5) / (__pyx_v_n_c + 1.0));
 
-    /* "uplift/tree/_criterion.pyx":998
+    /* "uplift/tree/_criterion.pyx":1001
  *             p_t_0 = 1 - p_t_1
  *             p_c_1 = (n_c1 + 0.5) / (n_c + 1)
  *             p_c_0 = 1 - p_c_1             # <<<<<<<<<<<<<<
@@ -6860,7 +6869,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_node_impurity(s
  */
     __pyx_v_p_c_0 = (1.0 - __pyx_v_p_c_1);
 
-    /* "uplift/tree/_criterion.pyx":1000
+    /* "uplift/tree/_criterion.pyx":1003
  *             p_c_0 = 1 - p_c_1
  * 
  *             impurity += p_t_1 * log(p_t_1 / p_c_1) + p_t_0 * log(p_t_0 / p_c_0)             # <<<<<<<<<<<<<<
@@ -6869,7 +6878,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_node_impurity(s
  */
     __pyx_v_impurity = (__pyx_v_impurity + ((__pyx_v_p_t_1 * __pyx_f_6uplift_4tree_6_utils_log((__pyx_v_p_t_1 / __pyx_v_p_c_1))) + (__pyx_v_p_t_0 * __pyx_f_6uplift_4tree_6_utils_log((__pyx_v_p_t_0 / __pyx_v_p_c_0)))));
 
-    /* "uplift/tree/_criterion.pyx":1001
+    /* "uplift/tree/_criterion.pyx":1004
  * 
  *             impurity += p_t_1 * log(p_t_1 / p_c_1) + p_t_0 * log(p_t_0 / p_c_0)
  *             sum_total += self.sum_stride             # <<<<<<<<<<<<<<
@@ -6879,7 +6888,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_node_impurity(s
     __pyx_v_sum_total = (__pyx_v_sum_total + __pyx_v_self->__pyx_base.sum_stride);
   }
 
-  /* "uplift/tree/_criterion.pyx":1003
+  /* "uplift/tree/_criterion.pyx":1006
  *             sum_total += self.sum_stride
  * 
  *         return impurity             # <<<<<<<<<<<<<<
@@ -6889,7 +6898,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_node_impurity(s
   __pyx_r = __pyx_v_impurity;
   goto __pyx_L0;
 
-  /* "uplift/tree/_criterion.pyx":964
+  /* "uplift/tree/_criterion.pyx":967
  *     """
  * 
  *     cdef double node_impurity(self) nogil:             # <<<<<<<<<<<<<<
@@ -6902,7 +6911,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_node_impurity(s
   return __pyx_r;
 }
 
-/* "uplift/tree/_criterion.pyx":1009
+/* "uplift/tree/_criterion.pyx":1012
  * 
  * 
  *     cdef void children_impurity(self, double* impurity_left,             # <<<<<<<<<<<<<<
@@ -6946,7 +6955,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_children_impurity
   __pyx_t_6uplift_4tree_10_criterion_SIZE_t __pyx_t_3;
   __pyx_t_6uplift_4tree_10_criterion_SIZE_t __pyx_t_4;
 
-  /* "uplift/tree/_criterion.pyx":1024
+  /* "uplift/tree/_criterion.pyx":1027
  *         """
  * 
  *         cdef double* sum_left = self.sum_left             # <<<<<<<<<<<<<<
@@ -6956,7 +6965,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_children_impurity
   __pyx_t_1 = __pyx_v_self->__pyx_base.__pyx_base.sum_left;
   __pyx_v_sum_left = __pyx_t_1;
 
-  /* "uplift/tree/_criterion.pyx":1025
+  /* "uplift/tree/_criterion.pyx":1028
  * 
  *         cdef double* sum_left = self.sum_left
  *         cdef double* sum_right = self.sum_right             # <<<<<<<<<<<<<<
@@ -6966,7 +6975,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_children_impurity
   __pyx_t_1 = __pyx_v_self->__pyx_base.__pyx_base.sum_right;
   __pyx_v_sum_right = __pyx_t_1;
 
-  /* "uplift/tree/_criterion.pyx":1026
+  /* "uplift/tree/_criterion.pyx":1029
  *         cdef double* sum_left = self.sum_left
  *         cdef double* sum_right = self.sum_right
  *         cdef double val_impurity_left = 0.0             # <<<<<<<<<<<<<<
@@ -6975,7 +6984,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_children_impurity
  */
   __pyx_v_val_impurity_left = 0.0;
 
-  /* "uplift/tree/_criterion.pyx":1027
+  /* "uplift/tree/_criterion.pyx":1030
  *         cdef double* sum_right = self.sum_right
  *         cdef double val_impurity_left = 0.0
  *         cdef double val_impurity_right = 0.0             # <<<<<<<<<<<<<<
@@ -6984,7 +6993,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_children_impurity
  */
   __pyx_v_val_impurity_right = 0.0;
 
-  /* "uplift/tree/_criterion.pyx":1057
+  /* "uplift/tree/_criterion.pyx":1060
  *         cdef double p_r
  * 
  *         for k in range(self.n_outputs):             # <<<<<<<<<<<<<<
@@ -6996,7 +7005,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_children_impurity
   for (__pyx_t_4 = 0; __pyx_t_4 < __pyx_t_3; __pyx_t_4+=1) {
     __pyx_v_k = __pyx_t_4;
 
-    /* "uplift/tree/_criterion.pyx":1059
+    /* "uplift/tree/_criterion.pyx":1062
  *         for k in range(self.n_outputs):
  * 
  *             n_lc0 = self.sum_left[0]             # <<<<<<<<<<<<<<
@@ -7005,7 +7014,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_children_impurity
  */
     __pyx_v_n_lc0 = (__pyx_v_self->__pyx_base.__pyx_base.sum_left[0]);
 
-    /* "uplift/tree/_criterion.pyx":1060
+    /* "uplift/tree/_criterion.pyx":1063
  * 
  *             n_lc0 = self.sum_left[0]
  *             n_lc1 = self.sum_left[1]             # <<<<<<<<<<<<<<
@@ -7014,7 +7023,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_children_impurity
  */
     __pyx_v_n_lc1 = (__pyx_v_self->__pyx_base.__pyx_base.sum_left[1]);
 
-    /* "uplift/tree/_criterion.pyx":1061
+    /* "uplift/tree/_criterion.pyx":1064
  *             n_lc0 = self.sum_left[0]
  *             n_lc1 = self.sum_left[1]
  *             n_lt0 = self.sum_left[2]             # <<<<<<<<<<<<<<
@@ -7023,7 +7032,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_children_impurity
  */
     __pyx_v_n_lt0 = (__pyx_v_self->__pyx_base.__pyx_base.sum_left[2]);
 
-    /* "uplift/tree/_criterion.pyx":1062
+    /* "uplift/tree/_criterion.pyx":1065
  *             n_lc1 = self.sum_left[1]
  *             n_lt0 = self.sum_left[2]
  *             n_lt1 = self.sum_left[3]             # <<<<<<<<<<<<<<
@@ -7032,7 +7041,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_children_impurity
  */
     __pyx_v_n_lt1 = (__pyx_v_self->__pyx_base.__pyx_base.sum_left[3]);
 
-    /* "uplift/tree/_criterion.pyx":1064
+    /* "uplift/tree/_criterion.pyx":1067
  *             n_lt1 = self.sum_left[3]
  * 
  *             n_rc0 = self.sum_right[0]             # <<<<<<<<<<<<<<
@@ -7041,7 +7050,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_children_impurity
  */
     __pyx_v_n_rc0 = (__pyx_v_self->__pyx_base.__pyx_base.sum_right[0]);
 
-    /* "uplift/tree/_criterion.pyx":1065
+    /* "uplift/tree/_criterion.pyx":1068
  * 
  *             n_rc0 = self.sum_right[0]
  *             n_rc1 = self.sum_right[1]             # <<<<<<<<<<<<<<
@@ -7050,7 +7059,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_children_impurity
  */
     __pyx_v_n_rc1 = (__pyx_v_self->__pyx_base.__pyx_base.sum_right[1]);
 
-    /* "uplift/tree/_criterion.pyx":1066
+    /* "uplift/tree/_criterion.pyx":1069
  *             n_rc0 = self.sum_right[0]
  *             n_rc1 = self.sum_right[1]
  *             n_rt0 = self.sum_right[2]             # <<<<<<<<<<<<<<
@@ -7059,7 +7068,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_children_impurity
  */
     __pyx_v_n_rt0 = (__pyx_v_self->__pyx_base.__pyx_base.sum_right[2]);
 
-    /* "uplift/tree/_criterion.pyx":1067
+    /* "uplift/tree/_criterion.pyx":1070
  *             n_rc1 = self.sum_right[1]
  *             n_rt0 = self.sum_right[2]
  *             n_rt1 = self.sum_right[3]             # <<<<<<<<<<<<<<
@@ -7068,7 +7077,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_children_impurity
  */
     __pyx_v_n_rt1 = (__pyx_v_self->__pyx_base.__pyx_base.sum_right[3]);
 
-    /* "uplift/tree/_criterion.pyx":1069
+    /* "uplift/tree/_criterion.pyx":1072
  *             n_rt1 = self.sum_right[3]
  * 
  *             n_lt = n_lt1 + n_lt0             # <<<<<<<<<<<<<<
@@ -7077,7 +7086,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_children_impurity
  */
     __pyx_v_n_lt = (__pyx_v_n_lt1 + __pyx_v_n_lt0);
 
-    /* "uplift/tree/_criterion.pyx":1070
+    /* "uplift/tree/_criterion.pyx":1073
  * 
  *             n_lt = n_lt1 + n_lt0
  *             n_rt = n_rt1 + n_rt0             # <<<<<<<<<<<<<<
@@ -7086,7 +7095,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_children_impurity
  */
     __pyx_v_n_rt = (__pyx_v_n_rt1 + __pyx_v_n_rt0);
 
-    /* "uplift/tree/_criterion.pyx":1071
+    /* "uplift/tree/_criterion.pyx":1074
  *             n_lt = n_lt1 + n_lt0
  *             n_rt = n_rt1 + n_rt0
  *             n_lc = n_lc1 + n_lc0             # <<<<<<<<<<<<<<
@@ -7095,7 +7104,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_children_impurity
  */
     __pyx_v_n_lc = (__pyx_v_n_lc1 + __pyx_v_n_lc0);
 
-    /* "uplift/tree/_criterion.pyx":1072
+    /* "uplift/tree/_criterion.pyx":1075
  *             n_rt = n_rt1 + n_rt0
  *             n_lc = n_lc1 + n_lc0
  *             n_rc = n_rc1 + n_rc0             # <<<<<<<<<<<<<<
@@ -7104,7 +7113,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_children_impurity
  */
     __pyx_v_n_rc = (__pyx_v_n_rc1 + __pyx_v_n_rc0);
 
-    /* "uplift/tree/_criterion.pyx":1074
+    /* "uplift/tree/_criterion.pyx":1077
  *             n_rc = n_rc1 + n_rc0
  * 
  *             n_l = n_lt + n_lc             # <<<<<<<<<<<<<<
@@ -7113,7 +7122,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_children_impurity
  */
     __pyx_v_n_l = (__pyx_v_n_lt + __pyx_v_n_lc);
 
-    /* "uplift/tree/_criterion.pyx":1075
+    /* "uplift/tree/_criterion.pyx":1078
  * 
  *             n_l = n_lt + n_lc
  *             n_r = n_rt + n_rc             # <<<<<<<<<<<<<<
@@ -7122,7 +7131,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_children_impurity
  */
     __pyx_v_n_r = (__pyx_v_n_rt + __pyx_v_n_rc);
 
-    /* "uplift/tree/_criterion.pyx":1077
+    /* "uplift/tree/_criterion.pyx":1080
  *             n_r = n_rt + n_rc
  * 
  *             n = n_l + n_r             # <<<<<<<<<<<<<<
@@ -7131,7 +7140,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_children_impurity
  */
     __pyx_v_n = (__pyx_v_n_l + __pyx_v_n_r);
 
-    /* "uplift/tree/_criterion.pyx":1079
+    /* "uplift/tree/_criterion.pyx":1082
  *             n = n_l + n_r
  * 
  *             p_lt_1 = (n_lt1 + 0.5) / (n_lt + 1)             # <<<<<<<<<<<<<<
@@ -7140,7 +7149,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_children_impurity
  */
     __pyx_v_p_lt_1 = ((__pyx_v_n_lt1 + 0.5) / (__pyx_v_n_lt + 1.0));
 
-    /* "uplift/tree/_criterion.pyx":1080
+    /* "uplift/tree/_criterion.pyx":1083
  * 
  *             p_lt_1 = (n_lt1 + 0.5) / (n_lt + 1)
  *             p_lt_0 = 1 - p_lt_1             # <<<<<<<<<<<<<<
@@ -7149,7 +7158,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_children_impurity
  */
     __pyx_v_p_lt_0 = (1.0 - __pyx_v_p_lt_1);
 
-    /* "uplift/tree/_criterion.pyx":1081
+    /* "uplift/tree/_criterion.pyx":1084
  *             p_lt_1 = (n_lt1 + 0.5) / (n_lt + 1)
  *             p_lt_0 = 1 - p_lt_1
  *             p_lc_1 = (n_lc1 + 0.5) / (n_lc + 1)             # <<<<<<<<<<<<<<
@@ -7158,7 +7167,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_children_impurity
  */
     __pyx_v_p_lc_1 = ((__pyx_v_n_lc1 + 0.5) / (__pyx_v_n_lc + 1.0));
 
-    /* "uplift/tree/_criterion.pyx":1082
+    /* "uplift/tree/_criterion.pyx":1085
  *             p_lt_0 = 1 - p_lt_1
  *             p_lc_1 = (n_lc1 + 0.5) / (n_lc + 1)
  *             p_lc_0 = 1 - p_lc_1             # <<<<<<<<<<<<<<
@@ -7167,7 +7176,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_children_impurity
  */
     __pyx_v_p_lc_0 = (1.0 - __pyx_v_p_lc_1);
 
-    /* "uplift/tree/_criterion.pyx":1083
+    /* "uplift/tree/_criterion.pyx":1086
  *             p_lc_1 = (n_lc1 + 0.5) / (n_lc + 1)
  *             p_lc_0 = 1 - p_lc_1
  *             p_rt_1 = (n_rt1 + 0.5) / (n_rt + 1)             # <<<<<<<<<<<<<<
@@ -7176,7 +7185,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_children_impurity
  */
     __pyx_v_p_rt_1 = ((__pyx_v_n_rt1 + 0.5) / (__pyx_v_n_rt + 1.0));
 
-    /* "uplift/tree/_criterion.pyx":1084
+    /* "uplift/tree/_criterion.pyx":1087
  *             p_lc_0 = 1 - p_lc_1
  *             p_rt_1 = (n_rt1 + 0.5) / (n_rt + 1)
  *             p_rt_0 = 1 - p_rt_1             # <<<<<<<<<<<<<<
@@ -7185,7 +7194,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_children_impurity
  */
     __pyx_v_p_rt_0 = (1.0 - __pyx_v_p_rt_1);
 
-    /* "uplift/tree/_criterion.pyx":1085
+    /* "uplift/tree/_criterion.pyx":1088
  *             p_rt_1 = (n_rt1 + 0.5) / (n_rt + 1)
  *             p_rt_0 = 1 - p_rt_1
  *             p_rc_1 = (n_rc1 + 0.5) / (n_rc + 1)             # <<<<<<<<<<<<<<
@@ -7194,7 +7203,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_children_impurity
  */
     __pyx_v_p_rc_1 = ((__pyx_v_n_rc1 + 0.5) / (__pyx_v_n_rc + 1.0));
 
-    /* "uplift/tree/_criterion.pyx":1086
+    /* "uplift/tree/_criterion.pyx":1089
  *             p_rt_0 = 1 - p_rt_1
  *             p_rc_1 = (n_rc1 + 0.5) / (n_rc + 1)
  *             p_rc_0 = 1 - p_rc_1             # <<<<<<<<<<<<<<
@@ -7203,7 +7212,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_children_impurity
  */
     __pyx_v_p_rc_0 = (1.0 - __pyx_v_p_rc_1);
 
-    /* "uplift/tree/_criterion.pyx":1088
+    /* "uplift/tree/_criterion.pyx":1091
  *             p_rc_0 = 1 - p_rc_1
  * 
  *             p_l = (n_l + 0.5) / (n + 1)             # <<<<<<<<<<<<<<
@@ -7212,7 +7221,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_children_impurity
  */
     __pyx_v_p_l = ((__pyx_v_n_l + 0.5) / (__pyx_v_n + 1.0));
 
-    /* "uplift/tree/_criterion.pyx":1089
+    /* "uplift/tree/_criterion.pyx":1092
  * 
  *             p_l = (n_l + 0.5) / (n + 1)
  *             p_r = 1 - p_l             # <<<<<<<<<<<<<<
@@ -7221,7 +7230,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_children_impurity
  */
     __pyx_v_p_r = (1.0 - __pyx_v_p_l);
 
-    /* "uplift/tree/_criterion.pyx":1091
+    /* "uplift/tree/_criterion.pyx":1094
  *             p_r = 1 - p_l
  * 
  *             val_impurity_left += p_l * (p_lt_1 * log(p_lt_1 / p_lc_1) + p_lt_0 * log(p_lt_0 / p_lc_0))             # <<<<<<<<<<<<<<
@@ -7230,7 +7239,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_children_impurity
  */
     __pyx_v_val_impurity_left = (__pyx_v_val_impurity_left + (__pyx_v_p_l * ((__pyx_v_p_lt_1 * __pyx_f_6uplift_4tree_6_utils_log((__pyx_v_p_lt_1 / __pyx_v_p_lc_1))) + (__pyx_v_p_lt_0 * __pyx_f_6uplift_4tree_6_utils_log((__pyx_v_p_lt_0 / __pyx_v_p_lc_0))))));
 
-    /* "uplift/tree/_criterion.pyx":1092
+    /* "uplift/tree/_criterion.pyx":1095
  * 
  *             val_impurity_left += p_l * (p_lt_1 * log(p_lt_1 / p_lc_1) + p_lt_0 * log(p_lt_0 / p_lc_0))
  *             val_impurity_right += p_r * (p_rt_1 * log(p_rt_1 / p_rc_1) + p_rt_0 * log(p_rt_0 / p_rc_0))             # <<<<<<<<<<<<<<
@@ -7239,7 +7248,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_children_impurity
  */
     __pyx_v_val_impurity_right = (__pyx_v_val_impurity_right + (__pyx_v_p_r * ((__pyx_v_p_rt_1 * __pyx_f_6uplift_4tree_6_utils_log((__pyx_v_p_rt_1 / __pyx_v_p_rc_1))) + (__pyx_v_p_rt_0 * __pyx_f_6uplift_4tree_6_utils_log((__pyx_v_p_rt_0 / __pyx_v_p_rc_0))))));
 
-    /* "uplift/tree/_criterion.pyx":1094
+    /* "uplift/tree/_criterion.pyx":1097
  *             val_impurity_right += p_r * (p_rt_1 * log(p_rt_1 / p_rc_1) + p_rt_0 * log(p_rt_0 / p_rc_0))
  * 
  *             sum_left += self.sum_stride             # <<<<<<<<<<<<<<
@@ -7248,7 +7257,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_children_impurity
  */
     __pyx_v_sum_left = (__pyx_v_sum_left + __pyx_v_self->__pyx_base.sum_stride);
 
-    /* "uplift/tree/_criterion.pyx":1095
+    /* "uplift/tree/_criterion.pyx":1098
  * 
  *             sum_left += self.sum_stride
  *             sum_right += self.sum_stride             # <<<<<<<<<<<<<<
@@ -7258,7 +7267,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_children_impurity
     __pyx_v_sum_right = (__pyx_v_sum_right + __pyx_v_self->__pyx_base.sum_stride);
   }
 
-  /* "uplift/tree/_criterion.pyx":1098
+  /* "uplift/tree/_criterion.pyx":1101
  * 
  * 
  *         impurity_left[0] = val_impurity_left             # <<<<<<<<<<<<<<
@@ -7267,7 +7276,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_children_impurity
  */
   (__pyx_v_impurity_left[0]) = __pyx_v_val_impurity_left;
 
-  /* "uplift/tree/_criterion.pyx":1099
+  /* "uplift/tree/_criterion.pyx":1102
  * 
  *         impurity_left[0] = val_impurity_left
  *         impurity_right[0] = val_impurity_right             # <<<<<<<<<<<<<<
@@ -7276,7 +7285,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_children_impurity
  */
   (__pyx_v_impurity_right[0]) = __pyx_v_val_impurity_right;
 
-  /* "uplift/tree/_criterion.pyx":1009
+  /* "uplift/tree/_criterion.pyx":1012
  * 
  * 
  *     cdef void children_impurity(self, double* impurity_left,             # <<<<<<<<<<<<<<
@@ -7287,7 +7296,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_children_impurity
   /* function exit code */
 }
 
-/* "uplift/tree/_criterion.pyx":1102
+/* "uplift/tree/_criterion.pyx":1105
  * 
  * 
  *     cdef double proxy_impurity_improvement(self) nogil:             # <<<<<<<<<<<<<<
@@ -7337,7 +7346,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_proxy_impurity_
   __pyx_t_6uplift_4tree_10_criterion_SIZE_t __pyx_t_4;
   __pyx_t_6uplift_4tree_10_criterion_SIZE_t __pyx_t_5;
 
-  /* "uplift/tree/_criterion.pyx":1106
+  /* "uplift/tree/_criterion.pyx":1109
  *         """
  * 
  *         cdef SIZE_t* n_classes = self.n_classes             # <<<<<<<<<<<<<<
@@ -7347,7 +7356,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_proxy_impurity_
   __pyx_t_1 = __pyx_v_self->__pyx_base.n_classes;
   __pyx_v_n_classes = __pyx_t_1;
 
-  /* "uplift/tree/_criterion.pyx":1107
+  /* "uplift/tree/_criterion.pyx":1110
  * 
  *         cdef SIZE_t* n_classes = self.n_classes
  *         cdef double* sum_left = self.sum_left             # <<<<<<<<<<<<<<
@@ -7357,7 +7366,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_proxy_impurity_
   __pyx_t_2 = __pyx_v_self->__pyx_base.__pyx_base.sum_left;
   __pyx_v_sum_left = __pyx_t_2;
 
-  /* "uplift/tree/_criterion.pyx":1108
+  /* "uplift/tree/_criterion.pyx":1111
  *         cdef SIZE_t* n_classes = self.n_classes
  *         cdef double* sum_left = self.sum_left
  *         cdef double* sum_right = self.sum_right             # <<<<<<<<<<<<<<
@@ -7367,7 +7376,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_proxy_impurity_
   __pyx_t_2 = __pyx_v_self->__pyx_base.__pyx_base.sum_right;
   __pyx_v_sum_right = __pyx_t_2;
 
-  /* "uplift/tree/_criterion.pyx":1109
+  /* "uplift/tree/_criterion.pyx":1112
  *         cdef double* sum_left = self.sum_left
  *         cdef double* sum_right = self.sum_right
  *         cdef double impurity_improvement = 0.0             # <<<<<<<<<<<<<<
@@ -7376,7 +7385,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_proxy_impurity_
  */
   __pyx_v_impurity_improvement = 0.0;
 
-  /* "uplift/tree/_criterion.pyx":1145
+  /* "uplift/tree/_criterion.pyx":1148
  *         cdef double p_c
  * 
  *         for k in range(self.n_outputs):             # <<<<<<<<<<<<<<
@@ -7388,7 +7397,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_proxy_impurity_
   for (__pyx_t_5 = 0; __pyx_t_5 < __pyx_t_4; __pyx_t_5+=1) {
     __pyx_v_k = __pyx_t_5;
 
-    /* "uplift/tree/_criterion.pyx":1147
+    /* "uplift/tree/_criterion.pyx":1150
  *         for k in range(self.n_outputs):
  * 
  *             n_lc0 = self.sum_left[0]             # <<<<<<<<<<<<<<
@@ -7397,7 +7406,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_proxy_impurity_
  */
     __pyx_v_n_lc0 = (__pyx_v_self->__pyx_base.__pyx_base.sum_left[0]);
 
-    /* "uplift/tree/_criterion.pyx":1148
+    /* "uplift/tree/_criterion.pyx":1151
  * 
  *             n_lc0 = self.sum_left[0]
  *             n_lc1 = self.sum_left[1]             # <<<<<<<<<<<<<<
@@ -7406,7 +7415,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_proxy_impurity_
  */
     __pyx_v_n_lc1 = (__pyx_v_self->__pyx_base.__pyx_base.sum_left[1]);
 
-    /* "uplift/tree/_criterion.pyx":1149
+    /* "uplift/tree/_criterion.pyx":1152
  *             n_lc0 = self.sum_left[0]
  *             n_lc1 = self.sum_left[1]
  *             n_lt0 = self.sum_left[2]             # <<<<<<<<<<<<<<
@@ -7415,7 +7424,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_proxy_impurity_
  */
     __pyx_v_n_lt0 = (__pyx_v_self->__pyx_base.__pyx_base.sum_left[2]);
 
-    /* "uplift/tree/_criterion.pyx":1150
+    /* "uplift/tree/_criterion.pyx":1153
  *             n_lc1 = self.sum_left[1]
  *             n_lt0 = self.sum_left[2]
  *             n_lt1 = self.sum_left[3]             # <<<<<<<<<<<<<<
@@ -7424,7 +7433,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_proxy_impurity_
  */
     __pyx_v_n_lt1 = (__pyx_v_self->__pyx_base.__pyx_base.sum_left[3]);
 
-    /* "uplift/tree/_criterion.pyx":1152
+    /* "uplift/tree/_criterion.pyx":1155
  *             n_lt1 = self.sum_left[3]
  * 
  *             n_rc0 = self.sum_right[0]             # <<<<<<<<<<<<<<
@@ -7433,7 +7442,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_proxy_impurity_
  */
     __pyx_v_n_rc0 = (__pyx_v_self->__pyx_base.__pyx_base.sum_right[0]);
 
-    /* "uplift/tree/_criterion.pyx":1153
+    /* "uplift/tree/_criterion.pyx":1156
  * 
  *             n_rc0 = self.sum_right[0]
  *             n_rc1 = self.sum_right[1]             # <<<<<<<<<<<<<<
@@ -7442,7 +7451,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_proxy_impurity_
  */
     __pyx_v_n_rc1 = (__pyx_v_self->__pyx_base.__pyx_base.sum_right[1]);
 
-    /* "uplift/tree/_criterion.pyx":1154
+    /* "uplift/tree/_criterion.pyx":1157
  *             n_rc0 = self.sum_right[0]
  *             n_rc1 = self.sum_right[1]
  *             n_rt0 = self.sum_right[2]             # <<<<<<<<<<<<<<
@@ -7451,7 +7460,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_proxy_impurity_
  */
     __pyx_v_n_rt0 = (__pyx_v_self->__pyx_base.__pyx_base.sum_right[2]);
 
-    /* "uplift/tree/_criterion.pyx":1155
+    /* "uplift/tree/_criterion.pyx":1158
  *             n_rc1 = self.sum_right[1]
  *             n_rt0 = self.sum_right[2]
  *             n_rt1 = self.sum_right[3]             # <<<<<<<<<<<<<<
@@ -7460,7 +7469,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_proxy_impurity_
  */
     __pyx_v_n_rt1 = (__pyx_v_self->__pyx_base.__pyx_base.sum_right[3]);
 
-    /* "uplift/tree/_criterion.pyx":1157
+    /* "uplift/tree/_criterion.pyx":1160
  *             n_rt1 = self.sum_right[3]
  * 
  *             n_lt = n_lt1 + n_lt0             # <<<<<<<<<<<<<<
@@ -7469,7 +7478,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_proxy_impurity_
  */
     __pyx_v_n_lt = (__pyx_v_n_lt1 + __pyx_v_n_lt0);
 
-    /* "uplift/tree/_criterion.pyx":1158
+    /* "uplift/tree/_criterion.pyx":1161
  * 
  *             n_lt = n_lt1 + n_lt0
  *             n_rt = n_rt1 + n_rt0             # <<<<<<<<<<<<<<
@@ -7478,7 +7487,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_proxy_impurity_
  */
     __pyx_v_n_rt = (__pyx_v_n_rt1 + __pyx_v_n_rt0);
 
-    /* "uplift/tree/_criterion.pyx":1159
+    /* "uplift/tree/_criterion.pyx":1162
  *             n_lt = n_lt1 + n_lt0
  *             n_rt = n_rt1 + n_rt0
  *             n_lc = n_lc1 + n_lc0             # <<<<<<<<<<<<<<
@@ -7487,7 +7496,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_proxy_impurity_
  */
     __pyx_v_n_lc = (__pyx_v_n_lc1 + __pyx_v_n_lc0);
 
-    /* "uplift/tree/_criterion.pyx":1160
+    /* "uplift/tree/_criterion.pyx":1163
  *             n_rt = n_rt1 + n_rt0
  *             n_lc = n_lc1 + n_lc0
  *             n_rc = n_rc1 + n_rc0             # <<<<<<<<<<<<<<
@@ -7496,7 +7505,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_proxy_impurity_
  */
     __pyx_v_n_rc = (__pyx_v_n_rc1 + __pyx_v_n_rc0);
 
-    /* "uplift/tree/_criterion.pyx":1162
+    /* "uplift/tree/_criterion.pyx":1165
  *             n_rc = n_rc1 + n_rc0
  * 
  *             n_t = n_lt + n_rt             # <<<<<<<<<<<<<<
@@ -7505,7 +7514,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_proxy_impurity_
  */
     __pyx_v_n_t = (__pyx_v_n_lt + __pyx_v_n_rt);
 
-    /* "uplift/tree/_criterion.pyx":1163
+    /* "uplift/tree/_criterion.pyx":1166
  * 
  *             n_t = n_lt + n_rt
  *             n_c = n_lc + n_rc             # <<<<<<<<<<<<<<
@@ -7514,7 +7523,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_proxy_impurity_
  */
     __pyx_v_n_c = (__pyx_v_n_lc + __pyx_v_n_rc);
 
-    /* "uplift/tree/_criterion.pyx":1165
+    /* "uplift/tree/_criterion.pyx":1168
  *             n_c = n_lc + n_rc
  * 
  *             n = n_t + n_c             # <<<<<<<<<<<<<<
@@ -7523,7 +7532,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_proxy_impurity_
  */
     __pyx_v_n = (__pyx_v_n_t + __pyx_v_n_c);
 
-    /* "uplift/tree/_criterion.pyx":1167
+    /* "uplift/tree/_criterion.pyx":1170
  *             n = n_t + n_c
  * 
  *             p_t_l = (n_lt + 0.5) / (n_t + 1)             # <<<<<<<<<<<<<<
@@ -7532,7 +7541,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_proxy_impurity_
  */
     __pyx_v_p_t_l = ((__pyx_v_n_lt + 0.5) / (__pyx_v_n_t + 1.0));
 
-    /* "uplift/tree/_criterion.pyx":1168
+    /* "uplift/tree/_criterion.pyx":1171
  * 
  *             p_t_l = (n_lt + 0.5) / (n_t + 1)
  *             p_t_r = 1 - p_t_l             # <<<<<<<<<<<<<<
@@ -7541,7 +7550,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_proxy_impurity_
  */
     __pyx_v_p_t_r = (1.0 - __pyx_v_p_t_l);
 
-    /* "uplift/tree/_criterion.pyx":1169
+    /* "uplift/tree/_criterion.pyx":1172
  *             p_t_l = (n_lt + 0.5) / (n_t + 1)
  *             p_t_r = 1 - p_t_l
  *             p_c_l = (n_lc + 0.5) / (n_c + 1)             # <<<<<<<<<<<<<<
@@ -7550,7 +7559,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_proxy_impurity_
  */
     __pyx_v_p_c_l = ((__pyx_v_n_lc + 0.5) / (__pyx_v_n_c + 1.0));
 
-    /* "uplift/tree/_criterion.pyx":1170
+    /* "uplift/tree/_criterion.pyx":1173
  *             p_t_r = 1 - p_t_l
  *             p_c_l = (n_lc + 0.5) / (n_c + 1)
  *             p_c_r = 1 - p_c_l             # <<<<<<<<<<<<<<
@@ -7559,7 +7568,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_proxy_impurity_
  */
     __pyx_v_p_c_r = (1.0 - __pyx_v_p_c_l);
 
-    /* "uplift/tree/_criterion.pyx":1172
+    /* "uplift/tree/_criterion.pyx":1175
  *             p_c_r = 1 - p_c_l
  * 
  *             p_t = (n_t + 0.5) / (n + 1)             # <<<<<<<<<<<<<<
@@ -7568,7 +7577,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_proxy_impurity_
  */
     __pyx_v_p_t = ((__pyx_v_n_t + 0.5) / (__pyx_v_n + 1.0));
 
-    /* "uplift/tree/_criterion.pyx":1173
+    /* "uplift/tree/_criterion.pyx":1176
  * 
  *             p_t = (n_t + 0.5) / (n + 1)
  *             p_c = 1 - p_t             # <<<<<<<<<<<<<<
@@ -7577,7 +7586,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_proxy_impurity_
  */
     __pyx_v_p_c = (1.0 - __pyx_v_p_t);
 
-    /* "uplift/tree/_criterion.pyx":1178
+    /* "uplift/tree/_criterion.pyx":1181
  * 
  *             # KL_gain
  *             self.children_impurity(&impurity_left, &impurity_right)             # <<<<<<<<<<<<<<
@@ -7586,7 +7595,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_proxy_impurity_
  */
     ((struct __pyx_vtabstruct_6uplift_4tree_10_criterion_UpliftEntropy *)__pyx_v_self->__pyx_base.__pyx_base.__pyx_vtab)->__pyx_base.__pyx_base.children_impurity(((struct __pyx_obj_6uplift_4tree_10_criterion_Criterion *)__pyx_v_self), (&__pyx_v_impurity_left), (&__pyx_v_impurity_right));
 
-    /* "uplift/tree/_criterion.pyx":1179
+    /* "uplift/tree/_criterion.pyx":1182
  *             # KL_gain
  *             self.children_impurity(&impurity_left, &impurity_right)
  *             KL_gain = impurity_left + impurity_right  - self.node_impurity()             # <<<<<<<<<<<<<<
@@ -7595,7 +7604,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_proxy_impurity_
  */
     __pyx_v_KL_gain = ((__pyx_v_impurity_left + __pyx_v_impurity_right) - ((struct __pyx_vtabstruct_6uplift_4tree_10_criterion_UpliftEntropy *)__pyx_v_self->__pyx_base.__pyx_base.__pyx_vtab)->__pyx_base.__pyx_base.node_impurity(((struct __pyx_obj_6uplift_4tree_10_criterion_Criterion *)__pyx_v_self)));
 
-    /* "uplift/tree/_criterion.pyx":1182
+    /* "uplift/tree/_criterion.pyx":1185
  * 
  *             # I penalty
  *             H = - p_t * log(p_t) - p_c * log(p_c)             # <<<<<<<<<<<<<<
@@ -7604,7 +7613,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_proxy_impurity_
  */
     __pyx_v_H = (((-__pyx_v_p_t) * __pyx_f_6uplift_4tree_6_utils_log(__pyx_v_p_t)) - (__pyx_v_p_c * __pyx_f_6uplift_4tree_6_utils_log(__pyx_v_p_c)));
 
-    /* "uplift/tree/_criterion.pyx":1183
+    /* "uplift/tree/_criterion.pyx":1186
  *             # I penalty
  *             H = - p_t * log(p_t) - p_c * log(p_c)
  *             KL = p_t_l * log(p_t_l / p_c_l) + p_t_r * log(p_t_r / p_c_r)             # <<<<<<<<<<<<<<
@@ -7613,7 +7622,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_proxy_impurity_
  */
     __pyx_v_KL = ((__pyx_v_p_t_l * __pyx_f_6uplift_4tree_6_utils_log((__pyx_v_p_t_l / __pyx_v_p_c_l))) + (__pyx_v_p_t_r * __pyx_f_6uplift_4tree_6_utils_log((__pyx_v_p_t_r / __pyx_v_p_c_r))));
 
-    /* "uplift/tree/_criterion.pyx":1184
+    /* "uplift/tree/_criterion.pyx":1187
  *             H = - p_t * log(p_t) - p_c * log(p_c)
  *             KL = p_t_l * log(p_t_l / p_c_l) + p_t_r * log(p_t_r / p_c_r)
  *             H_t = - p_t * (p_t_l * log(p_t_l) + p_t_r * log(p_t_r))             # <<<<<<<<<<<<<<
@@ -7622,7 +7631,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_proxy_impurity_
  */
     __pyx_v_H_t = ((-__pyx_v_p_t) * ((__pyx_v_p_t_l * __pyx_f_6uplift_4tree_6_utils_log(__pyx_v_p_t_l)) + (__pyx_v_p_t_r * __pyx_f_6uplift_4tree_6_utils_log(__pyx_v_p_t_r))));
 
-    /* "uplift/tree/_criterion.pyx":1185
+    /* "uplift/tree/_criterion.pyx":1188
  *             KL = p_t_l * log(p_t_l / p_c_l) + p_t_r * log(p_t_r / p_c_r)
  *             H_t = - p_t * (p_t_l * log(p_t_l) + p_t_r * log(p_t_r))
  *             H_c = - p_c * (p_c_l * log(p_c_l) + p_c_r * log(p_c_r))             # <<<<<<<<<<<<<<
@@ -7631,7 +7640,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_proxy_impurity_
  */
     __pyx_v_H_c = ((-__pyx_v_p_c) * ((__pyx_v_p_c_l * __pyx_f_6uplift_4tree_6_utils_log(__pyx_v_p_c_l)) + (__pyx_v_p_c_r * __pyx_f_6uplift_4tree_6_utils_log(__pyx_v_p_c_r))));
 
-    /* "uplift/tree/_criterion.pyx":1186
+    /* "uplift/tree/_criterion.pyx":1189
  *             H_t = - p_t * (p_t_l * log(p_t_l) + p_t_r * log(p_t_r))
  *             H_c = - p_c * (p_c_l * log(p_c_l) + p_c_r * log(p_c_r))
  *             I = H * KL + H_t + H_c + 0.5             # <<<<<<<<<<<<<<
@@ -7640,7 +7649,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_proxy_impurity_
  */
     __pyx_v_I = ((((__pyx_v_H * __pyx_v_KL) + __pyx_v_H_t) + __pyx_v_H_c) + 0.5);
 
-    /* "uplift/tree/_criterion.pyx":1188
+    /* "uplift/tree/_criterion.pyx":1191
  *             I = H * KL + H_t + H_c + 0.5
  * 
  *             impurity_improvement += (KL_gain / I)             # <<<<<<<<<<<<<<
@@ -7649,7 +7658,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_proxy_impurity_
  */
     __pyx_v_impurity_improvement = (__pyx_v_impurity_improvement + (__pyx_v_KL_gain / __pyx_v_I));
 
-    /* "uplift/tree/_criterion.pyx":1190
+    /* "uplift/tree/_criterion.pyx":1193
  *             impurity_improvement += (KL_gain / I)
  * 
  *             sum_left += self.sum_stride             # <<<<<<<<<<<<<<
@@ -7658,7 +7667,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_proxy_impurity_
  */
     __pyx_v_sum_left = (__pyx_v_sum_left + __pyx_v_self->__pyx_base.sum_stride);
 
-    /* "uplift/tree/_criterion.pyx":1191
+    /* "uplift/tree/_criterion.pyx":1194
  * 
  *             sum_left += self.sum_stride
  *             sum_right += self.sum_stride             # <<<<<<<<<<<<<<
@@ -7668,7 +7677,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_proxy_impurity_
     __pyx_v_sum_right = (__pyx_v_sum_right + __pyx_v_self->__pyx_base.sum_stride);
   }
 
-  /* "uplift/tree/_criterion.pyx":1193
+  /* "uplift/tree/_criterion.pyx":1196
  *             sum_right += self.sum_stride
  * 
  *         return impurity_improvement             # <<<<<<<<<<<<<<
@@ -7678,7 +7687,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_proxy_impurity_
   __pyx_r = __pyx_v_impurity_improvement;
   goto __pyx_L0;
 
-  /* "uplift/tree/_criterion.pyx":1102
+  /* "uplift/tree/_criterion.pyx":1105
  * 
  * 
  *     cdef double proxy_impurity_improvement(self) nogil:             # <<<<<<<<<<<<<<
@@ -7691,7 +7700,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_proxy_impurity_
   return __pyx_r;
 }
 
-/* "uplift/tree/_criterion.pyx":1212
+/* "uplift/tree/_criterion.pyx":1215
  *     """
  * 
  *     cdef double node_impurity(self) nogil:             # <<<<<<<<<<<<<<
@@ -7717,7 +7726,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_7Entropy_node_impurity(struct _
   __pyx_t_6uplift_4tree_10_criterion_SIZE_t __pyx_t_8;
   int __pyx_t_9;
 
-  /* "uplift/tree/_criterion.pyx":1216
+  /* "uplift/tree/_criterion.pyx":1219
  *         samples[start:end], using the cross-entropy criterion."""
  * 
  *         cdef SIZE_t* n_classes = self.n_classes             # <<<<<<<<<<<<<<
@@ -7727,7 +7736,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_7Entropy_node_impurity(struct _
   __pyx_t_1 = __pyx_v_self->__pyx_base.n_classes;
   __pyx_v_n_classes = __pyx_t_1;
 
-  /* "uplift/tree/_criterion.pyx":1217
+  /* "uplift/tree/_criterion.pyx":1220
  * 
  *         cdef SIZE_t* n_classes = self.n_classes
  *         cdef double* sum_total = self.sum_total             # <<<<<<<<<<<<<<
@@ -7737,7 +7746,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_7Entropy_node_impurity(struct _
   __pyx_t_2 = __pyx_v_self->__pyx_base.__pyx_base.sum_total;
   __pyx_v_sum_total = __pyx_t_2;
 
-  /* "uplift/tree/_criterion.pyx":1218
+  /* "uplift/tree/_criterion.pyx":1221
  *         cdef SIZE_t* n_classes = self.n_classes
  *         cdef double* sum_total = self.sum_total
  *         cdef double entropy = 0.0             # <<<<<<<<<<<<<<
@@ -7746,7 +7755,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_7Entropy_node_impurity(struct _
  */
   __pyx_v_entropy = 0.0;
 
-  /* "uplift/tree/_criterion.pyx":1223
+  /* "uplift/tree/_criterion.pyx":1226
  *         cdef SIZE_t c
  * 
  *         for k in range(self.n_outputs):             # <<<<<<<<<<<<<<
@@ -7758,7 +7767,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_7Entropy_node_impurity(struct _
   for (__pyx_t_5 = 0; __pyx_t_5 < __pyx_t_4; __pyx_t_5+=1) {
     __pyx_v_k = __pyx_t_5;
 
-    /* "uplift/tree/_criterion.pyx":1224
+    /* "uplift/tree/_criterion.pyx":1227
  * 
  *         for k in range(self.n_outputs):
  *             for c in range(n_classes[k]):             # <<<<<<<<<<<<<<
@@ -7770,7 +7779,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_7Entropy_node_impurity(struct _
     for (__pyx_t_8 = 0; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
       __pyx_v_c = __pyx_t_8;
 
-      /* "uplift/tree/_criterion.pyx":1225
+      /* "uplift/tree/_criterion.pyx":1228
  *         for k in range(self.n_outputs):
  *             for c in range(n_classes[k]):
  *                 count_k = sum_total[c]             # <<<<<<<<<<<<<<
@@ -7779,7 +7788,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_7Entropy_node_impurity(struct _
  */
       __pyx_v_count_k = (__pyx_v_sum_total[__pyx_v_c]);
 
-      /* "uplift/tree/_criterion.pyx":1226
+      /* "uplift/tree/_criterion.pyx":1229
  *             for c in range(n_classes[k]):
  *                 count_k = sum_total[c]
  *                 if count_k > 0.0:             # <<<<<<<<<<<<<<
@@ -7789,7 +7798,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_7Entropy_node_impurity(struct _
       __pyx_t_9 = ((__pyx_v_count_k > 0.0) != 0);
       if (__pyx_t_9) {
 
-        /* "uplift/tree/_criterion.pyx":1227
+        /* "uplift/tree/_criterion.pyx":1230
  *                 count_k = sum_total[c]
  *                 if count_k > 0.0:
  *                     count_k /= self.weighted_n_node_samples             # <<<<<<<<<<<<<<
@@ -7798,7 +7807,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_7Entropy_node_impurity(struct _
  */
         __pyx_v_count_k = (__pyx_v_count_k / __pyx_v_self->__pyx_base.__pyx_base.weighted_n_node_samples);
 
-        /* "uplift/tree/_criterion.pyx":1228
+        /* "uplift/tree/_criterion.pyx":1231
  *                 if count_k > 0.0:
  *                     count_k /= self.weighted_n_node_samples
  *                     entropy -= count_k * log(count_k)             # <<<<<<<<<<<<<<
@@ -7807,7 +7816,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_7Entropy_node_impurity(struct _
  */
         __pyx_v_entropy = (__pyx_v_entropy - (__pyx_v_count_k * __pyx_f_6uplift_4tree_6_utils_log(__pyx_v_count_k)));
 
-        /* "uplift/tree/_criterion.pyx":1226
+        /* "uplift/tree/_criterion.pyx":1229
  *             for c in range(n_classes[k]):
  *                 count_k = sum_total[c]
  *                 if count_k > 0.0:             # <<<<<<<<<<<<<<
@@ -7817,7 +7826,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_7Entropy_node_impurity(struct _
       }
     }
 
-    /* "uplift/tree/_criterion.pyx":1230
+    /* "uplift/tree/_criterion.pyx":1233
  *                     entropy -= count_k * log(count_k)
  * 
  *             sum_total += self.sum_stride             # <<<<<<<<<<<<<<
@@ -7827,7 +7836,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_7Entropy_node_impurity(struct _
     __pyx_v_sum_total = (__pyx_v_sum_total + __pyx_v_self->__pyx_base.sum_stride);
   }
 
-  /* "uplift/tree/_criterion.pyx":1232
+  /* "uplift/tree/_criterion.pyx":1235
  *             sum_total += self.sum_stride
  * 
  *         return entropy / self.n_outputs             # <<<<<<<<<<<<<<
@@ -7837,7 +7846,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_7Entropy_node_impurity(struct _
   __pyx_r = (__pyx_v_entropy / __pyx_v_self->__pyx_base.__pyx_base.n_outputs);
   goto __pyx_L0;
 
-  /* "uplift/tree/_criterion.pyx":1212
+  /* "uplift/tree/_criterion.pyx":1215
  *     """
  * 
  *     cdef double node_impurity(self) nogil:             # <<<<<<<<<<<<<<
@@ -7850,7 +7859,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_7Entropy_node_impurity(struct _
   return __pyx_r;
 }
 
-/* "uplift/tree/_criterion.pyx":1234
+/* "uplift/tree/_criterion.pyx":1237
  *         return entropy / self.n_outputs
  * 
  *     cdef void children_impurity(self, double* impurity_left,             # <<<<<<<<<<<<<<
@@ -7877,7 +7886,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_7Entropy_children_impurity(struct
   __pyx_t_6uplift_4tree_10_criterion_SIZE_t __pyx_t_8;
   int __pyx_t_9;
 
-  /* "uplift/tree/_criterion.pyx":1249
+  /* "uplift/tree/_criterion.pyx":1252
  *         """
  * 
  *         cdef SIZE_t* n_classes = self.n_classes             # <<<<<<<<<<<<<<
@@ -7887,7 +7896,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_7Entropy_children_impurity(struct
   __pyx_t_1 = __pyx_v_self->__pyx_base.n_classes;
   __pyx_v_n_classes = __pyx_t_1;
 
-  /* "uplift/tree/_criterion.pyx":1250
+  /* "uplift/tree/_criterion.pyx":1253
  * 
  *         cdef SIZE_t* n_classes = self.n_classes
  *         cdef double* sum_left = self.sum_left             # <<<<<<<<<<<<<<
@@ -7897,7 +7906,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_7Entropy_children_impurity(struct
   __pyx_t_2 = __pyx_v_self->__pyx_base.__pyx_base.sum_left;
   __pyx_v_sum_left = __pyx_t_2;
 
-  /* "uplift/tree/_criterion.pyx":1251
+  /* "uplift/tree/_criterion.pyx":1254
  *         cdef SIZE_t* n_classes = self.n_classes
  *         cdef double* sum_left = self.sum_left
  *         cdef double* sum_right = self.sum_right             # <<<<<<<<<<<<<<
@@ -7907,7 +7916,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_7Entropy_children_impurity(struct
   __pyx_t_2 = __pyx_v_self->__pyx_base.__pyx_base.sum_right;
   __pyx_v_sum_right = __pyx_t_2;
 
-  /* "uplift/tree/_criterion.pyx":1252
+  /* "uplift/tree/_criterion.pyx":1255
  *         cdef double* sum_left = self.sum_left
  *         cdef double* sum_right = self.sum_right
  *         cdef double entropy_left = 0.0             # <<<<<<<<<<<<<<
@@ -7916,7 +7925,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_7Entropy_children_impurity(struct
  */
   __pyx_v_entropy_left = 0.0;
 
-  /* "uplift/tree/_criterion.pyx":1253
+  /* "uplift/tree/_criterion.pyx":1256
  *         cdef double* sum_right = self.sum_right
  *         cdef double entropy_left = 0.0
  *         cdef double entropy_right = 0.0             # <<<<<<<<<<<<<<
@@ -7925,7 +7934,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_7Entropy_children_impurity(struct
  */
   __pyx_v_entropy_right = 0.0;
 
-  /* "uplift/tree/_criterion.pyx":1258
+  /* "uplift/tree/_criterion.pyx":1261
  *         cdef SIZE_t c
  * 
  *         for k in range(self.n_outputs):             # <<<<<<<<<<<<<<
@@ -7937,7 +7946,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_7Entropy_children_impurity(struct
   for (__pyx_t_5 = 0; __pyx_t_5 < __pyx_t_4; __pyx_t_5+=1) {
     __pyx_v_k = __pyx_t_5;
 
-    /* "uplift/tree/_criterion.pyx":1259
+    /* "uplift/tree/_criterion.pyx":1262
  * 
  *         for k in range(self.n_outputs):
  *             for c in range(n_classes[k]):             # <<<<<<<<<<<<<<
@@ -7949,7 +7958,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_7Entropy_children_impurity(struct
     for (__pyx_t_8 = 0; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
       __pyx_v_c = __pyx_t_8;
 
-      /* "uplift/tree/_criterion.pyx":1260
+      /* "uplift/tree/_criterion.pyx":1263
  *         for k in range(self.n_outputs):
  *             for c in range(n_classes[k]):
  *                 count_k = sum_left[c]             # <<<<<<<<<<<<<<
@@ -7958,7 +7967,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_7Entropy_children_impurity(struct
  */
       __pyx_v_count_k = (__pyx_v_sum_left[__pyx_v_c]);
 
-      /* "uplift/tree/_criterion.pyx":1261
+      /* "uplift/tree/_criterion.pyx":1264
  *             for c in range(n_classes[k]):
  *                 count_k = sum_left[c]
  *                 if count_k > 0.0:             # <<<<<<<<<<<<<<
@@ -7968,7 +7977,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_7Entropy_children_impurity(struct
       __pyx_t_9 = ((__pyx_v_count_k > 0.0) != 0);
       if (__pyx_t_9) {
 
-        /* "uplift/tree/_criterion.pyx":1262
+        /* "uplift/tree/_criterion.pyx":1265
  *                 count_k = sum_left[c]
  *                 if count_k > 0.0:
  *                     count_k /= self.weighted_n_left             # <<<<<<<<<<<<<<
@@ -7977,7 +7986,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_7Entropy_children_impurity(struct
  */
         __pyx_v_count_k = (__pyx_v_count_k / __pyx_v_self->__pyx_base.__pyx_base.weighted_n_left);
 
-        /* "uplift/tree/_criterion.pyx":1263
+        /* "uplift/tree/_criterion.pyx":1266
  *                 if count_k > 0.0:
  *                     count_k /= self.weighted_n_left
  *                     entropy_left -= count_k * log(count_k)             # <<<<<<<<<<<<<<
@@ -7986,7 +7995,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_7Entropy_children_impurity(struct
  */
         __pyx_v_entropy_left = (__pyx_v_entropy_left - (__pyx_v_count_k * __pyx_f_6uplift_4tree_6_utils_log(__pyx_v_count_k)));
 
-        /* "uplift/tree/_criterion.pyx":1261
+        /* "uplift/tree/_criterion.pyx":1264
  *             for c in range(n_classes[k]):
  *                 count_k = sum_left[c]
  *                 if count_k > 0.0:             # <<<<<<<<<<<<<<
@@ -7995,7 +8004,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_7Entropy_children_impurity(struct
  */
       }
 
-      /* "uplift/tree/_criterion.pyx":1265
+      /* "uplift/tree/_criterion.pyx":1268
  *                     entropy_left -= count_k * log(count_k)
  * 
  *                 count_k = sum_right[c]             # <<<<<<<<<<<<<<
@@ -8004,7 +8013,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_7Entropy_children_impurity(struct
  */
       __pyx_v_count_k = (__pyx_v_sum_right[__pyx_v_c]);
 
-      /* "uplift/tree/_criterion.pyx":1266
+      /* "uplift/tree/_criterion.pyx":1269
  * 
  *                 count_k = sum_right[c]
  *                 if count_k > 0.0:             # <<<<<<<<<<<<<<
@@ -8014,7 +8023,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_7Entropy_children_impurity(struct
       __pyx_t_9 = ((__pyx_v_count_k > 0.0) != 0);
       if (__pyx_t_9) {
 
-        /* "uplift/tree/_criterion.pyx":1267
+        /* "uplift/tree/_criterion.pyx":1270
  *                 count_k = sum_right[c]
  *                 if count_k > 0.0:
  *                     count_k /= self.weighted_n_right             # <<<<<<<<<<<<<<
@@ -8023,7 +8032,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_7Entropy_children_impurity(struct
  */
         __pyx_v_count_k = (__pyx_v_count_k / __pyx_v_self->__pyx_base.__pyx_base.weighted_n_right);
 
-        /* "uplift/tree/_criterion.pyx":1268
+        /* "uplift/tree/_criterion.pyx":1271
  *                 if count_k > 0.0:
  *                     count_k /= self.weighted_n_right
  *                     entropy_right -= count_k * log(count_k)             # <<<<<<<<<<<<<<
@@ -8032,7 +8041,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_7Entropy_children_impurity(struct
  */
         __pyx_v_entropy_right = (__pyx_v_entropy_right - (__pyx_v_count_k * __pyx_f_6uplift_4tree_6_utils_log(__pyx_v_count_k)));
 
-        /* "uplift/tree/_criterion.pyx":1266
+        /* "uplift/tree/_criterion.pyx":1269
  * 
  *                 count_k = sum_right[c]
  *                 if count_k > 0.0:             # <<<<<<<<<<<<<<
@@ -8042,7 +8051,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_7Entropy_children_impurity(struct
       }
     }
 
-    /* "uplift/tree/_criterion.pyx":1270
+    /* "uplift/tree/_criterion.pyx":1273
  *                     entropy_right -= count_k * log(count_k)
  * 
  *             sum_left += self.sum_stride             # <<<<<<<<<<<<<<
@@ -8051,7 +8060,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_7Entropy_children_impurity(struct
  */
     __pyx_v_sum_left = (__pyx_v_sum_left + __pyx_v_self->__pyx_base.sum_stride);
 
-    /* "uplift/tree/_criterion.pyx":1271
+    /* "uplift/tree/_criterion.pyx":1274
  * 
  *             sum_left += self.sum_stride
  *             sum_right += self.sum_stride             # <<<<<<<<<<<<<<
@@ -8061,7 +8070,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_7Entropy_children_impurity(struct
     __pyx_v_sum_right = (__pyx_v_sum_right + __pyx_v_self->__pyx_base.sum_stride);
   }
 
-  /* "uplift/tree/_criterion.pyx":1273
+  /* "uplift/tree/_criterion.pyx":1276
  *             sum_right += self.sum_stride
  * 
  *         impurity_left[0] = entropy_left / self.n_outputs             # <<<<<<<<<<<<<<
@@ -8070,7 +8079,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_7Entropy_children_impurity(struct
  */
   (__pyx_v_impurity_left[0]) = (__pyx_v_entropy_left / __pyx_v_self->__pyx_base.__pyx_base.n_outputs);
 
-  /* "uplift/tree/_criterion.pyx":1274
+  /* "uplift/tree/_criterion.pyx":1277
  * 
  *         impurity_left[0] = entropy_left / self.n_outputs
  *         impurity_right[0] = entropy_right / self.n_outputs             # <<<<<<<<<<<<<<
@@ -8079,7 +8088,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_7Entropy_children_impurity(struct
  */
   (__pyx_v_impurity_right[0]) = (__pyx_v_entropy_right / __pyx_v_self->__pyx_base.__pyx_base.n_outputs);
 
-  /* "uplift/tree/_criterion.pyx":1234
+  /* "uplift/tree/_criterion.pyx":1237
  *         return entropy / self.n_outputs
  * 
  *     cdef void children_impurity(self, double* impurity_left,             # <<<<<<<<<<<<<<
@@ -8090,7 +8099,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_7Entropy_children_impurity(struct
   /* function exit code */
 }
 
-/* "uplift/tree/_criterion.pyx":1296
+/* "uplift/tree/_criterion.pyx":1299
  * 
  * 
  *     cdef double node_impurity(self) nogil:             # <<<<<<<<<<<<<<
@@ -8116,7 +8125,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_4Gini_node_impurity(struct __py
   __pyx_t_6uplift_4tree_10_criterion_SIZE_t __pyx_t_7;
   __pyx_t_6uplift_4tree_10_criterion_SIZE_t __pyx_t_8;
 
-  /* "uplift/tree/_criterion.pyx":1301
+  /* "uplift/tree/_criterion.pyx":1304
  * 
  * 
  *         cdef SIZE_t* n_classes = self.n_classes             # <<<<<<<<<<<<<<
@@ -8126,7 +8135,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_4Gini_node_impurity(struct __py
   __pyx_t_1 = __pyx_v_self->__pyx_base.n_classes;
   __pyx_v_n_classes = __pyx_t_1;
 
-  /* "uplift/tree/_criterion.pyx":1302
+  /* "uplift/tree/_criterion.pyx":1305
  * 
  *         cdef SIZE_t* n_classes = self.n_classes
  *         cdef double* sum_total = self.sum_total             # <<<<<<<<<<<<<<
@@ -8136,7 +8145,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_4Gini_node_impurity(struct __py
   __pyx_t_2 = __pyx_v_self->__pyx_base.__pyx_base.sum_total;
   __pyx_v_sum_total = __pyx_t_2;
 
-  /* "uplift/tree/_criterion.pyx":1303
+  /* "uplift/tree/_criterion.pyx":1306
  *         cdef SIZE_t* n_classes = self.n_classes
  *         cdef double* sum_total = self.sum_total
  *         cdef double gini = 0.0             # <<<<<<<<<<<<<<
@@ -8145,7 +8154,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_4Gini_node_impurity(struct __py
  */
   __pyx_v_gini = 0.0;
 
-  /* "uplift/tree/_criterion.pyx":1309
+  /* "uplift/tree/_criterion.pyx":1312
  *         cdef SIZE_t c
  * 
  *         for k in range(self.n_outputs):             # <<<<<<<<<<<<<<
@@ -8157,7 +8166,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_4Gini_node_impurity(struct __py
   for (__pyx_t_5 = 0; __pyx_t_5 < __pyx_t_4; __pyx_t_5+=1) {
     __pyx_v_k = __pyx_t_5;
 
-    /* "uplift/tree/_criterion.pyx":1310
+    /* "uplift/tree/_criterion.pyx":1313
  * 
  *         for k in range(self.n_outputs):
  *             sq_count = 0.0             # <<<<<<<<<<<<<<
@@ -8166,7 +8175,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_4Gini_node_impurity(struct __py
  */
     __pyx_v_sq_count = 0.0;
 
-    /* "uplift/tree/_criterion.pyx":1312
+    /* "uplift/tree/_criterion.pyx":1315
  *             sq_count = 0.0
  * 
  *             for c in range(n_classes[k]):             # <<<<<<<<<<<<<<
@@ -8178,7 +8187,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_4Gini_node_impurity(struct __py
     for (__pyx_t_8 = 0; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
       __pyx_v_c = __pyx_t_8;
 
-      /* "uplift/tree/_criterion.pyx":1313
+      /* "uplift/tree/_criterion.pyx":1316
  * 
  *             for c in range(n_classes[k]):
  *                 count_k = sum_total[c]             # <<<<<<<<<<<<<<
@@ -8187,7 +8196,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_4Gini_node_impurity(struct __py
  */
       __pyx_v_count_k = (__pyx_v_sum_total[__pyx_v_c]);
 
-      /* "uplift/tree/_criterion.pyx":1314
+      /* "uplift/tree/_criterion.pyx":1317
  *             for c in range(n_classes[k]):
  *                 count_k = sum_total[c]
  *                 sq_count += count_k * count_k             # <<<<<<<<<<<<<<
@@ -8197,7 +8206,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_4Gini_node_impurity(struct __py
       __pyx_v_sq_count = (__pyx_v_sq_count + (__pyx_v_count_k * __pyx_v_count_k));
     }
 
-    /* "uplift/tree/_criterion.pyx":1316
+    /* "uplift/tree/_criterion.pyx":1319
  *                 sq_count += count_k * count_k
  * 
  *             gini += 1.0 - sq_count / (self.weighted_n_node_samples *             # <<<<<<<<<<<<<<
@@ -8206,7 +8215,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_4Gini_node_impurity(struct __py
  */
     __pyx_v_gini = (__pyx_v_gini + (1.0 - (__pyx_v_sq_count / (__pyx_v_self->__pyx_base.__pyx_base.weighted_n_node_samples * __pyx_v_self->__pyx_base.__pyx_base.weighted_n_node_samples))));
 
-    /* "uplift/tree/_criterion.pyx":1319
+    /* "uplift/tree/_criterion.pyx":1322
  *                                       self.weighted_n_node_samples)
  * 
  *             sum_total += self.sum_stride             # <<<<<<<<<<<<<<
@@ -8216,7 +8225,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_4Gini_node_impurity(struct __py
     __pyx_v_sum_total = (__pyx_v_sum_total + __pyx_v_self->__pyx_base.sum_stride);
   }
 
-  /* "uplift/tree/_criterion.pyx":1321
+  /* "uplift/tree/_criterion.pyx":1324
  *             sum_total += self.sum_stride
  * 
  *         return gini / self.n_outputs             # <<<<<<<<<<<<<<
@@ -8226,7 +8235,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_4Gini_node_impurity(struct __py
   __pyx_r = (__pyx_v_gini / __pyx_v_self->__pyx_base.__pyx_base.n_outputs);
   goto __pyx_L0;
 
-  /* "uplift/tree/_criterion.pyx":1296
+  /* "uplift/tree/_criterion.pyx":1299
  * 
  * 
  *     cdef double node_impurity(self) nogil:             # <<<<<<<<<<<<<<
@@ -8239,7 +8248,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_4Gini_node_impurity(struct __py
   return __pyx_r;
 }
 
-/* "uplift/tree/_criterion.pyx":1323
+/* "uplift/tree/_criterion.pyx":1326
  *         return gini / self.n_outputs
  * 
  *     cdef void children_impurity(self, double* impurity_left,             # <<<<<<<<<<<<<<
@@ -8267,7 +8276,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_4Gini_children_impurity(struct __
   __pyx_t_6uplift_4tree_10_criterion_SIZE_t __pyx_t_7;
   __pyx_t_6uplift_4tree_10_criterion_SIZE_t __pyx_t_8;
 
-  /* "uplift/tree/_criterion.pyx":1338
+  /* "uplift/tree/_criterion.pyx":1341
  *         """
  * 
  *         cdef SIZE_t* n_classes = self.n_classes             # <<<<<<<<<<<<<<
@@ -8277,7 +8286,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_4Gini_children_impurity(struct __
   __pyx_t_1 = __pyx_v_self->__pyx_base.n_classes;
   __pyx_v_n_classes = __pyx_t_1;
 
-  /* "uplift/tree/_criterion.pyx":1339
+  /* "uplift/tree/_criterion.pyx":1342
  * 
  *         cdef SIZE_t* n_classes = self.n_classes
  *         cdef double* sum_left = self.sum_left             # <<<<<<<<<<<<<<
@@ -8287,7 +8296,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_4Gini_children_impurity(struct __
   __pyx_t_2 = __pyx_v_self->__pyx_base.__pyx_base.sum_left;
   __pyx_v_sum_left = __pyx_t_2;
 
-  /* "uplift/tree/_criterion.pyx":1340
+  /* "uplift/tree/_criterion.pyx":1343
  *         cdef SIZE_t* n_classes = self.n_classes
  *         cdef double* sum_left = self.sum_left
  *         cdef double* sum_right = self.sum_right             # <<<<<<<<<<<<<<
@@ -8297,7 +8306,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_4Gini_children_impurity(struct __
   __pyx_t_2 = __pyx_v_self->__pyx_base.__pyx_base.sum_right;
   __pyx_v_sum_right = __pyx_t_2;
 
-  /* "uplift/tree/_criterion.pyx":1341
+  /* "uplift/tree/_criterion.pyx":1344
  *         cdef double* sum_left = self.sum_left
  *         cdef double* sum_right = self.sum_right
  *         cdef double gini_left = 0.0             # <<<<<<<<<<<<<<
@@ -8306,7 +8315,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_4Gini_children_impurity(struct __
  */
   __pyx_v_gini_left = 0.0;
 
-  /* "uplift/tree/_criterion.pyx":1342
+  /* "uplift/tree/_criterion.pyx":1345
  *         cdef double* sum_right = self.sum_right
  *         cdef double gini_left = 0.0
  *         cdef double gini_right = 0.0             # <<<<<<<<<<<<<<
@@ -8315,7 +8324,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_4Gini_children_impurity(struct __
  */
   __pyx_v_gini_right = 0.0;
 
-  /* "uplift/tree/_criterion.pyx":1349
+  /* "uplift/tree/_criterion.pyx":1352
  *         cdef SIZE_t c
  * 
  *         for k in range(self.n_outputs):             # <<<<<<<<<<<<<<
@@ -8327,7 +8336,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_4Gini_children_impurity(struct __
   for (__pyx_t_5 = 0; __pyx_t_5 < __pyx_t_4; __pyx_t_5+=1) {
     __pyx_v_k = __pyx_t_5;
 
-    /* "uplift/tree/_criterion.pyx":1350
+    /* "uplift/tree/_criterion.pyx":1353
  * 
  *         for k in range(self.n_outputs):
  *             sq_count_left = 0.0             # <<<<<<<<<<<<<<
@@ -8336,7 +8345,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_4Gini_children_impurity(struct __
  */
     __pyx_v_sq_count_left = 0.0;
 
-    /* "uplift/tree/_criterion.pyx":1351
+    /* "uplift/tree/_criterion.pyx":1354
  *         for k in range(self.n_outputs):
  *             sq_count_left = 0.0
  *             sq_count_right = 0.0             # <<<<<<<<<<<<<<
@@ -8345,7 +8354,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_4Gini_children_impurity(struct __
  */
     __pyx_v_sq_count_right = 0.0;
 
-    /* "uplift/tree/_criterion.pyx":1353
+    /* "uplift/tree/_criterion.pyx":1356
  *             sq_count_right = 0.0
  * 
  *             for c in range(n_classes[k]):             # <<<<<<<<<<<<<<
@@ -8357,7 +8366,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_4Gini_children_impurity(struct __
     for (__pyx_t_8 = 0; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
       __pyx_v_c = __pyx_t_8;
 
-      /* "uplift/tree/_criterion.pyx":1354
+      /* "uplift/tree/_criterion.pyx":1357
  * 
  *             for c in range(n_classes[k]):
  *                 count_k = sum_left[c]             # <<<<<<<<<<<<<<
@@ -8366,7 +8375,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_4Gini_children_impurity(struct __
  */
       __pyx_v_count_k = (__pyx_v_sum_left[__pyx_v_c]);
 
-      /* "uplift/tree/_criterion.pyx":1355
+      /* "uplift/tree/_criterion.pyx":1358
  *             for c in range(n_classes[k]):
  *                 count_k = sum_left[c]
  *                 sq_count_left += count_k * count_k             # <<<<<<<<<<<<<<
@@ -8375,7 +8384,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_4Gini_children_impurity(struct __
  */
       __pyx_v_sq_count_left = (__pyx_v_sq_count_left + (__pyx_v_count_k * __pyx_v_count_k));
 
-      /* "uplift/tree/_criterion.pyx":1357
+      /* "uplift/tree/_criterion.pyx":1360
  *                 sq_count_left += count_k * count_k
  * 
  *                 count_k = sum_right[c]             # <<<<<<<<<<<<<<
@@ -8384,7 +8393,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_4Gini_children_impurity(struct __
  */
       __pyx_v_count_k = (__pyx_v_sum_right[__pyx_v_c]);
 
-      /* "uplift/tree/_criterion.pyx":1358
+      /* "uplift/tree/_criterion.pyx":1361
  * 
  *                 count_k = sum_right[c]
  *                 sq_count_right += count_k * count_k             # <<<<<<<<<<<<<<
@@ -8394,7 +8403,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_4Gini_children_impurity(struct __
       __pyx_v_sq_count_right = (__pyx_v_sq_count_right + (__pyx_v_count_k * __pyx_v_count_k));
     }
 
-    /* "uplift/tree/_criterion.pyx":1360
+    /* "uplift/tree/_criterion.pyx":1363
  *                 sq_count_right += count_k * count_k
  * 
  *             gini_left += 1.0 - sq_count_left / (self.weighted_n_left *             # <<<<<<<<<<<<<<
@@ -8403,7 +8412,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_4Gini_children_impurity(struct __
  */
     __pyx_v_gini_left = (__pyx_v_gini_left + (1.0 - (__pyx_v_sq_count_left / (__pyx_v_self->__pyx_base.__pyx_base.weighted_n_left * __pyx_v_self->__pyx_base.__pyx_base.weighted_n_left))));
 
-    /* "uplift/tree/_criterion.pyx":1363
+    /* "uplift/tree/_criterion.pyx":1366
  *                                                 self.weighted_n_left)
  * 
  *             gini_right += 1.0 - sq_count_right / (self.weighted_n_right *             # <<<<<<<<<<<<<<
@@ -8412,7 +8421,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_4Gini_children_impurity(struct __
  */
     __pyx_v_gini_right = (__pyx_v_gini_right + (1.0 - (__pyx_v_sq_count_right / (__pyx_v_self->__pyx_base.__pyx_base.weighted_n_right * __pyx_v_self->__pyx_base.__pyx_base.weighted_n_right))));
 
-    /* "uplift/tree/_criterion.pyx":1366
+    /* "uplift/tree/_criterion.pyx":1369
  *                                                   self.weighted_n_right)
  * 
  *             sum_left += self.sum_stride             # <<<<<<<<<<<<<<
@@ -8421,7 +8430,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_4Gini_children_impurity(struct __
  */
     __pyx_v_sum_left = (__pyx_v_sum_left + __pyx_v_self->__pyx_base.sum_stride);
 
-    /* "uplift/tree/_criterion.pyx":1367
+    /* "uplift/tree/_criterion.pyx":1370
  * 
  *             sum_left += self.sum_stride
  *             sum_right += self.sum_stride             # <<<<<<<<<<<<<<
@@ -8431,7 +8440,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_4Gini_children_impurity(struct __
     __pyx_v_sum_right = (__pyx_v_sum_right + __pyx_v_self->__pyx_base.sum_stride);
   }
 
-  /* "uplift/tree/_criterion.pyx":1369
+  /* "uplift/tree/_criterion.pyx":1372
  *             sum_right += self.sum_stride
  * 
  *         impurity_left[0] = gini_left / self.n_outputs             # <<<<<<<<<<<<<<
@@ -8440,7 +8449,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_4Gini_children_impurity(struct __
  */
   (__pyx_v_impurity_left[0]) = (__pyx_v_gini_left / __pyx_v_self->__pyx_base.__pyx_base.n_outputs);
 
-  /* "uplift/tree/_criterion.pyx":1370
+  /* "uplift/tree/_criterion.pyx":1373
  * 
  *         impurity_left[0] = gini_left / self.n_outputs
  *         impurity_right[0] = gini_right / self.n_outputs             # <<<<<<<<<<<<<<
@@ -8449,7 +8458,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_4Gini_children_impurity(struct __
  */
   (__pyx_v_impurity_right[0]) = (__pyx_v_gini_right / __pyx_v_self->__pyx_base.__pyx_base.n_outputs);
 
-  /* "uplift/tree/_criterion.pyx":1323
+  /* "uplift/tree/_criterion.pyx":1326
  *         return gini / self.n_outputs
  * 
  *     cdef void children_impurity(self, double* impurity_left,             # <<<<<<<<<<<<<<
@@ -8460,7 +8469,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_4Gini_children_impurity(struct __
   /* function exit code */
 }
 
-/* "uplift/tree/_criterion.pyx":1387
+/* "uplift/tree/_criterion.pyx":1390
  *     cdef double sq_sum_total
  * 
  *     def __cinit__(self, SIZE_t n_outputs):             # <<<<<<<<<<<<<<
@@ -8494,18 +8503,18 @@ static int __pyx_pw_6uplift_4tree_10_criterion_19RegressionCriterion_1__cinit__(
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__cinit__") < 0)) __PYX_ERR(1, 1387, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__cinit__") < 0)) __PYX_ERR(1, 1390, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 1) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
     }
-    __pyx_v_n_outputs = __Pyx_PyInt_As_Py_intptr_t(values[0]); if (unlikely((__pyx_v_n_outputs == ((npy_intp)-1)) && PyErr_Occurred())) __PYX_ERR(1, 1387, __pyx_L3_error)
+    __pyx_v_n_outputs = __Pyx_PyInt_As_Py_intptr_t(values[0]); if (unlikely((__pyx_v_n_outputs == ((npy_intp)-1)) && PyErr_Occurred())) __PYX_ERR(1, 1390, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(1, 1387, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(1, 1390, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("uplift.tree._criterion.RegressionCriterion.__cinit__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -8525,7 +8534,7 @@ static int __pyx_pf_6uplift_4tree_10_criterion_19RegressionCriterion___cinit__(s
   int __pyx_t_2;
   __Pyx_RefNannySetupContext("__cinit__", 0);
 
-  /* "uplift/tree/_criterion.pyx":1397
+  /* "uplift/tree/_criterion.pyx":1400
  * 
  *         # Default values
  *         self.y = NULL             # <<<<<<<<<<<<<<
@@ -8534,7 +8543,7 @@ static int __pyx_pf_6uplift_4tree_10_criterion_19RegressionCriterion___cinit__(s
  */
   __pyx_v_self->__pyx_base.y = NULL;
 
-  /* "uplift/tree/_criterion.pyx":1398
+  /* "uplift/tree/_criterion.pyx":1401
  *         # Default values
  *         self.y = NULL
  *         self.y_stride = 0             # <<<<<<<<<<<<<<
@@ -8543,7 +8552,7 @@ static int __pyx_pf_6uplift_4tree_10_criterion_19RegressionCriterion___cinit__(s
  */
   __pyx_v_self->__pyx_base.y_stride = 0;
 
-  /* "uplift/tree/_criterion.pyx":1399
+  /* "uplift/tree/_criterion.pyx":1402
  *         self.y = NULL
  *         self.y_stride = 0
  *         self.sample_weight = NULL             # <<<<<<<<<<<<<<
@@ -8552,7 +8561,7 @@ static int __pyx_pf_6uplift_4tree_10_criterion_19RegressionCriterion___cinit__(s
  */
   __pyx_v_self->__pyx_base.sample_weight = NULL;
 
-  /* "uplift/tree/_criterion.pyx":1401
+  /* "uplift/tree/_criterion.pyx":1404
  *         self.sample_weight = NULL
  * 
  *         self.samples = NULL             # <<<<<<<<<<<<<<
@@ -8561,7 +8570,7 @@ static int __pyx_pf_6uplift_4tree_10_criterion_19RegressionCriterion___cinit__(s
  */
   __pyx_v_self->__pyx_base.samples = NULL;
 
-  /* "uplift/tree/_criterion.pyx":1402
+  /* "uplift/tree/_criterion.pyx":1405
  * 
  *         self.samples = NULL
  *         self.start = 0             # <<<<<<<<<<<<<<
@@ -8570,7 +8579,7 @@ static int __pyx_pf_6uplift_4tree_10_criterion_19RegressionCriterion___cinit__(s
  */
   __pyx_v_self->__pyx_base.start = 0;
 
-  /* "uplift/tree/_criterion.pyx":1403
+  /* "uplift/tree/_criterion.pyx":1406
  *         self.samples = NULL
  *         self.start = 0
  *         self.pos = 0             # <<<<<<<<<<<<<<
@@ -8579,7 +8588,7 @@ static int __pyx_pf_6uplift_4tree_10_criterion_19RegressionCriterion___cinit__(s
  */
   __pyx_v_self->__pyx_base.pos = 0;
 
-  /* "uplift/tree/_criterion.pyx":1404
+  /* "uplift/tree/_criterion.pyx":1407
  *         self.start = 0
  *         self.pos = 0
  *         self.end = 0             # <<<<<<<<<<<<<<
@@ -8588,7 +8597,7 @@ static int __pyx_pf_6uplift_4tree_10_criterion_19RegressionCriterion___cinit__(s
  */
   __pyx_v_self->__pyx_base.end = 0;
 
-  /* "uplift/tree/_criterion.pyx":1406
+  /* "uplift/tree/_criterion.pyx":1409
  *         self.end = 0
  * 
  *         self.n_outputs = n_outputs             # <<<<<<<<<<<<<<
@@ -8597,7 +8606,7 @@ static int __pyx_pf_6uplift_4tree_10_criterion_19RegressionCriterion___cinit__(s
  */
   __pyx_v_self->__pyx_base.n_outputs = __pyx_v_n_outputs;
 
-  /* "uplift/tree/_criterion.pyx":1407
+  /* "uplift/tree/_criterion.pyx":1410
  * 
  *         self.n_outputs = n_outputs
  *         self.n_node_samples = 0             # <<<<<<<<<<<<<<
@@ -8606,7 +8615,7 @@ static int __pyx_pf_6uplift_4tree_10_criterion_19RegressionCriterion___cinit__(s
  */
   __pyx_v_self->__pyx_base.n_node_samples = 0;
 
-  /* "uplift/tree/_criterion.pyx":1408
+  /* "uplift/tree/_criterion.pyx":1411
  *         self.n_outputs = n_outputs
  *         self.n_node_samples = 0
  *         self.weighted_n_node_samples = 0.0             # <<<<<<<<<<<<<<
@@ -8615,7 +8624,7 @@ static int __pyx_pf_6uplift_4tree_10_criterion_19RegressionCriterion___cinit__(s
  */
   __pyx_v_self->__pyx_base.weighted_n_node_samples = 0.0;
 
-  /* "uplift/tree/_criterion.pyx":1409
+  /* "uplift/tree/_criterion.pyx":1412
  *         self.n_node_samples = 0
  *         self.weighted_n_node_samples = 0.0
  *         self.weighted_n_left = 0.0             # <<<<<<<<<<<<<<
@@ -8624,7 +8633,7 @@ static int __pyx_pf_6uplift_4tree_10_criterion_19RegressionCriterion___cinit__(s
  */
   __pyx_v_self->__pyx_base.weighted_n_left = 0.0;
 
-  /* "uplift/tree/_criterion.pyx":1410
+  /* "uplift/tree/_criterion.pyx":1413
  *         self.weighted_n_node_samples = 0.0
  *         self.weighted_n_left = 0.0
  *         self.weighted_n_right = 0.0             # <<<<<<<<<<<<<<
@@ -8633,7 +8642,7 @@ static int __pyx_pf_6uplift_4tree_10_criterion_19RegressionCriterion___cinit__(s
  */
   __pyx_v_self->__pyx_base.weighted_n_right = 0.0;
 
-  /* "uplift/tree/_criterion.pyx":1412
+  /* "uplift/tree/_criterion.pyx":1415
  *         self.weighted_n_right = 0.0
  * 
  *         self.sq_sum_total = 0.0             # <<<<<<<<<<<<<<
@@ -8642,7 +8651,7 @@ static int __pyx_pf_6uplift_4tree_10_criterion_19RegressionCriterion___cinit__(s
  */
   __pyx_v_self->sq_sum_total = 0.0;
 
-  /* "uplift/tree/_criterion.pyx":1416
+  /* "uplift/tree/_criterion.pyx":1419
  *         # Allocate accumulators. Make sure they are NULL, not uninitialized,
  *         # before an exception can be raised (which triggers __dealloc__).
  *         self.sum_total = NULL             # <<<<<<<<<<<<<<
@@ -8651,7 +8660,7 @@ static int __pyx_pf_6uplift_4tree_10_criterion_19RegressionCriterion___cinit__(s
  */
   __pyx_v_self->__pyx_base.sum_total = NULL;
 
-  /* "uplift/tree/_criterion.pyx":1417
+  /* "uplift/tree/_criterion.pyx":1420
  *         # before an exception can be raised (which triggers __dealloc__).
  *         self.sum_total = NULL
  *         self.sum_left = NULL             # <<<<<<<<<<<<<<
@@ -8660,7 +8669,7 @@ static int __pyx_pf_6uplift_4tree_10_criterion_19RegressionCriterion___cinit__(s
  */
   __pyx_v_self->__pyx_base.sum_left = NULL;
 
-  /* "uplift/tree/_criterion.pyx":1418
+  /* "uplift/tree/_criterion.pyx":1421
  *         self.sum_total = NULL
  *         self.sum_left = NULL
  *         self.sum_right = NULL             # <<<<<<<<<<<<<<
@@ -8669,7 +8678,7 @@ static int __pyx_pf_6uplift_4tree_10_criterion_19RegressionCriterion___cinit__(s
  */
   __pyx_v_self->__pyx_base.sum_right = NULL;
 
-  /* "uplift/tree/_criterion.pyx":1421
+  /* "uplift/tree/_criterion.pyx":1424
  * 
  *         # Allocate memory for the accumulators
  *         self.sum_total = <double*> calloc(n_outputs, sizeof(double))             # <<<<<<<<<<<<<<
@@ -8678,7 +8687,7 @@ static int __pyx_pf_6uplift_4tree_10_criterion_19RegressionCriterion___cinit__(s
  */
   __pyx_v_self->__pyx_base.sum_total = ((double *)calloc(__pyx_v_n_outputs, (sizeof(double))));
 
-  /* "uplift/tree/_criterion.pyx":1422
+  /* "uplift/tree/_criterion.pyx":1425
  *         # Allocate memory for the accumulators
  *         self.sum_total = <double*> calloc(n_outputs, sizeof(double))
  *         self.sum_left = <double*> calloc(n_outputs, sizeof(double))             # <<<<<<<<<<<<<<
@@ -8687,7 +8696,7 @@ static int __pyx_pf_6uplift_4tree_10_criterion_19RegressionCriterion___cinit__(s
  */
   __pyx_v_self->__pyx_base.sum_left = ((double *)calloc(__pyx_v_n_outputs, (sizeof(double))));
 
-  /* "uplift/tree/_criterion.pyx":1423
+  /* "uplift/tree/_criterion.pyx":1426
  *         self.sum_total = <double*> calloc(n_outputs, sizeof(double))
  *         self.sum_left = <double*> calloc(n_outputs, sizeof(double))
  *         self.sum_right = <double*> calloc(n_outputs, sizeof(double))             # <<<<<<<<<<<<<<
@@ -8696,7 +8705,7 @@ static int __pyx_pf_6uplift_4tree_10_criterion_19RegressionCriterion___cinit__(s
  */
   __pyx_v_self->__pyx_base.sum_right = ((double *)calloc(__pyx_v_n_outputs, (sizeof(double))));
 
-  /* "uplift/tree/_criterion.pyx":1425
+  /* "uplift/tree/_criterion.pyx":1428
  *         self.sum_right = <double*> calloc(n_outputs, sizeof(double))
  * 
  *         if (self.sum_total == NULL or             # <<<<<<<<<<<<<<
@@ -8710,7 +8719,7 @@ static int __pyx_pf_6uplift_4tree_10_criterion_19RegressionCriterion___cinit__(s
     goto __pyx_L4_bool_binop_done;
   }
 
-  /* "uplift/tree/_criterion.pyx":1426
+  /* "uplift/tree/_criterion.pyx":1429
  * 
  *         if (self.sum_total == NULL or
  *                 self.sum_left == NULL or             # <<<<<<<<<<<<<<
@@ -8724,7 +8733,7 @@ static int __pyx_pf_6uplift_4tree_10_criterion_19RegressionCriterion___cinit__(s
     goto __pyx_L4_bool_binop_done;
   }
 
-  /* "uplift/tree/_criterion.pyx":1427
+  /* "uplift/tree/_criterion.pyx":1430
  *         if (self.sum_total == NULL or
  *                 self.sum_left == NULL or
  *                 self.sum_right == NULL):             # <<<<<<<<<<<<<<
@@ -8735,7 +8744,7 @@ static int __pyx_pf_6uplift_4tree_10_criterion_19RegressionCriterion___cinit__(s
   __pyx_t_1 = __pyx_t_2;
   __pyx_L4_bool_binop_done:;
 
-  /* "uplift/tree/_criterion.pyx":1425
+  /* "uplift/tree/_criterion.pyx":1428
  *         self.sum_right = <double*> calloc(n_outputs, sizeof(double))
  * 
  *         if (self.sum_total == NULL or             # <<<<<<<<<<<<<<
@@ -8744,16 +8753,16 @@ static int __pyx_pf_6uplift_4tree_10_criterion_19RegressionCriterion___cinit__(s
  */
   if (unlikely(__pyx_t_1)) {
 
-    /* "uplift/tree/_criterion.pyx":1428
+    /* "uplift/tree/_criterion.pyx":1431
  *                 self.sum_left == NULL or
  *                 self.sum_right == NULL):
  *             raise MemoryError()             # <<<<<<<<<<<<<<
  * 
  *     def __reduce__(self):
  */
-    PyErr_NoMemory(); __PYX_ERR(1, 1428, __pyx_L1_error)
+    PyErr_NoMemory(); __PYX_ERR(1, 1431, __pyx_L1_error)
 
-    /* "uplift/tree/_criterion.pyx":1425
+    /* "uplift/tree/_criterion.pyx":1428
  *         self.sum_right = <double*> calloc(n_outputs, sizeof(double))
  * 
  *         if (self.sum_total == NULL or             # <<<<<<<<<<<<<<
@@ -8762,7 +8771,7 @@ static int __pyx_pf_6uplift_4tree_10_criterion_19RegressionCriterion___cinit__(s
  */
   }
 
-  /* "uplift/tree/_criterion.pyx":1387
+  /* "uplift/tree/_criterion.pyx":1390
  *     cdef double sq_sum_total
  * 
  *     def __cinit__(self, SIZE_t n_outputs):             # <<<<<<<<<<<<<<
@@ -8781,7 +8790,7 @@ static int __pyx_pf_6uplift_4tree_10_criterion_19RegressionCriterion___cinit__(s
   return __pyx_r;
 }
 
-/* "uplift/tree/_criterion.pyx":1430
+/* "uplift/tree/_criterion.pyx":1433
  *             raise MemoryError()
  * 
  *     def __reduce__(self):             # <<<<<<<<<<<<<<
@@ -8811,7 +8820,7 @@ static PyObject *__pyx_pf_6uplift_4tree_10_criterion_19RegressionCriterion_2__re
   PyObject *__pyx_t_4 = NULL;
   __Pyx_RefNannySetupContext("__reduce__", 0);
 
-  /* "uplift/tree/_criterion.pyx":1431
+  /* "uplift/tree/_criterion.pyx":1434
  * 
  *     def __reduce__(self):
  *         return (RegressionCriterion, (self.n_outputs,), self.__getstate__())             # <<<<<<<<<<<<<<
@@ -8819,14 +8828,14 @@ static PyObject *__pyx_pf_6uplift_4tree_10_criterion_19RegressionCriterion_2__re
  *     cdef void init(self, DOUBLE_t* y, SIZE_t y_stride, DOUBLE_t* sample_weight,
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_Py_intptr_t(__pyx_v_self->__pyx_base.n_outputs); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 1431, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_Py_intptr_t(__pyx_v_self->__pyx_base.n_outputs); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 1434, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 1431, __pyx_L1_error)
+  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 1434, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_GIVEREF(__pyx_t_1);
   PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_1);
   __pyx_t_1 = 0;
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_getstate); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1431, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_getstate); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1434, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_4 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_3))) {
@@ -8840,10 +8849,10 @@ static PyObject *__pyx_pf_6uplift_4tree_10_criterion_19RegressionCriterion_2__re
   }
   __pyx_t_1 = (__pyx_t_4) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 1431, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 1434, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = PyTuple_New(3); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1431, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(3); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1434, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_INCREF(((PyObject *)__pyx_ptype_6uplift_4tree_10_criterion_RegressionCriterion));
   __Pyx_GIVEREF(((PyObject *)__pyx_ptype_6uplift_4tree_10_criterion_RegressionCriterion));
@@ -8858,7 +8867,7 @@ static PyObject *__pyx_pf_6uplift_4tree_10_criterion_19RegressionCriterion_2__re
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "uplift/tree/_criterion.pyx":1430
+  /* "uplift/tree/_criterion.pyx":1433
  *             raise MemoryError()
  * 
  *     def __reduce__(self):             # <<<<<<<<<<<<<<
@@ -8880,7 +8889,7 @@ static PyObject *__pyx_pf_6uplift_4tree_10_criterion_19RegressionCriterion_2__re
   return __pyx_r;
 }
 
-/* "uplift/tree/_criterion.pyx":1433
+/* "uplift/tree/_criterion.pyx":1436
  *         return (RegressionCriterion, (self.n_outputs,), self.__getstate__())
  * 
  *     cdef void init(self, DOUBLE_t* y, SIZE_t y_stride, DOUBLE_t* sample_weight,             # <<<<<<<<<<<<<<
@@ -8904,7 +8913,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_init(struct
   __pyx_t_6uplift_4tree_10_criterion_SIZE_t __pyx_t_7;
   __pyx_t_6uplift_4tree_10_criterion_SIZE_t __pyx_t_8;
 
-  /* "uplift/tree/_criterion.pyx":1439
+  /* "uplift/tree/_criterion.pyx":1442
  *            children samples[start:start] and samples[start:end]."""
  *         # Initialize fields
  *         self.y = y             # <<<<<<<<<<<<<<
@@ -8913,7 +8922,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_init(struct
  */
   __pyx_v_self->__pyx_base.y = __pyx_v_y;
 
-  /* "uplift/tree/_criterion.pyx":1440
+  /* "uplift/tree/_criterion.pyx":1443
  *         # Initialize fields
  *         self.y = y
  *         self.y_stride = y_stride             # <<<<<<<<<<<<<<
@@ -8922,7 +8931,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_init(struct
  */
   __pyx_v_self->__pyx_base.y_stride = __pyx_v_y_stride;
 
-  /* "uplift/tree/_criterion.pyx":1441
+  /* "uplift/tree/_criterion.pyx":1444
  *         self.y = y
  *         self.y_stride = y_stride
  *         self.sample_weight = sample_weight             # <<<<<<<<<<<<<<
@@ -8931,7 +8940,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_init(struct
  */
   __pyx_v_self->__pyx_base.sample_weight = __pyx_v_sample_weight;
 
-  /* "uplift/tree/_criterion.pyx":1442
+  /* "uplift/tree/_criterion.pyx":1445
  *         self.y_stride = y_stride
  *         self.sample_weight = sample_weight
  *         self.samples = samples             # <<<<<<<<<<<<<<
@@ -8940,7 +8949,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_init(struct
  */
   __pyx_v_self->__pyx_base.samples = __pyx_v_samples;
 
-  /* "uplift/tree/_criterion.pyx":1443
+  /* "uplift/tree/_criterion.pyx":1446
  *         self.sample_weight = sample_weight
  *         self.samples = samples
  *         self.start = start             # <<<<<<<<<<<<<<
@@ -8949,7 +8958,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_init(struct
  */
   __pyx_v_self->__pyx_base.start = __pyx_v_start;
 
-  /* "uplift/tree/_criterion.pyx":1444
+  /* "uplift/tree/_criterion.pyx":1447
  *         self.samples = samples
  *         self.start = start
  *         self.end = end             # <<<<<<<<<<<<<<
@@ -8958,7 +8967,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_init(struct
  */
   __pyx_v_self->__pyx_base.end = __pyx_v_end;
 
-  /* "uplift/tree/_criterion.pyx":1445
+  /* "uplift/tree/_criterion.pyx":1448
  *         self.start = start
  *         self.end = end
  *         self.n_node_samples = end - start             # <<<<<<<<<<<<<<
@@ -8967,7 +8976,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_init(struct
  */
   __pyx_v_self->__pyx_base.n_node_samples = (__pyx_v_end - __pyx_v_start);
 
-  /* "uplift/tree/_criterion.pyx":1446
+  /* "uplift/tree/_criterion.pyx":1449
  *         self.end = end
  *         self.n_node_samples = end - start
  *         self.weighted_n_samples = weighted_n_samples             # <<<<<<<<<<<<<<
@@ -8976,7 +8985,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_init(struct
  */
   __pyx_v_self->__pyx_base.weighted_n_samples = __pyx_v_weighted_n_samples;
 
-  /* "uplift/tree/_criterion.pyx":1447
+  /* "uplift/tree/_criterion.pyx":1450
  *         self.n_node_samples = end - start
  *         self.weighted_n_samples = weighted_n_samples
  *         self.weighted_n_node_samples = 0.             # <<<<<<<<<<<<<<
@@ -8985,7 +8994,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_init(struct
  */
   __pyx_v_self->__pyx_base.weighted_n_node_samples = 0.;
 
-  /* "uplift/tree/_criterion.pyx":1454
+  /* "uplift/tree/_criterion.pyx":1457
  *         cdef DOUBLE_t y_ik
  *         cdef DOUBLE_t w_y_ik
  *         cdef DOUBLE_t w = 1.0             # <<<<<<<<<<<<<<
@@ -8994,7 +9003,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_init(struct
  */
   __pyx_v_w = 1.0;
 
-  /* "uplift/tree/_criterion.pyx":1456
+  /* "uplift/tree/_criterion.pyx":1459
  *         cdef DOUBLE_t w = 1.0
  * 
  *         self.sq_sum_total = 0.0             # <<<<<<<<<<<<<<
@@ -9003,7 +9012,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_init(struct
  */
   __pyx_v_self->sq_sum_total = 0.0;
 
-  /* "uplift/tree/_criterion.pyx":1457
+  /* "uplift/tree/_criterion.pyx":1460
  * 
  *         self.sq_sum_total = 0.0
  *         memset(self.sum_total, 0, self.n_outputs * sizeof(double))             # <<<<<<<<<<<<<<
@@ -9012,7 +9021,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_init(struct
  */
   (void)(memset(__pyx_v_self->__pyx_base.sum_total, 0, (__pyx_v_self->__pyx_base.n_outputs * (sizeof(double)))));
 
-  /* "uplift/tree/_criterion.pyx":1459
+  /* "uplift/tree/_criterion.pyx":1462
  *         memset(self.sum_total, 0, self.n_outputs * sizeof(double))
  * 
  *         for p in range(start, end):             # <<<<<<<<<<<<<<
@@ -9024,7 +9033,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_init(struct
   for (__pyx_t_3 = __pyx_v_start; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_p = __pyx_t_3;
 
-    /* "uplift/tree/_criterion.pyx":1460
+    /* "uplift/tree/_criterion.pyx":1463
  * 
  *         for p in range(start, end):
  *             i = samples[p]             # <<<<<<<<<<<<<<
@@ -9033,7 +9042,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_init(struct
  */
     __pyx_v_i = (__pyx_v_samples[__pyx_v_p]);
 
-    /* "uplift/tree/_criterion.pyx":1462
+    /* "uplift/tree/_criterion.pyx":1465
  *             i = samples[p]
  * 
  *             if sample_weight != NULL:             # <<<<<<<<<<<<<<
@@ -9043,7 +9052,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_init(struct
     __pyx_t_4 = ((__pyx_v_sample_weight != NULL) != 0);
     if (__pyx_t_4) {
 
-      /* "uplift/tree/_criterion.pyx":1463
+      /* "uplift/tree/_criterion.pyx":1466
  * 
  *             if sample_weight != NULL:
  *                 w = sample_weight[i]             # <<<<<<<<<<<<<<
@@ -9052,7 +9061,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_init(struct
  */
       __pyx_v_w = (__pyx_v_sample_weight[__pyx_v_i]);
 
-      /* "uplift/tree/_criterion.pyx":1462
+      /* "uplift/tree/_criterion.pyx":1465
  *             i = samples[p]
  * 
  *             if sample_weight != NULL:             # <<<<<<<<<<<<<<
@@ -9061,7 +9070,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_init(struct
  */
     }
 
-    /* "uplift/tree/_criterion.pyx":1465
+    /* "uplift/tree/_criterion.pyx":1468
  *                 w = sample_weight[i]
  * 
  *             for k in range(self.n_outputs):             # <<<<<<<<<<<<<<
@@ -9073,7 +9082,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_init(struct
     for (__pyx_t_7 = 0; __pyx_t_7 < __pyx_t_6; __pyx_t_7+=1) {
       __pyx_v_k = __pyx_t_7;
 
-      /* "uplift/tree/_criterion.pyx":1466
+      /* "uplift/tree/_criterion.pyx":1469
  * 
  *             for k in range(self.n_outputs):
  *                 y_ik = y[i * y_stride + k]             # <<<<<<<<<<<<<<
@@ -9082,7 +9091,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_init(struct
  */
       __pyx_v_y_ik = (__pyx_v_y[((__pyx_v_i * __pyx_v_y_stride) + __pyx_v_k)]);
 
-      /* "uplift/tree/_criterion.pyx":1467
+      /* "uplift/tree/_criterion.pyx":1470
  *             for k in range(self.n_outputs):
  *                 y_ik = y[i * y_stride + k]
  *                 w_y_ik = w * y_ik             # <<<<<<<<<<<<<<
@@ -9091,7 +9100,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_init(struct
  */
       __pyx_v_w_y_ik = (__pyx_v_w * __pyx_v_y_ik);
 
-      /* "uplift/tree/_criterion.pyx":1468
+      /* "uplift/tree/_criterion.pyx":1471
  *                 y_ik = y[i * y_stride + k]
  *                 w_y_ik = w * y_ik
  *                 self.sum_total[k] += w_y_ik             # <<<<<<<<<<<<<<
@@ -9101,7 +9110,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_init(struct
       __pyx_t_8 = __pyx_v_k;
       (__pyx_v_self->__pyx_base.sum_total[__pyx_t_8]) = ((__pyx_v_self->__pyx_base.sum_total[__pyx_t_8]) + __pyx_v_w_y_ik);
 
-      /* "uplift/tree/_criterion.pyx":1469
+      /* "uplift/tree/_criterion.pyx":1472
  *                 w_y_ik = w * y_ik
  *                 self.sum_total[k] += w_y_ik
  *                 self.sq_sum_total += w_y_ik * y_ik             # <<<<<<<<<<<<<<
@@ -9111,7 +9120,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_init(struct
       __pyx_v_self->sq_sum_total = (__pyx_v_self->sq_sum_total + (__pyx_v_w_y_ik * __pyx_v_y_ik));
     }
 
-    /* "uplift/tree/_criterion.pyx":1471
+    /* "uplift/tree/_criterion.pyx":1474
  *                 self.sq_sum_total += w_y_ik * y_ik
  * 
  *             self.weighted_n_node_samples += w             # <<<<<<<<<<<<<<
@@ -9121,7 +9130,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_init(struct
     __pyx_v_self->__pyx_base.weighted_n_node_samples = (__pyx_v_self->__pyx_base.weighted_n_node_samples + __pyx_v_w);
   }
 
-  /* "uplift/tree/_criterion.pyx":1474
+  /* "uplift/tree/_criterion.pyx":1477
  * 
  *         # Reset to pos=start
  *         self.reset()             # <<<<<<<<<<<<<<
@@ -9130,7 +9139,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_init(struct
  */
   ((struct __pyx_vtabstruct_6uplift_4tree_10_criterion_RegressionCriterion *)__pyx_v_self->__pyx_base.__pyx_vtab)->__pyx_base.reset(((struct __pyx_obj_6uplift_4tree_10_criterion_Criterion *)__pyx_v_self));
 
-  /* "uplift/tree/_criterion.pyx":1433
+  /* "uplift/tree/_criterion.pyx":1436
  *         return (RegressionCriterion, (self.n_outputs,), self.__getstate__())
  * 
  *     cdef void init(self, DOUBLE_t* y, SIZE_t y_stride, DOUBLE_t* sample_weight,             # <<<<<<<<<<<<<<
@@ -9141,7 +9150,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_init(struct
   /* function exit code */
 }
 
-/* "uplift/tree/_criterion.pyx":1476
+/* "uplift/tree/_criterion.pyx":1479
  *         self.reset()
  * 
  *     cdef void reset(self) nogil:             # <<<<<<<<<<<<<<
@@ -9154,7 +9163,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_reset(struc
   double __pyx_t_1;
   __pyx_t_6uplift_4tree_10_criterion_SIZE_t __pyx_t_2;
 
-  /* "uplift/tree/_criterion.pyx":1478
+  /* "uplift/tree/_criterion.pyx":1481
  *     cdef void reset(self) nogil:
  *         """Reset the criterion at pos=start."""
  *         cdef SIZE_t n_bytes = self.n_outputs * sizeof(double)             # <<<<<<<<<<<<<<
@@ -9163,7 +9172,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_reset(struc
  */
   __pyx_v_n_bytes = (__pyx_v_self->__pyx_base.n_outputs * (sizeof(double)));
 
-  /* "uplift/tree/_criterion.pyx":1479
+  /* "uplift/tree/_criterion.pyx":1482
  *         """Reset the criterion at pos=start."""
  *         cdef SIZE_t n_bytes = self.n_outputs * sizeof(double)
  *         memset(self.sum_left, 0, n_bytes)             # <<<<<<<<<<<<<<
@@ -9172,7 +9181,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_reset(struc
  */
   (void)(memset(__pyx_v_self->__pyx_base.sum_left, 0, __pyx_v_n_bytes));
 
-  /* "uplift/tree/_criterion.pyx":1480
+  /* "uplift/tree/_criterion.pyx":1483
  *         cdef SIZE_t n_bytes = self.n_outputs * sizeof(double)
  *         memset(self.sum_left, 0, n_bytes)
  *         memcpy(self.sum_right, self.sum_total, n_bytes)             # <<<<<<<<<<<<<<
@@ -9181,7 +9190,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_reset(struc
  */
   (void)(memcpy(__pyx_v_self->__pyx_base.sum_right, __pyx_v_self->__pyx_base.sum_total, __pyx_v_n_bytes));
 
-  /* "uplift/tree/_criterion.pyx":1482
+  /* "uplift/tree/_criterion.pyx":1485
  *         memcpy(self.sum_right, self.sum_total, n_bytes)
  * 
  *         self.weighted_n_left = 0.0             # <<<<<<<<<<<<<<
@@ -9190,7 +9199,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_reset(struc
  */
   __pyx_v_self->__pyx_base.weighted_n_left = 0.0;
 
-  /* "uplift/tree/_criterion.pyx":1483
+  /* "uplift/tree/_criterion.pyx":1486
  * 
  *         self.weighted_n_left = 0.0
  *         self.weighted_n_right = self.weighted_n_node_samples             # <<<<<<<<<<<<<<
@@ -9200,7 +9209,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_reset(struc
   __pyx_t_1 = __pyx_v_self->__pyx_base.weighted_n_node_samples;
   __pyx_v_self->__pyx_base.weighted_n_right = __pyx_t_1;
 
-  /* "uplift/tree/_criterion.pyx":1484
+  /* "uplift/tree/_criterion.pyx":1487
  *         self.weighted_n_left = 0.0
  *         self.weighted_n_right = self.weighted_n_node_samples
  *         self.pos = self.start             # <<<<<<<<<<<<<<
@@ -9210,7 +9219,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_reset(struc
   __pyx_t_2 = __pyx_v_self->__pyx_base.start;
   __pyx_v_self->__pyx_base.pos = __pyx_t_2;
 
-  /* "uplift/tree/_criterion.pyx":1476
+  /* "uplift/tree/_criterion.pyx":1479
  *         self.reset()
  * 
  *     cdef void reset(self) nogil:             # <<<<<<<<<<<<<<
@@ -9221,7 +9230,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_reset(struc
   /* function exit code */
 }
 
-/* "uplift/tree/_criterion.pyx":1486
+/* "uplift/tree/_criterion.pyx":1489
  *         self.pos = self.start
  * 
  *     cdef void reverse_reset(self) nogil:             # <<<<<<<<<<<<<<
@@ -9234,7 +9243,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_reverse_res
   double __pyx_t_1;
   __pyx_t_6uplift_4tree_10_criterion_SIZE_t __pyx_t_2;
 
-  /* "uplift/tree/_criterion.pyx":1488
+  /* "uplift/tree/_criterion.pyx":1491
  *     cdef void reverse_reset(self) nogil:
  *         """Reset the criterion at pos=end."""
  *         cdef SIZE_t n_bytes = self.n_outputs * sizeof(double)             # <<<<<<<<<<<<<<
@@ -9243,7 +9252,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_reverse_res
  */
   __pyx_v_n_bytes = (__pyx_v_self->__pyx_base.n_outputs * (sizeof(double)));
 
-  /* "uplift/tree/_criterion.pyx":1489
+  /* "uplift/tree/_criterion.pyx":1492
  *         """Reset the criterion at pos=end."""
  *         cdef SIZE_t n_bytes = self.n_outputs * sizeof(double)
  *         memset(self.sum_right, 0, n_bytes)             # <<<<<<<<<<<<<<
@@ -9252,7 +9261,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_reverse_res
  */
   (void)(memset(__pyx_v_self->__pyx_base.sum_right, 0, __pyx_v_n_bytes));
 
-  /* "uplift/tree/_criterion.pyx":1490
+  /* "uplift/tree/_criterion.pyx":1493
  *         cdef SIZE_t n_bytes = self.n_outputs * sizeof(double)
  *         memset(self.sum_right, 0, n_bytes)
  *         memcpy(self.sum_left, self.sum_total, n_bytes)             # <<<<<<<<<<<<<<
@@ -9261,7 +9270,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_reverse_res
  */
   (void)(memcpy(__pyx_v_self->__pyx_base.sum_left, __pyx_v_self->__pyx_base.sum_total, __pyx_v_n_bytes));
 
-  /* "uplift/tree/_criterion.pyx":1492
+  /* "uplift/tree/_criterion.pyx":1495
  *         memcpy(self.sum_left, self.sum_total, n_bytes)
  * 
  *         self.weighted_n_right = 0.0             # <<<<<<<<<<<<<<
@@ -9270,7 +9279,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_reverse_res
  */
   __pyx_v_self->__pyx_base.weighted_n_right = 0.0;
 
-  /* "uplift/tree/_criterion.pyx":1493
+  /* "uplift/tree/_criterion.pyx":1496
  * 
  *         self.weighted_n_right = 0.0
  *         self.weighted_n_left = self.weighted_n_node_samples             # <<<<<<<<<<<<<<
@@ -9280,7 +9289,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_reverse_res
   __pyx_t_1 = __pyx_v_self->__pyx_base.weighted_n_node_samples;
   __pyx_v_self->__pyx_base.weighted_n_left = __pyx_t_1;
 
-  /* "uplift/tree/_criterion.pyx":1494
+  /* "uplift/tree/_criterion.pyx":1497
  *         self.weighted_n_right = 0.0
  *         self.weighted_n_left = self.weighted_n_node_samples
  *         self.pos = self.end             # <<<<<<<<<<<<<<
@@ -9290,7 +9299,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_reverse_res
   __pyx_t_2 = __pyx_v_self->__pyx_base.end;
   __pyx_v_self->__pyx_base.pos = __pyx_t_2;
 
-  /* "uplift/tree/_criterion.pyx":1486
+  /* "uplift/tree/_criterion.pyx":1489
  *         self.pos = self.start
  * 
  *     cdef void reverse_reset(self) nogil:             # <<<<<<<<<<<<<<
@@ -9301,7 +9310,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_reverse_res
   /* function exit code */
 }
 
-/* "uplift/tree/_criterion.pyx":1496
+/* "uplift/tree/_criterion.pyx":1499
  *         self.pos = self.end
  * 
  *     cdef void update(self, SIZE_t new_pos) nogil:             # <<<<<<<<<<<<<<
@@ -9337,7 +9346,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_update(stru
   long __pyx_t_12;
   long __pyx_t_13;
 
-  /* "uplift/tree/_criterion.pyx":1499
+  /* "uplift/tree/_criterion.pyx":1502
  *         """Updated statistics by moving samples[pos:new_pos] to the left."""
  * 
  *         cdef double* sum_left = self.sum_left             # <<<<<<<<<<<<<<
@@ -9347,7 +9356,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_update(stru
   __pyx_t_1 = __pyx_v_self->__pyx_base.sum_left;
   __pyx_v_sum_left = __pyx_t_1;
 
-  /* "uplift/tree/_criterion.pyx":1500
+  /* "uplift/tree/_criterion.pyx":1503
  * 
  *         cdef double* sum_left = self.sum_left
  *         cdef double* sum_right = self.sum_right             # <<<<<<<<<<<<<<
@@ -9357,7 +9366,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_update(stru
   __pyx_t_1 = __pyx_v_self->__pyx_base.sum_right;
   __pyx_v_sum_right = __pyx_t_1;
 
-  /* "uplift/tree/_criterion.pyx":1501
+  /* "uplift/tree/_criterion.pyx":1504
  *         cdef double* sum_left = self.sum_left
  *         cdef double* sum_right = self.sum_right
  *         cdef double* sum_total = self.sum_total             # <<<<<<<<<<<<<<
@@ -9367,7 +9376,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_update(stru
   __pyx_t_1 = __pyx_v_self->__pyx_base.sum_total;
   __pyx_v_sum_total = __pyx_t_1;
 
-  /* "uplift/tree/_criterion.pyx":1503
+  /* "uplift/tree/_criterion.pyx":1506
  *         cdef double* sum_total = self.sum_total
  * 
  *         cdef double* sample_weight = self.sample_weight             # <<<<<<<<<<<<<<
@@ -9377,7 +9386,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_update(stru
   __pyx_t_2 = __pyx_v_self->__pyx_base.sample_weight;
   __pyx_v_sample_weight = __pyx_t_2;
 
-  /* "uplift/tree/_criterion.pyx":1504
+  /* "uplift/tree/_criterion.pyx":1507
  * 
  *         cdef double* sample_weight = self.sample_weight
  *         cdef SIZE_t* samples = self.samples             # <<<<<<<<<<<<<<
@@ -9387,7 +9396,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_update(stru
   __pyx_t_3 = __pyx_v_self->__pyx_base.samples;
   __pyx_v_samples = __pyx_t_3;
 
-  /* "uplift/tree/_criterion.pyx":1506
+  /* "uplift/tree/_criterion.pyx":1509
  *         cdef SIZE_t* samples = self.samples
  * 
  *         cdef DOUBLE_t* y = self.y             # <<<<<<<<<<<<<<
@@ -9397,7 +9406,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_update(stru
   __pyx_t_2 = __pyx_v_self->__pyx_base.y;
   __pyx_v_y = __pyx_t_2;
 
-  /* "uplift/tree/_criterion.pyx":1507
+  /* "uplift/tree/_criterion.pyx":1510
  * 
  *         cdef DOUBLE_t* y = self.y
  *         cdef SIZE_t pos = self.pos             # <<<<<<<<<<<<<<
@@ -9407,7 +9416,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_update(stru
   __pyx_t_4 = __pyx_v_self->__pyx_base.pos;
   __pyx_v_pos = __pyx_t_4;
 
-  /* "uplift/tree/_criterion.pyx":1508
+  /* "uplift/tree/_criterion.pyx":1511
  *         cdef DOUBLE_t* y = self.y
  *         cdef SIZE_t pos = self.pos
  *         cdef SIZE_t end = self.end             # <<<<<<<<<<<<<<
@@ -9417,7 +9426,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_update(stru
   __pyx_t_4 = __pyx_v_self->__pyx_base.end;
   __pyx_v_end = __pyx_t_4;
 
-  /* "uplift/tree/_criterion.pyx":1512
+  /* "uplift/tree/_criterion.pyx":1515
  *         cdef SIZE_t p
  *         cdef SIZE_t k
  *         cdef DOUBLE_t w = 1.0             # <<<<<<<<<<<<<<
@@ -9426,7 +9435,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_update(stru
  */
   __pyx_v_w = 1.0;
 
-  /* "uplift/tree/_criterion.pyx":1523
+  /* "uplift/tree/_criterion.pyx":1526
  *         # of computations, i.e. from pos to new_pos or from end to new_po.
  * 
  *         if (new_pos - pos) <= (end - new_pos):             # <<<<<<<<<<<<<<
@@ -9436,7 +9445,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_update(stru
   __pyx_t_5 = (((__pyx_v_new_pos - __pyx_v_pos) <= (__pyx_v_end - __pyx_v_new_pos)) != 0);
   if (__pyx_t_5) {
 
-    /* "uplift/tree/_criterion.pyx":1524
+    /* "uplift/tree/_criterion.pyx":1527
  * 
  *         if (new_pos - pos) <= (end - new_pos):
  *             for p in range(pos, new_pos):             # <<<<<<<<<<<<<<
@@ -9448,7 +9457,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_update(stru
     for (__pyx_t_7 = __pyx_v_pos; __pyx_t_7 < __pyx_t_6; __pyx_t_7+=1) {
       __pyx_v_p = __pyx_t_7;
 
-      /* "uplift/tree/_criterion.pyx":1525
+      /* "uplift/tree/_criterion.pyx":1528
  *         if (new_pos - pos) <= (end - new_pos):
  *             for p in range(pos, new_pos):
  *                 i = samples[p]             # <<<<<<<<<<<<<<
@@ -9457,7 +9466,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_update(stru
  */
       __pyx_v_i = (__pyx_v_samples[__pyx_v_p]);
 
-      /* "uplift/tree/_criterion.pyx":1527
+      /* "uplift/tree/_criterion.pyx":1530
  *                 i = samples[p]
  * 
  *                 if sample_weight != NULL:             # <<<<<<<<<<<<<<
@@ -9467,7 +9476,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_update(stru
       __pyx_t_5 = ((__pyx_v_sample_weight != NULL) != 0);
       if (__pyx_t_5) {
 
-        /* "uplift/tree/_criterion.pyx":1528
+        /* "uplift/tree/_criterion.pyx":1531
  * 
  *                 if sample_weight != NULL:
  *                     w = sample_weight[i]             # <<<<<<<<<<<<<<
@@ -9476,7 +9485,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_update(stru
  */
         __pyx_v_w = (__pyx_v_sample_weight[__pyx_v_i]);
 
-        /* "uplift/tree/_criterion.pyx":1527
+        /* "uplift/tree/_criterion.pyx":1530
  *                 i = samples[p]
  * 
  *                 if sample_weight != NULL:             # <<<<<<<<<<<<<<
@@ -9485,7 +9494,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_update(stru
  */
       }
 
-      /* "uplift/tree/_criterion.pyx":1530
+      /* "uplift/tree/_criterion.pyx":1533
  *                     w = sample_weight[i]
  * 
  *                 for k in range(self.n_outputs):             # <<<<<<<<<<<<<<
@@ -9497,7 +9506,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_update(stru
       for (__pyx_t_10 = 0; __pyx_t_10 < __pyx_t_9; __pyx_t_10+=1) {
         __pyx_v_k = __pyx_t_10;
 
-        /* "uplift/tree/_criterion.pyx":1531
+        /* "uplift/tree/_criterion.pyx":1534
  * 
  *                 for k in range(self.n_outputs):
  *                     y_ik = y[i * self.y_stride + k]             # <<<<<<<<<<<<<<
@@ -9506,7 +9515,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_update(stru
  */
         __pyx_v_y_ik = (__pyx_v_y[((__pyx_v_i * __pyx_v_self->__pyx_base.y_stride) + __pyx_v_k)]);
 
-        /* "uplift/tree/_criterion.pyx":1532
+        /* "uplift/tree/_criterion.pyx":1535
  *                 for k in range(self.n_outputs):
  *                     y_ik = y[i * self.y_stride + k]
  *                     sum_left[k] += w * y_ik             # <<<<<<<<<<<<<<
@@ -9517,7 +9526,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_update(stru
         (__pyx_v_sum_left[__pyx_t_11]) = ((__pyx_v_sum_left[__pyx_t_11]) + (__pyx_v_w * __pyx_v_y_ik));
       }
 
-      /* "uplift/tree/_criterion.pyx":1534
+      /* "uplift/tree/_criterion.pyx":1537
  *                     sum_left[k] += w * y_ik
  * 
  *                 self.weighted_n_left += w             # <<<<<<<<<<<<<<
@@ -9527,7 +9536,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_update(stru
       __pyx_v_self->__pyx_base.weighted_n_left = (__pyx_v_self->__pyx_base.weighted_n_left + __pyx_v_w);
     }
 
-    /* "uplift/tree/_criterion.pyx":1523
+    /* "uplift/tree/_criterion.pyx":1526
  *         # of computations, i.e. from pos to new_pos or from end to new_po.
  * 
  *         if (new_pos - pos) <= (end - new_pos):             # <<<<<<<<<<<<<<
@@ -9537,7 +9546,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_update(stru
     goto __pyx_L3;
   }
 
-  /* "uplift/tree/_criterion.pyx":1536
+  /* "uplift/tree/_criterion.pyx":1539
  *                 self.weighted_n_left += w
  *         else:
  *             self.reverse_reset()             # <<<<<<<<<<<<<<
@@ -9547,7 +9556,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_update(stru
   /*else*/ {
     ((struct __pyx_vtabstruct_6uplift_4tree_10_criterion_RegressionCriterion *)__pyx_v_self->__pyx_base.__pyx_vtab)->__pyx_base.reverse_reset(((struct __pyx_obj_6uplift_4tree_10_criterion_Criterion *)__pyx_v_self));
 
-    /* "uplift/tree/_criterion.pyx":1538
+    /* "uplift/tree/_criterion.pyx":1541
  *             self.reverse_reset()
  * 
  *             for p in range(end - 1, new_pos - 1, -1):             # <<<<<<<<<<<<<<
@@ -9559,7 +9568,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_update(stru
     for (__pyx_t_4 = (__pyx_v_end - 1); __pyx_t_4 > __pyx_t_13; __pyx_t_4-=1) {
       __pyx_v_p = __pyx_t_4;
 
-      /* "uplift/tree/_criterion.pyx":1539
+      /* "uplift/tree/_criterion.pyx":1542
  * 
  *             for p in range(end - 1, new_pos - 1, -1):
  *                 i = samples[p]             # <<<<<<<<<<<<<<
@@ -9568,7 +9577,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_update(stru
  */
       __pyx_v_i = (__pyx_v_samples[__pyx_v_p]);
 
-      /* "uplift/tree/_criterion.pyx":1541
+      /* "uplift/tree/_criterion.pyx":1544
  *                 i = samples[p]
  * 
  *                 if sample_weight != NULL:             # <<<<<<<<<<<<<<
@@ -9578,7 +9587,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_update(stru
       __pyx_t_5 = ((__pyx_v_sample_weight != NULL) != 0);
       if (__pyx_t_5) {
 
-        /* "uplift/tree/_criterion.pyx":1542
+        /* "uplift/tree/_criterion.pyx":1545
  * 
  *                 if sample_weight != NULL:
  *                     w = sample_weight[i]             # <<<<<<<<<<<<<<
@@ -9587,7 +9596,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_update(stru
  */
         __pyx_v_w = (__pyx_v_sample_weight[__pyx_v_i]);
 
-        /* "uplift/tree/_criterion.pyx":1541
+        /* "uplift/tree/_criterion.pyx":1544
  *                 i = samples[p]
  * 
  *                 if sample_weight != NULL:             # <<<<<<<<<<<<<<
@@ -9596,7 +9605,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_update(stru
  */
       }
 
-      /* "uplift/tree/_criterion.pyx":1544
+      /* "uplift/tree/_criterion.pyx":1547
  *                     w = sample_weight[i]
  * 
  *                 for k in range(self.n_outputs):             # <<<<<<<<<<<<<<
@@ -9608,7 +9617,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_update(stru
       for (__pyx_t_8 = 0; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
         __pyx_v_k = __pyx_t_8;
 
-        /* "uplift/tree/_criterion.pyx":1545
+        /* "uplift/tree/_criterion.pyx":1548
  * 
  *                 for k in range(self.n_outputs):
  *                     y_ik = y[i * self.y_stride + k]             # <<<<<<<<<<<<<<
@@ -9617,7 +9626,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_update(stru
  */
         __pyx_v_y_ik = (__pyx_v_y[((__pyx_v_i * __pyx_v_self->__pyx_base.y_stride) + __pyx_v_k)]);
 
-        /* "uplift/tree/_criterion.pyx":1546
+        /* "uplift/tree/_criterion.pyx":1549
  *                 for k in range(self.n_outputs):
  *                     y_ik = y[i * self.y_stride + k]
  *                     sum_left[k] -= w * y_ik             # <<<<<<<<<<<<<<
@@ -9628,7 +9637,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_update(stru
         (__pyx_v_sum_left[__pyx_t_9]) = ((__pyx_v_sum_left[__pyx_t_9]) - (__pyx_v_w * __pyx_v_y_ik));
       }
 
-      /* "uplift/tree/_criterion.pyx":1548
+      /* "uplift/tree/_criterion.pyx":1551
  *                     sum_left[k] -= w * y_ik
  * 
  *                 self.weighted_n_left -= w             # <<<<<<<<<<<<<<
@@ -9640,7 +9649,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_update(stru
   }
   __pyx_L3:;
 
-  /* "uplift/tree/_criterion.pyx":1550
+  /* "uplift/tree/_criterion.pyx":1553
  *                 self.weighted_n_left -= w
  * 
  *         self.weighted_n_right = (self.weighted_n_node_samples -             # <<<<<<<<<<<<<<
@@ -9649,7 +9658,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_update(stru
  */
   __pyx_v_self->__pyx_base.weighted_n_right = (__pyx_v_self->__pyx_base.weighted_n_node_samples - __pyx_v_self->__pyx_base.weighted_n_left);
 
-  /* "uplift/tree/_criterion.pyx":1552
+  /* "uplift/tree/_criterion.pyx":1555
  *         self.weighted_n_right = (self.weighted_n_node_samples -
  *                                  self.weighted_n_left)
  *         for k in range(self.n_outputs):             # <<<<<<<<<<<<<<
@@ -9661,7 +9670,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_update(stru
   for (__pyx_t_7 = 0; __pyx_t_7 < __pyx_t_6; __pyx_t_7+=1) {
     __pyx_v_k = __pyx_t_7;
 
-    /* "uplift/tree/_criterion.pyx":1553
+    /* "uplift/tree/_criterion.pyx":1556
  *                                  self.weighted_n_left)
  *         for k in range(self.n_outputs):
  *             sum_right[k] = sum_total[k] - sum_left[k]             # <<<<<<<<<<<<<<
@@ -9671,7 +9680,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_update(stru
     (__pyx_v_sum_right[__pyx_v_k]) = ((__pyx_v_sum_total[__pyx_v_k]) - (__pyx_v_sum_left[__pyx_v_k]));
   }
 
-  /* "uplift/tree/_criterion.pyx":1555
+  /* "uplift/tree/_criterion.pyx":1558
  *             sum_right[k] = sum_total[k] - sum_left[k]
  * 
  *         self.pos = new_pos             # <<<<<<<<<<<<<<
@@ -9680,7 +9689,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_update(stru
  */
   __pyx_v_self->__pyx_base.pos = __pyx_v_new_pos;
 
-  /* "uplift/tree/_criterion.pyx":1496
+  /* "uplift/tree/_criterion.pyx":1499
  *         self.pos = self.end
  * 
  *     cdef void update(self, SIZE_t new_pos) nogil:             # <<<<<<<<<<<<<<
@@ -9691,7 +9700,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_update(stru
   /* function exit code */
 }
 
-/* "uplift/tree/_criterion.pyx":1557
+/* "uplift/tree/_criterion.pyx":1560
  *         self.pos = new_pos
  * 
  *     cdef double node_impurity(self) nogil:             # <<<<<<<<<<<<<<
@@ -9707,7 +9716,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_node_impu
   return __pyx_r;
 }
 
-/* "uplift/tree/_criterion.pyx":1560
+/* "uplift/tree/_criterion.pyx":1563
  *         pass
  * 
  *     cdef void children_impurity(self, double* impurity_left,             # <<<<<<<<<<<<<<
@@ -9720,7 +9729,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_children_im
   /* function exit code */
 }
 
-/* "uplift/tree/_criterion.pyx":1564
+/* "uplift/tree/_criterion.pyx":1567
  *         pass
  * 
  *     cdef void node_value(self, double* dest) nogil:             # <<<<<<<<<<<<<<
@@ -9734,7 +9743,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_node_value(
   __pyx_t_6uplift_4tree_10_criterion_SIZE_t __pyx_t_2;
   __pyx_t_6uplift_4tree_10_criterion_SIZE_t __pyx_t_3;
 
-  /* "uplift/tree/_criterion.pyx":1569
+  /* "uplift/tree/_criterion.pyx":1572
  *         cdef SIZE_t k
  * 
  *         for k in range(self.n_outputs):             # <<<<<<<<<<<<<<
@@ -9746,7 +9755,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_node_value(
   for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_k = __pyx_t_3;
 
-    /* "uplift/tree/_criterion.pyx":1570
+    /* "uplift/tree/_criterion.pyx":1573
  * 
  *         for k in range(self.n_outputs):
  *             dest[k] = self.sum_total[k] / self.weighted_n_node_samples             # <<<<<<<<<<<<<<
@@ -9756,7 +9765,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_node_value(
     (__pyx_v_dest[__pyx_v_k]) = ((__pyx_v_self->__pyx_base.sum_total[__pyx_v_k]) / __pyx_v_self->__pyx_base.weighted_n_node_samples);
   }
 
-  /* "uplift/tree/_criterion.pyx":1564
+  /* "uplift/tree/_criterion.pyx":1567
  *         pass
  * 
  *     cdef void node_value(self, double* dest) nogil:             # <<<<<<<<<<<<<<
@@ -9767,7 +9776,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_node_value(
   /* function exit code */
 }
 
-/* "uplift/tree/_criterion.pyx":1578
+/* "uplift/tree/_criterion.pyx":1581
  *         MSE = var_left + var_right
  *     """
  *     cdef double node_impurity(self) nogil:             # <<<<<<<<<<<<<<
@@ -9785,7 +9794,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_3MSE_node_impurity(struct __pyx
   __pyx_t_6uplift_4tree_10_criterion_SIZE_t __pyx_t_3;
   __pyx_t_6uplift_4tree_10_criterion_SIZE_t __pyx_t_4;
 
-  /* "uplift/tree/_criterion.pyx":1582
+  /* "uplift/tree/_criterion.pyx":1585
  *            samples[start:end]."""
  * 
  *         cdef double* sum_total = self.sum_total             # <<<<<<<<<<<<<<
@@ -9795,7 +9804,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_3MSE_node_impurity(struct __pyx
   __pyx_t_1 = __pyx_v_self->__pyx_base.__pyx_base.sum_total;
   __pyx_v_sum_total = __pyx_t_1;
 
-  /* "uplift/tree/_criterion.pyx":1586
+  /* "uplift/tree/_criterion.pyx":1589
  *         cdef SIZE_t k
  * 
  *         impurity = self.sq_sum_total / self.weighted_n_node_samples             # <<<<<<<<<<<<<<
@@ -9804,7 +9813,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_3MSE_node_impurity(struct __pyx
  */
   __pyx_v_impurity = (__pyx_v_self->__pyx_base.sq_sum_total / __pyx_v_self->__pyx_base.__pyx_base.weighted_n_node_samples);
 
-  /* "uplift/tree/_criterion.pyx":1587
+  /* "uplift/tree/_criterion.pyx":1590
  * 
  *         impurity = self.sq_sum_total / self.weighted_n_node_samples
  *         for k in range(self.n_outputs):             # <<<<<<<<<<<<<<
@@ -9816,7 +9825,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_3MSE_node_impurity(struct __pyx
   for (__pyx_t_4 = 0; __pyx_t_4 < __pyx_t_3; __pyx_t_4+=1) {
     __pyx_v_k = __pyx_t_4;
 
-    /* "uplift/tree/_criterion.pyx":1588
+    /* "uplift/tree/_criterion.pyx":1591
  *         impurity = self.sq_sum_total / self.weighted_n_node_samples
  *         for k in range(self.n_outputs):
  *             impurity -= (sum_total[k] / self.weighted_n_node_samples)**2.0             # <<<<<<<<<<<<<<
@@ -9826,7 +9835,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_3MSE_node_impurity(struct __pyx
     __pyx_v_impurity = (__pyx_v_impurity - pow(((__pyx_v_sum_total[__pyx_v_k]) / __pyx_v_self->__pyx_base.__pyx_base.weighted_n_node_samples), 2.0));
   }
 
-  /* "uplift/tree/_criterion.pyx":1590
+  /* "uplift/tree/_criterion.pyx":1593
  *             impurity -= (sum_total[k] / self.weighted_n_node_samples)**2.0
  * 
  *         return impurity / self.n_outputs             # <<<<<<<<<<<<<<
@@ -9836,7 +9845,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_3MSE_node_impurity(struct __pyx
   __pyx_r = (__pyx_v_impurity / __pyx_v_self->__pyx_base.__pyx_base.n_outputs);
   goto __pyx_L0;
 
-  /* "uplift/tree/_criterion.pyx":1578
+  /* "uplift/tree/_criterion.pyx":1581
  *         MSE = var_left + var_right
  *     """
  *     cdef double node_impurity(self) nogil:             # <<<<<<<<<<<<<<
@@ -9849,7 +9858,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_3MSE_node_impurity(struct __pyx
   return __pyx_r;
 }
 
-/* "uplift/tree/_criterion.pyx":1592
+/* "uplift/tree/_criterion.pyx":1595
  *         return impurity / self.n_outputs
  * 
  *     cdef double proxy_impurity_improvement(self) nogil:             # <<<<<<<<<<<<<<
@@ -9869,7 +9878,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_3MSE_proxy_impurity_improvement
   __pyx_t_6uplift_4tree_10_criterion_SIZE_t __pyx_t_3;
   __pyx_t_6uplift_4tree_10_criterion_SIZE_t __pyx_t_4;
 
-  /* "uplift/tree/_criterion.pyx":1604
+  /* "uplift/tree/_criterion.pyx":1607
  *         """
  * 
  *         cdef double* sum_left = self.sum_left             # <<<<<<<<<<<<<<
@@ -9879,7 +9888,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_3MSE_proxy_impurity_improvement
   __pyx_t_1 = __pyx_v_self->__pyx_base.__pyx_base.sum_left;
   __pyx_v_sum_left = __pyx_t_1;
 
-  /* "uplift/tree/_criterion.pyx":1605
+  /* "uplift/tree/_criterion.pyx":1608
  * 
  *         cdef double* sum_left = self.sum_left
  *         cdef double* sum_right = self.sum_right             # <<<<<<<<<<<<<<
@@ -9889,7 +9898,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_3MSE_proxy_impurity_improvement
   __pyx_t_1 = __pyx_v_self->__pyx_base.__pyx_base.sum_right;
   __pyx_v_sum_right = __pyx_t_1;
 
-  /* "uplift/tree/_criterion.pyx":1608
+  /* "uplift/tree/_criterion.pyx":1611
  * 
  *         cdef SIZE_t k
  *         cdef double proxy_impurity_left = 0.0             # <<<<<<<<<<<<<<
@@ -9898,7 +9907,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_3MSE_proxy_impurity_improvement
  */
   __pyx_v_proxy_impurity_left = 0.0;
 
-  /* "uplift/tree/_criterion.pyx":1609
+  /* "uplift/tree/_criterion.pyx":1612
  *         cdef SIZE_t k
  *         cdef double proxy_impurity_left = 0.0
  *         cdef double proxy_impurity_right = 0.0             # <<<<<<<<<<<<<<
@@ -9907,7 +9916,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_3MSE_proxy_impurity_improvement
  */
   __pyx_v_proxy_impurity_right = 0.0;
 
-  /* "uplift/tree/_criterion.pyx":1611
+  /* "uplift/tree/_criterion.pyx":1614
  *         cdef double proxy_impurity_right = 0.0
  * 
  *         for k in range(self.n_outputs):             # <<<<<<<<<<<<<<
@@ -9919,7 +9928,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_3MSE_proxy_impurity_improvement
   for (__pyx_t_4 = 0; __pyx_t_4 < __pyx_t_3; __pyx_t_4+=1) {
     __pyx_v_k = __pyx_t_4;
 
-    /* "uplift/tree/_criterion.pyx":1612
+    /* "uplift/tree/_criterion.pyx":1615
  * 
  *         for k in range(self.n_outputs):
  *             proxy_impurity_left += sum_left[k] * sum_left[k]             # <<<<<<<<<<<<<<
@@ -9928,7 +9937,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_3MSE_proxy_impurity_improvement
  */
     __pyx_v_proxy_impurity_left = (__pyx_v_proxy_impurity_left + ((__pyx_v_sum_left[__pyx_v_k]) * (__pyx_v_sum_left[__pyx_v_k])));
 
-    /* "uplift/tree/_criterion.pyx":1613
+    /* "uplift/tree/_criterion.pyx":1616
  *         for k in range(self.n_outputs):
  *             proxy_impurity_left += sum_left[k] * sum_left[k]
  *             proxy_impurity_right += sum_right[k] * sum_right[k]             # <<<<<<<<<<<<<<
@@ -9938,7 +9947,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_3MSE_proxy_impurity_improvement
     __pyx_v_proxy_impurity_right = (__pyx_v_proxy_impurity_right + ((__pyx_v_sum_right[__pyx_v_k]) * (__pyx_v_sum_right[__pyx_v_k])));
   }
 
-  /* "uplift/tree/_criterion.pyx":1615
+  /* "uplift/tree/_criterion.pyx":1618
  *             proxy_impurity_right += sum_right[k] * sum_right[k]
  * 
  *         return (proxy_impurity_left / self.weighted_n_left +             # <<<<<<<<<<<<<<
@@ -9948,7 +9957,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_3MSE_proxy_impurity_improvement
   __pyx_r = ((__pyx_v_proxy_impurity_left / __pyx_v_self->__pyx_base.__pyx_base.weighted_n_left) + (__pyx_v_proxy_impurity_right / __pyx_v_self->__pyx_base.__pyx_base.weighted_n_right));
   goto __pyx_L0;
 
-  /* "uplift/tree/_criterion.pyx":1592
+  /* "uplift/tree/_criterion.pyx":1595
  *         return impurity / self.n_outputs
  * 
  *     cdef double proxy_impurity_improvement(self) nogil:             # <<<<<<<<<<<<<<
@@ -9961,7 +9970,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_3MSE_proxy_impurity_improvement
   return __pyx_r;
 }
 
-/* "uplift/tree/_criterion.pyx":1618
+/* "uplift/tree/_criterion.pyx":1621
  *                 proxy_impurity_right / self.weighted_n_right)
  * 
  *     cdef void children_impurity(self, double* impurity_left,             # <<<<<<<<<<<<<<
@@ -9996,7 +10005,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_3MSE_children_impurity(struct __p
   __pyx_t_6uplift_4tree_10_criterion_SIZE_t __pyx_t_10;
   long __pyx_t_11;
 
-  /* "uplift/tree/_criterion.pyx":1625
+  /* "uplift/tree/_criterion.pyx":1628
  * 
  * 
  *         cdef DOUBLE_t* y = self.y             # <<<<<<<<<<<<<<
@@ -10006,7 +10015,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_3MSE_children_impurity(struct __p
   __pyx_t_1 = __pyx_v_self->__pyx_base.__pyx_base.y;
   __pyx_v_y = __pyx_t_1;
 
-  /* "uplift/tree/_criterion.pyx":1626
+  /* "uplift/tree/_criterion.pyx":1629
  * 
  *         cdef DOUBLE_t* y = self.y
  *         cdef DOUBLE_t* sample_weight = self.sample_weight             # <<<<<<<<<<<<<<
@@ -10016,7 +10025,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_3MSE_children_impurity(struct __p
   __pyx_t_1 = __pyx_v_self->__pyx_base.__pyx_base.sample_weight;
   __pyx_v_sample_weight = __pyx_t_1;
 
-  /* "uplift/tree/_criterion.pyx":1627
+  /* "uplift/tree/_criterion.pyx":1630
  *         cdef DOUBLE_t* y = self.y
  *         cdef DOUBLE_t* sample_weight = self.sample_weight
  *         cdef SIZE_t* samples = self.samples             # <<<<<<<<<<<<<<
@@ -10026,7 +10035,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_3MSE_children_impurity(struct __p
   __pyx_t_2 = __pyx_v_self->__pyx_base.__pyx_base.samples;
   __pyx_v_samples = __pyx_t_2;
 
-  /* "uplift/tree/_criterion.pyx":1628
+  /* "uplift/tree/_criterion.pyx":1631
  *         cdef DOUBLE_t* sample_weight = self.sample_weight
  *         cdef SIZE_t* samples = self.samples
  *         cdef SIZE_t pos = self.pos             # <<<<<<<<<<<<<<
@@ -10036,7 +10045,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_3MSE_children_impurity(struct __p
   __pyx_t_3 = __pyx_v_self->__pyx_base.__pyx_base.pos;
   __pyx_v_pos = __pyx_t_3;
 
-  /* "uplift/tree/_criterion.pyx":1629
+  /* "uplift/tree/_criterion.pyx":1632
  *         cdef SIZE_t* samples = self.samples
  *         cdef SIZE_t pos = self.pos
  *         cdef SIZE_t start = self.start             # <<<<<<<<<<<<<<
@@ -10046,7 +10055,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_3MSE_children_impurity(struct __p
   __pyx_t_3 = __pyx_v_self->__pyx_base.__pyx_base.start;
   __pyx_v_start = __pyx_t_3;
 
-  /* "uplift/tree/_criterion.pyx":1631
+  /* "uplift/tree/_criterion.pyx":1634
  *         cdef SIZE_t start = self.start
  * 
  *         cdef double* sum_left = self.sum_left             # <<<<<<<<<<<<<<
@@ -10056,7 +10065,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_3MSE_children_impurity(struct __p
   __pyx_t_4 = __pyx_v_self->__pyx_base.__pyx_base.sum_left;
   __pyx_v_sum_left = __pyx_t_4;
 
-  /* "uplift/tree/_criterion.pyx":1632
+  /* "uplift/tree/_criterion.pyx":1635
  * 
  *         cdef double* sum_left = self.sum_left
  *         cdef double* sum_right = self.sum_right             # <<<<<<<<<<<<<<
@@ -10066,7 +10075,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_3MSE_children_impurity(struct __p
   __pyx_t_4 = __pyx_v_self->__pyx_base.__pyx_base.sum_right;
   __pyx_v_sum_right = __pyx_t_4;
 
-  /* "uplift/tree/_criterion.pyx":1634
+  /* "uplift/tree/_criterion.pyx":1637
  *         cdef double* sum_right = self.sum_right
  * 
  *         cdef double sq_sum_left = 0.0             # <<<<<<<<<<<<<<
@@ -10075,7 +10084,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_3MSE_children_impurity(struct __p
  */
   __pyx_v_sq_sum_left = 0.0;
 
-  /* "uplift/tree/_criterion.pyx":1640
+  /* "uplift/tree/_criterion.pyx":1643
  *         cdef SIZE_t p
  *         cdef SIZE_t k
  *         cdef DOUBLE_t w = 1.0             # <<<<<<<<<<<<<<
@@ -10084,7 +10093,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_3MSE_children_impurity(struct __p
  */
   __pyx_v_w = 1.0;
 
-  /* "uplift/tree/_criterion.pyx":1643
+  /* "uplift/tree/_criterion.pyx":1646
  *         cdef DOUBLE_t y_ik
  * 
  *         for p in range(start, pos):             # <<<<<<<<<<<<<<
@@ -10096,7 +10105,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_3MSE_children_impurity(struct __p
   for (__pyx_t_6 = __pyx_v_start; __pyx_t_6 < __pyx_t_5; __pyx_t_6+=1) {
     __pyx_v_p = __pyx_t_6;
 
-    /* "uplift/tree/_criterion.pyx":1644
+    /* "uplift/tree/_criterion.pyx":1647
  * 
  *         for p in range(start, pos):
  *             i = samples[p]             # <<<<<<<<<<<<<<
@@ -10105,7 +10114,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_3MSE_children_impurity(struct __p
  */
     __pyx_v_i = (__pyx_v_samples[__pyx_v_p]);
 
-    /* "uplift/tree/_criterion.pyx":1646
+    /* "uplift/tree/_criterion.pyx":1649
  *             i = samples[p]
  * 
  *             if sample_weight != NULL:             # <<<<<<<<<<<<<<
@@ -10115,7 +10124,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_3MSE_children_impurity(struct __p
     __pyx_t_7 = ((__pyx_v_sample_weight != NULL) != 0);
     if (__pyx_t_7) {
 
-      /* "uplift/tree/_criterion.pyx":1647
+      /* "uplift/tree/_criterion.pyx":1650
  * 
  *             if sample_weight != NULL:
  *                 w = sample_weight[i]             # <<<<<<<<<<<<<<
@@ -10124,7 +10133,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_3MSE_children_impurity(struct __p
  */
       __pyx_v_w = (__pyx_v_sample_weight[__pyx_v_i]);
 
-      /* "uplift/tree/_criterion.pyx":1646
+      /* "uplift/tree/_criterion.pyx":1649
  *             i = samples[p]
  * 
  *             if sample_weight != NULL:             # <<<<<<<<<<<<<<
@@ -10133,7 +10142,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_3MSE_children_impurity(struct __p
  */
     }
 
-    /* "uplift/tree/_criterion.pyx":1649
+    /* "uplift/tree/_criterion.pyx":1652
  *                 w = sample_weight[i]
  * 
  *             for k in range(self.n_outputs):             # <<<<<<<<<<<<<<
@@ -10145,7 +10154,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_3MSE_children_impurity(struct __p
     for (__pyx_t_10 = 0; __pyx_t_10 < __pyx_t_9; __pyx_t_10+=1) {
       __pyx_v_k = __pyx_t_10;
 
-      /* "uplift/tree/_criterion.pyx":1650
+      /* "uplift/tree/_criterion.pyx":1653
  * 
  *             for k in range(self.n_outputs):
  *                 y_ik = y[i * self.y_stride + k]             # <<<<<<<<<<<<<<
@@ -10154,7 +10163,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_3MSE_children_impurity(struct __p
  */
       __pyx_v_y_ik = (__pyx_v_y[((__pyx_v_i * __pyx_v_self->__pyx_base.__pyx_base.y_stride) + __pyx_v_k)]);
 
-      /* "uplift/tree/_criterion.pyx":1651
+      /* "uplift/tree/_criterion.pyx":1654
  *             for k in range(self.n_outputs):
  *                 y_ik = y[i * self.y_stride + k]
  *                 sq_sum_left += w * y_ik * y_ik             # <<<<<<<<<<<<<<
@@ -10165,7 +10174,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_3MSE_children_impurity(struct __p
     }
   }
 
-  /* "uplift/tree/_criterion.pyx":1653
+  /* "uplift/tree/_criterion.pyx":1656
  *                 sq_sum_left += w * y_ik * y_ik
  * 
  *         sq_sum_right = self.sq_sum_total - sq_sum_left             # <<<<<<<<<<<<<<
@@ -10174,7 +10183,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_3MSE_children_impurity(struct __p
  */
   __pyx_v_sq_sum_right = (__pyx_v_self->__pyx_base.sq_sum_total - __pyx_v_sq_sum_left);
 
-  /* "uplift/tree/_criterion.pyx":1655
+  /* "uplift/tree/_criterion.pyx":1658
  *         sq_sum_right = self.sq_sum_total - sq_sum_left
  * 
  *         impurity_left[0] = sq_sum_left / self.weighted_n_left             # <<<<<<<<<<<<<<
@@ -10183,7 +10192,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_3MSE_children_impurity(struct __p
  */
   (__pyx_v_impurity_left[0]) = (__pyx_v_sq_sum_left / __pyx_v_self->__pyx_base.__pyx_base.weighted_n_left);
 
-  /* "uplift/tree/_criterion.pyx":1656
+  /* "uplift/tree/_criterion.pyx":1659
  * 
  *         impurity_left[0] = sq_sum_left / self.weighted_n_left
  *         impurity_right[0] = sq_sum_right / self.weighted_n_right             # <<<<<<<<<<<<<<
@@ -10192,7 +10201,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_3MSE_children_impurity(struct __p
  */
   (__pyx_v_impurity_right[0]) = (__pyx_v_sq_sum_right / __pyx_v_self->__pyx_base.__pyx_base.weighted_n_right);
 
-  /* "uplift/tree/_criterion.pyx":1658
+  /* "uplift/tree/_criterion.pyx":1661
  *         impurity_right[0] = sq_sum_right / self.weighted_n_right
  * 
  *         for k in range(self.n_outputs):             # <<<<<<<<<<<<<<
@@ -10204,7 +10213,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_3MSE_children_impurity(struct __p
   for (__pyx_t_6 = 0; __pyx_t_6 < __pyx_t_5; __pyx_t_6+=1) {
     __pyx_v_k = __pyx_t_6;
 
-    /* "uplift/tree/_criterion.pyx":1659
+    /* "uplift/tree/_criterion.pyx":1662
  * 
  *         for k in range(self.n_outputs):
  *             impurity_left[0] -= (sum_left[k] / self.weighted_n_left) ** 2.0             # <<<<<<<<<<<<<<
@@ -10214,7 +10223,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_3MSE_children_impurity(struct __p
     __pyx_t_11 = 0;
     (__pyx_v_impurity_left[__pyx_t_11]) = ((__pyx_v_impurity_left[__pyx_t_11]) - pow(((__pyx_v_sum_left[__pyx_v_k]) / __pyx_v_self->__pyx_base.__pyx_base.weighted_n_left), 2.0));
 
-    /* "uplift/tree/_criterion.pyx":1660
+    /* "uplift/tree/_criterion.pyx":1663
  *         for k in range(self.n_outputs):
  *             impurity_left[0] -= (sum_left[k] / self.weighted_n_left) ** 2.0
  *             impurity_right[0] -= (sum_right[k] / self.weighted_n_right) ** 2.0             # <<<<<<<<<<<<<<
@@ -10225,7 +10234,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_3MSE_children_impurity(struct __p
     (__pyx_v_impurity_right[__pyx_t_11]) = ((__pyx_v_impurity_right[__pyx_t_11]) - pow(((__pyx_v_sum_right[__pyx_v_k]) / __pyx_v_self->__pyx_base.__pyx_base.weighted_n_right), 2.0));
   }
 
-  /* "uplift/tree/_criterion.pyx":1662
+  /* "uplift/tree/_criterion.pyx":1665
  *             impurity_right[0] -= (sum_right[k] / self.weighted_n_right) ** 2.0
  * 
  *         impurity_left[0] /= self.n_outputs             # <<<<<<<<<<<<<<
@@ -10235,7 +10244,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_3MSE_children_impurity(struct __p
   __pyx_t_11 = 0;
   (__pyx_v_impurity_left[__pyx_t_11]) = ((__pyx_v_impurity_left[__pyx_t_11]) / __pyx_v_self->__pyx_base.__pyx_base.n_outputs);
 
-  /* "uplift/tree/_criterion.pyx":1663
+  /* "uplift/tree/_criterion.pyx":1666
  * 
  *         impurity_left[0] /= self.n_outputs
  *         impurity_right[0] /= self.n_outputs             # <<<<<<<<<<<<<<
@@ -10245,7 +10254,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_3MSE_children_impurity(struct __p
   __pyx_t_11 = 0;
   (__pyx_v_impurity_right[__pyx_t_11]) = ((__pyx_v_impurity_right[__pyx_t_11]) / __pyx_v_self->__pyx_base.__pyx_base.n_outputs);
 
-  /* "uplift/tree/_criterion.pyx":1618
+  /* "uplift/tree/_criterion.pyx":1621
  *                 proxy_impurity_right / self.weighted_n_right)
  * 
  *     cdef void children_impurity(self, double* impurity_left,             # <<<<<<<<<<<<<<
@@ -10256,7 +10265,7 @@ static void __pyx_f_6uplift_4tree_10_criterion_3MSE_children_impurity(struct __p
   /* function exit code */
 }
 
-/* "uplift/tree/_criterion.pyx":1675
+/* "uplift/tree/_criterion.pyx":1678
  *     """
  * 
  *     cdef double proxy_impurity_improvement(self) nogil:             # <<<<<<<<<<<<<<
@@ -10277,7 +10286,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_11FriedmanMSE_proxy_impurity_im
   __pyx_t_6uplift_4tree_10_criterion_SIZE_t __pyx_t_3;
   __pyx_t_6uplift_4tree_10_criterion_SIZE_t __pyx_t_4;
 
-  /* "uplift/tree/_criterion.pyx":1687
+  /* "uplift/tree/_criterion.pyx":1690
  *         """
  * 
  *         cdef double* sum_left = self.sum_left             # <<<<<<<<<<<<<<
@@ -10287,7 +10296,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_11FriedmanMSE_proxy_impurity_im
   __pyx_t_1 = __pyx_v_self->__pyx_base.__pyx_base.__pyx_base.sum_left;
   __pyx_v_sum_left = __pyx_t_1;
 
-  /* "uplift/tree/_criterion.pyx":1688
+  /* "uplift/tree/_criterion.pyx":1691
  * 
  *         cdef double* sum_left = self.sum_left
  *         cdef double* sum_right = self.sum_right             # <<<<<<<<<<<<<<
@@ -10297,7 +10306,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_11FriedmanMSE_proxy_impurity_im
   __pyx_t_1 = __pyx_v_self->__pyx_base.__pyx_base.__pyx_base.sum_right;
   __pyx_v_sum_right = __pyx_t_1;
 
-  /* "uplift/tree/_criterion.pyx":1690
+  /* "uplift/tree/_criterion.pyx":1693
  *         cdef double* sum_right = self.sum_right
  * 
  *         cdef double total_sum_left = 0.0             # <<<<<<<<<<<<<<
@@ -10306,7 +10315,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_11FriedmanMSE_proxy_impurity_im
  */
   __pyx_v_total_sum_left = 0.0;
 
-  /* "uplift/tree/_criterion.pyx":1691
+  /* "uplift/tree/_criterion.pyx":1694
  * 
  *         cdef double total_sum_left = 0.0
  *         cdef double total_sum_right = 0.0             # <<<<<<<<<<<<<<
@@ -10315,7 +10324,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_11FriedmanMSE_proxy_impurity_im
  */
   __pyx_v_total_sum_right = 0.0;
 
-  /* "uplift/tree/_criterion.pyx":1694
+  /* "uplift/tree/_criterion.pyx":1697
  * 
  *         cdef SIZE_t k
  *         cdef double diff = 0.0             # <<<<<<<<<<<<<<
@@ -10324,7 +10333,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_11FriedmanMSE_proxy_impurity_im
  */
   __pyx_v_diff = 0.0;
 
-  /* "uplift/tree/_criterion.pyx":1696
+  /* "uplift/tree/_criterion.pyx":1699
  *         cdef double diff = 0.0
  * 
  *         for k in range(self.n_outputs):             # <<<<<<<<<<<<<<
@@ -10336,7 +10345,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_11FriedmanMSE_proxy_impurity_im
   for (__pyx_t_4 = 0; __pyx_t_4 < __pyx_t_3; __pyx_t_4+=1) {
     __pyx_v_k = __pyx_t_4;
 
-    /* "uplift/tree/_criterion.pyx":1697
+    /* "uplift/tree/_criterion.pyx":1700
  * 
  *         for k in range(self.n_outputs):
  *             total_sum_left += sum_left[k]             # <<<<<<<<<<<<<<
@@ -10345,7 +10354,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_11FriedmanMSE_proxy_impurity_im
  */
     __pyx_v_total_sum_left = (__pyx_v_total_sum_left + (__pyx_v_sum_left[__pyx_v_k]));
 
-    /* "uplift/tree/_criterion.pyx":1698
+    /* "uplift/tree/_criterion.pyx":1701
  *         for k in range(self.n_outputs):
  *             total_sum_left += sum_left[k]
  *             total_sum_right += sum_right[k]             # <<<<<<<<<<<<<<
@@ -10355,7 +10364,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_11FriedmanMSE_proxy_impurity_im
     __pyx_v_total_sum_right = (__pyx_v_total_sum_right + (__pyx_v_sum_right[__pyx_v_k]));
   }
 
-  /* "uplift/tree/_criterion.pyx":1700
+  /* "uplift/tree/_criterion.pyx":1703
  *             total_sum_right += sum_right[k]
  * 
  *         diff = (self.weighted_n_right * total_sum_left -             # <<<<<<<<<<<<<<
@@ -10364,7 +10373,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_11FriedmanMSE_proxy_impurity_im
  */
   __pyx_v_diff = ((__pyx_v_self->__pyx_base.__pyx_base.__pyx_base.weighted_n_right * __pyx_v_total_sum_left) - (__pyx_v_self->__pyx_base.__pyx_base.__pyx_base.weighted_n_left * __pyx_v_total_sum_right));
 
-  /* "uplift/tree/_criterion.pyx":1703
+  /* "uplift/tree/_criterion.pyx":1706
  *                 self.weighted_n_left * total_sum_right)
  * 
  *         return diff * diff / (self.weighted_n_left * self.weighted_n_right)             # <<<<<<<<<<<<<<
@@ -10374,7 +10383,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_11FriedmanMSE_proxy_impurity_im
   __pyx_r = ((__pyx_v_diff * __pyx_v_diff) / (__pyx_v_self->__pyx_base.__pyx_base.__pyx_base.weighted_n_left * __pyx_v_self->__pyx_base.__pyx_base.__pyx_base.weighted_n_right));
   goto __pyx_L0;
 
-  /* "uplift/tree/_criterion.pyx":1675
+  /* "uplift/tree/_criterion.pyx":1678
  *     """
  * 
  *     cdef double proxy_impurity_improvement(self) nogil:             # <<<<<<<<<<<<<<
@@ -10387,7 +10396,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_11FriedmanMSE_proxy_impurity_im
   return __pyx_r;
 }
 
-/* "uplift/tree/_criterion.pyx":1705
+/* "uplift/tree/_criterion.pyx":1708
  *         return diff * diff / (self.weighted_n_left * self.weighted_n_right)
  * 
  *     cdef double impurity_improvement(self, double impurity) nogil:             # <<<<<<<<<<<<<<
@@ -10408,7 +10417,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_11FriedmanMSE_impurity_improvem
   __pyx_t_6uplift_4tree_10_criterion_SIZE_t __pyx_t_3;
   __pyx_t_6uplift_4tree_10_criterion_SIZE_t __pyx_t_4;
 
-  /* "uplift/tree/_criterion.pyx":1706
+  /* "uplift/tree/_criterion.pyx":1709
  * 
  *     cdef double impurity_improvement(self, double impurity) nogil:
  *         cdef double* sum_left = self.sum_left             # <<<<<<<<<<<<<<
@@ -10418,7 +10427,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_11FriedmanMSE_impurity_improvem
   __pyx_t_1 = __pyx_v_self->__pyx_base.__pyx_base.__pyx_base.sum_left;
   __pyx_v_sum_left = __pyx_t_1;
 
-  /* "uplift/tree/_criterion.pyx":1707
+  /* "uplift/tree/_criterion.pyx":1710
  *     cdef double impurity_improvement(self, double impurity) nogil:
  *         cdef double* sum_left = self.sum_left
  *         cdef double* sum_right = self.sum_right             # <<<<<<<<<<<<<<
@@ -10428,7 +10437,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_11FriedmanMSE_impurity_improvem
   __pyx_t_1 = __pyx_v_self->__pyx_base.__pyx_base.__pyx_base.sum_right;
   __pyx_v_sum_right = __pyx_t_1;
 
-  /* "uplift/tree/_criterion.pyx":1709
+  /* "uplift/tree/_criterion.pyx":1712
  *         cdef double* sum_right = self.sum_right
  * 
  *         cdef double total_sum_left = 0.0             # <<<<<<<<<<<<<<
@@ -10437,7 +10446,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_11FriedmanMSE_impurity_improvem
  */
   __pyx_v_total_sum_left = 0.0;
 
-  /* "uplift/tree/_criterion.pyx":1710
+  /* "uplift/tree/_criterion.pyx":1713
  * 
  *         cdef double total_sum_left = 0.0
  *         cdef double total_sum_right = 0.0             # <<<<<<<<<<<<<<
@@ -10446,7 +10455,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_11FriedmanMSE_impurity_improvem
  */
   __pyx_v_total_sum_right = 0.0;
 
-  /* "uplift/tree/_criterion.pyx":1713
+  /* "uplift/tree/_criterion.pyx":1716
  * 
  *         cdef SIZE_t k
  *         cdef double diff = 0.0             # <<<<<<<<<<<<<<
@@ -10455,7 +10464,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_11FriedmanMSE_impurity_improvem
  */
   __pyx_v_diff = 0.0;
 
-  /* "uplift/tree/_criterion.pyx":1715
+  /* "uplift/tree/_criterion.pyx":1718
  *         cdef double diff = 0.0
  * 
  *         for k in range(self.n_outputs):             # <<<<<<<<<<<<<<
@@ -10467,7 +10476,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_11FriedmanMSE_impurity_improvem
   for (__pyx_t_4 = 0; __pyx_t_4 < __pyx_t_3; __pyx_t_4+=1) {
     __pyx_v_k = __pyx_t_4;
 
-    /* "uplift/tree/_criterion.pyx":1716
+    /* "uplift/tree/_criterion.pyx":1719
  * 
  *         for k in range(self.n_outputs):
  *             total_sum_left += sum_left[k]             # <<<<<<<<<<<<<<
@@ -10476,7 +10485,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_11FriedmanMSE_impurity_improvem
  */
     __pyx_v_total_sum_left = (__pyx_v_total_sum_left + (__pyx_v_sum_left[__pyx_v_k]));
 
-    /* "uplift/tree/_criterion.pyx":1717
+    /* "uplift/tree/_criterion.pyx":1720
  *         for k in range(self.n_outputs):
  *             total_sum_left += sum_left[k]
  *             total_sum_right += sum_right[k]             # <<<<<<<<<<<<<<
@@ -10486,7 +10495,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_11FriedmanMSE_impurity_improvem
     __pyx_v_total_sum_right = (__pyx_v_total_sum_right + (__pyx_v_sum_right[__pyx_v_k]));
   }
 
-  /* "uplift/tree/_criterion.pyx":1720
+  /* "uplift/tree/_criterion.pyx":1723
  * 
  *         diff = (self.weighted_n_right * total_sum_left -
  *                 self.weighted_n_left * total_sum_right) / self.n_outputs             # <<<<<<<<<<<<<<
@@ -10495,7 +10504,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_11FriedmanMSE_impurity_improvem
  */
   __pyx_v_diff = (((__pyx_v_self->__pyx_base.__pyx_base.__pyx_base.weighted_n_right * __pyx_v_total_sum_left) - (__pyx_v_self->__pyx_base.__pyx_base.__pyx_base.weighted_n_left * __pyx_v_total_sum_right)) / __pyx_v_self->__pyx_base.__pyx_base.__pyx_base.n_outputs);
 
-  /* "uplift/tree/_criterion.pyx":1722
+  /* "uplift/tree/_criterion.pyx":1725
  *                 self.weighted_n_left * total_sum_right) / self.n_outputs
  * 
  *         return (diff * diff / (self.weighted_n_left * self.weighted_n_right *             # <<<<<<<<<<<<<<
@@ -10504,7 +10513,7 @@ static double __pyx_f_6uplift_4tree_10_criterion_11FriedmanMSE_impurity_improvem
   __pyx_r = ((__pyx_v_diff * __pyx_v_diff) / ((__pyx_v_self->__pyx_base.__pyx_base.__pyx_base.weighted_n_left * __pyx_v_self->__pyx_base.__pyx_base.__pyx_base.weighted_n_right) * __pyx_v_self->__pyx_base.__pyx_base.__pyx_base.weighted_n_node_samples));
   goto __pyx_L0;
 
-  /* "uplift/tree/_criterion.pyx":1705
+  /* "uplift/tree/_criterion.pyx":1708
  *         return diff * diff / (self.weighted_n_left * self.weighted_n_right)
  * 
  *     cdef double impurity_improvement(self, double impurity) nogil:             # <<<<<<<<<<<<<<
@@ -13881,8 +13890,8 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
 };
 static CYTHON_SMALL_CODE int __Pyx_InitCachedBuiltins(void) {
   __pyx_builtin_TypeError = __Pyx_GetBuiltinName(__pyx_n_s_TypeError); if (!__pyx_builtin_TypeError) __PYX_ERR(0, 2, __pyx_L1_error)
-  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(1, 246, __pyx_L1_error)
-  __pyx_builtin_MemoryError = __Pyx_GetBuiltinName(__pyx_n_s_MemoryError); if (!__pyx_builtin_MemoryError) __PYX_ERR(1, 262, __pyx_L1_error)
+  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(1, 247, __pyx_L1_error)
+  __pyx_builtin_MemoryError = __Pyx_GetBuiltinName(__pyx_n_s_MemoryError); if (!__pyx_builtin_MemoryError) __PYX_ERR(1, 263, __pyx_L1_error)
   __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_n_s_ValueError); if (!__pyx_builtin_ValueError) __PYX_ERR(2, 272, __pyx_L1_error)
   __pyx_builtin_RuntimeError = __Pyx_GetBuiltinName(__pyx_n_s_RuntimeError); if (!__pyx_builtin_RuntimeError) __PYX_ERR(2, 856, __pyx_L1_error)
   __pyx_builtin_ImportError = __Pyx_GetBuiltinName(__pyx_n_s_ImportError); if (!__pyx_builtin_ImportError) __PYX_ERR(2, 1038, __pyx_L1_error)
@@ -14050,16 +14059,16 @@ static int __Pyx_modinit_type_init_code(void) {
   __pyx_vtable_6uplift_4tree_10_criterion_Criterion.node_value = (void (*)(struct __pyx_obj_6uplift_4tree_10_criterion_Criterion *, double *))__pyx_f_6uplift_4tree_10_criterion_9Criterion_node_value;
   __pyx_vtable_6uplift_4tree_10_criterion_Criterion.impurity_improvement = (double (*)(struct __pyx_obj_6uplift_4tree_10_criterion_Criterion *, double))__pyx_f_6uplift_4tree_10_criterion_9Criterion_impurity_improvement;
   __pyx_vtable_6uplift_4tree_10_criterion_Criterion.proxy_impurity_improvement = (double (*)(struct __pyx_obj_6uplift_4tree_10_criterion_Criterion *))__pyx_f_6uplift_4tree_10_criterion_9Criterion_proxy_impurity_improvement;
-  if (PyType_Ready(&__pyx_type_6uplift_4tree_10_criterion_Criterion) < 0) __PYX_ERR(1, 23, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_6uplift_4tree_10_criterion_Criterion) < 0) __PYX_ERR(1, 24, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_6uplift_4tree_10_criterion_Criterion.tp_print = 0;
   #endif
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_6uplift_4tree_10_criterion_Criterion.tp_dictoffset && __pyx_type_6uplift_4tree_10_criterion_Criterion.tp_getattro == PyObject_GenericGetAttr)) {
     __pyx_type_6uplift_4tree_10_criterion_Criterion.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (__Pyx_SetVtable(__pyx_type_6uplift_4tree_10_criterion_Criterion.tp_dict, __pyx_vtabptr_6uplift_4tree_10_criterion_Criterion) < 0) __PYX_ERR(1, 23, __pyx_L1_error)
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_Criterion, (PyObject *)&__pyx_type_6uplift_4tree_10_criterion_Criterion) < 0) __PYX_ERR(1, 23, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_6uplift_4tree_10_criterion_Criterion) < 0) __PYX_ERR(1, 23, __pyx_L1_error)
+  if (__Pyx_SetVtable(__pyx_type_6uplift_4tree_10_criterion_Criterion.tp_dict, __pyx_vtabptr_6uplift_4tree_10_criterion_Criterion) < 0) __PYX_ERR(1, 24, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_Criterion, (PyObject *)&__pyx_type_6uplift_4tree_10_criterion_Criterion) < 0) __PYX_ERR(1, 24, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_6uplift_4tree_10_criterion_Criterion) < 0) __PYX_ERR(1, 24, __pyx_L1_error)
   __pyx_ptype_6uplift_4tree_10_criterion_Criterion = &__pyx_type_6uplift_4tree_10_criterion_Criterion;
   __pyx_vtabptr_6uplift_4tree_10_criterion_ClassificationCriterion = &__pyx_vtable_6uplift_4tree_10_criterion_ClassificationCriterion;
   __pyx_vtable_6uplift_4tree_10_criterion_ClassificationCriterion.__pyx_base = *__pyx_vtabptr_6uplift_4tree_10_criterion_Criterion;
@@ -14071,15 +14080,15 @@ static int __Pyx_modinit_type_init_code(void) {
   __pyx_vtable_6uplift_4tree_10_criterion_ClassificationCriterion.__pyx_base.children_impurity = (void (*)(struct __pyx_obj_6uplift_4tree_10_criterion_Criterion *, double *, double *))__pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_children_impurity;
   __pyx_vtable_6uplift_4tree_10_criterion_ClassificationCriterion.__pyx_base.node_value = (void (*)(struct __pyx_obj_6uplift_4tree_10_criterion_Criterion *, double *))__pyx_f_6uplift_4tree_10_criterion_23ClassificationCriterion_node_value;
   __pyx_type_6uplift_4tree_10_criterion_ClassificationCriterion.tp_base = __pyx_ptype_6uplift_4tree_10_criterion_Criterion;
-  if (PyType_Ready(&__pyx_type_6uplift_4tree_10_criterion_ClassificationCriterion) < 0) __PYX_ERR(1, 199, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_6uplift_4tree_10_criterion_ClassificationCriterion) < 0) __PYX_ERR(1, 200, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_6uplift_4tree_10_criterion_ClassificationCriterion.tp_print = 0;
   #endif
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_6uplift_4tree_10_criterion_ClassificationCriterion.tp_dictoffset && __pyx_type_6uplift_4tree_10_criterion_ClassificationCriterion.tp_getattro == PyObject_GenericGetAttr)) {
     __pyx_type_6uplift_4tree_10_criterion_ClassificationCriterion.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (__Pyx_SetVtable(__pyx_type_6uplift_4tree_10_criterion_ClassificationCriterion.tp_dict, __pyx_vtabptr_6uplift_4tree_10_criterion_ClassificationCriterion) < 0) __PYX_ERR(1, 199, __pyx_L1_error)
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_ClassificationCriterion, (PyObject *)&__pyx_type_6uplift_4tree_10_criterion_ClassificationCriterion) < 0) __PYX_ERR(1, 199, __pyx_L1_error)
+  if (__Pyx_SetVtable(__pyx_type_6uplift_4tree_10_criterion_ClassificationCriterion.tp_dict, __pyx_vtabptr_6uplift_4tree_10_criterion_ClassificationCriterion) < 0) __PYX_ERR(1, 200, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_ClassificationCriterion, (PyObject *)&__pyx_type_6uplift_4tree_10_criterion_ClassificationCriterion) < 0) __PYX_ERR(1, 200, __pyx_L1_error)
   __pyx_ptype_6uplift_4tree_10_criterion_ClassificationCriterion = &__pyx_type_6uplift_4tree_10_criterion_ClassificationCriterion;
   __pyx_vtabptr_6uplift_4tree_10_criterion_UpliftGini = &__pyx_vtable_6uplift_4tree_10_criterion_UpliftGini;
   __pyx_vtable_6uplift_4tree_10_criterion_UpliftGini.__pyx_base = *__pyx_vtabptr_6uplift_4tree_10_criterion_ClassificationCriterion;
@@ -14087,15 +14096,15 @@ static int __Pyx_modinit_type_init_code(void) {
   __pyx_vtable_6uplift_4tree_10_criterion_UpliftGini.__pyx_base.__pyx_base.children_impurity = (void (*)(struct __pyx_obj_6uplift_4tree_10_criterion_Criterion *, double *, double *))__pyx_f_6uplift_4tree_10_criterion_10UpliftGini_children_impurity;
   __pyx_vtable_6uplift_4tree_10_criterion_UpliftGini.__pyx_base.__pyx_base.proxy_impurity_improvement = (double (*)(struct __pyx_obj_6uplift_4tree_10_criterion_Criterion *))__pyx_f_6uplift_4tree_10_criterion_10UpliftGini_proxy_impurity_improvement;
   __pyx_type_6uplift_4tree_10_criterion_UpliftGini.tp_base = __pyx_ptype_6uplift_4tree_10_criterion_ClassificationCriterion;
-  if (PyType_Ready(&__pyx_type_6uplift_4tree_10_criterion_UpliftGini) < 0) __PYX_ERR(1, 490, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_6uplift_4tree_10_criterion_UpliftGini) < 0) __PYX_ERR(1, 491, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_6uplift_4tree_10_criterion_UpliftGini.tp_print = 0;
   #endif
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_6uplift_4tree_10_criterion_UpliftGini.tp_dictoffset && __pyx_type_6uplift_4tree_10_criterion_UpliftGini.tp_getattro == PyObject_GenericGetAttr)) {
     __pyx_type_6uplift_4tree_10_criterion_UpliftGini.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (__Pyx_SetVtable(__pyx_type_6uplift_4tree_10_criterion_UpliftGini.tp_dict, __pyx_vtabptr_6uplift_4tree_10_criterion_UpliftGini) < 0) __PYX_ERR(1, 490, __pyx_L1_error)
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_UpliftGini, (PyObject *)&__pyx_type_6uplift_4tree_10_criterion_UpliftGini) < 0) __PYX_ERR(1, 490, __pyx_L1_error)
+  if (__Pyx_SetVtable(__pyx_type_6uplift_4tree_10_criterion_UpliftGini.tp_dict, __pyx_vtabptr_6uplift_4tree_10_criterion_UpliftGini) < 0) __PYX_ERR(1, 491, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_UpliftGini, (PyObject *)&__pyx_type_6uplift_4tree_10_criterion_UpliftGini) < 0) __PYX_ERR(1, 491, __pyx_L1_error)
   __pyx_ptype_6uplift_4tree_10_criterion_UpliftGini = &__pyx_type_6uplift_4tree_10_criterion_UpliftGini;
   __pyx_vtabptr_6uplift_4tree_10_criterion_UpliftRadcliffeSurryTSplit = &__pyx_vtable_6uplift_4tree_10_criterion_UpliftRadcliffeSurryTSplit;
   __pyx_vtable_6uplift_4tree_10_criterion_UpliftRadcliffeSurryTSplit.__pyx_base = *__pyx_vtabptr_6uplift_4tree_10_criterion_ClassificationCriterion;
@@ -14103,15 +14112,15 @@ static int __Pyx_modinit_type_init_code(void) {
   __pyx_vtable_6uplift_4tree_10_criterion_UpliftRadcliffeSurryTSplit.__pyx_base.__pyx_base.children_impurity = (void (*)(struct __pyx_obj_6uplift_4tree_10_criterion_Criterion *, double *, double *))__pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_children_impurity;
   __pyx_vtable_6uplift_4tree_10_criterion_UpliftRadcliffeSurryTSplit.__pyx_base.__pyx_base.proxy_impurity_improvement = (double (*)(struct __pyx_obj_6uplift_4tree_10_criterion_Criterion *))__pyx_f_6uplift_4tree_10_criterion_26UpliftRadcliffeSurryTSplit_proxy_impurity_improvement;
   __pyx_type_6uplift_4tree_10_criterion_UpliftRadcliffeSurryTSplit.tp_base = __pyx_ptype_6uplift_4tree_10_criterion_ClassificationCriterion;
-  if (PyType_Ready(&__pyx_type_6uplift_4tree_10_criterion_UpliftRadcliffeSurryTSplit) < 0) __PYX_ERR(1, 732, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_6uplift_4tree_10_criterion_UpliftRadcliffeSurryTSplit) < 0) __PYX_ERR(1, 735, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_6uplift_4tree_10_criterion_UpliftRadcliffeSurryTSplit.tp_print = 0;
   #endif
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_6uplift_4tree_10_criterion_UpliftRadcliffeSurryTSplit.tp_dictoffset && __pyx_type_6uplift_4tree_10_criterion_UpliftRadcliffeSurryTSplit.tp_getattro == PyObject_GenericGetAttr)) {
     __pyx_type_6uplift_4tree_10_criterion_UpliftRadcliffeSurryTSplit.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (__Pyx_SetVtable(__pyx_type_6uplift_4tree_10_criterion_UpliftRadcliffeSurryTSplit.tp_dict, __pyx_vtabptr_6uplift_4tree_10_criterion_UpliftRadcliffeSurryTSplit) < 0) __PYX_ERR(1, 732, __pyx_L1_error)
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_UpliftRadcliffeSurryTSplit, (PyObject *)&__pyx_type_6uplift_4tree_10_criterion_UpliftRadcliffeSurryTSplit) < 0) __PYX_ERR(1, 732, __pyx_L1_error)
+  if (__Pyx_SetVtable(__pyx_type_6uplift_4tree_10_criterion_UpliftRadcliffeSurryTSplit.tp_dict, __pyx_vtabptr_6uplift_4tree_10_criterion_UpliftRadcliffeSurryTSplit) < 0) __PYX_ERR(1, 735, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_UpliftRadcliffeSurryTSplit, (PyObject *)&__pyx_type_6uplift_4tree_10_criterion_UpliftRadcliffeSurryTSplit) < 0) __PYX_ERR(1, 735, __pyx_L1_error)
   __pyx_ptype_6uplift_4tree_10_criterion_UpliftRadcliffeSurryTSplit = &__pyx_type_6uplift_4tree_10_criterion_UpliftRadcliffeSurryTSplit;
   __pyx_vtabptr_6uplift_4tree_10_criterion_UpliftEntropy = &__pyx_vtable_6uplift_4tree_10_criterion_UpliftEntropy;
   __pyx_vtable_6uplift_4tree_10_criterion_UpliftEntropy.__pyx_base = *__pyx_vtabptr_6uplift_4tree_10_criterion_ClassificationCriterion;
@@ -14119,45 +14128,45 @@ static int __Pyx_modinit_type_init_code(void) {
   __pyx_vtable_6uplift_4tree_10_criterion_UpliftEntropy.__pyx_base.__pyx_base.children_impurity = (void (*)(struct __pyx_obj_6uplift_4tree_10_criterion_Criterion *, double *, double *))__pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_children_impurity;
   __pyx_vtable_6uplift_4tree_10_criterion_UpliftEntropy.__pyx_base.__pyx_base.proxy_impurity_improvement = (double (*)(struct __pyx_obj_6uplift_4tree_10_criterion_Criterion *))__pyx_f_6uplift_4tree_10_criterion_13UpliftEntropy_proxy_impurity_improvement;
   __pyx_type_6uplift_4tree_10_criterion_UpliftEntropy.tp_base = __pyx_ptype_6uplift_4tree_10_criterion_ClassificationCriterion;
-  if (PyType_Ready(&__pyx_type_6uplift_4tree_10_criterion_UpliftEntropy) < 0) __PYX_ERR(1, 960, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_6uplift_4tree_10_criterion_UpliftEntropy) < 0) __PYX_ERR(1, 963, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_6uplift_4tree_10_criterion_UpliftEntropy.tp_print = 0;
   #endif
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_6uplift_4tree_10_criterion_UpliftEntropy.tp_dictoffset && __pyx_type_6uplift_4tree_10_criterion_UpliftEntropy.tp_getattro == PyObject_GenericGetAttr)) {
     __pyx_type_6uplift_4tree_10_criterion_UpliftEntropy.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (__Pyx_SetVtable(__pyx_type_6uplift_4tree_10_criterion_UpliftEntropy.tp_dict, __pyx_vtabptr_6uplift_4tree_10_criterion_UpliftEntropy) < 0) __PYX_ERR(1, 960, __pyx_L1_error)
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_UpliftEntropy, (PyObject *)&__pyx_type_6uplift_4tree_10_criterion_UpliftEntropy) < 0) __PYX_ERR(1, 960, __pyx_L1_error)
+  if (__Pyx_SetVtable(__pyx_type_6uplift_4tree_10_criterion_UpliftEntropy.tp_dict, __pyx_vtabptr_6uplift_4tree_10_criterion_UpliftEntropy) < 0) __PYX_ERR(1, 963, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_UpliftEntropy, (PyObject *)&__pyx_type_6uplift_4tree_10_criterion_UpliftEntropy) < 0) __PYX_ERR(1, 963, __pyx_L1_error)
   __pyx_ptype_6uplift_4tree_10_criterion_UpliftEntropy = &__pyx_type_6uplift_4tree_10_criterion_UpliftEntropy;
   __pyx_vtabptr_6uplift_4tree_10_criterion_Entropy = &__pyx_vtable_6uplift_4tree_10_criterion_Entropy;
   __pyx_vtable_6uplift_4tree_10_criterion_Entropy.__pyx_base = *__pyx_vtabptr_6uplift_4tree_10_criterion_ClassificationCriterion;
   __pyx_vtable_6uplift_4tree_10_criterion_Entropy.__pyx_base.__pyx_base.node_impurity = (double (*)(struct __pyx_obj_6uplift_4tree_10_criterion_Criterion *))__pyx_f_6uplift_4tree_10_criterion_7Entropy_node_impurity;
   __pyx_vtable_6uplift_4tree_10_criterion_Entropy.__pyx_base.__pyx_base.children_impurity = (void (*)(struct __pyx_obj_6uplift_4tree_10_criterion_Criterion *, double *, double *))__pyx_f_6uplift_4tree_10_criterion_7Entropy_children_impurity;
   __pyx_type_6uplift_4tree_10_criterion_Entropy.tp_base = __pyx_ptype_6uplift_4tree_10_criterion_ClassificationCriterion;
-  if (PyType_Ready(&__pyx_type_6uplift_4tree_10_criterion_Entropy) < 0) __PYX_ERR(1, 1196, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_6uplift_4tree_10_criterion_Entropy) < 0) __PYX_ERR(1, 1199, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_6uplift_4tree_10_criterion_Entropy.tp_print = 0;
   #endif
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_6uplift_4tree_10_criterion_Entropy.tp_dictoffset && __pyx_type_6uplift_4tree_10_criterion_Entropy.tp_getattro == PyObject_GenericGetAttr)) {
     __pyx_type_6uplift_4tree_10_criterion_Entropy.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (__Pyx_SetVtable(__pyx_type_6uplift_4tree_10_criterion_Entropy.tp_dict, __pyx_vtabptr_6uplift_4tree_10_criterion_Entropy) < 0) __PYX_ERR(1, 1196, __pyx_L1_error)
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_Entropy, (PyObject *)&__pyx_type_6uplift_4tree_10_criterion_Entropy) < 0) __PYX_ERR(1, 1196, __pyx_L1_error)
+  if (__Pyx_SetVtable(__pyx_type_6uplift_4tree_10_criterion_Entropy.tp_dict, __pyx_vtabptr_6uplift_4tree_10_criterion_Entropy) < 0) __PYX_ERR(1, 1199, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_Entropy, (PyObject *)&__pyx_type_6uplift_4tree_10_criterion_Entropy) < 0) __PYX_ERR(1, 1199, __pyx_L1_error)
   __pyx_ptype_6uplift_4tree_10_criterion_Entropy = &__pyx_type_6uplift_4tree_10_criterion_Entropy;
   __pyx_vtabptr_6uplift_4tree_10_criterion_Gini = &__pyx_vtable_6uplift_4tree_10_criterion_Gini;
   __pyx_vtable_6uplift_4tree_10_criterion_Gini.__pyx_base = *__pyx_vtabptr_6uplift_4tree_10_criterion_ClassificationCriterion;
   __pyx_vtable_6uplift_4tree_10_criterion_Gini.__pyx_base.__pyx_base.node_impurity = (double (*)(struct __pyx_obj_6uplift_4tree_10_criterion_Criterion *))__pyx_f_6uplift_4tree_10_criterion_4Gini_node_impurity;
   __pyx_vtable_6uplift_4tree_10_criterion_Gini.__pyx_base.__pyx_base.children_impurity = (void (*)(struct __pyx_obj_6uplift_4tree_10_criterion_Criterion *, double *, double *))__pyx_f_6uplift_4tree_10_criterion_4Gini_children_impurity;
   __pyx_type_6uplift_4tree_10_criterion_Gini.tp_base = __pyx_ptype_6uplift_4tree_10_criterion_ClassificationCriterion;
-  if (PyType_Ready(&__pyx_type_6uplift_4tree_10_criterion_Gini) < 0) __PYX_ERR(1, 1277, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_6uplift_4tree_10_criterion_Gini) < 0) __PYX_ERR(1, 1280, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_6uplift_4tree_10_criterion_Gini.tp_print = 0;
   #endif
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_6uplift_4tree_10_criterion_Gini.tp_dictoffset && __pyx_type_6uplift_4tree_10_criterion_Gini.tp_getattro == PyObject_GenericGetAttr)) {
     __pyx_type_6uplift_4tree_10_criterion_Gini.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (__Pyx_SetVtable(__pyx_type_6uplift_4tree_10_criterion_Gini.tp_dict, __pyx_vtabptr_6uplift_4tree_10_criterion_Gini) < 0) __PYX_ERR(1, 1277, __pyx_L1_error)
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_Gini, (PyObject *)&__pyx_type_6uplift_4tree_10_criterion_Gini) < 0) __PYX_ERR(1, 1277, __pyx_L1_error)
+  if (__Pyx_SetVtable(__pyx_type_6uplift_4tree_10_criterion_Gini.tp_dict, __pyx_vtabptr_6uplift_4tree_10_criterion_Gini) < 0) __PYX_ERR(1, 1280, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_Gini, (PyObject *)&__pyx_type_6uplift_4tree_10_criterion_Gini) < 0) __PYX_ERR(1, 1280, __pyx_L1_error)
   __pyx_ptype_6uplift_4tree_10_criterion_Gini = &__pyx_type_6uplift_4tree_10_criterion_Gini;
   __pyx_vtabptr_6uplift_4tree_10_criterion_RegressionCriterion = &__pyx_vtable_6uplift_4tree_10_criterion_RegressionCriterion;
   __pyx_vtable_6uplift_4tree_10_criterion_RegressionCriterion.__pyx_base = *__pyx_vtabptr_6uplift_4tree_10_criterion_Criterion;
@@ -14169,15 +14178,15 @@ static int __Pyx_modinit_type_init_code(void) {
   __pyx_vtable_6uplift_4tree_10_criterion_RegressionCriterion.__pyx_base.children_impurity = (void (*)(struct __pyx_obj_6uplift_4tree_10_criterion_Criterion *, double *, double *))__pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_children_impurity;
   __pyx_vtable_6uplift_4tree_10_criterion_RegressionCriterion.__pyx_base.node_value = (void (*)(struct __pyx_obj_6uplift_4tree_10_criterion_Criterion *, double *))__pyx_f_6uplift_4tree_10_criterion_19RegressionCriterion_node_value;
   __pyx_type_6uplift_4tree_10_criterion_RegressionCriterion.tp_base = __pyx_ptype_6uplift_4tree_10_criterion_Criterion;
-  if (PyType_Ready(&__pyx_type_6uplift_4tree_10_criterion_RegressionCriterion) < 0) __PYX_ERR(1, 1373, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_6uplift_4tree_10_criterion_RegressionCriterion) < 0) __PYX_ERR(1, 1376, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_6uplift_4tree_10_criterion_RegressionCriterion.tp_print = 0;
   #endif
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_6uplift_4tree_10_criterion_RegressionCriterion.tp_dictoffset && __pyx_type_6uplift_4tree_10_criterion_RegressionCriterion.tp_getattro == PyObject_GenericGetAttr)) {
     __pyx_type_6uplift_4tree_10_criterion_RegressionCriterion.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (__Pyx_SetVtable(__pyx_type_6uplift_4tree_10_criterion_RegressionCriterion.tp_dict, __pyx_vtabptr_6uplift_4tree_10_criterion_RegressionCriterion) < 0) __PYX_ERR(1, 1373, __pyx_L1_error)
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_RegressionCriterion, (PyObject *)&__pyx_type_6uplift_4tree_10_criterion_RegressionCriterion) < 0) __PYX_ERR(1, 1373, __pyx_L1_error)
+  if (__Pyx_SetVtable(__pyx_type_6uplift_4tree_10_criterion_RegressionCriterion.tp_dict, __pyx_vtabptr_6uplift_4tree_10_criterion_RegressionCriterion) < 0) __PYX_ERR(1, 1376, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_RegressionCriterion, (PyObject *)&__pyx_type_6uplift_4tree_10_criterion_RegressionCriterion) < 0) __PYX_ERR(1, 1376, __pyx_L1_error)
   __pyx_ptype_6uplift_4tree_10_criterion_RegressionCriterion = &__pyx_type_6uplift_4tree_10_criterion_RegressionCriterion;
   __pyx_vtabptr_6uplift_4tree_10_criterion_MSE = &__pyx_vtable_6uplift_4tree_10_criterion_MSE;
   __pyx_vtable_6uplift_4tree_10_criterion_MSE.__pyx_base = *__pyx_vtabptr_6uplift_4tree_10_criterion_RegressionCriterion;
@@ -14185,30 +14194,30 @@ static int __Pyx_modinit_type_init_code(void) {
   __pyx_vtable_6uplift_4tree_10_criterion_MSE.__pyx_base.__pyx_base.children_impurity = (void (*)(struct __pyx_obj_6uplift_4tree_10_criterion_Criterion *, double *, double *))__pyx_f_6uplift_4tree_10_criterion_3MSE_children_impurity;
   __pyx_vtable_6uplift_4tree_10_criterion_MSE.__pyx_base.__pyx_base.proxy_impurity_improvement = (double (*)(struct __pyx_obj_6uplift_4tree_10_criterion_Criterion *))__pyx_f_6uplift_4tree_10_criterion_3MSE_proxy_impurity_improvement;
   __pyx_type_6uplift_4tree_10_criterion_MSE.tp_base = __pyx_ptype_6uplift_4tree_10_criterion_RegressionCriterion;
-  if (PyType_Ready(&__pyx_type_6uplift_4tree_10_criterion_MSE) < 0) __PYX_ERR(1, 1573, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_6uplift_4tree_10_criterion_MSE) < 0) __PYX_ERR(1, 1576, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_6uplift_4tree_10_criterion_MSE.tp_print = 0;
   #endif
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_6uplift_4tree_10_criterion_MSE.tp_dictoffset && __pyx_type_6uplift_4tree_10_criterion_MSE.tp_getattro == PyObject_GenericGetAttr)) {
     __pyx_type_6uplift_4tree_10_criterion_MSE.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (__Pyx_SetVtable(__pyx_type_6uplift_4tree_10_criterion_MSE.tp_dict, __pyx_vtabptr_6uplift_4tree_10_criterion_MSE) < 0) __PYX_ERR(1, 1573, __pyx_L1_error)
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_MSE, (PyObject *)&__pyx_type_6uplift_4tree_10_criterion_MSE) < 0) __PYX_ERR(1, 1573, __pyx_L1_error)
+  if (__Pyx_SetVtable(__pyx_type_6uplift_4tree_10_criterion_MSE.tp_dict, __pyx_vtabptr_6uplift_4tree_10_criterion_MSE) < 0) __PYX_ERR(1, 1576, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_MSE, (PyObject *)&__pyx_type_6uplift_4tree_10_criterion_MSE) < 0) __PYX_ERR(1, 1576, __pyx_L1_error)
   __pyx_ptype_6uplift_4tree_10_criterion_MSE = &__pyx_type_6uplift_4tree_10_criterion_MSE;
   __pyx_vtabptr_6uplift_4tree_10_criterion_FriedmanMSE = &__pyx_vtable_6uplift_4tree_10_criterion_FriedmanMSE;
   __pyx_vtable_6uplift_4tree_10_criterion_FriedmanMSE.__pyx_base = *__pyx_vtabptr_6uplift_4tree_10_criterion_MSE;
   __pyx_vtable_6uplift_4tree_10_criterion_FriedmanMSE.__pyx_base.__pyx_base.__pyx_base.impurity_improvement = (double (*)(struct __pyx_obj_6uplift_4tree_10_criterion_Criterion *, double))__pyx_f_6uplift_4tree_10_criterion_11FriedmanMSE_impurity_improvement;
   __pyx_vtable_6uplift_4tree_10_criterion_FriedmanMSE.__pyx_base.__pyx_base.__pyx_base.proxy_impurity_improvement = (double (*)(struct __pyx_obj_6uplift_4tree_10_criterion_Criterion *))__pyx_f_6uplift_4tree_10_criterion_11FriedmanMSE_proxy_impurity_improvement;
   __pyx_type_6uplift_4tree_10_criterion_FriedmanMSE.tp_base = __pyx_ptype_6uplift_4tree_10_criterion_MSE;
-  if (PyType_Ready(&__pyx_type_6uplift_4tree_10_criterion_FriedmanMSE) < 0) __PYX_ERR(1, 1666, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_6uplift_4tree_10_criterion_FriedmanMSE) < 0) __PYX_ERR(1, 1669, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_6uplift_4tree_10_criterion_FriedmanMSE.tp_print = 0;
   #endif
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_6uplift_4tree_10_criterion_FriedmanMSE.tp_dictoffset && __pyx_type_6uplift_4tree_10_criterion_FriedmanMSE.tp_getattro == PyObject_GenericGetAttr)) {
     __pyx_type_6uplift_4tree_10_criterion_FriedmanMSE.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (__Pyx_SetVtable(__pyx_type_6uplift_4tree_10_criterion_FriedmanMSE.tp_dict, __pyx_vtabptr_6uplift_4tree_10_criterion_FriedmanMSE) < 0) __PYX_ERR(1, 1666, __pyx_L1_error)
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_FriedmanMSE, (PyObject *)&__pyx_type_6uplift_4tree_10_criterion_FriedmanMSE) < 0) __PYX_ERR(1, 1666, __pyx_L1_error)
+  if (__Pyx_SetVtable(__pyx_type_6uplift_4tree_10_criterion_FriedmanMSE.tp_dict, __pyx_vtabptr_6uplift_4tree_10_criterion_FriedmanMSE) < 0) __PYX_ERR(1, 1669, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_FriedmanMSE, (PyObject *)&__pyx_type_6uplift_4tree_10_criterion_FriedmanMSE) < 0) __PYX_ERR(1, 1669, __pyx_L1_error)
   __pyx_ptype_6uplift_4tree_10_criterion_FriedmanMSE = &__pyx_type_6uplift_4tree_10_criterion_FriedmanMSE;
   __Pyx_RefNannyFinishContext();
   return 0;
@@ -14489,26 +14498,26 @@ if (!__Pyx_RefNanny) {
   if (__Pyx_patch_abc() < 0) __PYX_ERR(1, 1, __pyx_L1_error)
   #endif
 
-  /* "uplift/tree/_criterion.pyx":14
- * from libc.math cimport sqrt
+  /* "uplift/tree/_criterion.pyx":15
+ * from libc.stdio cimport printf
  * 
  * import numpy as np             # <<<<<<<<<<<<<<
  * 
  * cimport numpy as np
  */
-  __pyx_t_1 = __Pyx_Import(__pyx_n_s_numpy, 0, -1); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 14, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_Import(__pyx_n_s_numpy, 0, -1); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 15, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_np, __pyx_t_1) < 0) __PYX_ERR(1, 14, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_np, __pyx_t_1) < 0) __PYX_ERR(1, 15, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "uplift/tree/_criterion.pyx":17
+  /* "uplift/tree/_criterion.pyx":18
  * 
  * cimport numpy as np
  * np.import_array()             # <<<<<<<<<<<<<<
  * 
  * from ._utils cimport log
  */
-  __pyx_t_2 = __pyx_f_5numpy_import_array(); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(1, 17, __pyx_L1_error)
+  __pyx_t_2 = __pyx_f_5numpy_import_array(); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(1, 18, __pyx_L1_error)
 
   /* "uplift/tree/_criterion.pyx":1
  * # cython: cdivision=True             # <<<<<<<<<<<<<<

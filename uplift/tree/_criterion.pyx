@@ -2,23 +2,29 @@
 # cython: boundscheck=False
 # cython: wraparound=False
 
-
+# Authors: Paulius Sarka <paulius.sarka@gmail.com>
+#
+# Based on sklearn/tree/_criterion.pyx (BSD 3 clause)
+#
+# Licence: BSD 3 clause
 
 from libc.stdlib cimport calloc
 from libc.stdlib cimport free
 from libc.string cimport memcpy
 from libc.string cimport memset
 
-from libc.math cimport sqrt
-
 import numpy as np
-
 cimport numpy as np
 np.import_array()
+
+from libc.math cimport sqrt
+from libc.stdio cimport printf
 
 from ._utils cimport log
 from ._utils cimport safe_realloc
 from ._utils cimport sizet_ptr_to_ndarray
+
+cdef int STATE = 0 #using impurity, using stat test = 0
 
 cdef class Criterion:
     """Interface for impurity criteria.
@@ -201,7 +207,6 @@ cdef class ClassificationCriterion(Criterion):
 
     cdef SIZE_t* n_classes
     cdef SIZE_t sum_stride
-    cdef double p_value
 
     def __cinit__(self, SIZE_t n_outputs,
                   np.ndarray[SIZE_t, ndim=1] n_classes):
@@ -488,7 +493,8 @@ cdef class ClassificationCriterion(Criterion):
             sum_total += self.sum_stride
 
 cdef class UpliftGini(ClassificationCriterion):
-
+    """TODO
+    """
 
     cdef double node_impurity(self) nogil:
         """Evaluate the impurity of the current node, i.e. the impurity of
@@ -526,13 +532,10 @@ cdef class UpliftGini(ClassificationCriterion):
             p_c_1 = (n_c1 + 0.5) / (n_c + 1)
             p_c_0 = 1 - p_c_1
 
-
             impurity += (p_t_1 - p_c_1)**2 + (p_t_0 - p_c_0)**2
             sum_total += self.sum_stride
 
         return impurity
-
-
 
     cdef void children_impurity(self, double* impurity_left, double* impurity_right) nogil:
 
@@ -603,7 +606,6 @@ cdef class UpliftGini(ClassificationCriterion):
             p_l = (n_l + 0.5) / (n + 1)
             p_r = 1 - p_l
 
-
             val_impurity_left += p_l * ((p_lt_1 - p_lc_1)**2 + (p_lt_0 - p_lc_0)**2)
             val_impurity_right += p_r * ((p_rt_1 - p_rc_1)**2 + (p_rt_0 - p_rc_0)**2)
 
@@ -615,7 +617,8 @@ cdef class UpliftGini(ClassificationCriterion):
         impurity_right[0] = val_impurity_right
 
     cdef double proxy_impurity_improvement(self) nogil:
-
+        """TODO
+        """
 
         cdef SIZE_t* n_classes = self.n_classes
         cdef double* sum_left = self.sum_left
@@ -656,14 +659,6 @@ cdef class UpliftGini(ClassificationCriterion):
         cdef double p_t
         cdef double p_c
 
-        cdef double full_variance
-        cdef double p_value
-
-        cdef double react_rate_t
-        cdef double react_rate_c
-        cdef double variance_c
-        cdef double variance_t
-
         for k in range(self.n_outputs):
 
             n_lc0 = self.sum_left[0]
@@ -694,7 +689,7 @@ cdef class UpliftGini(ClassificationCriterion):
             p_t = (n_t + 0.5) / (n + 1)
             p_c = 1 - p_t
 
-            #data manipulation stat tests
+            #data manipulation stat tests or impurity
 
             #calculate for treatment group left node
             react_rate_t = (n_lt + 0.5) / (n_t + 0.1)
@@ -707,7 +702,10 @@ cdef class UpliftGini(ClassificationCriterion):
             #calculate full variance and p_value
             full_variance = variance_t + variance_c
             p_value = ((p_t_l - p_c_l) - (p_t_r - p_c_r)) / sqrt(full_variance)
-            self.p_value = p_value
+
+            # printf("%d",p_value)
+            # printf("and")
+
 
 
             # E_gain
@@ -726,7 +724,10 @@ cdef class UpliftGini(ClassificationCriterion):
             sum_left += self.sum_stride
             sum_right += self.sum_stride
 
-        return impurity_improvement
+        if STATE == 1:
+            return p_value
+        else:
+            return impurity_improvement
 
 
 cdef class UpliftRadcliffeSurryTSplit(ClassificationCriterion):
@@ -783,8 +784,6 @@ cdef class UpliftRadcliffeSurryTSplit(ClassificationCriterion):
             sum_total += self.sum_stride
 
         return impurity
-
-
 
     cdef void children_impurity(self, double* impurity_left, double* impurity_right) nogil:
 
@@ -939,6 +938,20 @@ cdef class UpliftRadcliffeSurryTSplit(ClassificationCriterion):
             p_c = 1 - p_t
 
 
+            #data manipulation stat tests or impurity
+
+            #calculate for treatment group left node
+            react_rate_t = (n_lt + 0.5) / (n_t + 0.1)
+            variance_t = 0.0
+            variance_t += (n_t * n_t * react_rate_t * (1 - react_rate_t)) / (n_lt * (n_t - n_lt) * (n_t - 1))
+            #calculate for control group left node
+            react_rate_c = (n_lc + 0.5) / (n_c + 0.1)
+            variance_c = 0.0
+            variance_c += (n_c * n_c * react_rate_c * (1 - react_rate_c)) / (n_lc * (n_c - n_lc) * (n_c - 1))
+            #calculate full variance and p_value
+            full_variance = variance_t + variance_c
+            p_value = ((p_t_l - p_c_l) - (p_t_r - p_c_r)) / sqrt(full_variance)
+
             # E_gain
             self.children_impurity(&impurity_left, &impurity_right)
             E_gain = impurity_left + impurity_right  - self.node_impurity()
@@ -955,7 +968,10 @@ cdef class UpliftRadcliffeSurryTSplit(ClassificationCriterion):
             sum_left += self.sum_stride
             sum_right += self.sum_stride
 
-        return impurity_improvement
+        if STATE == 1:
+            return p_value
+        else:
+            return impurity_improvement
 
 cdef class UpliftEntropy(ClassificationCriterion):
     """TODO
@@ -1001,9 +1017,7 @@ cdef class UpliftEntropy(ClassificationCriterion):
             sum_total += self.sum_stride
 
         return impurity
-
-
-
+        #return 0
 
 
     cdef void children_impurity(self, double* impurity_left,
@@ -1173,6 +1187,19 @@ cdef class UpliftEntropy(ClassificationCriterion):
             p_c = 1 - p_t
 
 
+            #data manipulation stat tests or impurity
+
+            #calculate for treatment group left node
+            react_rate_t = (n_lt + 0.5) / (n_t + 0.1)
+            variance_t = 0.0
+            variance_t += (n_t * n_t * react_rate_t * (1 - react_rate_t)) / (n_lt * (n_t - n_lt) * (n_t - 1))
+            #calculate for control group left node
+            react_rate_c = (n_lc + 0.5) / (n_c + 0.1)
+            variance_c = 0.0
+            variance_c += (n_c * n_c * react_rate_c * (1 - react_rate_c)) / (n_lc * (n_c - n_lc) * (n_c - 1))
+            #calculate full variance and p_value
+            full_variance = variance_t + variance_c
+            p_value = ((p_t_l - p_c_l) - (p_t_r - p_c_r)) / sqrt(full_variance)
 
             # KL_gain
             self.children_impurity(&impurity_left, &impurity_right)
@@ -1189,8 +1216,10 @@ cdef class UpliftEntropy(ClassificationCriterion):
 
             sum_left += self.sum_stride
             sum_right += self.sum_stride
-
-        return impurity_improvement
+        if STATE==1:
+            return p_value
+        else:
+            return impurity_improvement
 
 
 cdef class Entropy(ClassificationCriterion):
@@ -1290,8 +1319,6 @@ cdef class Gini(ClassificationCriterion):
         index = \sum_{k=0}^{K-1} count_k (1 - count_k)
               = 1 - \sum_{k=0}^{K-1} count_k ** 2
     """
-
-
 
     cdef double node_impurity(self) nogil:
         """Evaluate the impurity of the current node, i.e. the impurity of
