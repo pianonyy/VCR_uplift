@@ -9,8 +9,10 @@ from libc.stdlib cimport free
 from libc.string cimport memcpy
 from libc.string cimport memset
 
+from libc.math cimport sqrt
+
 import numpy as np
-import math
+
 cimport numpy as np
 np.import_array()
 
@@ -704,7 +706,7 @@ cdef class UpliftGini(ClassificationCriterion):
             variance_c += (n_c * n_c * react_rate_c * (1 - react_rate_c)) / (n_lc * (n_c - n_lc) * (n_c - 1))
             #calculate full variance and p_value
             full_variance = variance_t + variance_c
-            p_value = ((p_t_l - p_c_l) - (p_t_r - p_c_r)) / (full_variance)
+            p_value = ((p_t_l - p_c_l) - (p_t_r - p_c_r)) / sqrt(full_variance)
             self.p_value = p_value
 
 
