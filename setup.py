@@ -1,10 +1,14 @@
 #! /usr/bin/env python
+<<<<<<< HEAD
 #
 # Copyright (C) 2018 Paulius Šarka
 # License: 3-clause BSD
 #
 # Based on scikit-learn
 # Licence: 3-clause BSD
+=======
+
+>>>>>>> 816859ef0dae41c9575f8fe7e3529bee2a9f2110
 import os
 import sys
 import uplift
@@ -45,11 +49,17 @@ def configuration(parent_package='', top_path=None):
 
 def setup_package():
     metadata = dict(name='uplift',
+<<<<<<< HEAD
                     maintainer='Paulius Šarka',
                     maintainer_email='paulius.sarka@gmail.com',
                     description='tree based uplift models',
                     license='3-clause BSD',
                     url='https://github.com/psarka/uplift',
+=======
+                    maintainer='pianonyy',
+                    description='tree based uplift models',
+                    license='3-clause BSD',
+>>>>>>> 816859ef0dae41c9575f8fe7e3529bee2a9f2110
                     version=uplift.__version__,
                     classifiers=['Intended Audience :: Science/Research',
                                  'Intended Audience :: Developers',
