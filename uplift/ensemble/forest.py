@@ -1,4 +1,8 @@
-
+# Authors: Paulius Sarka <paulius.sarka@gmail.com>
+#
+# Based on sklearn/ensemble/forest.py (BSD 3 clause)
+#
+# License: BSD 3 clause
 
 from __future__ import division
 

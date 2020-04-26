@@ -1,5 +1,7 @@
 """Base classes for all estimators."""
 
+# Author: Gael Varoquaux <gael.varoquaux@normalesup.org>
+# License: BSD 3 clause
 
 import copy
 import warnings

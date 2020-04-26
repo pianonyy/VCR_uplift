@@ -2,7 +2,8 @@
 Base class for ensemble-based estimators.
 """
 
-
+# Authors: Gilles Louppe
+# License: BSD 3 clause
 import multiprocessing
 import numpy as np
 

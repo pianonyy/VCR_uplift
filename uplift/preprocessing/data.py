@@ -1,3 +1,10 @@
+# Authors: Alexandre Gramfort <alexandre.gramfort@inria.fr>
+#          Mathieu Blondel <mathieu@mblondel.org>
+#          Olivier Grisel <olivier.grisel@ensta.org>
+#          Andreas Mueller <amueller@ais.uni-bonn.de>
+#          Eric Martin <eric@ericmart.in>
+#          Giorgio Patrini <giorgio.patrini@anu.edu.au>
+# License: BSD 3 clause
 
 import numbers
 

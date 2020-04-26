@@ -2,7 +2,8 @@
 Tests for the uplift.forest module
 """
 
-
+# Authors: Paulius Šarka
+# License: BSD 3 clause
 
 import pytest
 
