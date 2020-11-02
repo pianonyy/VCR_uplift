@@ -1,3 +1,11 @@
+# Authors: Gilles Louppe <g.louppe@gmail.com>
+#          Peter Prettenhofer <peter.prettenhofer@gmail.com>
+#          Brian Holt <bdholt1@gmail.com>
+#          Joel Nothman <joel.nothman@gmail.com>
+#          Arnaud Joly <arnaud.v.joly@gmail.com>
+#          Jacob Schreiber <jmschreiber91@gmail.com>
+#
+# Licence: BSD 3 clause
 
 # See _criterion.pyx for implementation details.
 
@@ -36,7 +44,7 @@ cdef class Criterion:
                                     # weighted count of each label. For regression,
                                     # the sum of w*y. sum_total[k] is equal to
                                     # sum_{i=start}^{end-1} w[samples[i]]*y[samples[i], k],
-                                    # where k is output index.
+                                    # where k is output index. 
     cdef double* sum_left           # Same as above, but for the left side of the split
     cdef double* sum_right          # same as above, but for the right side of the split
 
@@ -50,6 +58,7 @@ cdef class Criterion:
     cdef void reset(self) nogil
     cdef void reverse_reset(self) nogil
     cdef void update(self, SIZE_t new_pos) nogil
+    cdef double stat_test(self) nogil
     cdef double node_impurity(self) nogil
     cdef void children_impurity(self, double* impurity_left,
                                 double* impurity_right) nogil

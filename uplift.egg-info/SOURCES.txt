@@ -2,8 +2,10 @@ README.md
 setup.py
 ./uplift/__init__.py
 ./uplift/base.py
+./uplift/exceptions.py
 uplift/__init__.py
 uplift/base.py
+uplift/exceptions.py
 uplift.egg-info/PKG-INFO
 uplift.egg-info/SOURCES.txt
 uplift.egg-info/dependency_links.txt

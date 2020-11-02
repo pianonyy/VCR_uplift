@@ -2,16 +2,22 @@
 # cython: boundscheck=False
 # cython: wraparound=False
 
+
+from cpython cimport Py_INCREF, PyObject
+
 from ._criterion cimport Criterion
 
 from libc.stdlib cimport free
 from libc.stdlib cimport qsort
 from libc.string cimport memcpy
 from libc.string cimport memset
+from libc.stdio cimport printf
+from libc.math cimport fabs 
 
 import numpy as np
 cimport numpy as np
 np.import_array()
+
 
 from scipy.sparse import csc_matrix
 
@@ -22,6 +28,10 @@ from ._utils cimport RAND_R_MAX
 from ._utils cimport safe_realloc
 
 cdef double INFINITY = np.inf
+
+cdef int MIN_STAT_PARAMETR = 10000
+cdef int STAT = 0
+
 
 # Mitigate precision differences between 32 bit and 64 bit
 cdef DTYPE_t FEATURE_THRESHOLD = 1e-7
@@ -47,7 +57,7 @@ cdef class Splitter:
 
     def __cinit__(self, Criterion criterion, SIZE_t max_features,
                   SIZE_t min_samples_leaf, double min_weight_leaf,
-                  object random_state, bint presort):
+                  object random_state, bint presort, double stat_param):
         """
         Parameters
         ----------
@@ -88,6 +98,8 @@ cdef class Splitter:
         self.min_weight_leaf = min_weight_leaf
         self.random_state = random_state
         self.presort = presort
+        self.stat_param = stat_param
+
 
     def __dealloc__(self):
         """Destructor."""
@@ -229,7 +241,7 @@ cdef class BaseDenseSplitter(Splitter):
 
     def __cinit__(self, Criterion criterion, SIZE_t max_features,
                   SIZE_t min_samples_leaf, double min_weight_leaf,
-                  object random_state, bint presort):
+                  object random_state, bint presort,double stat_param):
 
         self.X = NULL
         self.X_sample_stride = 0
@@ -238,6 +250,7 @@ cdef class BaseDenseSplitter(Splitter):
         self.X_idx_sorted_stride = 0
         self.sample_mask = NULL
         self.presort = presort
+
 
     def __dealloc__(self):
         """Destructor."""
@@ -280,7 +293,7 @@ cdef class BestSplitter(BaseDenseSplitter):
                                self.min_samples_leaf,
                                self.min_weight_leaf,
                                self.random_state,
-                               self.presort), self.__getstate__())
+                               self.presort,self.stat_param), self.__getstate__())
 
     cdef void node_split(self, double impurity, SplitRecord* split,
                          SIZE_t* n_constant_features) nogil:
@@ -302,6 +315,7 @@ cdef class BestSplitter(BaseDenseSplitter):
         cdef SIZE_t min_samples_leaf = self.min_samples_leaf
         cdef double min_weight_leaf = self.min_weight_leaf
         cdef UINT32_t* random_state = &self.rand_r_state
+        cdef double stat_param = self.stat_param
 
         cdef INT32_t* X_idx_sorted = self.X_idx_sorted_ptr
         cdef SIZE_t* sample_mask = self.sample_mask
@@ -403,57 +417,72 @@ cdef class BestSplitter(BaseDenseSplitter):
 
                     sort(Xf + start, samples + start, end - start)
 
-                if Xf[end - 1] <= Xf[start] + FEATURE_THRESHOLD:
-                    features[f_j] = features[n_total_constants]
-                    features[n_total_constants] = current.feature
+                    if Xf[end - 1] <= Xf[start] + FEATURE_THRESHOLD:
+                        features[f_j] = features[n_total_constants]
+                        features[n_total_constants] = current.feature
 
-                    n_found_constants += 1
-                    n_total_constants += 1
+                        n_found_constants += 1
+                        n_total_constants += 1
 
-                else:
-                    f_i -= 1
-                    features[f_i], features[f_j] = features[f_j], features[f_i]
+                    else:
+                        f_i -= 1
+                        features[f_i], features[f_j] = features[f_j], features[f_i]
 
-                    # Evaluate all splits
-                    self.criterion.reset()
-                    p = start
+                        # Evaluate all splits
+                        self.criterion.reset()
+                        p = start
 
-                    while p < end:
-                        while (p + 1 < end and
-                               Xf[p + 1] <= Xf[p] + FEATURE_THRESHOLD):
+                        while p < end:
+                            while (p + 1 < end and
+                                Xf[p + 1] <= Xf[p] + FEATURE_THRESHOLD):
+                                p += 1
+
+                            # (p + 1 >= end) or (X[samples[p + 1], current.feature] >
+                            #                    X[samples[p], current.feature])
                             p += 1
+                            # (p >= end) or (X[samples[p], current.feature] >
+                            #                X[samples[p - 1], current.feature])
 
-                        # (p + 1 >= end) or (X[samples[p + 1], current.feature] >
-                        #                    X[samples[p], current.feature])
-                        p += 1
-                        # (p >= end) or (X[samples[p], current.feature] >
-                        #                X[samples[p - 1], current.feature])
+                            if p < end:
+                                current.pos = p
+                                
+                                # Reject if min_samples_leaf is not guaranteed
+                                if (((current.pos - start) < min_samples_leaf) or
+                                        ((end - current.pos) < min_samples_leaf)):
+                                    
+                                    continue
 
-                        if p < end:
-                            current.pos = p
+                                self.criterion.update(current.pos)
 
-                            # Reject if min_samples_leaf is not guaranteed
-                            if (((current.pos - start) < min_samples_leaf) or
-                                    ((end - current.pos) < min_samples_leaf)):
-                                continue
+                                # Reject if min_weight_leaf is not satisfied
+                                if ((self.criterion.weighted_n_left < min_weight_leaf) or
+                                        (self.criterion.weighted_n_right < min_weight_leaf)):
+                                    continue
 
-                            self.criterion.update(current.pos)
+                                current_proxy_improvement = self.criterion.proxy_impurity_improvement()
+                                
+                                
 
-                            # Reject if min_weight_leaf is not satisfied
-                            if ((self.criterion.weighted_n_left < min_weight_leaf) or
-                                    (self.criterion.weighted_n_right < min_weight_leaf)):
-                                continue
+                                #-------------------- check p value-------------------------------------------------
+                                #current_stat_test = self.criterion.stat_test()
+                                #if (fabs(float(current_stat_test)) < 2.6):
+                                #    continue
+                                
 
-                            current_proxy_improvement = self.criterion.proxy_impurity_improvement()
+                                # if(STAT):
+                                #     if (current_proxy_improvement < MIN_STAT_PARAMETR):
+                                #         continue
 
-                            if current_proxy_improvement > best_proxy_improvement:
-                                best_proxy_improvement = current_proxy_improvement
-                                current.threshold = (Xf[p - 1] + Xf[p]) / 2.0
 
-                                if current.threshold == Xf[p]:
-                                    current.threshold = Xf[p - 1]
 
-                                best = current  # copy
+                                if current_proxy_improvement > best_proxy_improvement:
+                                    best_proxy_improvement = current_proxy_improvement
+                                    current.threshold = (Xf[p - 1] + Xf[p]) / 2.0
+
+                                    if current.threshold == Xf[p]:
+                                        current.threshold = Xf[p - 1]
+
+                                    best = current  # copy
 
         # Reorganize into samples[start:best.pos] + samples[best.pos:end]
         if best.pos < end:
@@ -616,7 +645,7 @@ cdef class RandomSplitter(BaseDenseSplitter):
                                  self.min_samples_leaf,
                                  self.min_weight_leaf,
                                  self.random_state,
-                                 self.presort), self.__getstate__())
+                                 self.presort, self.stat_param), self.__getstate__())
 
     cdef void node_split(self, double impurity, SplitRecord* split,
                          SIZE_t* n_constant_features) nogil:
@@ -638,6 +667,7 @@ cdef class RandomSplitter(BaseDenseSplitter):
         cdef SIZE_t min_samples_leaf = self.min_samples_leaf
         cdef double min_weight_leaf = self.min_weight_leaf
         cdef UINT32_t* random_state = &self.rand_r_state
+        cdef double stat_param = self.stat_param
 
         cdef SplitRecord best, current
         cdef double current_proxy_improvement = - INFINITY
@@ -778,6 +808,12 @@ cdef class RandomSplitter(BaseDenseSplitter):
 
                     current_proxy_improvement = self.criterion.proxy_impurity_improvement()
 
+                    #if (float(current_proxy_improvement) < float(stat_param)):
+                    #    continue
+
+                    #if (current_proxy_improvement < stat_param):
+                    #    continue
+
                     if current_proxy_improvement > best_proxy_improvement:
                         best_proxy_improvement = current_proxy_improvement
                         best = current  # copy
@@ -835,7 +871,7 @@ cdef class BaseSparseSplitter(Splitter):
 
     def __cinit__(self, Criterion criterion, SIZE_t max_features,
                   SIZE_t min_samples_leaf, double min_weight_leaf,
-                  object random_state, bint presort):
+                  object random_state, bint presort,double stat_param):
         # Parent __cinit__ is automatically called
 
         self.X_data = NULL
@@ -1151,7 +1187,7 @@ cdef class BestSparseSplitter(BaseSparseSplitter):
                                      self.min_samples_leaf,
                                      self.min_weight_leaf,
                                      self.random_state,
-                                     self.presort), self.__getstate__())
+                                     self.presort,self.stat_param), self.__getstate__())
 
     cdef void node_split(self, double impurity, SplitRecord* split,
                          SIZE_t* n_constant_features) nogil:
@@ -1178,6 +1214,7 @@ cdef class BestSparseSplitter(BaseSparseSplitter):
         cdef SIZE_t min_samples_leaf = self.min_samples_leaf
         cdef double min_weight_leaf = self.min_weight_leaf
         cdef UINT32_t* random_state = &self.rand_r_state
+        cdef double stat_param = self.stat_param
 
         cdef SplitRecord best, current
         _init_split(&best, end)
@@ -1330,6 +1367,10 @@ cdef class BestSparseSplitter(BaseSparseSplitter):
                                 continue
 
                             current_proxy_improvement = self.criterion.proxy_impurity_improvement()
+                            
+
+                            #if (fabs(float(current_proxy_improvement)) < float(stat_param)):
+                            #    continue
 
                             if current_proxy_improvement > best_proxy_improvement:
                                 best_proxy_improvement = current_proxy_improvement
@@ -1378,7 +1419,7 @@ cdef class RandomSparseSplitter(BaseSparseSplitter):
                                        self.min_samples_leaf,
                                        self.min_weight_leaf,
                                        self.random_state,
-                                       self.presort), self.__getstate__())
+                                       self.presort,self.stat_param), self.__getstate__())
 
     cdef void node_split(self, double impurity, SplitRecord* split,
                          SIZE_t* n_constant_features) nogil:
@@ -1405,6 +1446,7 @@ cdef class RandomSparseSplitter(BaseSparseSplitter):
         cdef SIZE_t min_samples_leaf = self.min_samples_leaf
         cdef double min_weight_leaf = self.min_weight_leaf
         cdef UINT32_t* random_state = &self.rand_r_state
+        cdef double stat_param = self.stat_param
 
         cdef SplitRecord best, current
         _init_split(&best, end)
@@ -1559,6 +1601,10 @@ cdef class RandomSparseSplitter(BaseSparseSplitter):
 
                     current_proxy_improvement = self.criterion.proxy_impurity_improvement()
 
+                    #if (fabs(float(current_proxy_improvement)) < float(stat_param)):
+                    #    continue
+                    
+                    
                     if current_proxy_improvement > best_proxy_improvement:
                         best_proxy_improvement = current_proxy_improvement
                         current.improvement = self.criterion.impurity_improvement(impurity)

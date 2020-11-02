@@ -2,6 +2,13 @@
 This module defines export functions for decision trees.
 """
 
+# Authors: Gilles Louppe <g.louppe@gmail.com>
+#          Peter Prettenhofer <peter.prettenhofer@gmail.com>
+#          Brian Holt <bdholt1@gmail.com>
+#          Noel Dawe <noel@dawe.me>
+#          Satrajit Gosh <satrajit.ghosh@gmail.com>
+#          Trevor Stephens <trev.stephens@gmail.com>
+# Licence: BSD 3 clause
 
 import numpy as np
 
@@ -364,7 +371,7 @@ def export_graphviz(decision_tree, out_file="tree.dot", max_depth=None,
         colors = {'bounds': None}
 
         out_file.write('digraph Tree {\n')
-
+        
         # Specify node aesthetics
         out_file.write('node [shape=box')
         rounded_filled = []
@@ -390,8 +397,10 @@ def export_graphviz(decision_tree, out_file="tree.dot", max_depth=None,
         # Now recurse the tree and add node & edge attributes
         if isinstance(decision_tree, _tree.Tree):
             recurse(decision_tree, 0, criterion="impurity")
+            
         else:
             recurse(decision_tree.tree_, 0, criterion=decision_tree.criterion)
+            
 
         # If required, draw leaf nodes at same depth as each other
         if leaves_parallel:

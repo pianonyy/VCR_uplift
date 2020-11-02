@@ -2,10 +2,8 @@
 # cython: boundscheck=False
 # cython: wraparound=False
 
-# Authors: Paulius Sarka <paulius.sarka@gmail.com>
-#
-# Based on sklearn/tree/_criterion.pyx (BSD 3 clause)
-#
+
+
 # Licence: BSD 3 clause
 
 from libc.stdlib cimport calloc
@@ -24,7 +22,9 @@ from ._utils cimport log
 from ._utils cimport safe_realloc
 from ._utils cimport sizet_ptr_to_ndarray
 
-cdef int STATE = 0 #using impurity, using stat test = 0
+from scipy.stats import norm
+
+cdef int STATE = 1 #using impurity = 0, using stat test = 1
 
 cdef class Criterion:
     """Interface for impurity criteria.
@@ -104,6 +104,9 @@ cdef class Criterion:
 
         pass
 
+    cdef double stat_test(self) nogil:
+
+        pass
     cdef double node_impurity(self) nogil:
         """Placeholder for calculating the impurity of the node.
 
@@ -241,6 +244,9 @@ cdef class ClassificationCriterion(Criterion):
         self.sum_right = NULL
         self.n_classes = NULL
 
+
+
+
         safe_realloc(&self.n_classes, n_outputs)
 
         cdef SIZE_t k = 0
@@ -312,6 +318,8 @@ cdef class ClassificationCriterion(Criterion):
         self.weighted_n_samples = weighted_n_samples
         self.weighted_n_node_samples = 0.0
 
+
+
         cdef SIZE_t* n_classes = self.n_classes
         cdef double* sum_total = self.sum_total
 
@@ -349,6 +357,7 @@ cdef class ClassificationCriterion(Criterion):
 
         self.pos = self.start
 
+
         self.weighted_n_left = 0.0
         self.weighted_n_right = self.weighted_n_node_samples
 
@@ -370,6 +379,7 @@ cdef class ClassificationCriterion(Criterion):
     cdef void reverse_reset(self) nogil:
         """Reset the criterion at pos=end."""
         self.pos = self.end
+
 
         self.weighted_n_left = self.weighted_n_node_samples
         self.weighted_n_right = 0.0
@@ -724,10 +734,341 @@ cdef class UpliftGini(ClassificationCriterion):
             sum_left += self.sum_stride
             sum_right += self.sum_stride
 
-        if STATE == 1:
-            return p_value
-        else:
+        
             return impurity_improvement
+
+cdef class StatTest(ClassificationCriterion):
+   
+    cdef double stat_test(self) nogil:
+        cdef SIZE_t* n_classes = self.n_classes
+        cdef double* sum_left = self.sum_left
+        cdef double* sum_right = self.sum_right
+        cdef double impurity_improvement = 0.0
+        cdef double impurity_left
+        cdef double impurity_right
+        cdef double count_k
+        cdef SIZE_t k
+
+        cdef double n_lc0
+        cdef double n_lc1
+        cdef double n_lt0
+        cdef double n_lt1
+        cdef double n_rc0
+        cdef double n_rc1
+        cdef double n_rt0
+        cdef double n_rt1
+        cdef double n_lt
+        cdef double n_rt
+        cdef double n_lc
+        cdef double n_rc
+        cdef double n_t
+        cdef double n_c
+        cdef double n
+
+        cdef double KL_gain
+        cdef double H
+        cdef double KL
+        cdef double H_t
+        cdef double H_c
+        cdef double I
+
+        cdef double p_t_l
+        cdef double p_t_r
+        cdef double p_c_l
+        cdef double p_c_r
+        cdef double p_t
+        cdef double p_c
+        cdef double p1
+        cdef double p2
+        cdef double p3
+        cdef double p4
+
+        cdef double react_rate_t
+        cdef double variance_t
+        cdef double react_rate_c
+        cdef double variance_c
+        cdef double full_variance
+        cdef double p_value
+
+        for k in range(self.n_outputs):
+
+            n_lc0 = self.sum_left[0]
+            n_lc1 = self.sum_left[1]
+            n_lt0 = self.sum_left[2]
+            n_lt1 = self.sum_left[3]
+
+            n_rc0 = self.sum_right[0]
+            n_rc1 = self.sum_right[1]
+            n_rt0 = self.sum_right[2]
+            n_rt1 = self.sum_right[3]
+
+            n_lt = n_lt1 + n_lt0
+            n_rt = n_rt1 + n_rt0
+            n_lc = n_lc1 + n_lc0
+            n_rc = n_rc1 + n_rc0
+
+            n_t = n_lt + n_rt
+            n_c = n_lc + n_rc
+
+            n = n_t + n_c
+
+            p_t_l = (n_lt + 0.5) / (n_t + 1)
+            p_t_r = 1 - p_t_l
+            p_c_l = (n_lc + 0.5) / (n_c + 1)
+            p_c_r = 1 - p_c_l
+
+            p_t = (n_t + 0.5) / (n + 1)
+            p_c = 1 - p_t
+
+            #data manipulation stat tests or impurity
+
+            #event rates
+            p1 = n_lt1 / n_lt 
+            p2 = n_lc1 / n_lc
+            p3 = n_rt1 / n_rt
+            p4 = n_rc1 / n_rc
+            p_T = (n_lt1 + n_rt1) / n_t #in root node
+            p_C = (n_lc1 + n_rc1) / n_c #in root node
+
+            #calculate for variance
+            variance_t = 0.0
+            variance_t += (n_t * n_t * p_T * (1 - p_T)) / (n_lt * (n_t - n_lt) * (n_t - 1))
+        
+            variance_c = 0.0
+            variance_c += (n_c * n_c * p_C * (1 - p_C)) / (n_lc * (n_c - n_lc) * (n_c - 1))
+            
+            #calculate full variance and p_value
+            full_variance = variance_t + variance_c
+            z_obs = ((p1 - p2) - (p3 - p4)) / sqrt(full_variance)
+            printf("z_obs = %f", z_obs)
+            
+            sum_left += self.sum_stride
+            sum_right += self.sum_stride
+           
+        return z_obs
+
+
+    cdef double node_impurity(self) nogil:
+        
+
+        cdef double* sum_total = self.sum_total
+        cdef double impurity = 0.0
+        cdef SIZE_t k
+
+        cdef double n_c0
+        cdef double n_c1
+        cdef double n_t0
+        cdef double n_t1
+
+        cdef double n_t
+        cdef double n_c
+
+        cdef double p_t_1
+        cdef double p_t_0
+        cdef double p_c_1
+        cdef double p_c_0
+
+        for k in range(self.n_outputs):
+
+            n_c0 = sum_total[0]
+            n_c1 = sum_total[1]
+            n_t0 = sum_total[2]
+            n_t1 = sum_total[3]
+
+            n_t = n_t0 + n_t1
+            n_c = n_c0 + n_c1
+
+            p_t_1 = (n_t1 + 0.5) / (n_t + 1)
+            p_t_0 = 1 - p_t_1
+            p_c_1 = (n_c1 + 0.5) / (n_c + 1)
+            p_c_0 = 1 - p_c_1
+
+            impurity += (p_t_1 - p_c_1)**2 + (p_t_0 - p_c_0)**2
+            sum_total += self.sum_stride
+
+        return impurity
+
+    cdef void children_impurity(self, double* impurity_left, double* impurity_right) nogil:
+
+        cdef double* sum_left = self.sum_left
+        cdef double* sum_right = self.sum_right
+        cdef double val_impurity_left = 0.0
+        cdef double val_impurity_right = 0.0
+        cdef SIZE_t k
+
+        cdef double n_lc0
+        cdef double n_lc1
+        cdef double n_lt0
+        cdef double n_lt1
+        cdef double n_rc0
+        cdef double n_rc1
+        cdef double n_rt0
+        cdef double n_rt1
+        cdef double n_lt
+        cdef double n_rt
+        cdef double n_lc
+        cdef double n_rc
+        cdef double n_l
+        cdef double n_r
+        cdef double n
+
+        cdef double p_lt_1
+        cdef double p_lt_0
+        cdef double p_lc_1
+        cdef double p_lc_0
+        cdef double p_rt_1
+        cdef double p_rt_0
+        cdef double p_rc_1
+        cdef double p_rc_0
+        cdef double p_l
+        cdef double p_r
+
+        for k in range(self.n_outputs):
+
+            n_lc0 = self.sum_left[0]
+            n_lc1 = self.sum_left[1]
+            n_lt0 = self.sum_left[2]
+            n_lt1 = self.sum_left[3]
+
+            n_rc0 = self.sum_right[0]
+            n_rc1 = self.sum_right[1]
+            n_rt0 = self.sum_right[2]
+            n_rt1 = self.sum_right[3]
+
+            n_lt = n_lt1 + n_lt0
+            n_rt = n_rt1 + n_rt0
+            n_lc = n_lc1 + n_lc0
+            n_rc = n_rc1 + n_rc0
+
+            n_l = n_lt + n_lc
+            n_r = n_rt + n_rc
+
+            n = n_l + n_r
+
+            p_lt_1 = (n_lt1 + 0.5) / (n_lt + 1)
+            p_lt_0 = 1 - p_lt_1
+            p_lc_1 = (n_lc1 + 0.5) / (n_lc + 1)
+            p_lc_0 = 1 - p_lc_1
+            p_rt_1 = (n_rt1 + 0.5) / (n_rt + 1)
+            p_rt_0 = 1 - p_rt_1
+            p_rc_1 = (n_rc1 + 0.5) / (n_rc + 1)
+            p_rc_0 = 1 - p_rc_1
+
+            p_l = (n_l + 0.5) / (n + 1)
+            p_r = 1 - p_l
+
+            val_impurity_left += p_l * ((p_lt_1 - p_lc_1)**2 + (p_lt_0 - p_lc_0)**2)
+            val_impurity_right += p_r * ((p_rt_1 - p_rc_1)**2 + (p_rt_0 - p_rc_0)**2)
+
+            sum_left += self.sum_stride
+            sum_right += self.sum_stride
+
+
+        impurity_left[0] = val_impurity_left
+        impurity_right[0] = val_impurity_right
+
+    cdef double proxy_impurity_improvement(self) nogil:
+        """TODO
+        """
+
+        cdef SIZE_t* n_classes = self.n_classes
+        cdef double* sum_left = self.sum_left
+        cdef double* sum_right = self.sum_right
+        cdef double impurity_improvement = 0.0
+        cdef double impurity_left
+        cdef double impurity_right
+        cdef double count_k
+        cdef SIZE_t k
+
+        cdef double n_lc0
+        cdef double n_lc1
+        cdef double n_lt0
+        cdef double n_lt1
+        cdef double n_rc0
+        cdef double n_rc1
+        cdef double n_rt0
+        cdef double n_rt1
+        cdef double n_lt
+        cdef double n_rt
+        cdef double n_lc
+        cdef double n_rc
+        cdef double n_t
+        cdef double n_c
+        cdef double n
+
+        cdef double KL_gain
+        cdef double H
+        cdef double KL
+        cdef double H_t
+        cdef double H_c
+        cdef double I
+
+        cdef double p_t_l
+        cdef double p_t_r
+        cdef double p_c_l
+        cdef double p_c_r
+        cdef double p_t
+        cdef double p_c
+
+        for k in range(self.n_outputs):
+
+            n_lc0 = self.sum_left[0]
+            n_lc1 = self.sum_left[1]
+            n_lt0 = self.sum_left[2]
+            n_lt1 = self.sum_left[3]
+
+            n_rc0 = self.sum_right[0]
+            n_rc1 = self.sum_right[1]
+            n_rt0 = self.sum_right[2]
+            n_rt1 = self.sum_right[3]
+
+            n_lt = n_lt1 + n_lt0
+            n_rt = n_rt1 + n_rt0
+            n_lc = n_lc1 + n_lc0
+            n_rc = n_rc1 + n_rc0
+
+            n_t = n_lt + n_rt
+            n_c = n_lc + n_rc
+
+            n = n_t + n_c
+
+            p_t_l = (n_lt + 0.5) / (n_t + 1)
+            p_t_r = 1 - p_t_l
+            p_c_l = (n_lc + 0.5) / (n_c + 1)
+            p_c_r = 1 - p_c_l
+
+            p_t = (n_t + 0.5) / (n + 1)
+            p_c = 1 - p_t
+
+            #data manipulation stat tests or impurity
+
+            #event rates
+            p1 = n_lt1 / n_lt 
+            p2 = n_lc1 / n_lc
+            p3 = n_rt1 / n_rt
+            p4 = n_rc1 / n_rc
+            p_T = (n_lt1 + n_rt1) / n_t #in root node
+            p_C = (n_lc1 + n_rc1) / n_c #in root node
+
+            #calculate for variance
+            variance_t = 0.0
+            variance_t += (n_t * n_t * p_T * (1 - p_T)) / (n_lt * (n_t - n_lt) * (n_t - 1))
+        
+            variance_c = 0.0
+            variance_c += (n_c * n_c * p_C * (1 - p_C)) / (n_lc * (n_c - n_lc) * (n_c - 1))
+            
+            #calculate full variance and p_value
+            full_variance = variance_t + variance_c
+            z_obs = ((p1 - p2) - (p3 - p4)) / sqrt(full_variance)
+            
+            
+            sum_left += self.sum_stride
+            sum_right += self.sum_stride
+           
+        return z_obs
+
+        
+        
 
 
 cdef class UpliftRadcliffeSurryTSplit(ClassificationCriterion):
@@ -771,7 +1112,7 @@ cdef class UpliftRadcliffeSurryTSplit(ClassificationCriterion):
             n_t = n_t0 + n_t1
             n_c = n_c0 + n_c1
 
-            p_t_1 = (n_t1 + 0.5) / (n_t + 1)    ##зачем +0.5 и + 1 ???
+            p_t_1 = (n_t1 + 0.5) / (n_t + 1)    
             p_t_0 = 1 - p_t_1
             p_c_1 = (n_c1 + 0.5) / (n_c + 1)
             p_c_0 = 1 - p_c_1
@@ -938,19 +1279,7 @@ cdef class UpliftRadcliffeSurryTSplit(ClassificationCriterion):
             p_c = 1 - p_t
 
 
-            #data manipulation stat tests or impurity
-
-            #calculate for treatment group left node
-            react_rate_t = (n_lt + 0.5) / (n_t + 0.1)
-            variance_t = 0.0
-            variance_t += (n_t * n_t * react_rate_t * (1 - react_rate_t)) / (n_lt * (n_t - n_lt) * (n_t - 1))
-            #calculate for control group left node
-            react_rate_c = (n_lc + 0.5) / (n_c + 0.1)
-            variance_c = 0.0
-            variance_c += (n_c * n_c * react_rate_c * (1 - react_rate_c)) / (n_lc * (n_c - n_lc) * (n_c - 1))
-            #calculate full variance and p_value
-            full_variance = variance_t + variance_c
-            p_value = ((p_t_l - p_c_l) - (p_t_r - p_c_r)) / sqrt(full_variance)
+           
 
             # E_gain
             self.children_impurity(&impurity_left, &impurity_right)
@@ -968,9 +1297,7 @@ cdef class UpliftRadcliffeSurryTSplit(ClassificationCriterion):
             sum_left += self.sum_stride
             sum_right += self.sum_stride
 
-        if STATE == 1:
-            return p_value
-        else:
+        
             return impurity_improvement
 
 cdef class UpliftEntropy(ClassificationCriterion):
@@ -983,6 +1310,8 @@ cdef class UpliftEntropy(ClassificationCriterion):
 
         cdef double* sum_total = self.sum_total
         cdef double impurity = 0.0
+        cdef double imp_treat_M =0.0
+        cdef double imp_control_M =0.0
         cdef SIZE_t k
 
         cdef double n_c0
@@ -997,6 +1326,9 @@ cdef class UpliftEntropy(ClassificationCriterion):
         cdef double p_t_0
         cdef double p_c_1
         cdef double p_c_0
+
+        cdef double M_0
+        cdef double M_1
 
         for k in range(self.n_outputs):
 
@@ -1013,7 +1345,14 @@ cdef class UpliftEntropy(ClassificationCriterion):
             p_c_1 = (n_c1 + 0.5) / (n_c + 1)
             p_c_0 = 1 - p_c_1
 
-            impurity += p_t_1 * log(p_t_1 / p_c_1) + p_t_0 * log(p_t_0 / p_c_0)
+            M_0 = 0.5 * (p_t_0 + p_c_0)
+            M_1 = 0.5 * (p_t_1 + p_c_1)
+
+            imp_treat_M = p_t_1 * log(p_t_1 / M_1) + p_t_0 * log(p_t_0 / M_0)
+            imp_control_M = p_c_1 * log(p_c_1 / M_1) + p_c_0 * log(p_c_0 / M_0)
+
+            #impurity += p_t_1 * log(p_t_1 / p_c_1) + p_t_0 * log(p_t_0 / p_c_0)
+            impurity = 0.5 * (imp_treat_M + imp_control_M)
             sum_total += self.sum_stride
 
         return impurity
@@ -1187,19 +1526,7 @@ cdef class UpliftEntropy(ClassificationCriterion):
             p_c = 1 - p_t
 
 
-            #data manipulation stat tests or impurity
-
-            #calculate for treatment group left node
-            react_rate_t = (n_lt + 0.5) / (n_t + 0.1)
-            variance_t = 0.0
-            variance_t += (n_t * n_t * react_rate_t * (1 - react_rate_t)) / (n_lt * (n_t - n_lt) * (n_t - 1))
-            #calculate for control group left node
-            react_rate_c = (n_lc + 0.5) / (n_c + 0.1)
-            variance_c = 0.0
-            variance_c += (n_c * n_c * react_rate_c * (1 - react_rate_c)) / (n_lc * (n_c - n_lc) * (n_c - 1))
-            #calculate full variance and p_value
-            full_variance = variance_t + variance_c
-            p_value = ((p_t_l - p_c_l) - (p_t_r - p_c_r)) / sqrt(full_variance)
+            
 
             # KL_gain
             self.children_impurity(&impurity_left, &impurity_right)
@@ -1216,9 +1543,7 @@ cdef class UpliftEntropy(ClassificationCriterion):
 
             sum_left += self.sum_stride
             sum_right += self.sum_stride
-        if STATE==1:
-            return p_value
-        else:
+        
             return impurity_improvement
 
 

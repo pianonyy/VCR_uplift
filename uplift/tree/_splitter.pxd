@@ -1,4 +1,13 @@
+# Authors: Gilles Louppe <g.louppe@gmail.com>
+#          Peter Prettenhofer <peter.prettenhofer@gmail.com>
+#          Brian Holt <bdholt1@gmail.com>
+#          Joel Nothman <joel.nothman@gmail.com>
+#          Arnaud Joly <arnaud.v.joly@gmail.com>
+#          Jacob Schreiber <jmschreiber91@gmail.com>
+#
+# Licence: BSD 3 clause
 
+# See _splitter.pyx for details.
 
 import numpy as np
 cimport numpy as np
@@ -33,6 +42,7 @@ cdef class Splitter:
     cdef public SIZE_t max_features      # Number of features to test
     cdef public SIZE_t min_samples_leaf  # Min samples in a leaf
     cdef public double min_weight_leaf   # Minimum weight in a leaf
+    cdef public double stat_param
 
     cdef object random_state             # Random state
     cdef UINT32_t rand_r_state           # sklearn_rand_r random number state
@@ -50,6 +60,7 @@ cdef class Splitter:
 
     cdef bint presort                    # Whether to use presorting, only
                                          # allowed on dense data
+
 
     cdef DOUBLE_t* y
     cdef SIZE_t y_stride

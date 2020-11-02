@@ -612,7 +612,9 @@ static CYTHON_INLINE float __PYX_NAN() {
 #include <stdio.h>
 #include "numpy/arrayobject.h"
 #include "numpy/ufuncobject.h"
+#include "pythread.h"
 #include <stdlib.h>
+#include <math.h>
 #ifdef _OPENMP
 #include <omp.h>
 #endif /* _OPENMP */
@@ -848,6 +850,8 @@ static const char *__pyx_f[] = {
   "uplift\\tree\\_splitter.pxd",
   "__init__.pxd",
   "type.pxd",
+  "bool.pxd",
+  "complex.pxd",
   "uplift\\tree\\_criterion.pxd",
   "uplift\\tree\\_utils.pxd",
 };
@@ -888,7 +892,7 @@ typedef struct {
 } __Pyx_BufFmt_Context;
 
 
-/* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":776
+/* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":776
  * # in Cython to enable them only on the right systems.
  * 
  * ctypedef npy_int8       int8_t             # <<<<<<<<<<<<<<
@@ -897,7 +901,7 @@ typedef struct {
  */
 typedef npy_int8 __pyx_t_5numpy_int8_t;
 
-/* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":777
+/* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":777
  * 
  * ctypedef npy_int8       int8_t
  * ctypedef npy_int16      int16_t             # <<<<<<<<<<<<<<
@@ -906,7 +910,7 @@ typedef npy_int8 __pyx_t_5numpy_int8_t;
  */
 typedef npy_int16 __pyx_t_5numpy_int16_t;
 
-/* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":778
+/* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":778
  * ctypedef npy_int8       int8_t
  * ctypedef npy_int16      int16_t
  * ctypedef npy_int32      int32_t             # <<<<<<<<<<<<<<
@@ -915,7 +919,7 @@ typedef npy_int16 __pyx_t_5numpy_int16_t;
  */
 typedef npy_int32 __pyx_t_5numpy_int32_t;
 
-/* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":779
+/* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":779
  * ctypedef npy_int16      int16_t
  * ctypedef npy_int32      int32_t
  * ctypedef npy_int64      int64_t             # <<<<<<<<<<<<<<
@@ -924,7 +928,7 @@ typedef npy_int32 __pyx_t_5numpy_int32_t;
  */
 typedef npy_int64 __pyx_t_5numpy_int64_t;
 
-/* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":783
+/* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":783
  * #ctypedef npy_int128     int128_t
  * 
  * ctypedef npy_uint8      uint8_t             # <<<<<<<<<<<<<<
@@ -933,7 +937,7 @@ typedef npy_int64 __pyx_t_5numpy_int64_t;
  */
 typedef npy_uint8 __pyx_t_5numpy_uint8_t;
 
-/* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":784
+/* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":784
  * 
  * ctypedef npy_uint8      uint8_t
  * ctypedef npy_uint16     uint16_t             # <<<<<<<<<<<<<<
@@ -942,7 +946,7 @@ typedef npy_uint8 __pyx_t_5numpy_uint8_t;
  */
 typedef npy_uint16 __pyx_t_5numpy_uint16_t;
 
-/* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":785
+/* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":785
  * ctypedef npy_uint8      uint8_t
  * ctypedef npy_uint16     uint16_t
  * ctypedef npy_uint32     uint32_t             # <<<<<<<<<<<<<<
@@ -951,7 +955,7 @@ typedef npy_uint16 __pyx_t_5numpy_uint16_t;
  */
 typedef npy_uint32 __pyx_t_5numpy_uint32_t;
 
-/* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":786
+/* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":786
  * ctypedef npy_uint16     uint16_t
  * ctypedef npy_uint32     uint32_t
  * ctypedef npy_uint64     uint64_t             # <<<<<<<<<<<<<<
@@ -960,7 +964,7 @@ typedef npy_uint32 __pyx_t_5numpy_uint32_t;
  */
 typedef npy_uint64 __pyx_t_5numpy_uint64_t;
 
-/* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":790
+/* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":790
  * #ctypedef npy_uint128    uint128_t
  * 
  * ctypedef npy_float32    float32_t             # <<<<<<<<<<<<<<
@@ -969,7 +973,7 @@ typedef npy_uint64 __pyx_t_5numpy_uint64_t;
  */
 typedef npy_float32 __pyx_t_5numpy_float32_t;
 
-/* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":791
+/* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":791
  * 
  * ctypedef npy_float32    float32_t
  * ctypedef npy_float64    float64_t             # <<<<<<<<<<<<<<
@@ -978,7 +982,7 @@ typedef npy_float32 __pyx_t_5numpy_float32_t;
  */
 typedef npy_float64 __pyx_t_5numpy_float64_t;
 
-/* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":800
+/* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":800
  * # The int types are mapped a bit surprising --
  * # numpy.int corresponds to 'l' and numpy.long to 'q'
  * ctypedef npy_long       int_t             # <<<<<<<<<<<<<<
@@ -987,7 +991,7 @@ typedef npy_float64 __pyx_t_5numpy_float64_t;
  */
 typedef npy_long __pyx_t_5numpy_int_t;
 
-/* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":801
+/* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":801
  * # numpy.int corresponds to 'l' and numpy.long to 'q'
  * ctypedef npy_long       int_t
  * ctypedef npy_longlong   long_t             # <<<<<<<<<<<<<<
@@ -996,7 +1000,7 @@ typedef npy_long __pyx_t_5numpy_int_t;
  */
 typedef npy_longlong __pyx_t_5numpy_long_t;
 
-/* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":802
+/* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":802
  * ctypedef npy_long       int_t
  * ctypedef npy_longlong   long_t
  * ctypedef npy_longlong   longlong_t             # <<<<<<<<<<<<<<
@@ -1005,7 +1009,7 @@ typedef npy_longlong __pyx_t_5numpy_long_t;
  */
 typedef npy_longlong __pyx_t_5numpy_longlong_t;
 
-/* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":804
+/* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":804
  * ctypedef npy_longlong   longlong_t
  * 
  * ctypedef npy_ulong      uint_t             # <<<<<<<<<<<<<<
@@ -1014,7 +1018,7 @@ typedef npy_longlong __pyx_t_5numpy_longlong_t;
  */
 typedef npy_ulong __pyx_t_5numpy_uint_t;
 
-/* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":805
+/* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":805
  * 
  * ctypedef npy_ulong      uint_t
  * ctypedef npy_ulonglong  ulong_t             # <<<<<<<<<<<<<<
@@ -1023,7 +1027,7 @@ typedef npy_ulong __pyx_t_5numpy_uint_t;
  */
 typedef npy_ulonglong __pyx_t_5numpy_ulong_t;
 
-/* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":806
+/* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":806
  * ctypedef npy_ulong      uint_t
  * ctypedef npy_ulonglong  ulong_t
  * ctypedef npy_ulonglong  ulonglong_t             # <<<<<<<<<<<<<<
@@ -1032,7 +1036,7 @@ typedef npy_ulonglong __pyx_t_5numpy_ulong_t;
  */
 typedef npy_ulonglong __pyx_t_5numpy_ulonglong_t;
 
-/* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":808
+/* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":808
  * ctypedef npy_ulonglong  ulonglong_t
  * 
  * ctypedef npy_intp       intp_t             # <<<<<<<<<<<<<<
@@ -1041,7 +1045,7 @@ typedef npy_ulonglong __pyx_t_5numpy_ulonglong_t;
  */
 typedef npy_intp __pyx_t_5numpy_intp_t;
 
-/* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":809
+/* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":809
  * 
  * ctypedef npy_intp       intp_t
  * ctypedef npy_uintp      uintp_t             # <<<<<<<<<<<<<<
@@ -1050,7 +1054,7 @@ typedef npy_intp __pyx_t_5numpy_intp_t;
  */
 typedef npy_uintp __pyx_t_5numpy_uintp_t;
 
-/* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":811
+/* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":811
  * ctypedef npy_uintp      uintp_t
  * 
  * ctypedef npy_double     float_t             # <<<<<<<<<<<<<<
@@ -1059,7 +1063,7 @@ typedef npy_uintp __pyx_t_5numpy_uintp_t;
  */
 typedef npy_double __pyx_t_5numpy_float_t;
 
-/* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":812
+/* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":812
  * 
  * ctypedef npy_double     float_t
  * ctypedef npy_double     double_t             # <<<<<<<<<<<<<<
@@ -1068,7 +1072,7 @@ typedef npy_double __pyx_t_5numpy_float_t;
  */
 typedef npy_double __pyx_t_5numpy_double_t;
 
-/* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":813
+/* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":813
  * ctypedef npy_double     float_t
  * ctypedef npy_double     double_t
  * ctypedef npy_longdouble longdouble_t             # <<<<<<<<<<<<<<
@@ -1077,7 +1081,7 @@ typedef npy_double __pyx_t_5numpy_double_t;
  */
 typedef npy_longdouble __pyx_t_5numpy_longdouble_t;
 
-/* "_criterion.pxd":7
+/* "_criterion.pxd":15
  * cimport numpy as np
  * 
  * ctypedef np.npy_float32 DTYPE_t          # Type of X             # <<<<<<<<<<<<<<
@@ -1086,7 +1090,7 @@ typedef npy_longdouble __pyx_t_5numpy_longdouble_t;
  */
 typedef npy_float32 __pyx_t_6uplift_4tree_10_criterion_DTYPE_t;
 
-/* "_criterion.pxd":8
+/* "_criterion.pxd":16
  * 
  * ctypedef np.npy_float32 DTYPE_t          # Type of X
  * ctypedef np.npy_float64 DOUBLE_t         # Type of y, sample_weight             # <<<<<<<<<<<<<<
@@ -1095,7 +1099,7 @@ typedef npy_float32 __pyx_t_6uplift_4tree_10_criterion_DTYPE_t;
  */
 typedef npy_float64 __pyx_t_6uplift_4tree_10_criterion_DOUBLE_t;
 
-/* "_criterion.pxd":9
+/* "_criterion.pxd":17
  * ctypedef np.npy_float32 DTYPE_t          # Type of X
  * ctypedef np.npy_float64 DOUBLE_t         # Type of y, sample_weight
  * ctypedef np.npy_intp SIZE_t              # Type for indices and counters             # <<<<<<<<<<<<<<
@@ -1104,7 +1108,7 @@ typedef npy_float64 __pyx_t_6uplift_4tree_10_criterion_DOUBLE_t;
  */
 typedef npy_intp __pyx_t_6uplift_4tree_10_criterion_SIZE_t;
 
-/* "_criterion.pxd":10
+/* "_criterion.pxd":18
  * ctypedef np.npy_float64 DOUBLE_t         # Type of y, sample_weight
  * ctypedef np.npy_intp SIZE_t              # Type for indices and counters
  * ctypedef np.npy_int32 INT32_t            # Signed 32 bit integer             # <<<<<<<<<<<<<<
@@ -1113,7 +1117,7 @@ typedef npy_intp __pyx_t_6uplift_4tree_10_criterion_SIZE_t;
  */
 typedef npy_int32 __pyx_t_6uplift_4tree_10_criterion_INT32_t;
 
-/* "_criterion.pxd":11
+/* "_criterion.pxd":19
  * ctypedef np.npy_intp SIZE_t              # Type for indices and counters
  * ctypedef np.npy_int32 INT32_t            # Signed 32 bit integer
  * ctypedef np.npy_uint32 UINT32_t          # Unsigned 32 bit integer             # <<<<<<<<<<<<<<
@@ -1122,7 +1126,7 @@ typedef npy_int32 __pyx_t_6uplift_4tree_10_criterion_INT32_t;
  */
 typedef npy_uint32 __pyx_t_6uplift_4tree_10_criterion_UINT32_t;
 
-/* "_utils.pxd":8
+/* "_utils.pxd":13
  * cimport numpy as np
  * 
  * ctypedef np.npy_float32 DTYPE_t          # Type of X             # <<<<<<<<<<<<<<
@@ -1131,7 +1135,7 @@ typedef npy_uint32 __pyx_t_6uplift_4tree_10_criterion_UINT32_t;
  */
 typedef npy_float32 __pyx_t_6uplift_4tree_6_utils_DTYPE_t;
 
-/* "_utils.pxd":9
+/* "_utils.pxd":14
  * 
  * ctypedef np.npy_float32 DTYPE_t          # Type of X
  * ctypedef np.npy_float64 DOUBLE_t         # Type of y, sample_weight             # <<<<<<<<<<<<<<
@@ -1140,7 +1144,7 @@ typedef npy_float32 __pyx_t_6uplift_4tree_6_utils_DTYPE_t;
  */
 typedef npy_float64 __pyx_t_6uplift_4tree_6_utils_DOUBLE_t;
 
-/* "_utils.pxd":10
+/* "_utils.pxd":15
  * ctypedef np.npy_float32 DTYPE_t          # Type of X
  * ctypedef np.npy_float64 DOUBLE_t         # Type of y, sample_weight
  * ctypedef np.npy_intp SIZE_t              # Type for indices and counters             # <<<<<<<<<<<<<<
@@ -1149,7 +1153,7 @@ typedef npy_float64 __pyx_t_6uplift_4tree_6_utils_DOUBLE_t;
  */
 typedef npy_intp __pyx_t_6uplift_4tree_6_utils_SIZE_t;
 
-/* "_utils.pxd":11
+/* "_utils.pxd":16
  * ctypedef np.npy_float64 DOUBLE_t         # Type of y, sample_weight
  * ctypedef np.npy_intp SIZE_t              # Type for indices and counters
  * ctypedef np.npy_int32 INT32_t            # Signed 32 bit integer             # <<<<<<<<<<<<<<
@@ -1158,7 +1162,7 @@ typedef npy_intp __pyx_t_6uplift_4tree_6_utils_SIZE_t;
  */
 typedef npy_int32 __pyx_t_6uplift_4tree_6_utils_INT32_t;
 
-/* "_utils.pxd":12
+/* "_utils.pxd":17
  * ctypedef np.npy_intp SIZE_t              # Type for indices and counters
  * ctypedef np.npy_int32 INT32_t            # Signed 32 bit integer
  * ctypedef np.npy_uint32 UINT32_t          # Unsigned 32 bit integer             # <<<<<<<<<<<<<<
@@ -1167,7 +1171,7 @@ typedef npy_int32 __pyx_t_6uplift_4tree_6_utils_INT32_t;
  */
 typedef npy_uint32 __pyx_t_6uplift_4tree_6_utils_UINT32_t;
 
-/* "uplift/tree/_splitter.pxd":8
+/* "uplift/tree/_splitter.pxd":17
  * from ._criterion cimport Criterion
  * 
  * ctypedef np.npy_float32 DTYPE_t          # Type of X             # <<<<<<<<<<<<<<
@@ -1176,7 +1180,7 @@ typedef npy_uint32 __pyx_t_6uplift_4tree_6_utils_UINT32_t;
  */
 typedef npy_float32 __pyx_t_6uplift_4tree_9_splitter_DTYPE_t;
 
-/* "uplift/tree/_splitter.pxd":9
+/* "uplift/tree/_splitter.pxd":18
  * 
  * ctypedef np.npy_float32 DTYPE_t          # Type of X
  * ctypedef np.npy_float64 DOUBLE_t         # Type of y, sample_weight             # <<<<<<<<<<<<<<
@@ -1185,7 +1189,7 @@ typedef npy_float32 __pyx_t_6uplift_4tree_9_splitter_DTYPE_t;
  */
 typedef npy_float64 __pyx_t_6uplift_4tree_9_splitter_DOUBLE_t;
 
-/* "uplift/tree/_splitter.pxd":10
+/* "uplift/tree/_splitter.pxd":19
  * ctypedef np.npy_float32 DTYPE_t          # Type of X
  * ctypedef np.npy_float64 DOUBLE_t         # Type of y, sample_weight
  * ctypedef np.npy_intp SIZE_t              # Type for indices and counters             # <<<<<<<<<<<<<<
@@ -1194,7 +1198,7 @@ typedef npy_float64 __pyx_t_6uplift_4tree_9_splitter_DOUBLE_t;
  */
 typedef npy_intp __pyx_t_6uplift_4tree_9_splitter_SIZE_t;
 
-/* "uplift/tree/_splitter.pxd":11
+/* "uplift/tree/_splitter.pxd":20
  * ctypedef np.npy_float64 DOUBLE_t         # Type of y, sample_weight
  * ctypedef np.npy_intp SIZE_t              # Type for indices and counters
  * ctypedef np.npy_int32 INT32_t            # Signed 32 bit integer             # <<<<<<<<<<<<<<
@@ -1203,7 +1207,7 @@ typedef npy_intp __pyx_t_6uplift_4tree_9_splitter_SIZE_t;
  */
 typedef npy_int32 __pyx_t_6uplift_4tree_9_splitter_INT32_t;
 
-/* "uplift/tree/_splitter.pxd":12
+/* "uplift/tree/_splitter.pxd":21
  * ctypedef np.npy_intp SIZE_t              # Type for indices and counters
  * ctypedef np.npy_int32 INT32_t            # Signed 32 bit integer
  * ctypedef np.npy_uint32 UINT32_t          # Unsigned 32 bit integer             # <<<<<<<<<<<<<<
@@ -1248,7 +1252,7 @@ struct __pyx_obj_6uplift_4tree_9_splitter_BaseSparseSplitter;
 struct __pyx_obj_6uplift_4tree_9_splitter_BestSparseSplitter;
 struct __pyx_obj_6uplift_4tree_9_splitter_RandomSparseSplitter;
 
-/* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":815
+/* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":815
  * ctypedef npy_longdouble longdouble_t
  * 
  * ctypedef npy_cfloat      cfloat_t             # <<<<<<<<<<<<<<
@@ -1257,7 +1261,7 @@ struct __pyx_obj_6uplift_4tree_9_splitter_RandomSparseSplitter;
  */
 typedef npy_cfloat __pyx_t_5numpy_cfloat_t;
 
-/* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":816
+/* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":816
  * 
  * ctypedef npy_cfloat      cfloat_t
  * ctypedef npy_cdouble     cdouble_t             # <<<<<<<<<<<<<<
@@ -1266,7 +1270,7 @@ typedef npy_cfloat __pyx_t_5numpy_cfloat_t;
  */
 typedef npy_cdouble __pyx_t_5numpy_cdouble_t;
 
-/* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":817
+/* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":817
  * ctypedef npy_cfloat      cfloat_t
  * ctypedef npy_cdouble     cdouble_t
  * ctypedef npy_clongdouble clongdouble_t             # <<<<<<<<<<<<<<
@@ -1275,7 +1279,7 @@ typedef npy_cdouble __pyx_t_5numpy_cdouble_t;
  */
 typedef npy_clongdouble __pyx_t_5numpy_clongdouble_t;
 
-/* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":819
+/* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":819
  * ctypedef npy_clongdouble clongdouble_t
  * 
  * ctypedef npy_cdouble     complex_t             # <<<<<<<<<<<<<<
@@ -1286,7 +1290,7 @@ typedef npy_cdouble __pyx_t_5numpy_complex_t;
 struct __pyx_t_6uplift_4tree_6_utils_StackRecord;
 struct __pyx_t_6uplift_4tree_6_utils_PriorityHeapRecord;
 
-/* "_utils.pxd":14
+/* "_utils.pxd":19
  * ctypedef np.npy_uint32 UINT32_t          # Unsigned 32 bit integer
  * 
  * cdef enum:             # <<<<<<<<<<<<<<
@@ -1297,7 +1301,7 @@ enum  {
   __pyx_e_6uplift_4tree_6_utils_RAND_R_MAX = 0x7FFFFFFF
 };
 
-/* "_utils.pxd":53
+/* "_utils.pxd":58
  * 
  * # A record on the stack for depth-first tree growing
  * cdef struct StackRecord:             # <<<<<<<<<<<<<<
@@ -1314,7 +1318,7 @@ struct __pyx_t_6uplift_4tree_6_utils_StackRecord {
   __pyx_t_6uplift_4tree_6_utils_SIZE_t n_constant_features;
 };
 
-/* "_utils.pxd":79
+/* "_utils.pxd":84
  * 
  * # A record on the frontier for best-first tree growing
  * cdef struct PriorityHeapRecord:             # <<<<<<<<<<<<<<
@@ -1338,7 +1342,7 @@ struct __pyx_opt_args_6uplift_4tree_9_splitter_8Splitter_init;
 struct __pyx_opt_args_6uplift_4tree_9_splitter_17BaseDenseSplitter_init;
 struct __pyx_opt_args_6uplift_4tree_9_splitter_18BaseSparseSplitter_init;
 
-/* "uplift/tree/_splitter.pxd":14
+/* "uplift/tree/_splitter.pxd":23
  * ctypedef np.npy_uint32 UINT32_t          # Unsigned 32 bit integer
  * 
  * cdef struct SplitRecord:             # <<<<<<<<<<<<<<
@@ -1354,7 +1358,7 @@ struct __pyx_t_6uplift_4tree_9_splitter_SplitRecord {
   double impurity_right;
 };
 
-/* "uplift/tree/_splitter.pxd":75
+/* "uplift/tree/_splitter.pxd":86
  * 
  *     # Methods
  *     cdef void init(self, object X, np.ndarray y,             # <<<<<<<<<<<<<<
@@ -1366,7 +1370,7 @@ struct __pyx_opt_args_6uplift_4tree_9_splitter_8Splitter_init {
   PyArrayObject *X_idx_sorted;
 };
 
-/* "uplift/tree/_splitter.pyx":247
+/* "uplift/tree/_splitter.pyx":260
  *             free(self.sample_mask)
  * 
  *     cdef void init(self,             # <<<<<<<<<<<<<<
@@ -1378,7 +1382,7 @@ struct __pyx_opt_args_6uplift_4tree_9_splitter_17BaseDenseSplitter_init {
   PyArrayObject *X_idx_sorted;
 };
 
-/* "uplift/tree/_splitter.pyx":855
+/* "uplift/tree/_splitter.pyx":891
  *         free(self.sorted_samples)
  * 
  *     cdef void init(self,             # <<<<<<<<<<<<<<
@@ -1390,7 +1394,7 @@ struct __pyx_opt_args_6uplift_4tree_9_splitter_18BaseSparseSplitter_init {
   PyArrayObject *X_idx_sorted;
 };
 
-/* "_criterion.pxd":13
+/* "_criterion.pxd":21
  * ctypedef np.npy_uint32 UINT32_t          # Unsigned 32 bit integer
  * 
  * cdef class Criterion:             # <<<<<<<<<<<<<<
@@ -1419,7 +1423,7 @@ struct __pyx_obj_6uplift_4tree_10_criterion_Criterion {
 };
 
 
-/* "_utils.pxd":62
+/* "_utils.pxd":67
  *     SIZE_t n_constant_features
  * 
  * cdef class Stack:             # <<<<<<<<<<<<<<
@@ -1435,7 +1439,7 @@ struct __pyx_obj_6uplift_4tree_6_utils_Stack {
 };
 
 
-/* "_utils.pxd":91
+/* "_utils.pxd":96
  *     double improvement
  * 
  * cdef class PriorityHeap:             # <<<<<<<<<<<<<<
@@ -1451,7 +1455,7 @@ struct __pyx_obj_6uplift_4tree_6_utils_PriorityHeap {
 };
 
 
-/* "uplift/tree/_splitter.pxd":25
+/* "uplift/tree/_splitter.pxd":34
  *     double impurity_right  # Impurity of the right split.
  * 
  * cdef class Splitter:             # <<<<<<<<<<<<<<
@@ -1465,6 +1469,7 @@ struct __pyx_obj_6uplift_4tree_9_splitter_Splitter {
   __pyx_t_6uplift_4tree_9_splitter_SIZE_t max_features;
   __pyx_t_6uplift_4tree_9_splitter_SIZE_t min_samples_leaf;
   double min_weight_leaf;
+  double stat_param;
   PyObject *random_state;
   __pyx_t_6uplift_4tree_9_splitter_UINT32_t rand_r_state;
   __pyx_t_6uplift_4tree_9_splitter_SIZE_t *samples;
@@ -1483,7 +1488,7 @@ struct __pyx_obj_6uplift_4tree_9_splitter_Splitter {
 };
 
 
-/* "uplift/tree/_splitter.pyx":219
+/* "uplift/tree/_splitter.pyx":231
  * 
  * 
  * cdef class BaseDenseSplitter(Splitter):             # <<<<<<<<<<<<<<
@@ -1503,7 +1508,7 @@ struct __pyx_obj_6uplift_4tree_9_splitter_BaseDenseSplitter {
 };
 
 
-/* "uplift/tree/_splitter.pyx":275
+/* "uplift/tree/_splitter.pyx":288
  * 
  * 
  * cdef class BestSplitter(BaseDenseSplitter):             # <<<<<<<<<<<<<<
@@ -1515,7 +1520,7 @@ struct __pyx_obj_6uplift_4tree_9_splitter_BestSplitter {
 };
 
 
-/* "uplift/tree/_splitter.pyx":611
+/* "uplift/tree/_splitter.pyx":640
  * 
  * 
  * cdef class RandomSplitter(BaseDenseSplitter):             # <<<<<<<<<<<<<<
@@ -1527,7 +1532,7 @@ struct __pyx_obj_6uplift_4tree_9_splitter_RandomSplitter {
 };
 
 
-/* "uplift/tree/_splitter.pyx":825
+/* "uplift/tree/_splitter.pyx":861
  * 
  * 
  * cdef class BaseSparseSplitter(Splitter):             # <<<<<<<<<<<<<<
@@ -1545,7 +1550,7 @@ struct __pyx_obj_6uplift_4tree_9_splitter_BaseSparseSplitter {
 };
 
 
-/* "uplift/tree/_splitter.pyx":1145
+/* "uplift/tree/_splitter.pyx":1181
  * 
  * 
  * cdef class BestSparseSplitter(BaseSparseSplitter):             # <<<<<<<<<<<<<<
@@ -1557,7 +1562,7 @@ struct __pyx_obj_6uplift_4tree_9_splitter_BestSparseSplitter {
 };
 
 
-/* "uplift/tree/_splitter.pyx":1372
+/* "uplift/tree/_splitter.pyx":1413
  * 
  * 
  * cdef class RandomSparseSplitter(BaseSparseSplitter):             # <<<<<<<<<<<<<<
@@ -1570,7 +1575,7 @@ struct __pyx_obj_6uplift_4tree_9_splitter_RandomSparseSplitter {
 
 
 
-/* "_criterion.pxd":13
+/* "_criterion.pxd":21
  * ctypedef np.npy_uint32 UINT32_t          # Unsigned 32 bit integer
  * 
  * cdef class Criterion:             # <<<<<<<<<<<<<<
@@ -1583,6 +1588,7 @@ struct __pyx_vtabstruct_6uplift_4tree_10_criterion_Criterion {
   void (*reset)(struct __pyx_obj_6uplift_4tree_10_criterion_Criterion *);
   void (*reverse_reset)(struct __pyx_obj_6uplift_4tree_10_criterion_Criterion *);
   void (*update)(struct __pyx_obj_6uplift_4tree_10_criterion_Criterion *, __pyx_t_6uplift_4tree_10_criterion_SIZE_t);
+  double (*stat_test)(struct __pyx_obj_6uplift_4tree_10_criterion_Criterion *);
   double (*node_impurity)(struct __pyx_obj_6uplift_4tree_10_criterion_Criterion *);
   void (*children_impurity)(struct __pyx_obj_6uplift_4tree_10_criterion_Criterion *, double *, double *);
   void (*node_value)(struct __pyx_obj_6uplift_4tree_10_criterion_Criterion *, double *);
@@ -1592,7 +1598,7 @@ struct __pyx_vtabstruct_6uplift_4tree_10_criterion_Criterion {
 static struct __pyx_vtabstruct_6uplift_4tree_10_criterion_Criterion *__pyx_vtabptr_6uplift_4tree_10_criterion_Criterion;
 
 
-/* "_utils.pxd":62
+/* "_utils.pxd":67
  *     SIZE_t n_constant_features
  * 
  * cdef class Stack:             # <<<<<<<<<<<<<<
@@ -1608,7 +1614,7 @@ struct __pyx_vtabstruct_6uplift_4tree_6_utils_Stack {
 static struct __pyx_vtabstruct_6uplift_4tree_6_utils_Stack *__pyx_vtabptr_6uplift_4tree_6_utils_Stack;
 
 
-/* "_utils.pxd":91
+/* "_utils.pxd":96
  *     double improvement
  * 
  * cdef class PriorityHeap:             # <<<<<<<<<<<<<<
@@ -1624,7 +1630,7 @@ struct __pyx_vtabstruct_6uplift_4tree_6_utils_PriorityHeap {
 static struct __pyx_vtabstruct_6uplift_4tree_6_utils_PriorityHeap *__pyx_vtabptr_6uplift_4tree_6_utils_PriorityHeap;
 
 
-/* "uplift/tree/_splitter.pyx":41
+/* "uplift/tree/_splitter.pyx":51
  *     self.improvement = -INFINITY
  * 
  * cdef class Splitter:             # <<<<<<<<<<<<<<
@@ -1642,7 +1648,7 @@ struct __pyx_vtabstruct_6uplift_4tree_9_splitter_Splitter {
 static struct __pyx_vtabstruct_6uplift_4tree_9_splitter_Splitter *__pyx_vtabptr_6uplift_4tree_9_splitter_Splitter;
 
 
-/* "uplift/tree/_splitter.pyx":219
+/* "uplift/tree/_splitter.pyx":231
  * 
  * 
  * cdef class BaseDenseSplitter(Splitter):             # <<<<<<<<<<<<<<
@@ -1656,7 +1662,7 @@ struct __pyx_vtabstruct_6uplift_4tree_9_splitter_BaseDenseSplitter {
 static struct __pyx_vtabstruct_6uplift_4tree_9_splitter_BaseDenseSplitter *__pyx_vtabptr_6uplift_4tree_9_splitter_BaseDenseSplitter;
 
 
-/* "uplift/tree/_splitter.pyx":275
+/* "uplift/tree/_splitter.pyx":288
  * 
  * 
  * cdef class BestSplitter(BaseDenseSplitter):             # <<<<<<<<<<<<<<
@@ -1670,7 +1676,7 @@ struct __pyx_vtabstruct_6uplift_4tree_9_splitter_BestSplitter {
 static struct __pyx_vtabstruct_6uplift_4tree_9_splitter_BestSplitter *__pyx_vtabptr_6uplift_4tree_9_splitter_BestSplitter;
 
 
-/* "uplift/tree/_splitter.pyx":611
+/* "uplift/tree/_splitter.pyx":640
  * 
  * 
  * cdef class RandomSplitter(BaseDenseSplitter):             # <<<<<<<<<<<<<<
@@ -1684,7 +1690,7 @@ struct __pyx_vtabstruct_6uplift_4tree_9_splitter_RandomSplitter {
 static struct __pyx_vtabstruct_6uplift_4tree_9_splitter_RandomSplitter *__pyx_vtabptr_6uplift_4tree_9_splitter_RandomSplitter;
 
 
-/* "uplift/tree/_splitter.pyx":825
+/* "uplift/tree/_splitter.pyx":861
  * 
  * 
  * cdef class BaseSparseSplitter(Splitter):             # <<<<<<<<<<<<<<
@@ -1702,7 +1708,7 @@ static CYTHON_INLINE __pyx_t_6uplift_4tree_9_splitter_SIZE_t __pyx_f_6uplift_4tr
 static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_18BaseSparseSplitter_extract_nnz(struct __pyx_obj_6uplift_4tree_9_splitter_BaseSparseSplitter *, __pyx_t_6uplift_4tree_9_splitter_SIZE_t, __pyx_t_6uplift_4tree_9_splitter_SIZE_t *, __pyx_t_6uplift_4tree_9_splitter_SIZE_t *, int *);
 
 
-/* "uplift/tree/_splitter.pyx":1145
+/* "uplift/tree/_splitter.pyx":1181
  * 
  * 
  * cdef class BestSparseSplitter(BaseSparseSplitter):             # <<<<<<<<<<<<<<
@@ -1716,7 +1722,7 @@ struct __pyx_vtabstruct_6uplift_4tree_9_splitter_BestSparseSplitter {
 static struct __pyx_vtabstruct_6uplift_4tree_9_splitter_BestSparseSplitter *__pyx_vtabptr_6uplift_4tree_9_splitter_BestSparseSplitter;
 
 
-/* "uplift/tree/_splitter.pyx":1372
+/* "uplift/tree/_splitter.pyx":1413
  * 
  * 
  * cdef class RandomSparseSplitter(BaseSparseSplitter):             # <<<<<<<<<<<<<<
@@ -2321,13 +2327,77 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
 /* Module declarations from 'cpython.type' */
 static PyTypeObject *__pyx_ptype_7cpython_4type_type = 0;
 
+/* Module declarations from 'cpython.version' */
+
+/* Module declarations from 'cpython.exc' */
+
+/* Module declarations from 'cpython.module' */
+
+/* Module declarations from 'cpython.mem' */
+
+/* Module declarations from 'cpython.tuple' */
+
+/* Module declarations from 'cpython.list' */
+
+/* Module declarations from 'cpython.sequence' */
+
+/* Module declarations from 'cpython.mapping' */
+
+/* Module declarations from 'cpython.iterator' */
+
+/* Module declarations from 'cpython.number' */
+
+/* Module declarations from 'cpython.int' */
+
+/* Module declarations from '__builtin__' */
+
+/* Module declarations from 'cpython.bool' */
+static PyTypeObject *__pyx_ptype_7cpython_4bool_bool = 0;
+
+/* Module declarations from 'cpython.long' */
+
+/* Module declarations from 'cpython.float' */
+
+/* Module declarations from '__builtin__' */
+
+/* Module declarations from 'cpython.complex' */
+static PyTypeObject *__pyx_ptype_7cpython_7complex_complex = 0;
+
+/* Module declarations from 'cpython.string' */
+
+/* Module declarations from 'cpython.unicode' */
+
+/* Module declarations from 'cpython.dict' */
+
+/* Module declarations from 'cpython.instance' */
+
+/* Module declarations from 'cpython.function' */
+
+/* Module declarations from 'cpython.method' */
+
+/* Module declarations from 'cpython.weakref' */
+
+/* Module declarations from 'cpython.getargs' */
+
+/* Module declarations from 'cpython.pythread' */
+
+/* Module declarations from 'cpython.pystate' */
+
+/* Module declarations from 'cpython.cobject' */
+
+/* Module declarations from 'cpython.oldbuffer' */
+
+/* Module declarations from 'cpython.set' */
+
+/* Module declarations from 'cpython.bytes' */
+
+/* Module declarations from 'cpython.pycapsule' */
+
 /* Module declarations from 'cpython' */
 
 /* Module declarations from 'cpython.object' */
 
 /* Module declarations from 'cpython.ref' */
-
-/* Module declarations from 'cpython.mem' */
 
 /* Module declarations from 'numpy' */
 
@@ -2344,6 +2414,8 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_array(void); /*proto*/
 static PyTypeObject *__pyx_ptype_6uplift_4tree_10_criterion_Criterion = 0;
 
 /* Module declarations from 'libc.stdlib' */
+
+/* Module declarations from 'libc.math' */
 
 /* Module declarations from 'uplift.tree._utils' */
 static PyTypeObject *__pyx_ptype_6uplift_4tree_6_utils_Stack = 0;
@@ -2364,6 +2436,8 @@ static PyTypeObject *__pyx_ptype_6uplift_4tree_9_splitter_BaseSparseSplitter = 0
 static PyTypeObject *__pyx_ptype_6uplift_4tree_9_splitter_BestSparseSplitter = 0;
 static PyTypeObject *__pyx_ptype_6uplift_4tree_9_splitter_RandomSparseSplitter = 0;
 static double __pyx_v_6uplift_4tree_9_splitter_INFINITY;
+static int __pyx_v_6uplift_4tree_9_splitter_MIN_STAT_PARAMETR;
+static int __pyx_v_6uplift_4tree_9_splitter_STAT;
 static __pyx_t_6uplift_4tree_9_splitter_DTYPE_t __pyx_v_6uplift_4tree_9_splitter_FEATURE_THRESHOLD;
 static __pyx_t_6uplift_4tree_9_splitter_DTYPE_t __pyx_v_6uplift_4tree_9_splitter_EXTRACT_NNZ_SWITCH;
 static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter__init_split(struct __pyx_t_6uplift_4tree_9_splitter_SplitRecord *, __pyx_t_6uplift_4tree_9_splitter_SIZE_t); /*proto*/
@@ -2417,6 +2491,7 @@ static const char __pyx_k_reduce_ex[] = "__reduce_ex__";
 static const char __pyx_k_ValueError[] = "ValueError";
 static const char __pyx_k_csc_matrix[] = "csc_matrix";
 static const char __pyx_k_pyx_vtable[] = "__pyx_vtable__";
+static const char __pyx_k_stat_param[] = "stat_param";
 static const char __pyx_k_ImportError[] = "ImportError";
 static const char __pyx_k_BestSplitter[] = "BestSplitter";
 static const char __pyx_k_RuntimeError[] = "RuntimeError";
@@ -2492,10 +2567,11 @@ static PyObject *__pyx_n_s_scipy_sparse;
 static PyObject *__pyx_n_s_setstate;
 static PyObject *__pyx_n_s_setstate_cython;
 static PyObject *__pyx_n_s_shape;
+static PyObject *__pyx_n_s_stat_param;
 static PyObject *__pyx_n_s_strides;
 static PyObject *__pyx_n_s_test;
 static PyObject *__pyx_kp_u_unknown_dtype_code_in_numpy_pxd;
-static int __pyx_pf_6uplift_4tree_9_splitter_8Splitter___cinit__(struct __pyx_obj_6uplift_4tree_9_splitter_Splitter *__pyx_v_self, struct __pyx_obj_6uplift_4tree_10_criterion_Criterion *__pyx_v_criterion, __pyx_t_6uplift_4tree_9_splitter_SIZE_t __pyx_v_max_features, __pyx_t_6uplift_4tree_9_splitter_SIZE_t __pyx_v_min_samples_leaf, double __pyx_v_min_weight_leaf, PyObject *__pyx_v_random_state, int __pyx_v_presort); /* proto */
+static int __pyx_pf_6uplift_4tree_9_splitter_8Splitter___cinit__(struct __pyx_obj_6uplift_4tree_9_splitter_Splitter *__pyx_v_self, struct __pyx_obj_6uplift_4tree_10_criterion_Criterion *__pyx_v_criterion, __pyx_t_6uplift_4tree_9_splitter_SIZE_t __pyx_v_max_features, __pyx_t_6uplift_4tree_9_splitter_SIZE_t __pyx_v_min_samples_leaf, double __pyx_v_min_weight_leaf, PyObject *__pyx_v_random_state, int __pyx_v_presort, double __pyx_v_stat_param); /* proto */
 static void __pyx_pf_6uplift_4tree_9_splitter_8Splitter_2__dealloc__(struct __pyx_obj_6uplift_4tree_9_splitter_Splitter *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_6uplift_4tree_9_splitter_8Splitter_4__getstate__(CYTHON_UNUSED struct __pyx_obj_6uplift_4tree_9_splitter_Splitter *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_6uplift_4tree_9_splitter_8Splitter_6__setstate__(CYTHON_UNUSED struct __pyx_obj_6uplift_4tree_9_splitter_Splitter *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v_d); /* proto */
@@ -2508,15 +2584,17 @@ static PyObject *__pyx_pf_6uplift_4tree_9_splitter_8Splitter_16min_samples_leaf_
 static int __pyx_pf_6uplift_4tree_9_splitter_8Splitter_16min_samples_leaf_2__set__(struct __pyx_obj_6uplift_4tree_9_splitter_Splitter *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
 static PyObject *__pyx_pf_6uplift_4tree_9_splitter_8Splitter_15min_weight_leaf___get__(struct __pyx_obj_6uplift_4tree_9_splitter_Splitter *__pyx_v_self); /* proto */
 static int __pyx_pf_6uplift_4tree_9_splitter_8Splitter_15min_weight_leaf_2__set__(struct __pyx_obj_6uplift_4tree_9_splitter_Splitter *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
+static PyObject *__pyx_pf_6uplift_4tree_9_splitter_8Splitter_10stat_param___get__(struct __pyx_obj_6uplift_4tree_9_splitter_Splitter *__pyx_v_self); /* proto */
+static int __pyx_pf_6uplift_4tree_9_splitter_8Splitter_10stat_param_2__set__(struct __pyx_obj_6uplift_4tree_9_splitter_Splitter *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
 static PyObject *__pyx_pf_6uplift_4tree_9_splitter_8Splitter_8__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_6uplift_4tree_9_splitter_Splitter *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_6uplift_4tree_9_splitter_8Splitter_10__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_6uplift_4tree_9_splitter_Splitter *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
-static int __pyx_pf_6uplift_4tree_9_splitter_17BaseDenseSplitter___cinit__(struct __pyx_obj_6uplift_4tree_9_splitter_BaseDenseSplitter *__pyx_v_self, CYTHON_UNUSED struct __pyx_obj_6uplift_4tree_10_criterion_Criterion *__pyx_v_criterion, CYTHON_UNUSED __pyx_t_6uplift_4tree_9_splitter_SIZE_t __pyx_v_max_features, CYTHON_UNUSED __pyx_t_6uplift_4tree_9_splitter_SIZE_t __pyx_v_min_samples_leaf, CYTHON_UNUSED double __pyx_v_min_weight_leaf, CYTHON_UNUSED PyObject *__pyx_v_random_state, int __pyx_v_presort); /* proto */
+static int __pyx_pf_6uplift_4tree_9_splitter_17BaseDenseSplitter___cinit__(struct __pyx_obj_6uplift_4tree_9_splitter_BaseDenseSplitter *__pyx_v_self, CYTHON_UNUSED struct __pyx_obj_6uplift_4tree_10_criterion_Criterion *__pyx_v_criterion, CYTHON_UNUSED __pyx_t_6uplift_4tree_9_splitter_SIZE_t __pyx_v_max_features, CYTHON_UNUSED __pyx_t_6uplift_4tree_9_splitter_SIZE_t __pyx_v_min_samples_leaf, CYTHON_UNUSED double __pyx_v_min_weight_leaf, CYTHON_UNUSED PyObject *__pyx_v_random_state, int __pyx_v_presort, CYTHON_UNUSED double __pyx_v_stat_param); /* proto */
 static void __pyx_pf_6uplift_4tree_9_splitter_17BaseDenseSplitter_2__dealloc__(struct __pyx_obj_6uplift_4tree_9_splitter_BaseDenseSplitter *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_6uplift_4tree_9_splitter_17BaseDenseSplitter_4__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_6uplift_4tree_9_splitter_BaseDenseSplitter *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_6uplift_4tree_9_splitter_17BaseDenseSplitter_6__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_6uplift_4tree_9_splitter_BaseDenseSplitter *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
 static PyObject *__pyx_pf_6uplift_4tree_9_splitter_12BestSplitter___reduce__(struct __pyx_obj_6uplift_4tree_9_splitter_BestSplitter *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_6uplift_4tree_9_splitter_14RandomSplitter___reduce__(struct __pyx_obj_6uplift_4tree_9_splitter_RandomSplitter *__pyx_v_self); /* proto */
-static int __pyx_pf_6uplift_4tree_9_splitter_18BaseSparseSplitter___cinit__(struct __pyx_obj_6uplift_4tree_9_splitter_BaseSparseSplitter *__pyx_v_self, CYTHON_UNUSED struct __pyx_obj_6uplift_4tree_10_criterion_Criterion *__pyx_v_criterion, CYTHON_UNUSED __pyx_t_6uplift_4tree_9_splitter_SIZE_t __pyx_v_max_features, CYTHON_UNUSED __pyx_t_6uplift_4tree_9_splitter_SIZE_t __pyx_v_min_samples_leaf, CYTHON_UNUSED double __pyx_v_min_weight_leaf, CYTHON_UNUSED PyObject *__pyx_v_random_state, CYTHON_UNUSED int __pyx_v_presort); /* proto */
+static int __pyx_pf_6uplift_4tree_9_splitter_18BaseSparseSplitter___cinit__(struct __pyx_obj_6uplift_4tree_9_splitter_BaseSparseSplitter *__pyx_v_self, CYTHON_UNUSED struct __pyx_obj_6uplift_4tree_10_criterion_Criterion *__pyx_v_criterion, CYTHON_UNUSED __pyx_t_6uplift_4tree_9_splitter_SIZE_t __pyx_v_max_features, CYTHON_UNUSED __pyx_t_6uplift_4tree_9_splitter_SIZE_t __pyx_v_min_samples_leaf, CYTHON_UNUSED double __pyx_v_min_weight_leaf, CYTHON_UNUSED PyObject *__pyx_v_random_state, CYTHON_UNUSED int __pyx_v_presort, CYTHON_UNUSED double __pyx_v_stat_param); /* proto */
 static void __pyx_pf_6uplift_4tree_9_splitter_18BaseSparseSplitter_2__dealloc__(struct __pyx_obj_6uplift_4tree_9_splitter_BaseSparseSplitter *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_6uplift_4tree_9_splitter_18BaseSparseSplitter_4__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_6uplift_4tree_9_splitter_BaseSparseSplitter *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_6uplift_4tree_9_splitter_18BaseSparseSplitter_6__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_6uplift_4tree_9_splitter_BaseSparseSplitter *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
@@ -2548,7 +2626,7 @@ static PyObject *__pyx_tuple__13;
 static PyObject *__pyx_tuple__14;
 /* Late includes */
 
-/* "uplift/tree/_splitter.pyx":33
+/* "uplift/tree/_splitter.pyx":43
  * cdef DTYPE_t EXTRACT_NNZ_SWITCH = 0.1
  * 
  * cdef inline void _init_split(SplitRecord* self, SIZE_t start_pos) nogil:             # <<<<<<<<<<<<<<
@@ -2558,7 +2636,7 @@ static PyObject *__pyx_tuple__14;
 
 static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter__init_split(struct __pyx_t_6uplift_4tree_9_splitter_SplitRecord *__pyx_v_self, __pyx_t_6uplift_4tree_9_splitter_SIZE_t __pyx_v_start_pos) {
 
-  /* "uplift/tree/_splitter.pyx":34
+  /* "uplift/tree/_splitter.pyx":44
  * 
  * cdef inline void _init_split(SplitRecord* self, SIZE_t start_pos) nogil:
  *     self.impurity_left = INFINITY             # <<<<<<<<<<<<<<
@@ -2567,7 +2645,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter__init_split(struct __
  */
   __pyx_v_self->impurity_left = __pyx_v_6uplift_4tree_9_splitter_INFINITY;
 
-  /* "uplift/tree/_splitter.pyx":35
+  /* "uplift/tree/_splitter.pyx":45
  * cdef inline void _init_split(SplitRecord* self, SIZE_t start_pos) nogil:
  *     self.impurity_left = INFINITY
  *     self.impurity_right = INFINITY             # <<<<<<<<<<<<<<
@@ -2576,7 +2654,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter__init_split(struct __
  */
   __pyx_v_self->impurity_right = __pyx_v_6uplift_4tree_9_splitter_INFINITY;
 
-  /* "uplift/tree/_splitter.pyx":36
+  /* "uplift/tree/_splitter.pyx":46
  *     self.impurity_left = INFINITY
  *     self.impurity_right = INFINITY
  *     self.pos = start_pos             # <<<<<<<<<<<<<<
@@ -2585,7 +2663,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter__init_split(struct __
  */
   __pyx_v_self->pos = __pyx_v_start_pos;
 
-  /* "uplift/tree/_splitter.pyx":37
+  /* "uplift/tree/_splitter.pyx":47
  *     self.impurity_right = INFINITY
  *     self.pos = start_pos
  *     self.feature = 0             # <<<<<<<<<<<<<<
@@ -2594,7 +2672,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter__init_split(struct __
  */
   __pyx_v_self->feature = 0;
 
-  /* "uplift/tree/_splitter.pyx":38
+  /* "uplift/tree/_splitter.pyx":48
  *     self.pos = start_pos
  *     self.feature = 0
  *     self.threshold = 0.             # <<<<<<<<<<<<<<
@@ -2603,7 +2681,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter__init_split(struct __
  */
   __pyx_v_self->threshold = 0.;
 
-  /* "uplift/tree/_splitter.pyx":39
+  /* "uplift/tree/_splitter.pyx":49
  *     self.feature = 0
  *     self.threshold = 0.
  *     self.improvement = -INFINITY             # <<<<<<<<<<<<<<
@@ -2612,7 +2690,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter__init_split(struct __
  */
   __pyx_v_self->improvement = (-__pyx_v_6uplift_4tree_9_splitter_INFINITY);
 
-  /* "uplift/tree/_splitter.pyx":33
+  /* "uplift/tree/_splitter.pyx":43
  * cdef DTYPE_t EXTRACT_NNZ_SWITCH = 0.1
  * 
  * cdef inline void _init_split(SplitRecord* self, SIZE_t start_pos) nogil:             # <<<<<<<<<<<<<<
@@ -2623,12 +2701,12 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter__init_split(struct __
   /* function exit code */
 }
 
-/* "uplift/tree/_splitter.pyx":48
+/* "uplift/tree/_splitter.pyx":58
  *     """
  * 
  *     def __cinit__(self, Criterion criterion, SIZE_t max_features,             # <<<<<<<<<<<<<<
  *                   SIZE_t min_samples_leaf, double min_weight_leaf,
- *                   object random_state, bint presort):
+ *                   object random_state, bint presort, double stat_param):
  */
 
 /* Python wrapper */
@@ -2640,16 +2718,19 @@ static int __pyx_pw_6uplift_4tree_9_splitter_8Splitter_1__cinit__(PyObject *__py
   double __pyx_v_min_weight_leaf;
   PyObject *__pyx_v_random_state = 0;
   int __pyx_v_presort;
+  double __pyx_v_stat_param;
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__cinit__ (wrapper)", 0);
   {
-    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_criterion,&__pyx_n_s_max_features,&__pyx_n_s_min_samples_leaf,&__pyx_n_s_min_weight_leaf,&__pyx_n_s_random_state,&__pyx_n_s_presort,0};
-    PyObject* values[6] = {0,0,0,0,0,0};
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_criterion,&__pyx_n_s_max_features,&__pyx_n_s_min_samples_leaf,&__pyx_n_s_min_weight_leaf,&__pyx_n_s_random_state,&__pyx_n_s_presort,&__pyx_n_s_stat_param,0};
+    PyObject* values[7] = {0,0,0,0,0,0,0};
     if (unlikely(__pyx_kwds)) {
       Py_ssize_t kw_args;
       const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
       switch (pos_args) {
+        case  7: values[6] = PyTuple_GET_ITEM(__pyx_args, 6);
+        CYTHON_FALLTHROUGH;
         case  6: values[5] = PyTuple_GET_ITEM(__pyx_args, 5);
         CYTHON_FALLTHROUGH;
         case  5: values[4] = PyTuple_GET_ITEM(__pyx_args, 4);
@@ -2674,37 +2755,43 @@ static int __pyx_pw_6uplift_4tree_9_splitter_8Splitter_1__cinit__(PyObject *__py
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_max_features)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 6, 6, 1); __PYX_ERR(0, 48, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 7, 7, 1); __PYX_ERR(0, 58, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_min_samples_leaf)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 6, 6, 2); __PYX_ERR(0, 48, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 7, 7, 2); __PYX_ERR(0, 58, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
         if (likely((values[3] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_min_weight_leaf)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 6, 6, 3); __PYX_ERR(0, 48, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 7, 7, 3); __PYX_ERR(0, 58, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  4:
         if (likely((values[4] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_random_state)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 6, 6, 4); __PYX_ERR(0, 48, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 7, 7, 4); __PYX_ERR(0, 58, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  5:
         if (likely((values[5] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_presort)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 6, 6, 5); __PYX_ERR(0, 48, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 7, 7, 5); __PYX_ERR(0, 58, __pyx_L3_error)
+        }
+        CYTHON_FALLTHROUGH;
+        case  6:
+        if (likely((values[6] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_stat_param)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 7, 7, 6); __PYX_ERR(0, 58, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__cinit__") < 0)) __PYX_ERR(0, 48, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__cinit__") < 0)) __PYX_ERR(0, 58, __pyx_L3_error)
       }
-    } else if (PyTuple_GET_SIZE(__pyx_args) != 6) {
+    } else if (PyTuple_GET_SIZE(__pyx_args) != 7) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
@@ -2713,24 +2800,26 @@ static int __pyx_pw_6uplift_4tree_9_splitter_8Splitter_1__cinit__(PyObject *__py
       values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
       values[4] = PyTuple_GET_ITEM(__pyx_args, 4);
       values[5] = PyTuple_GET_ITEM(__pyx_args, 5);
+      values[6] = PyTuple_GET_ITEM(__pyx_args, 6);
     }
     __pyx_v_criterion = ((struct __pyx_obj_6uplift_4tree_10_criterion_Criterion *)values[0]);
-    __pyx_v_max_features = __Pyx_PyInt_As_Py_intptr_t(values[1]); if (unlikely((__pyx_v_max_features == ((npy_intp)-1)) && PyErr_Occurred())) __PYX_ERR(0, 48, __pyx_L3_error)
-    __pyx_v_min_samples_leaf = __Pyx_PyInt_As_Py_intptr_t(values[2]); if (unlikely((__pyx_v_min_samples_leaf == ((npy_intp)-1)) && PyErr_Occurred())) __PYX_ERR(0, 49, __pyx_L3_error)
-    __pyx_v_min_weight_leaf = __pyx_PyFloat_AsDouble(values[3]); if (unlikely((__pyx_v_min_weight_leaf == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 49, __pyx_L3_error)
+    __pyx_v_max_features = __Pyx_PyInt_As_Py_intptr_t(values[1]); if (unlikely((__pyx_v_max_features == ((npy_intp)-1)) && PyErr_Occurred())) __PYX_ERR(0, 58, __pyx_L3_error)
+    __pyx_v_min_samples_leaf = __Pyx_PyInt_As_Py_intptr_t(values[2]); if (unlikely((__pyx_v_min_samples_leaf == ((npy_intp)-1)) && PyErr_Occurred())) __PYX_ERR(0, 59, __pyx_L3_error)
+    __pyx_v_min_weight_leaf = __pyx_PyFloat_AsDouble(values[3]); if (unlikely((__pyx_v_min_weight_leaf == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 59, __pyx_L3_error)
     __pyx_v_random_state = values[4];
-    __pyx_v_presort = __Pyx_PyObject_IsTrue(values[5]); if (unlikely((__pyx_v_presort == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 50, __pyx_L3_error)
+    __pyx_v_presort = __Pyx_PyObject_IsTrue(values[5]); if (unlikely((__pyx_v_presort == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 60, __pyx_L3_error)
+    __pyx_v_stat_param = __pyx_PyFloat_AsDouble(values[6]); if (unlikely((__pyx_v_stat_param == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 60, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 6, 6, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 48, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 7, 7, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 58, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("uplift.tree._splitter.Splitter.__cinit__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return -1;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_criterion), __pyx_ptype_6uplift_4tree_10_criterion_Criterion, 1, "criterion", 0))) __PYX_ERR(0, 48, __pyx_L1_error)
-  __pyx_r = __pyx_pf_6uplift_4tree_9_splitter_8Splitter___cinit__(((struct __pyx_obj_6uplift_4tree_9_splitter_Splitter *)__pyx_v_self), __pyx_v_criterion, __pyx_v_max_features, __pyx_v_min_samples_leaf, __pyx_v_min_weight_leaf, __pyx_v_random_state, __pyx_v_presort);
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_criterion), __pyx_ptype_6uplift_4tree_10_criterion_Criterion, 1, "criterion", 0))) __PYX_ERR(0, 58, __pyx_L1_error)
+  __pyx_r = __pyx_pf_6uplift_4tree_9_splitter_8Splitter___cinit__(((struct __pyx_obj_6uplift_4tree_9_splitter_Splitter *)__pyx_v_self), __pyx_v_criterion, __pyx_v_max_features, __pyx_v_min_samples_leaf, __pyx_v_min_weight_leaf, __pyx_v_random_state, __pyx_v_presort, __pyx_v_stat_param);
 
   /* function exit code */
   goto __pyx_L0;
@@ -2741,12 +2830,12 @@ static int __pyx_pw_6uplift_4tree_9_splitter_8Splitter_1__cinit__(PyObject *__py
   return __pyx_r;
 }
 
-static int __pyx_pf_6uplift_4tree_9_splitter_8Splitter___cinit__(struct __pyx_obj_6uplift_4tree_9_splitter_Splitter *__pyx_v_self, struct __pyx_obj_6uplift_4tree_10_criterion_Criterion *__pyx_v_criterion, __pyx_t_6uplift_4tree_9_splitter_SIZE_t __pyx_v_max_features, __pyx_t_6uplift_4tree_9_splitter_SIZE_t __pyx_v_min_samples_leaf, double __pyx_v_min_weight_leaf, PyObject *__pyx_v_random_state, int __pyx_v_presort) {
+static int __pyx_pf_6uplift_4tree_9_splitter_8Splitter___cinit__(struct __pyx_obj_6uplift_4tree_9_splitter_Splitter *__pyx_v_self, struct __pyx_obj_6uplift_4tree_10_criterion_Criterion *__pyx_v_criterion, __pyx_t_6uplift_4tree_9_splitter_SIZE_t __pyx_v_max_features, __pyx_t_6uplift_4tree_9_splitter_SIZE_t __pyx_v_min_samples_leaf, double __pyx_v_min_weight_leaf, PyObject *__pyx_v_random_state, int __pyx_v_presort, double __pyx_v_stat_param) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__cinit__", 0);
 
-  /* "uplift/tree/_splitter.pyx":74
+  /* "uplift/tree/_splitter.pyx":84
  *         """
  * 
  *         self.criterion = criterion             # <<<<<<<<<<<<<<
@@ -2759,7 +2848,7 @@ static int __pyx_pf_6uplift_4tree_9_splitter_8Splitter___cinit__(struct __pyx_ob
   __Pyx_DECREF(((PyObject *)__pyx_v_self->criterion));
   __pyx_v_self->criterion = __pyx_v_criterion;
 
-  /* "uplift/tree/_splitter.pyx":76
+  /* "uplift/tree/_splitter.pyx":86
  *         self.criterion = criterion
  * 
  *         self.samples = NULL             # <<<<<<<<<<<<<<
@@ -2768,7 +2857,7 @@ static int __pyx_pf_6uplift_4tree_9_splitter_8Splitter___cinit__(struct __pyx_ob
  */
   __pyx_v_self->samples = NULL;
 
-  /* "uplift/tree/_splitter.pyx":77
+  /* "uplift/tree/_splitter.pyx":87
  * 
  *         self.samples = NULL
  *         self.n_samples = 0             # <<<<<<<<<<<<<<
@@ -2777,7 +2866,7 @@ static int __pyx_pf_6uplift_4tree_9_splitter_8Splitter___cinit__(struct __pyx_ob
  */
   __pyx_v_self->n_samples = 0;
 
-  /* "uplift/tree/_splitter.pyx":78
+  /* "uplift/tree/_splitter.pyx":88
  *         self.samples = NULL
  *         self.n_samples = 0
  *         self.features = NULL             # <<<<<<<<<<<<<<
@@ -2786,7 +2875,7 @@ static int __pyx_pf_6uplift_4tree_9_splitter_8Splitter___cinit__(struct __pyx_ob
  */
   __pyx_v_self->features = NULL;
 
-  /* "uplift/tree/_splitter.pyx":79
+  /* "uplift/tree/_splitter.pyx":89
  *         self.n_samples = 0
  *         self.features = NULL
  *         self.n_features = 0             # <<<<<<<<<<<<<<
@@ -2795,7 +2884,7 @@ static int __pyx_pf_6uplift_4tree_9_splitter_8Splitter___cinit__(struct __pyx_ob
  */
   __pyx_v_self->n_features = 0;
 
-  /* "uplift/tree/_splitter.pyx":80
+  /* "uplift/tree/_splitter.pyx":90
  *         self.features = NULL
  *         self.n_features = 0
  *         self.feature_values = NULL             # <<<<<<<<<<<<<<
@@ -2804,7 +2893,7 @@ static int __pyx_pf_6uplift_4tree_9_splitter_8Splitter___cinit__(struct __pyx_ob
  */
   __pyx_v_self->feature_values = NULL;
 
-  /* "uplift/tree/_splitter.pyx":82
+  /* "uplift/tree/_splitter.pyx":92
  *         self.feature_values = NULL
  * 
  *         self.y = NULL             # <<<<<<<<<<<<<<
@@ -2813,7 +2902,7 @@ static int __pyx_pf_6uplift_4tree_9_splitter_8Splitter___cinit__(struct __pyx_ob
  */
   __pyx_v_self->y = NULL;
 
-  /* "uplift/tree/_splitter.pyx":83
+  /* "uplift/tree/_splitter.pyx":93
  * 
  *         self.y = NULL
  *         self.y_stride = 0             # <<<<<<<<<<<<<<
@@ -2822,7 +2911,7 @@ static int __pyx_pf_6uplift_4tree_9_splitter_8Splitter___cinit__(struct __pyx_ob
  */
   __pyx_v_self->y_stride = 0;
 
-  /* "uplift/tree/_splitter.pyx":84
+  /* "uplift/tree/_splitter.pyx":94
  *         self.y = NULL
  *         self.y_stride = 0
  *         self.sample_weight = NULL             # <<<<<<<<<<<<<<
@@ -2831,7 +2920,7 @@ static int __pyx_pf_6uplift_4tree_9_splitter_8Splitter___cinit__(struct __pyx_ob
  */
   __pyx_v_self->sample_weight = NULL;
 
-  /* "uplift/tree/_splitter.pyx":86
+  /* "uplift/tree/_splitter.pyx":96
  *         self.sample_weight = NULL
  * 
  *         self.max_features = max_features             # <<<<<<<<<<<<<<
@@ -2840,7 +2929,7 @@ static int __pyx_pf_6uplift_4tree_9_splitter_8Splitter___cinit__(struct __pyx_ob
  */
   __pyx_v_self->max_features = __pyx_v_max_features;
 
-  /* "uplift/tree/_splitter.pyx":87
+  /* "uplift/tree/_splitter.pyx":97
  * 
  *         self.max_features = max_features
  *         self.min_samples_leaf = min_samples_leaf             # <<<<<<<<<<<<<<
@@ -2849,7 +2938,7 @@ static int __pyx_pf_6uplift_4tree_9_splitter_8Splitter___cinit__(struct __pyx_ob
  */
   __pyx_v_self->min_samples_leaf = __pyx_v_min_samples_leaf;
 
-  /* "uplift/tree/_splitter.pyx":88
+  /* "uplift/tree/_splitter.pyx":98
  *         self.max_features = max_features
  *         self.min_samples_leaf = min_samples_leaf
  *         self.min_weight_leaf = min_weight_leaf             # <<<<<<<<<<<<<<
@@ -2858,12 +2947,12 @@ static int __pyx_pf_6uplift_4tree_9_splitter_8Splitter___cinit__(struct __pyx_ob
  */
   __pyx_v_self->min_weight_leaf = __pyx_v_min_weight_leaf;
 
-  /* "uplift/tree/_splitter.pyx":89
+  /* "uplift/tree/_splitter.pyx":99
  *         self.min_samples_leaf = min_samples_leaf
  *         self.min_weight_leaf = min_weight_leaf
  *         self.random_state = random_state             # <<<<<<<<<<<<<<
  *         self.presort = presort
- * 
+ *         self.stat_param = stat_param
  */
   __Pyx_INCREF(__pyx_v_random_state);
   __Pyx_GIVEREF(__pyx_v_random_state);
@@ -2871,21 +2960,30 @@ static int __pyx_pf_6uplift_4tree_9_splitter_8Splitter___cinit__(struct __pyx_ob
   __Pyx_DECREF(__pyx_v_self->random_state);
   __pyx_v_self->random_state = __pyx_v_random_state;
 
-  /* "uplift/tree/_splitter.pyx":90
+  /* "uplift/tree/_splitter.pyx":100
  *         self.min_weight_leaf = min_weight_leaf
  *         self.random_state = random_state
  *         self.presort = presort             # <<<<<<<<<<<<<<
+ *         self.stat_param = stat_param
  * 
- *     def __dealloc__(self):
  */
   __pyx_v_self->presort = __pyx_v_presort;
 
-  /* "uplift/tree/_splitter.pyx":48
+  /* "uplift/tree/_splitter.pyx":101
+ *         self.random_state = random_state
+ *         self.presort = presort
+ *         self.stat_param = stat_param             # <<<<<<<<<<<<<<
+ * 
+ * 
+ */
+  __pyx_v_self->stat_param = __pyx_v_stat_param;
+
+  /* "uplift/tree/_splitter.pyx":58
  *     """
  * 
  *     def __cinit__(self, Criterion criterion, SIZE_t max_features,             # <<<<<<<<<<<<<<
  *                   SIZE_t min_samples_leaf, double min_weight_leaf,
- *                   object random_state, bint presort):
+ *                   object random_state, bint presort, double stat_param):
  */
 
   /* function exit code */
@@ -2894,8 +2992,8 @@ static int __pyx_pf_6uplift_4tree_9_splitter_8Splitter___cinit__(struct __pyx_ob
   return __pyx_r;
 }
 
-/* "uplift/tree/_splitter.pyx":92
- *         self.presort = presort
+/* "uplift/tree/_splitter.pyx":104
+ * 
  * 
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
  *         """Destructor."""
@@ -2917,7 +3015,7 @@ static void __pyx_pf_6uplift_4tree_9_splitter_8Splitter_2__dealloc__(struct __py
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__dealloc__", 0);
 
-  /* "uplift/tree/_splitter.pyx":95
+  /* "uplift/tree/_splitter.pyx":107
  *         """Destructor."""
  * 
  *         free(self.samples)             # <<<<<<<<<<<<<<
@@ -2926,7 +3024,7 @@ static void __pyx_pf_6uplift_4tree_9_splitter_8Splitter_2__dealloc__(struct __py
  */
   free(__pyx_v_self->samples);
 
-  /* "uplift/tree/_splitter.pyx":96
+  /* "uplift/tree/_splitter.pyx":108
  * 
  *         free(self.samples)
  *         free(self.features)             # <<<<<<<<<<<<<<
@@ -2935,7 +3033,7 @@ static void __pyx_pf_6uplift_4tree_9_splitter_8Splitter_2__dealloc__(struct __py
  */
   free(__pyx_v_self->features);
 
-  /* "uplift/tree/_splitter.pyx":97
+  /* "uplift/tree/_splitter.pyx":109
  *         free(self.samples)
  *         free(self.features)
  *         free(self.constant_features)             # <<<<<<<<<<<<<<
@@ -2944,7 +3042,7 @@ static void __pyx_pf_6uplift_4tree_9_splitter_8Splitter_2__dealloc__(struct __py
  */
   free(__pyx_v_self->constant_features);
 
-  /* "uplift/tree/_splitter.pyx":98
+  /* "uplift/tree/_splitter.pyx":110
  *         free(self.features)
  *         free(self.constant_features)
  *         free(self.feature_values)             # <<<<<<<<<<<<<<
@@ -2953,8 +3051,8 @@ static void __pyx_pf_6uplift_4tree_9_splitter_8Splitter_2__dealloc__(struct __py
  */
   free(__pyx_v_self->feature_values);
 
-  /* "uplift/tree/_splitter.pyx":92
- *         self.presort = presort
+  /* "uplift/tree/_splitter.pyx":104
+ * 
  * 
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
  *         """Destructor."""
@@ -2965,7 +3063,7 @@ static void __pyx_pf_6uplift_4tree_9_splitter_8Splitter_2__dealloc__(struct __py
   __Pyx_RefNannyFinishContext();
 }
 
-/* "uplift/tree/_splitter.pyx":100
+/* "uplift/tree/_splitter.pyx":112
  *         free(self.feature_values)
  * 
  *     def __getstate__(self):             # <<<<<<<<<<<<<<
@@ -2992,7 +3090,7 @@ static PyObject *__pyx_pf_6uplift_4tree_9_splitter_8Splitter_4__getstate__(CYTHO
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("__getstate__", 0);
 
-  /* "uplift/tree/_splitter.pyx":101
+  /* "uplift/tree/_splitter.pyx":113
  * 
  *     def __getstate__(self):
  *         return {}             # <<<<<<<<<<<<<<
@@ -3000,13 +3098,13 @@ static PyObject *__pyx_pf_6uplift_4tree_9_splitter_8Splitter_4__getstate__(CYTHO
  *     def __setstate__(self, d):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 101, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 113, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "uplift/tree/_splitter.pyx":100
+  /* "uplift/tree/_splitter.pyx":112
  *         free(self.feature_values)
  * 
  *     def __getstate__(self):             # <<<<<<<<<<<<<<
@@ -3025,7 +3123,7 @@ static PyObject *__pyx_pf_6uplift_4tree_9_splitter_8Splitter_4__getstate__(CYTHO
   return __pyx_r;
 }
 
-/* "uplift/tree/_splitter.pyx":103
+/* "uplift/tree/_splitter.pyx":115
  *         return {}
  * 
  *     def __setstate__(self, d):             # <<<<<<<<<<<<<<
@@ -3058,7 +3156,7 @@ static PyObject *__pyx_pf_6uplift_4tree_9_splitter_8Splitter_6__setstate__(CYTHO
   return __pyx_r;
 }
 
-/* "uplift/tree/_splitter.pyx":106
+/* "uplift/tree/_splitter.pyx":118
  *         pass
  * 
  *     cdef void init(self,             # <<<<<<<<<<<<<<
@@ -3099,20 +3197,20 @@ static void __pyx_f_6uplift_4tree_9_splitter_8Splitter_init(struct __pyx_obj_6up
   __pyx_pybuffernd_y.rcbuffer = &__pyx_pybuffer_y;
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_y.rcbuffer->pybuffer, (PyObject*)__pyx_v_y, &__Pyx_TypeInfo_nn___pyx_t_6uplift_4tree_9_splitter_DOUBLE_t, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 106, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_y.rcbuffer->pybuffer, (PyObject*)__pyx_v_y, &__Pyx_TypeInfo_nn___pyx_t_6uplift_4tree_9_splitter_DOUBLE_t, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 118, __pyx_L1_error)
   }
   __pyx_pybuffernd_y.diminfo[0].strides = __pyx_pybuffernd_y.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_y.diminfo[0].shape = __pyx_pybuffernd_y.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_y.diminfo[1].strides = __pyx_pybuffernd_y.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_y.diminfo[1].shape = __pyx_pybuffernd_y.rcbuffer->pybuffer.shape[1];
 
-  /* "uplift/tree/_splitter.pyx":129
+  /* "uplift/tree/_splitter.pyx":141
  *         """
  * 
  *         self.rand_r_state = self.random_state.randint(0, RAND_R_MAX)             # <<<<<<<<<<<<<<
  *         cdef SIZE_t n_samples = X.shape[0]
  * 
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->random_state, __pyx_n_s_randint); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 129, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->random_state, __pyx_n_s_randint); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 141, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_e_6uplift_4tree_6_utils_RAND_R_MAX); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 129, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_e_6uplift_4tree_6_utils_RAND_R_MAX); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 141, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_4 = NULL;
   __pyx_t_5 = 0;
@@ -3129,7 +3227,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_8Splitter_init(struct __pyx_obj_6up
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_2)) {
     PyObject *__pyx_temp[3] = {__pyx_t_4, __pyx_int_0, __pyx_t_3};
-    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_5, 2+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 129, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_5, 2+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 141, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -3138,14 +3236,14 @@ static void __pyx_f_6uplift_4tree_9_splitter_8Splitter_init(struct __pyx_obj_6up
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_2)) {
     PyObject *__pyx_temp[3] = {__pyx_t_4, __pyx_int_0, __pyx_t_3};
-    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_5, 2+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 129, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_5, 2+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 141, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   } else
   #endif
   {
-    __pyx_t_6 = PyTuple_New(2+__pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 129, __pyx_L1_error)
+    __pyx_t_6 = PyTuple_New(2+__pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 141, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     if (__pyx_t_4) {
       __Pyx_GIVEREF(__pyx_t_4); PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_4); __pyx_t_4 = NULL;
@@ -3156,42 +3254,42 @@ static void __pyx_f_6uplift_4tree_9_splitter_8Splitter_init(struct __pyx_obj_6up
     __Pyx_GIVEREF(__pyx_t_3);
     PyTuple_SET_ITEM(__pyx_t_6, 1+__pyx_t_5, __pyx_t_3);
     __pyx_t_3 = 0;
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_6, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 129, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_6, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 141, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_7 = __Pyx_PyInt_As_npy_uint32(__pyx_t_1); if (unlikely((__pyx_t_7 == ((npy_uint32)-1)) && PyErr_Occurred())) __PYX_ERR(0, 129, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyInt_As_npy_uint32(__pyx_t_1); if (unlikely((__pyx_t_7 == ((npy_uint32)-1)) && PyErr_Occurred())) __PYX_ERR(0, 141, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_self->rand_r_state = __pyx_t_7;
 
-  /* "uplift/tree/_splitter.pyx":130
+  /* "uplift/tree/_splitter.pyx":142
  * 
  *         self.rand_r_state = self.random_state.randint(0, RAND_R_MAX)
  *         cdef SIZE_t n_samples = X.shape[0]             # <<<<<<<<<<<<<<
  * 
  *         # Create a new array which will be used to store nonzero
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_X, __pyx_n_s_shape); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 130, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_X, __pyx_n_s_shape); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 142, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_1, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 130, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_1, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 142, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_8 = __Pyx_PyInt_As_Py_intptr_t(__pyx_t_2); if (unlikely((__pyx_t_8 == ((npy_intp)-1)) && PyErr_Occurred())) __PYX_ERR(0, 130, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyInt_As_Py_intptr_t(__pyx_t_2); if (unlikely((__pyx_t_8 == ((npy_intp)-1)) && PyErr_Occurred())) __PYX_ERR(0, 142, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_v_n_samples = __pyx_t_8;
 
-  /* "uplift/tree/_splitter.pyx":134
+  /* "uplift/tree/_splitter.pyx":146
  *         # Create a new array which will be used to store nonzero
  *         # samples from the feature of interest
  *         cdef SIZE_t* samples = safe_realloc(&self.samples, n_samples)             # <<<<<<<<<<<<<<
  * 
  *         cdef SIZE_t i, j
  */
-  __pyx_t_9 = __pyx_fuse_1__pyx_f_6uplift_4tree_6_utils_safe_realloc((&__pyx_v_self->samples), __pyx_v_n_samples); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 134, __pyx_L1_error)
+  __pyx_t_9 = __pyx_fuse_1__pyx_f_6uplift_4tree_6_utils_safe_realloc((&__pyx_v_self->samples), __pyx_v_n_samples); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 146, __pyx_L1_error)
   __pyx_v_samples = __pyx_t_9;
 
-  /* "uplift/tree/_splitter.pyx":137
+  /* "uplift/tree/_splitter.pyx":149
  * 
  *         cdef SIZE_t i, j
  *         cdef double weighted_n_samples = 0.0             # <<<<<<<<<<<<<<
@@ -3200,7 +3298,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_8Splitter_init(struct __pyx_obj_6up
  */
   __pyx_v_weighted_n_samples = 0.0;
 
-  /* "uplift/tree/_splitter.pyx":138
+  /* "uplift/tree/_splitter.pyx":150
  *         cdef SIZE_t i, j
  *         cdef double weighted_n_samples = 0.0
  *         j = 0             # <<<<<<<<<<<<<<
@@ -3209,7 +3307,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_8Splitter_init(struct __pyx_obj_6up
  */
   __pyx_v_j = 0;
 
-  /* "uplift/tree/_splitter.pyx":140
+  /* "uplift/tree/_splitter.pyx":152
  *         j = 0
  * 
  *         for i in range(n_samples):             # <<<<<<<<<<<<<<
@@ -3221,7 +3319,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_8Splitter_init(struct __pyx_obj_6up
   for (__pyx_t_11 = 0; __pyx_t_11 < __pyx_t_10; __pyx_t_11+=1) {
     __pyx_v_i = __pyx_t_11;
 
-    /* "uplift/tree/_splitter.pyx":142
+    /* "uplift/tree/_splitter.pyx":154
  *         for i in range(n_samples):
  *             # Only work with positively weighted samples
  *             if sample_weight == NULL or sample_weight[i] != 0.0:             # <<<<<<<<<<<<<<
@@ -3239,7 +3337,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_8Splitter_init(struct __pyx_obj_6up
     __pyx_L6_bool_binop_done:;
     if (__pyx_t_12) {
 
-      /* "uplift/tree/_splitter.pyx":143
+      /* "uplift/tree/_splitter.pyx":155
  *             # Only work with positively weighted samples
  *             if sample_weight == NULL or sample_weight[i] != 0.0:
  *                 samples[j] = i             # <<<<<<<<<<<<<<
@@ -3248,7 +3346,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_8Splitter_init(struct __pyx_obj_6up
  */
       (__pyx_v_samples[__pyx_v_j]) = __pyx_v_i;
 
-      /* "uplift/tree/_splitter.pyx":144
+      /* "uplift/tree/_splitter.pyx":156
  *             if sample_weight == NULL or sample_weight[i] != 0.0:
  *                 samples[j] = i
  *                 j += 1             # <<<<<<<<<<<<<<
@@ -3257,7 +3355,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_8Splitter_init(struct __pyx_obj_6up
  */
       __pyx_v_j = (__pyx_v_j + 1);
 
-      /* "uplift/tree/_splitter.pyx":142
+      /* "uplift/tree/_splitter.pyx":154
  *         for i in range(n_samples):
  *             # Only work with positively weighted samples
  *             if sample_weight == NULL or sample_weight[i] != 0.0:             # <<<<<<<<<<<<<<
@@ -3266,7 +3364,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_8Splitter_init(struct __pyx_obj_6up
  */
     }
 
-    /* "uplift/tree/_splitter.pyx":146
+    /* "uplift/tree/_splitter.pyx":158
  *                 j += 1
  * 
  *             if sample_weight != NULL:             # <<<<<<<<<<<<<<
@@ -3276,7 +3374,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_8Splitter_init(struct __pyx_obj_6up
     __pyx_t_12 = ((__pyx_v_sample_weight != NULL) != 0);
     if (__pyx_t_12) {
 
-      /* "uplift/tree/_splitter.pyx":147
+      /* "uplift/tree/_splitter.pyx":159
  * 
  *             if sample_weight != NULL:
  *                 weighted_n_samples += sample_weight[i]             # <<<<<<<<<<<<<<
@@ -3285,7 +3383,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_8Splitter_init(struct __pyx_obj_6up
  */
       __pyx_v_weighted_n_samples = (__pyx_v_weighted_n_samples + (__pyx_v_sample_weight[__pyx_v_i]));
 
-      /* "uplift/tree/_splitter.pyx":146
+      /* "uplift/tree/_splitter.pyx":158
  *                 j += 1
  * 
  *             if sample_weight != NULL:             # <<<<<<<<<<<<<<
@@ -3295,7 +3393,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_8Splitter_init(struct __pyx_obj_6up
       goto __pyx_L8;
     }
 
-    /* "uplift/tree/_splitter.pyx":149
+    /* "uplift/tree/_splitter.pyx":161
  *                 weighted_n_samples += sample_weight[i]
  *             else:
  *                 weighted_n_samples += 1.0             # <<<<<<<<<<<<<<
@@ -3308,7 +3406,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_8Splitter_init(struct __pyx_obj_6up
     __pyx_L8:;
   }
 
-  /* "uplift/tree/_splitter.pyx":152
+  /* "uplift/tree/_splitter.pyx":164
  * 
  *         # Number of samples is number of positively weighted samples
  *         self.n_samples = j             # <<<<<<<<<<<<<<
@@ -3317,7 +3415,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_8Splitter_init(struct __pyx_obj_6up
  */
   __pyx_v_self->n_samples = __pyx_v_j;
 
-  /* "uplift/tree/_splitter.pyx":153
+  /* "uplift/tree/_splitter.pyx":165
  *         # Number of samples is number of positively weighted samples
  *         self.n_samples = j
  *         self.weighted_n_samples = weighted_n_samples             # <<<<<<<<<<<<<<
@@ -3326,33 +3424,33 @@ static void __pyx_f_6uplift_4tree_9_splitter_8Splitter_init(struct __pyx_obj_6up
  */
   __pyx_v_self->weighted_n_samples = __pyx_v_weighted_n_samples;
 
-  /* "uplift/tree/_splitter.pyx":155
+  /* "uplift/tree/_splitter.pyx":167
  *         self.weighted_n_samples = weighted_n_samples
  * 
  *         cdef SIZE_t n_features = X.shape[1]             # <<<<<<<<<<<<<<
  *         cdef SIZE_t* features = safe_realloc(&self.features, n_features)
  * 
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_X, __pyx_n_s_shape); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 155, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_X, __pyx_n_s_shape); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 167, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = __Pyx_GetItemInt(__pyx_t_2, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 155, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_GetItemInt(__pyx_t_2, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 167, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_8 = __Pyx_PyInt_As_Py_intptr_t(__pyx_t_1); if (unlikely((__pyx_t_8 == ((npy_intp)-1)) && PyErr_Occurred())) __PYX_ERR(0, 155, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyInt_As_Py_intptr_t(__pyx_t_1); if (unlikely((__pyx_t_8 == ((npy_intp)-1)) && PyErr_Occurred())) __PYX_ERR(0, 167, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_n_features = __pyx_t_8;
 
-  /* "uplift/tree/_splitter.pyx":156
+  /* "uplift/tree/_splitter.pyx":168
  * 
  *         cdef SIZE_t n_features = X.shape[1]
  *         cdef SIZE_t* features = safe_realloc(&self.features, n_features)             # <<<<<<<<<<<<<<
  * 
  *         for i in range(n_features):
  */
-  __pyx_t_9 = __pyx_fuse_1__pyx_f_6uplift_4tree_6_utils_safe_realloc((&__pyx_v_self->features), __pyx_v_n_features); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 156, __pyx_L1_error)
+  __pyx_t_9 = __pyx_fuse_1__pyx_f_6uplift_4tree_6_utils_safe_realloc((&__pyx_v_self->features), __pyx_v_n_features); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 168, __pyx_L1_error)
   __pyx_v_features = __pyx_t_9;
 
-  /* "uplift/tree/_splitter.pyx":158
+  /* "uplift/tree/_splitter.pyx":170
  *         cdef SIZE_t* features = safe_realloc(&self.features, n_features)
  * 
  *         for i in range(n_features):             # <<<<<<<<<<<<<<
@@ -3364,7 +3462,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_8Splitter_init(struct __pyx_obj_6up
   for (__pyx_t_11 = 0; __pyx_t_11 < __pyx_t_10; __pyx_t_11+=1) {
     __pyx_v_i = __pyx_t_11;
 
-    /* "uplift/tree/_splitter.pyx":159
+    /* "uplift/tree/_splitter.pyx":171
  * 
  *         for i in range(n_features):
  *             features[i] = i             # <<<<<<<<<<<<<<
@@ -3374,7 +3472,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_8Splitter_init(struct __pyx_obj_6up
     (__pyx_v_features[__pyx_v_i]) = __pyx_v_i;
   }
 
-  /* "uplift/tree/_splitter.pyx":161
+  /* "uplift/tree/_splitter.pyx":173
  *             features[i] = i
  * 
  *         self.n_features = n_features             # <<<<<<<<<<<<<<
@@ -3383,25 +3481,25 @@ static void __pyx_f_6uplift_4tree_9_splitter_8Splitter_init(struct __pyx_obj_6up
  */
   __pyx_v_self->n_features = __pyx_v_n_features;
 
-  /* "uplift/tree/_splitter.pyx":163
+  /* "uplift/tree/_splitter.pyx":175
  *         self.n_features = n_features
  * 
  *         safe_realloc(&self.feature_values, n_samples)             # <<<<<<<<<<<<<<
  *         safe_realloc(&self.constant_features, n_features)
  * 
  */
-  __pyx_fuse_0__pyx_f_6uplift_4tree_6_utils_safe_realloc((&__pyx_v_self->feature_values), __pyx_v_n_samples); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 163, __pyx_L1_error)
+  __pyx_fuse_0__pyx_f_6uplift_4tree_6_utils_safe_realloc((&__pyx_v_self->feature_values), __pyx_v_n_samples); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 175, __pyx_L1_error)
 
-  /* "uplift/tree/_splitter.pyx":164
+  /* "uplift/tree/_splitter.pyx":176
  * 
  *         safe_realloc(&self.feature_values, n_samples)
  *         safe_realloc(&self.constant_features, n_features)             # <<<<<<<<<<<<<<
  * 
  *         self.y = <DOUBLE_t*> y.data
  */
-  __pyx_fuse_1__pyx_f_6uplift_4tree_6_utils_safe_realloc((&__pyx_v_self->constant_features), __pyx_v_n_features); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 164, __pyx_L1_error)
+  __pyx_fuse_1__pyx_f_6uplift_4tree_6_utils_safe_realloc((&__pyx_v_self->constant_features), __pyx_v_n_features); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 176, __pyx_L1_error)
 
-  /* "uplift/tree/_splitter.pyx":166
+  /* "uplift/tree/_splitter.pyx":178
  *         safe_realloc(&self.constant_features, n_features)
  * 
  *         self.y = <DOUBLE_t*> y.data             # <<<<<<<<<<<<<<
@@ -3410,20 +3508,20 @@ static void __pyx_f_6uplift_4tree_9_splitter_8Splitter_init(struct __pyx_obj_6up
  */
   __pyx_v_self->y = ((__pyx_t_6uplift_4tree_9_splitter_DOUBLE_t *)__pyx_v_y->data);
 
-  /* "uplift/tree/_splitter.pyx":167
+  /* "uplift/tree/_splitter.pyx":179
  * 
  *         self.y = <DOUBLE_t*> y.data
  *         self.y_stride = <SIZE_t> y.strides[0] / <SIZE_t> y.itemsize             # <<<<<<<<<<<<<<
  * 
  *         self.sample_weight = sample_weight
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_y), __pyx_n_s_itemsize); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 167, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_y), __pyx_n_s_itemsize); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 179, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_8 = __Pyx_PyInt_As_Py_intptr_t(__pyx_t_1); if (unlikely((__pyx_t_8 == ((npy_intp)-1)) && PyErr_Occurred())) __PYX_ERR(0, 167, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyInt_As_Py_intptr_t(__pyx_t_1); if (unlikely((__pyx_t_8 == ((npy_intp)-1)) && PyErr_Occurred())) __PYX_ERR(0, 179, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_self->y_stride = (((__pyx_t_6uplift_4tree_9_splitter_SIZE_t)(__pyx_v_y->strides[0])) / ((__pyx_t_6uplift_4tree_9_splitter_SIZE_t)__pyx_t_8));
 
-  /* "uplift/tree/_splitter.pyx":169
+  /* "uplift/tree/_splitter.pyx":181
  *         self.y_stride = <SIZE_t> y.strides[0] / <SIZE_t> y.itemsize
  * 
  *         self.sample_weight = sample_weight             # <<<<<<<<<<<<<<
@@ -3432,7 +3530,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_8Splitter_init(struct __pyx_obj_6up
  */
   __pyx_v_self->sample_weight = __pyx_v_sample_weight;
 
-  /* "uplift/tree/_splitter.pyx":106
+  /* "uplift/tree/_splitter.pyx":118
  *         pass
  * 
  *     cdef void init(self,             # <<<<<<<<<<<<<<
@@ -3462,7 +3560,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_8Splitter_init(struct __pyx_obj_6up
   __Pyx_RefNannyFinishContext();
 }
 
-/* "uplift/tree/_splitter.pyx":171
+/* "uplift/tree/_splitter.pyx":183
  *         self.sample_weight = sample_weight
  * 
  *     cdef void node_reset(self, SIZE_t start, SIZE_t end,             # <<<<<<<<<<<<<<
@@ -3473,7 +3571,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_8Splitter_init(struct __pyx_obj_6up
 static void __pyx_f_6uplift_4tree_9_splitter_8Splitter_node_reset(struct __pyx_obj_6uplift_4tree_9_splitter_Splitter *__pyx_v_self, __pyx_t_6uplift_4tree_9_splitter_SIZE_t __pyx_v_start, __pyx_t_6uplift_4tree_9_splitter_SIZE_t __pyx_v_end, double *__pyx_v_weighted_n_node_samples) {
   double __pyx_t_1;
 
-  /* "uplift/tree/_splitter.pyx":185
+  /* "uplift/tree/_splitter.pyx":197
  *         """
  * 
  *         self.start = start             # <<<<<<<<<<<<<<
@@ -3482,7 +3580,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_8Splitter_node_reset(struct __pyx_o
  */
   __pyx_v_self->start = __pyx_v_start;
 
-  /* "uplift/tree/_splitter.pyx":186
+  /* "uplift/tree/_splitter.pyx":198
  * 
  *         self.start = start
  *         self.end = end             # <<<<<<<<<<<<<<
@@ -3491,7 +3589,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_8Splitter_node_reset(struct __pyx_o
  */
   __pyx_v_self->end = __pyx_v_end;
 
-  /* "uplift/tree/_splitter.pyx":188
+  /* "uplift/tree/_splitter.pyx":200
  *         self.end = end
  * 
  *         self.criterion.init(self.y,             # <<<<<<<<<<<<<<
@@ -3500,7 +3598,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_8Splitter_node_reset(struct __pyx_o
  */
   ((struct __pyx_vtabstruct_6uplift_4tree_10_criterion_Criterion *)__pyx_v_self->criterion->__pyx_vtab)->init(__pyx_v_self->criterion, __pyx_v_self->y, __pyx_v_self->y_stride, __pyx_v_self->sample_weight, __pyx_v_self->weighted_n_samples, __pyx_v_self->samples, __pyx_v_start, __pyx_v_end);
 
-  /* "uplift/tree/_splitter.pyx":196
+  /* "uplift/tree/_splitter.pyx":208
  *                             end)
  * 
  *         weighted_n_node_samples[0] = self.criterion.weighted_n_node_samples             # <<<<<<<<<<<<<<
@@ -3510,7 +3608,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_8Splitter_node_reset(struct __pyx_o
   __pyx_t_1 = __pyx_v_self->criterion->weighted_n_node_samples;
   (__pyx_v_weighted_n_node_samples[0]) = __pyx_t_1;
 
-  /* "uplift/tree/_splitter.pyx":171
+  /* "uplift/tree/_splitter.pyx":183
  *         self.sample_weight = sample_weight
  * 
  *     cdef void node_reset(self, SIZE_t start, SIZE_t end,             # <<<<<<<<<<<<<<
@@ -3521,7 +3619,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_8Splitter_node_reset(struct __pyx_o
   /* function exit code */
 }
 
-/* "uplift/tree/_splitter.pyx":198
+/* "uplift/tree/_splitter.pyx":210
  *         weighted_n_node_samples[0] = self.criterion.weighted_n_node_samples
  * 
  *     cdef void node_split(self, double impurity, SplitRecord* split,             # <<<<<<<<<<<<<<
@@ -3534,7 +3632,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_8Splitter_node_split(CYTHON_UNUSED 
   /* function exit code */
 }
 
-/* "uplift/tree/_splitter.pyx":208
+/* "uplift/tree/_splitter.pyx":220
  *         pass
  * 
  *     cdef void node_value(self, double* dest) nogil:             # <<<<<<<<<<<<<<
@@ -3544,7 +3642,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_8Splitter_node_split(CYTHON_UNUSED 
 
 static void __pyx_f_6uplift_4tree_9_splitter_8Splitter_node_value(struct __pyx_obj_6uplift_4tree_9_splitter_Splitter *__pyx_v_self, double *__pyx_v_dest) {
 
-  /* "uplift/tree/_splitter.pyx":211
+  /* "uplift/tree/_splitter.pyx":223
  *         """Copy the value of node samples[start:end] into dest."""
  * 
  *         self.criterion.node_value(dest)             # <<<<<<<<<<<<<<
@@ -3553,7 +3651,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_8Splitter_node_value(struct __pyx_o
  */
   ((struct __pyx_vtabstruct_6uplift_4tree_10_criterion_Criterion *)__pyx_v_self->criterion->__pyx_vtab)->node_value(__pyx_v_self->criterion, __pyx_v_dest);
 
-  /* "uplift/tree/_splitter.pyx":208
+  /* "uplift/tree/_splitter.pyx":220
  *         pass
  * 
  *     cdef void node_value(self, double* dest) nogil:             # <<<<<<<<<<<<<<
@@ -3564,7 +3662,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_8Splitter_node_value(struct __pyx_o
   /* function exit code */
 }
 
-/* "uplift/tree/_splitter.pyx":213
+/* "uplift/tree/_splitter.pyx":225
  *         self.criterion.node_value(dest)
  * 
  *     cdef double node_impurity(self) nogil:             # <<<<<<<<<<<<<<
@@ -3575,7 +3673,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_8Splitter_node_value(struct __pyx_o
 static double __pyx_f_6uplift_4tree_9_splitter_8Splitter_node_impurity(struct __pyx_obj_6uplift_4tree_9_splitter_Splitter *__pyx_v_self) {
   double __pyx_r;
 
-  /* "uplift/tree/_splitter.pyx":216
+  /* "uplift/tree/_splitter.pyx":228
  *         """Return the impurity of the current node."""
  * 
  *         return self.criterion.node_impurity()             # <<<<<<<<<<<<<<
@@ -3585,7 +3683,7 @@ static double __pyx_f_6uplift_4tree_9_splitter_8Splitter_node_impurity(struct __
   __pyx_r = ((struct __pyx_vtabstruct_6uplift_4tree_10_criterion_Criterion *)__pyx_v_self->criterion->__pyx_vtab)->node_impurity(__pyx_v_self->criterion);
   goto __pyx_L0;
 
-  /* "uplift/tree/_splitter.pyx":213
+  /* "uplift/tree/_splitter.pyx":225
  *         self.criterion.node_value(dest)
  * 
  *     cdef double node_impurity(self) nogil:             # <<<<<<<<<<<<<<
@@ -3598,7 +3696,7 @@ static double __pyx_f_6uplift_4tree_9_splitter_8Splitter_node_impurity(struct __
   return __pyx_r;
 }
 
-/* "uplift/tree/_splitter.pxd":32
+/* "uplift/tree/_splitter.pxd":41
  * 
  *     # Internal structures
  *     cdef public Criterion criterion      # Impurity criterion             # <<<<<<<<<<<<<<
@@ -3653,7 +3751,7 @@ static int __pyx_pf_6uplift_4tree_9_splitter_8Splitter_9criterion_2__set__(struc
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("__set__", 0);
-  if (!(likely(((__pyx_v_value) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_value, __pyx_ptype_6uplift_4tree_10_criterion_Criterion))))) __PYX_ERR(2, 32, __pyx_L1_error)
+  if (!(likely(((__pyx_v_value) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_value, __pyx_ptype_6uplift_4tree_10_criterion_Criterion))))) __PYX_ERR(2, 41, __pyx_L1_error)
   __pyx_t_1 = __pyx_v_value;
   __Pyx_INCREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
@@ -3703,7 +3801,7 @@ static int __pyx_pf_6uplift_4tree_9_splitter_8Splitter_9criterion_4__del__(struc
   return __pyx_r;
 }
 
-/* "uplift/tree/_splitter.pxd":33
+/* "uplift/tree/_splitter.pxd":42
  *     # Internal structures
  *     cdef public Criterion criterion      # Impurity criterion
  *     cdef public SIZE_t max_features      # Number of features to test             # <<<<<<<<<<<<<<
@@ -3730,7 +3828,7 @@ static PyObject *__pyx_pf_6uplift_4tree_9_splitter_8Splitter_12max_features___ge
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("__get__", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_Py_intptr_t(__pyx_v_self->max_features); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 33, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_Py_intptr_t(__pyx_v_self->max_features); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 42, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -3765,7 +3863,7 @@ static int __pyx_pf_6uplift_4tree_9_splitter_8Splitter_12max_features_2__set__(s
   __Pyx_RefNannyDeclarations
   __pyx_t_6uplift_4tree_9_splitter_SIZE_t __pyx_t_1;
   __Pyx_RefNannySetupContext("__set__", 0);
-  __pyx_t_1 = __Pyx_PyInt_As_Py_intptr_t(__pyx_v_value); if (unlikely((__pyx_t_1 == ((npy_intp)-1)) && PyErr_Occurred())) __PYX_ERR(2, 33, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_As_Py_intptr_t(__pyx_v_value); if (unlikely((__pyx_t_1 == ((npy_intp)-1)) && PyErr_Occurred())) __PYX_ERR(2, 42, __pyx_L1_error)
   __pyx_v_self->max_features = __pyx_t_1;
 
   /* function exit code */
@@ -3779,12 +3877,12 @@ static int __pyx_pf_6uplift_4tree_9_splitter_8Splitter_12max_features_2__set__(s
   return __pyx_r;
 }
 
-/* "uplift/tree/_splitter.pxd":34
+/* "uplift/tree/_splitter.pxd":43
  *     cdef public Criterion criterion      # Impurity criterion
  *     cdef public SIZE_t max_features      # Number of features to test
  *     cdef public SIZE_t min_samples_leaf  # Min samples in a leaf             # <<<<<<<<<<<<<<
  *     cdef public double min_weight_leaf   # Minimum weight in a leaf
- * 
+ *     cdef public double stat_param
  */
 
 /* Python wrapper */
@@ -3806,7 +3904,7 @@ static PyObject *__pyx_pf_6uplift_4tree_9_splitter_8Splitter_16min_samples_leaf_
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("__get__", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_Py_intptr_t(__pyx_v_self->min_samples_leaf); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 34, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_Py_intptr_t(__pyx_v_self->min_samples_leaf); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 43, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -3841,7 +3939,7 @@ static int __pyx_pf_6uplift_4tree_9_splitter_8Splitter_16min_samples_leaf_2__set
   __Pyx_RefNannyDeclarations
   __pyx_t_6uplift_4tree_9_splitter_SIZE_t __pyx_t_1;
   __Pyx_RefNannySetupContext("__set__", 0);
-  __pyx_t_1 = __Pyx_PyInt_As_Py_intptr_t(__pyx_v_value); if (unlikely((__pyx_t_1 == ((npy_intp)-1)) && PyErr_Occurred())) __PYX_ERR(2, 34, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_As_Py_intptr_t(__pyx_v_value); if (unlikely((__pyx_t_1 == ((npy_intp)-1)) && PyErr_Occurred())) __PYX_ERR(2, 43, __pyx_L1_error)
   __pyx_v_self->min_samples_leaf = __pyx_t_1;
 
   /* function exit code */
@@ -3855,12 +3953,12 @@ static int __pyx_pf_6uplift_4tree_9_splitter_8Splitter_16min_samples_leaf_2__set
   return __pyx_r;
 }
 
-/* "uplift/tree/_splitter.pxd":35
+/* "uplift/tree/_splitter.pxd":44
  *     cdef public SIZE_t max_features      # Number of features to test
  *     cdef public SIZE_t min_samples_leaf  # Min samples in a leaf
  *     cdef public double min_weight_leaf   # Minimum weight in a leaf             # <<<<<<<<<<<<<<
+ *     cdef public double stat_param
  * 
- *     cdef object random_state             # Random state
  */
 
 /* Python wrapper */
@@ -3882,7 +3980,7 @@ static PyObject *__pyx_pf_6uplift_4tree_9_splitter_8Splitter_15min_weight_leaf__
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("__get__", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble(__pyx_v_self->min_weight_leaf); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 35, __pyx_L1_error)
+  __pyx_t_1 = PyFloat_FromDouble(__pyx_v_self->min_weight_leaf); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 44, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -3917,7 +4015,7 @@ static int __pyx_pf_6uplift_4tree_9_splitter_8Splitter_15min_weight_leaf_2__set_
   __Pyx_RefNannyDeclarations
   double __pyx_t_1;
   __Pyx_RefNannySetupContext("__set__", 0);
-  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_value); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) __PYX_ERR(2, 35, __pyx_L1_error)
+  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_value); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) __PYX_ERR(2, 44, __pyx_L1_error)
   __pyx_v_self->min_weight_leaf = __pyx_t_1;
 
   /* function exit code */
@@ -3925,6 +4023,82 @@ static int __pyx_pf_6uplift_4tree_9_splitter_8Splitter_15min_weight_leaf_2__set_
   goto __pyx_L0;
   __pyx_L1_error:;
   __Pyx_AddTraceback("uplift.tree._splitter.Splitter.min_weight_leaf.__set__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = -1;
+  __pyx_L0:;
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "uplift/tree/_splitter.pxd":45
+ *     cdef public SIZE_t min_samples_leaf  # Min samples in a leaf
+ *     cdef public double min_weight_leaf   # Minimum weight in a leaf
+ *     cdef public double stat_param             # <<<<<<<<<<<<<<
+ * 
+ *     cdef object random_state             # Random state
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_6uplift_4tree_9_splitter_8Splitter_10stat_param_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_6uplift_4tree_9_splitter_8Splitter_10stat_param_1__get__(PyObject *__pyx_v_self) {
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
+  __pyx_r = __pyx_pf_6uplift_4tree_9_splitter_8Splitter_10stat_param___get__(((struct __pyx_obj_6uplift_4tree_9_splitter_Splitter *)__pyx_v_self));
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_6uplift_4tree_9_splitter_8Splitter_10stat_param___get__(struct __pyx_obj_6uplift_4tree_9_splitter_Splitter *__pyx_v_self) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  __Pyx_RefNannySetupContext("__get__", 0);
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = PyFloat_FromDouble(__pyx_v_self->stat_param); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 45, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
+  goto __pyx_L0;
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_AddTraceback("uplift.tree._splitter.Splitter.stat_param.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* Python wrapper */
+static int __pyx_pw_6uplift_4tree_9_splitter_8Splitter_10stat_param_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
+static int __pyx_pw_6uplift_4tree_9_splitter_8Splitter_10stat_param_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
+  int __pyx_r;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("__set__ (wrapper)", 0);
+  __pyx_r = __pyx_pf_6uplift_4tree_9_splitter_8Splitter_10stat_param_2__set__(((struct __pyx_obj_6uplift_4tree_9_splitter_Splitter *)__pyx_v_self), ((PyObject *)__pyx_v_value));
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static int __pyx_pf_6uplift_4tree_9_splitter_8Splitter_10stat_param_2__set__(struct __pyx_obj_6uplift_4tree_9_splitter_Splitter *__pyx_v_self, PyObject *__pyx_v_value) {
+  int __pyx_r;
+  __Pyx_RefNannyDeclarations
+  double __pyx_t_1;
+  __Pyx_RefNannySetupContext("__set__", 0);
+  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_value); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) __PYX_ERR(2, 45, __pyx_L1_error)
+  __pyx_v_self->stat_param = __pyx_t_1;
+
+  /* function exit code */
+  __pyx_r = 0;
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __Pyx_AddTraceback("uplift.tree._splitter.Splitter.stat_param.__set__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = -1;
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
@@ -4038,12 +4212,12 @@ static PyObject *__pyx_pf_6uplift_4tree_9_splitter_8Splitter_10__setstate_cython
   return __pyx_r;
 }
 
-/* "uplift/tree/_splitter.pyx":230
+/* "uplift/tree/_splitter.pyx":242
  *     cdef SIZE_t* sample_mask
  * 
  *     def __cinit__(self, Criterion criterion, SIZE_t max_features,             # <<<<<<<<<<<<<<
  *                   SIZE_t min_samples_leaf, double min_weight_leaf,
- *                   object random_state, bint presort):
+ *                   object random_state, bint presort,double stat_param):
  */
 
 /* Python wrapper */
@@ -4055,16 +4229,19 @@ static int __pyx_pw_6uplift_4tree_9_splitter_17BaseDenseSplitter_1__cinit__(PyOb
   CYTHON_UNUSED double __pyx_v_min_weight_leaf;
   CYTHON_UNUSED PyObject *__pyx_v_random_state = 0;
   int __pyx_v_presort;
+  CYTHON_UNUSED double __pyx_v_stat_param;
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__cinit__ (wrapper)", 0);
   {
-    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_criterion,&__pyx_n_s_max_features,&__pyx_n_s_min_samples_leaf,&__pyx_n_s_min_weight_leaf,&__pyx_n_s_random_state,&__pyx_n_s_presort,0};
-    PyObject* values[6] = {0,0,0,0,0,0};
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_criterion,&__pyx_n_s_max_features,&__pyx_n_s_min_samples_leaf,&__pyx_n_s_min_weight_leaf,&__pyx_n_s_random_state,&__pyx_n_s_presort,&__pyx_n_s_stat_param,0};
+    PyObject* values[7] = {0,0,0,0,0,0,0};
     if (unlikely(__pyx_kwds)) {
       Py_ssize_t kw_args;
       const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
       switch (pos_args) {
+        case  7: values[6] = PyTuple_GET_ITEM(__pyx_args, 6);
+        CYTHON_FALLTHROUGH;
         case  6: values[5] = PyTuple_GET_ITEM(__pyx_args, 5);
         CYTHON_FALLTHROUGH;
         case  5: values[4] = PyTuple_GET_ITEM(__pyx_args, 4);
@@ -4089,37 +4266,43 @@ static int __pyx_pw_6uplift_4tree_9_splitter_17BaseDenseSplitter_1__cinit__(PyOb
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_max_features)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 6, 6, 1); __PYX_ERR(0, 230, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 7, 7, 1); __PYX_ERR(0, 242, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_min_samples_leaf)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 6, 6, 2); __PYX_ERR(0, 230, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 7, 7, 2); __PYX_ERR(0, 242, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
         if (likely((values[3] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_min_weight_leaf)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 6, 6, 3); __PYX_ERR(0, 230, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 7, 7, 3); __PYX_ERR(0, 242, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  4:
         if (likely((values[4] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_random_state)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 6, 6, 4); __PYX_ERR(0, 230, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 7, 7, 4); __PYX_ERR(0, 242, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  5:
         if (likely((values[5] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_presort)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 6, 6, 5); __PYX_ERR(0, 230, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 7, 7, 5); __PYX_ERR(0, 242, __pyx_L3_error)
+        }
+        CYTHON_FALLTHROUGH;
+        case  6:
+        if (likely((values[6] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_stat_param)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 7, 7, 6); __PYX_ERR(0, 242, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__cinit__") < 0)) __PYX_ERR(0, 230, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__cinit__") < 0)) __PYX_ERR(0, 242, __pyx_L3_error)
       }
-    } else if (PyTuple_GET_SIZE(__pyx_args) != 6) {
+    } else if (PyTuple_GET_SIZE(__pyx_args) != 7) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
@@ -4128,24 +4311,26 @@ static int __pyx_pw_6uplift_4tree_9_splitter_17BaseDenseSplitter_1__cinit__(PyOb
       values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
       values[4] = PyTuple_GET_ITEM(__pyx_args, 4);
       values[5] = PyTuple_GET_ITEM(__pyx_args, 5);
+      values[6] = PyTuple_GET_ITEM(__pyx_args, 6);
     }
     __pyx_v_criterion = ((struct __pyx_obj_6uplift_4tree_10_criterion_Criterion *)values[0]);
-    __pyx_v_max_features = __Pyx_PyInt_As_Py_intptr_t(values[1]); if (unlikely((__pyx_v_max_features == ((npy_intp)-1)) && PyErr_Occurred())) __PYX_ERR(0, 230, __pyx_L3_error)
-    __pyx_v_min_samples_leaf = __Pyx_PyInt_As_Py_intptr_t(values[2]); if (unlikely((__pyx_v_min_samples_leaf == ((npy_intp)-1)) && PyErr_Occurred())) __PYX_ERR(0, 231, __pyx_L3_error)
-    __pyx_v_min_weight_leaf = __pyx_PyFloat_AsDouble(values[3]); if (unlikely((__pyx_v_min_weight_leaf == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 231, __pyx_L3_error)
+    __pyx_v_max_features = __Pyx_PyInt_As_Py_intptr_t(values[1]); if (unlikely((__pyx_v_max_features == ((npy_intp)-1)) && PyErr_Occurred())) __PYX_ERR(0, 242, __pyx_L3_error)
+    __pyx_v_min_samples_leaf = __Pyx_PyInt_As_Py_intptr_t(values[2]); if (unlikely((__pyx_v_min_samples_leaf == ((npy_intp)-1)) && PyErr_Occurred())) __PYX_ERR(0, 243, __pyx_L3_error)
+    __pyx_v_min_weight_leaf = __pyx_PyFloat_AsDouble(values[3]); if (unlikely((__pyx_v_min_weight_leaf == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 243, __pyx_L3_error)
     __pyx_v_random_state = values[4];
-    __pyx_v_presort = __Pyx_PyObject_IsTrue(values[5]); if (unlikely((__pyx_v_presort == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 232, __pyx_L3_error)
+    __pyx_v_presort = __Pyx_PyObject_IsTrue(values[5]); if (unlikely((__pyx_v_presort == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 244, __pyx_L3_error)
+    __pyx_v_stat_param = __pyx_PyFloat_AsDouble(values[6]); if (unlikely((__pyx_v_stat_param == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 244, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 6, 6, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 230, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 7, 7, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 242, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("uplift.tree._splitter.BaseDenseSplitter.__cinit__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return -1;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_criterion), __pyx_ptype_6uplift_4tree_10_criterion_Criterion, 1, "criterion", 0))) __PYX_ERR(0, 230, __pyx_L1_error)
-  __pyx_r = __pyx_pf_6uplift_4tree_9_splitter_17BaseDenseSplitter___cinit__(((struct __pyx_obj_6uplift_4tree_9_splitter_BaseDenseSplitter *)__pyx_v_self), __pyx_v_criterion, __pyx_v_max_features, __pyx_v_min_samples_leaf, __pyx_v_min_weight_leaf, __pyx_v_random_state, __pyx_v_presort);
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_criterion), __pyx_ptype_6uplift_4tree_10_criterion_Criterion, 1, "criterion", 0))) __PYX_ERR(0, 242, __pyx_L1_error)
+  __pyx_r = __pyx_pf_6uplift_4tree_9_splitter_17BaseDenseSplitter___cinit__(((struct __pyx_obj_6uplift_4tree_9_splitter_BaseDenseSplitter *)__pyx_v_self), __pyx_v_criterion, __pyx_v_max_features, __pyx_v_min_samples_leaf, __pyx_v_min_weight_leaf, __pyx_v_random_state, __pyx_v_presort, __pyx_v_stat_param);
 
   /* function exit code */
   goto __pyx_L0;
@@ -4156,13 +4341,13 @@ static int __pyx_pw_6uplift_4tree_9_splitter_17BaseDenseSplitter_1__cinit__(PyOb
   return __pyx_r;
 }
 
-static int __pyx_pf_6uplift_4tree_9_splitter_17BaseDenseSplitter___cinit__(struct __pyx_obj_6uplift_4tree_9_splitter_BaseDenseSplitter *__pyx_v_self, CYTHON_UNUSED struct __pyx_obj_6uplift_4tree_10_criterion_Criterion *__pyx_v_criterion, CYTHON_UNUSED __pyx_t_6uplift_4tree_9_splitter_SIZE_t __pyx_v_max_features, CYTHON_UNUSED __pyx_t_6uplift_4tree_9_splitter_SIZE_t __pyx_v_min_samples_leaf, CYTHON_UNUSED double __pyx_v_min_weight_leaf, CYTHON_UNUSED PyObject *__pyx_v_random_state, int __pyx_v_presort) {
+static int __pyx_pf_6uplift_4tree_9_splitter_17BaseDenseSplitter___cinit__(struct __pyx_obj_6uplift_4tree_9_splitter_BaseDenseSplitter *__pyx_v_self, CYTHON_UNUSED struct __pyx_obj_6uplift_4tree_10_criterion_Criterion *__pyx_v_criterion, CYTHON_UNUSED __pyx_t_6uplift_4tree_9_splitter_SIZE_t __pyx_v_max_features, CYTHON_UNUSED __pyx_t_6uplift_4tree_9_splitter_SIZE_t __pyx_v_min_samples_leaf, CYTHON_UNUSED double __pyx_v_min_weight_leaf, CYTHON_UNUSED PyObject *__pyx_v_random_state, int __pyx_v_presort, CYTHON_UNUSED double __pyx_v_stat_param) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__cinit__", 0);
 
-  /* "uplift/tree/_splitter.pyx":234
- *                   object random_state, bint presort):
+  /* "uplift/tree/_splitter.pyx":246
+ *                   object random_state, bint presort,double stat_param):
  * 
  *         self.X = NULL             # <<<<<<<<<<<<<<
  *         self.X_sample_stride = 0
@@ -4170,7 +4355,7 @@ static int __pyx_pf_6uplift_4tree_9_splitter_17BaseDenseSplitter___cinit__(struc
  */
   __pyx_v_self->X = NULL;
 
-  /* "uplift/tree/_splitter.pyx":235
+  /* "uplift/tree/_splitter.pyx":247
  * 
  *         self.X = NULL
  *         self.X_sample_stride = 0             # <<<<<<<<<<<<<<
@@ -4179,7 +4364,7 @@ static int __pyx_pf_6uplift_4tree_9_splitter_17BaseDenseSplitter___cinit__(struc
  */
   __pyx_v_self->X_sample_stride = 0;
 
-  /* "uplift/tree/_splitter.pyx":236
+  /* "uplift/tree/_splitter.pyx":248
  *         self.X = NULL
  *         self.X_sample_stride = 0
  *         self.X_feature_stride = 0             # <<<<<<<<<<<<<<
@@ -4188,7 +4373,7 @@ static int __pyx_pf_6uplift_4tree_9_splitter_17BaseDenseSplitter___cinit__(struc
  */
   __pyx_v_self->X_feature_stride = 0;
 
-  /* "uplift/tree/_splitter.pyx":237
+  /* "uplift/tree/_splitter.pyx":249
  *         self.X_sample_stride = 0
  *         self.X_feature_stride = 0
  *         self.X_idx_sorted_ptr = NULL             # <<<<<<<<<<<<<<
@@ -4197,7 +4382,7 @@ static int __pyx_pf_6uplift_4tree_9_splitter_17BaseDenseSplitter___cinit__(struc
  */
   __pyx_v_self->X_idx_sorted_ptr = NULL;
 
-  /* "uplift/tree/_splitter.pyx":238
+  /* "uplift/tree/_splitter.pyx":250
  *         self.X_feature_stride = 0
  *         self.X_idx_sorted_ptr = NULL
  *         self.X_idx_sorted_stride = 0             # <<<<<<<<<<<<<<
@@ -4206,7 +4391,7 @@ static int __pyx_pf_6uplift_4tree_9_splitter_17BaseDenseSplitter___cinit__(struc
  */
   __pyx_v_self->X_idx_sorted_stride = 0;
 
-  /* "uplift/tree/_splitter.pyx":239
+  /* "uplift/tree/_splitter.pyx":251
  *         self.X_idx_sorted_ptr = NULL
  *         self.X_idx_sorted_stride = 0
  *         self.sample_mask = NULL             # <<<<<<<<<<<<<<
@@ -4215,21 +4400,21 @@ static int __pyx_pf_6uplift_4tree_9_splitter_17BaseDenseSplitter___cinit__(struc
  */
   __pyx_v_self->sample_mask = NULL;
 
-  /* "uplift/tree/_splitter.pyx":240
+  /* "uplift/tree/_splitter.pyx":252
  *         self.X_idx_sorted_stride = 0
  *         self.sample_mask = NULL
  *         self.presort = presort             # <<<<<<<<<<<<<<
  * 
- *     def __dealloc__(self):
+ * 
  */
   __pyx_v_self->__pyx_base.presort = __pyx_v_presort;
 
-  /* "uplift/tree/_splitter.pyx":230
+  /* "uplift/tree/_splitter.pyx":242
  *     cdef SIZE_t* sample_mask
  * 
  *     def __cinit__(self, Criterion criterion, SIZE_t max_features,             # <<<<<<<<<<<<<<
  *                   SIZE_t min_samples_leaf, double min_weight_leaf,
- *                   object random_state, bint presort):
+ *                   object random_state, bint presort,double stat_param):
  */
 
   /* function exit code */
@@ -4238,8 +4423,8 @@ static int __pyx_pf_6uplift_4tree_9_splitter_17BaseDenseSplitter___cinit__(struc
   return __pyx_r;
 }
 
-/* "uplift/tree/_splitter.pyx":242
- *         self.presort = presort
+/* "uplift/tree/_splitter.pyx":255
+ * 
  * 
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
  *         """Destructor."""
@@ -4262,7 +4447,7 @@ static void __pyx_pf_6uplift_4tree_9_splitter_17BaseDenseSplitter_2__dealloc__(s
   int __pyx_t_1;
   __Pyx_RefNannySetupContext("__dealloc__", 0);
 
-  /* "uplift/tree/_splitter.pyx":244
+  /* "uplift/tree/_splitter.pyx":257
  *     def __dealloc__(self):
  *         """Destructor."""
  *         if self.presort == 1:             # <<<<<<<<<<<<<<
@@ -4272,7 +4457,7 @@ static void __pyx_pf_6uplift_4tree_9_splitter_17BaseDenseSplitter_2__dealloc__(s
   __pyx_t_1 = ((__pyx_v_self->__pyx_base.presort == 1) != 0);
   if (__pyx_t_1) {
 
-    /* "uplift/tree/_splitter.pyx":245
+    /* "uplift/tree/_splitter.pyx":258
  *         """Destructor."""
  *         if self.presort == 1:
  *             free(self.sample_mask)             # <<<<<<<<<<<<<<
@@ -4281,7 +4466,7 @@ static void __pyx_pf_6uplift_4tree_9_splitter_17BaseDenseSplitter_2__dealloc__(s
  */
     free(__pyx_v_self->sample_mask);
 
-    /* "uplift/tree/_splitter.pyx":244
+    /* "uplift/tree/_splitter.pyx":257
  *     def __dealloc__(self):
  *         """Destructor."""
  *         if self.presort == 1:             # <<<<<<<<<<<<<<
@@ -4290,8 +4475,8 @@ static void __pyx_pf_6uplift_4tree_9_splitter_17BaseDenseSplitter_2__dealloc__(s
  */
   }
 
-  /* "uplift/tree/_splitter.pyx":242
- *         self.presort = presort
+  /* "uplift/tree/_splitter.pyx":255
+ * 
  * 
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
  *         """Destructor."""
@@ -4302,7 +4487,7 @@ static void __pyx_pf_6uplift_4tree_9_splitter_17BaseDenseSplitter_2__dealloc__(s
   __Pyx_RefNannyFinishContext();
 }
 
-/* "uplift/tree/_splitter.pyx":247
+/* "uplift/tree/_splitter.pyx":260
  *             free(self.sample_mask)
  * 
  *     cdef void init(self,             # <<<<<<<<<<<<<<
@@ -4312,7 +4497,7 @@ static void __pyx_pf_6uplift_4tree_9_splitter_17BaseDenseSplitter_2__dealloc__(s
 
 static void __pyx_f_6uplift_4tree_9_splitter_17BaseDenseSplitter_init(struct __pyx_obj_6uplift_4tree_9_splitter_BaseDenseSplitter *__pyx_v_self, PyObject *__pyx_v_X, PyArrayObject *__pyx_v_y, __pyx_t_6uplift_4tree_9_splitter_DOUBLE_t *__pyx_v_sample_weight, struct __pyx_opt_args_6uplift_4tree_9_splitter_17BaseDenseSplitter_init *__pyx_optional_args) {
 
-  /* "uplift/tree/_splitter.pyx":251
+  /* "uplift/tree/_splitter.pyx":264
  *                    np.ndarray[DOUBLE_t, ndim=2, mode="c"] y,
  *                    DOUBLE_t* sample_weight,
  *                    np.ndarray X_idx_sorted=None) except *:             # <<<<<<<<<<<<<<
@@ -4341,33 +4526,33 @@ static void __pyx_f_6uplift_4tree_9_splitter_17BaseDenseSplitter_init(struct __p
   __pyx_pybuffernd_y.rcbuffer = &__pyx_pybuffer_y;
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_y.rcbuffer->pybuffer, (PyObject*)__pyx_v_y, &__Pyx_TypeInfo_nn___pyx_t_6uplift_4tree_9_splitter_DOUBLE_t, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 247, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_y.rcbuffer->pybuffer, (PyObject*)__pyx_v_y, &__Pyx_TypeInfo_nn___pyx_t_6uplift_4tree_9_splitter_DOUBLE_t, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 260, __pyx_L1_error)
   }
   __pyx_pybuffernd_y.diminfo[0].strides = __pyx_pybuffernd_y.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_y.diminfo[0].shape = __pyx_pybuffernd_y.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_y.diminfo[1].strides = __pyx_pybuffernd_y.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_y.diminfo[1].shape = __pyx_pybuffernd_y.rcbuffer->pybuffer.shape[1];
 
-  /* "uplift/tree/_splitter.pyx":255
+  /* "uplift/tree/_splitter.pyx":268
  * 
  *         # Call parent init
  *         Splitter.init(self, X, y, sample_weight)             # <<<<<<<<<<<<<<
  * 
  *         # Initialize X
  */
-  __pyx_vtabptr_6uplift_4tree_9_splitter_Splitter->init(((struct __pyx_obj_6uplift_4tree_9_splitter_Splitter *)__pyx_v_self), __pyx_v_X, ((PyArrayObject *)__pyx_v_y), __pyx_v_sample_weight, NULL); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 255, __pyx_L1_error)
+  __pyx_vtabptr_6uplift_4tree_9_splitter_Splitter->init(((struct __pyx_obj_6uplift_4tree_9_splitter_Splitter *)__pyx_v_self), __pyx_v_X, ((PyArrayObject *)__pyx_v_y), __pyx_v_sample_weight, NULL); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 268, __pyx_L1_error)
 
-  /* "uplift/tree/_splitter.pyx":258
+  /* "uplift/tree/_splitter.pyx":271
  * 
  *         # Initialize X
  *         cdef np.ndarray X_ndarray = X             # <<<<<<<<<<<<<<
  * 
  *         self.X = <DTYPE_t*> X_ndarray.data
  */
-  if (!(likely(((__pyx_v_X) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_X, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 258, __pyx_L1_error)
+  if (!(likely(((__pyx_v_X) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_X, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 271, __pyx_L1_error)
   __pyx_t_1 = __pyx_v_X;
   __Pyx_INCREF(__pyx_t_1);
   __pyx_v_X_ndarray = ((PyArrayObject *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "uplift/tree/_splitter.pyx":260
+  /* "uplift/tree/_splitter.pyx":273
  *         cdef np.ndarray X_ndarray = X
  * 
  *         self.X = <DTYPE_t*> X_ndarray.data             # <<<<<<<<<<<<<<
@@ -4376,47 +4561,47 @@ static void __pyx_f_6uplift_4tree_9_splitter_17BaseDenseSplitter_init(struct __p
  */
   __pyx_v_self->X = ((__pyx_t_6uplift_4tree_9_splitter_DTYPE_t *)__pyx_v_X_ndarray->data);
 
-  /* "uplift/tree/_splitter.pyx":261
+  /* "uplift/tree/_splitter.pyx":274
  * 
  *         self.X = <DTYPE_t*> X_ndarray.data
  *         self.X_sample_stride = <SIZE_t> X.strides[0] / <SIZE_t> X.itemsize             # <<<<<<<<<<<<<<
  *         self.X_feature_stride = <SIZE_t> X.strides[1] / <SIZE_t> X.itemsize
  * 
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_X, __pyx_n_s_strides); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 261, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_X, __pyx_n_s_strides); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 274, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_1, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 261, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_1, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 274, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_3 = __Pyx_PyInt_As_Py_intptr_t(__pyx_t_2); if (unlikely((__pyx_t_3 == ((npy_intp)-1)) && PyErr_Occurred())) __PYX_ERR(0, 261, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_As_Py_intptr_t(__pyx_t_2); if (unlikely((__pyx_t_3 == ((npy_intp)-1)) && PyErr_Occurred())) __PYX_ERR(0, 274, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_X, __pyx_n_s_itemsize); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 261, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_X, __pyx_n_s_itemsize); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 274, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_4 = __Pyx_PyInt_As_Py_intptr_t(__pyx_t_2); if (unlikely((__pyx_t_4 == ((npy_intp)-1)) && PyErr_Occurred())) __PYX_ERR(0, 261, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_As_Py_intptr_t(__pyx_t_2); if (unlikely((__pyx_t_4 == ((npy_intp)-1)) && PyErr_Occurred())) __PYX_ERR(0, 274, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_v_self->X_sample_stride = (((__pyx_t_6uplift_4tree_9_splitter_SIZE_t)__pyx_t_3) / ((__pyx_t_6uplift_4tree_9_splitter_SIZE_t)__pyx_t_4));
 
-  /* "uplift/tree/_splitter.pyx":262
+  /* "uplift/tree/_splitter.pyx":275
  *         self.X = <DTYPE_t*> X_ndarray.data
  *         self.X_sample_stride = <SIZE_t> X.strides[0] / <SIZE_t> X.itemsize
  *         self.X_feature_stride = <SIZE_t> X.strides[1] / <SIZE_t> X.itemsize             # <<<<<<<<<<<<<<
  * 
  *         if self.presort == 1:
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_X, __pyx_n_s_strides); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 262, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_X, __pyx_n_s_strides); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 275, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = __Pyx_GetItemInt(__pyx_t_2, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 262, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_GetItemInt(__pyx_t_2, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 275, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_4 = __Pyx_PyInt_As_Py_intptr_t(__pyx_t_1); if (unlikely((__pyx_t_4 == ((npy_intp)-1)) && PyErr_Occurred())) __PYX_ERR(0, 262, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_As_Py_intptr_t(__pyx_t_1); if (unlikely((__pyx_t_4 == ((npy_intp)-1)) && PyErr_Occurred())) __PYX_ERR(0, 275, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_X, __pyx_n_s_itemsize); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 262, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_X, __pyx_n_s_itemsize); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 275, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_PyInt_As_Py_intptr_t(__pyx_t_1); if (unlikely((__pyx_t_3 == ((npy_intp)-1)) && PyErr_Occurred())) __PYX_ERR(0, 262, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_As_Py_intptr_t(__pyx_t_1); if (unlikely((__pyx_t_3 == ((npy_intp)-1)) && PyErr_Occurred())) __PYX_ERR(0, 275, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_self->X_feature_stride = (((__pyx_t_6uplift_4tree_9_splitter_SIZE_t)__pyx_t_4) / ((__pyx_t_6uplift_4tree_9_splitter_SIZE_t)__pyx_t_3));
 
-  /* "uplift/tree/_splitter.pyx":264
+  /* "uplift/tree/_splitter.pyx":277
  *         self.X_feature_stride = <SIZE_t> X.strides[1] / <SIZE_t> X.itemsize
  * 
  *         if self.presort == 1:             # <<<<<<<<<<<<<<
@@ -4426,7 +4611,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_17BaseDenseSplitter_init(struct __p
   __pyx_t_5 = ((__pyx_v_self->__pyx_base.presort == 1) != 0);
   if (__pyx_t_5) {
 
-    /* "uplift/tree/_splitter.pyx":265
+    /* "uplift/tree/_splitter.pyx":278
  * 
  *         if self.presort == 1:
  *             self.X_idx_sorted = X_idx_sorted             # <<<<<<<<<<<<<<
@@ -4439,7 +4624,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_17BaseDenseSplitter_init(struct __p
     __Pyx_DECREF(((PyObject *)__pyx_v_self->X_idx_sorted));
     __pyx_v_self->X_idx_sorted = __pyx_v_X_idx_sorted;
 
-    /* "uplift/tree/_splitter.pyx":266
+    /* "uplift/tree/_splitter.pyx":279
  *         if self.presort == 1:
  *             self.X_idx_sorted = X_idx_sorted
  *             self.X_idx_sorted_ptr = <INT32_t*> self.X_idx_sorted.data             # <<<<<<<<<<<<<<
@@ -4448,19 +4633,19 @@ static void __pyx_f_6uplift_4tree_9_splitter_17BaseDenseSplitter_init(struct __p
  */
     __pyx_v_self->X_idx_sorted_ptr = ((__pyx_t_6uplift_4tree_9_splitter_INT32_t *)__pyx_v_self->X_idx_sorted->data);
 
-    /* "uplift/tree/_splitter.pyx":268
+    /* "uplift/tree/_splitter.pyx":281
  *             self.X_idx_sorted_ptr = <INT32_t*> self.X_idx_sorted.data
  *             self.X_idx_sorted_stride = (<SIZE_t> self.X_idx_sorted.strides[1] /
  *                                         <SIZE_t> self.X_idx_sorted.itemsize)             # <<<<<<<<<<<<<<
  * 
  *             self.n_total_samples = X.shape[0]
  */
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self->X_idx_sorted), __pyx_n_s_itemsize); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 268, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self->X_idx_sorted), __pyx_n_s_itemsize); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 281, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_3 = __Pyx_PyInt_As_Py_intptr_t(__pyx_t_1); if (unlikely((__pyx_t_3 == ((npy_intp)-1)) && PyErr_Occurred())) __PYX_ERR(0, 268, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyInt_As_Py_intptr_t(__pyx_t_1); if (unlikely((__pyx_t_3 == ((npy_intp)-1)) && PyErr_Occurred())) __PYX_ERR(0, 281, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "uplift/tree/_splitter.pyx":267
+    /* "uplift/tree/_splitter.pyx":280
  *             self.X_idx_sorted = X_idx_sorted
  *             self.X_idx_sorted_ptr = <INT32_t*> self.X_idx_sorted.data
  *             self.X_idx_sorted_stride = (<SIZE_t> self.X_idx_sorted.strides[1] /             # <<<<<<<<<<<<<<
@@ -4469,32 +4654,32 @@ static void __pyx_f_6uplift_4tree_9_splitter_17BaseDenseSplitter_init(struct __p
  */
     __pyx_v_self->X_idx_sorted_stride = (((__pyx_t_6uplift_4tree_9_splitter_SIZE_t)(__pyx_v_self->X_idx_sorted->strides[1])) / ((__pyx_t_6uplift_4tree_9_splitter_SIZE_t)__pyx_t_3));
 
-    /* "uplift/tree/_splitter.pyx":270
+    /* "uplift/tree/_splitter.pyx":283
  *                                         <SIZE_t> self.X_idx_sorted.itemsize)
  * 
  *             self.n_total_samples = X.shape[0]             # <<<<<<<<<<<<<<
  *             safe_realloc(&self.sample_mask, self.n_total_samples)
  *             memset(self.sample_mask, 0, self.n_total_samples*sizeof(SIZE_t))
  */
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_X, __pyx_n_s_shape); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 270, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_X, __pyx_n_s_shape); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 283, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_1, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 270, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_1, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 283, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_3 = __Pyx_PyInt_As_Py_intptr_t(__pyx_t_2); if (unlikely((__pyx_t_3 == ((npy_intp)-1)) && PyErr_Occurred())) __PYX_ERR(0, 270, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyInt_As_Py_intptr_t(__pyx_t_2); if (unlikely((__pyx_t_3 == ((npy_intp)-1)) && PyErr_Occurred())) __PYX_ERR(0, 283, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_v_self->n_total_samples = __pyx_t_3;
 
-    /* "uplift/tree/_splitter.pyx":271
+    /* "uplift/tree/_splitter.pyx":284
  * 
  *             self.n_total_samples = X.shape[0]
  *             safe_realloc(&self.sample_mask, self.n_total_samples)             # <<<<<<<<<<<<<<
  *             memset(self.sample_mask, 0, self.n_total_samples*sizeof(SIZE_t))
  * 
  */
-    __pyx_fuse_1__pyx_f_6uplift_4tree_6_utils_safe_realloc((&__pyx_v_self->sample_mask), __pyx_v_self->n_total_samples); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 271, __pyx_L1_error)
+    __pyx_fuse_1__pyx_f_6uplift_4tree_6_utils_safe_realloc((&__pyx_v_self->sample_mask), __pyx_v_self->n_total_samples); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 284, __pyx_L1_error)
 
-    /* "uplift/tree/_splitter.pyx":272
+    /* "uplift/tree/_splitter.pyx":285
  *             self.n_total_samples = X.shape[0]
  *             safe_realloc(&self.sample_mask, self.n_total_samples)
  *             memset(self.sample_mask, 0, self.n_total_samples*sizeof(SIZE_t))             # <<<<<<<<<<<<<<
@@ -4503,7 +4688,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_17BaseDenseSplitter_init(struct __p
  */
     (void)(memset(__pyx_v_self->sample_mask, 0, (__pyx_v_self->n_total_samples * (sizeof(__pyx_t_6uplift_4tree_9_splitter_SIZE_t)))));
 
-    /* "uplift/tree/_splitter.pyx":264
+    /* "uplift/tree/_splitter.pyx":277
  *         self.X_feature_stride = <SIZE_t> X.strides[1] / <SIZE_t> X.itemsize
  * 
  *         if self.presort == 1:             # <<<<<<<<<<<<<<
@@ -4512,7 +4697,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_17BaseDenseSplitter_init(struct __p
  */
   }
 
-  /* "uplift/tree/_splitter.pyx":247
+  /* "uplift/tree/_splitter.pyx":260
  *             free(self.sample_mask)
  * 
  *     cdef void init(self,             # <<<<<<<<<<<<<<
@@ -4647,7 +4832,7 @@ static PyObject *__pyx_pf_6uplift_4tree_9_splitter_17BaseDenseSplitter_6__setsta
   return __pyx_r;
 }
 
-/* "uplift/tree/_splitter.pyx":277
+/* "uplift/tree/_splitter.pyx":290
  * cdef class BestSplitter(BaseDenseSplitter):
  *     """Splitter for finding the best split."""
  *     def __reduce__(self):             # <<<<<<<<<<<<<<
@@ -4676,9 +4861,10 @@ static PyObject *__pyx_pf_6uplift_4tree_9_splitter_12BestSplitter___reduce__(str
   PyObject *__pyx_t_3 = NULL;
   PyObject *__pyx_t_4 = NULL;
   PyObject *__pyx_t_5 = NULL;
+  PyObject *__pyx_t_6 = NULL;
   __Pyx_RefNannySetupContext("__reduce__", 0);
 
-  /* "uplift/tree/_splitter.pyx":278
+  /* "uplift/tree/_splitter.pyx":291
  *     """Splitter for finding the best split."""
  *     def __reduce__(self):
  *         return (BestSplitter, (self.criterion,             # <<<<<<<<<<<<<<
@@ -4687,122 +4873,127 @@ static PyObject *__pyx_pf_6uplift_4tree_9_splitter_12BestSplitter___reduce__(str
  */
   __Pyx_XDECREF(__pyx_r);
 
-  /* "uplift/tree/_splitter.pyx":279
+  /* "uplift/tree/_splitter.pyx":292
  *     def __reduce__(self):
  *         return (BestSplitter, (self.criterion,
  *                                self.max_features,             # <<<<<<<<<<<<<<
  *                                self.min_samples_leaf,
  *                                self.min_weight_leaf,
  */
-  __pyx_t_1 = __Pyx_PyInt_From_Py_intptr_t(__pyx_v_self->__pyx_base.__pyx_base.max_features); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 279, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_Py_intptr_t(__pyx_v_self->__pyx_base.__pyx_base.max_features); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 292, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
 
-  /* "uplift/tree/_splitter.pyx":280
+  /* "uplift/tree/_splitter.pyx":293
  *         return (BestSplitter, (self.criterion,
  *                                self.max_features,
  *                                self.min_samples_leaf,             # <<<<<<<<<<<<<<
  *                                self.min_weight_leaf,
  *                                self.random_state,
  */
-  __pyx_t_2 = __Pyx_PyInt_From_Py_intptr_t(__pyx_v_self->__pyx_base.__pyx_base.min_samples_leaf); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 280, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_From_Py_intptr_t(__pyx_v_self->__pyx_base.__pyx_base.min_samples_leaf); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 293, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
 
-  /* "uplift/tree/_splitter.pyx":281
+  /* "uplift/tree/_splitter.pyx":294
  *                                self.max_features,
  *                                self.min_samples_leaf,
  *                                self.min_weight_leaf,             # <<<<<<<<<<<<<<
  *                                self.random_state,
- *                                self.presort), self.__getstate__())
+ *                                self.presort,self.stat_param), self.__getstate__())
  */
-  __pyx_t_3 = PyFloat_FromDouble(__pyx_v_self->__pyx_base.__pyx_base.min_weight_leaf); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 281, __pyx_L1_error)
+  __pyx_t_3 = PyFloat_FromDouble(__pyx_v_self->__pyx_base.__pyx_base.min_weight_leaf); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 294, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
 
-  /* "uplift/tree/_splitter.pyx":283
+  /* "uplift/tree/_splitter.pyx":296
  *                                self.min_weight_leaf,
  *                                self.random_state,
- *                                self.presort), self.__getstate__())             # <<<<<<<<<<<<<<
+ *                                self.presort,self.stat_param), self.__getstate__())             # <<<<<<<<<<<<<<
  * 
  *     cdef void node_split(self, double impurity, SplitRecord* split,
  */
-  __pyx_t_4 = __Pyx_PyBool_FromLong(__pyx_v_self->__pyx_base.__pyx_base.presort); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 283, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyBool_FromLong(__pyx_v_self->__pyx_base.__pyx_base.presort); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 296, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
+  __pyx_t_5 = PyFloat_FromDouble(__pyx_v_self->__pyx_base.__pyx_base.stat_param); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 296, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
 
-  /* "uplift/tree/_splitter.pyx":278
+  /* "uplift/tree/_splitter.pyx":291
  *     """Splitter for finding the best split."""
  *     def __reduce__(self):
  *         return (BestSplitter, (self.criterion,             # <<<<<<<<<<<<<<
  *                                self.max_features,
  *                                self.min_samples_leaf,
  */
-  __pyx_t_5 = PyTuple_New(6); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 278, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_5);
+  __pyx_t_6 = PyTuple_New(7); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 291, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_6);
   __Pyx_INCREF(((PyObject *)__pyx_v_self->__pyx_base.__pyx_base.criterion));
   __Pyx_GIVEREF(((PyObject *)__pyx_v_self->__pyx_base.__pyx_base.criterion));
-  PyTuple_SET_ITEM(__pyx_t_5, 0, ((PyObject *)__pyx_v_self->__pyx_base.__pyx_base.criterion));
+  PyTuple_SET_ITEM(__pyx_t_6, 0, ((PyObject *)__pyx_v_self->__pyx_base.__pyx_base.criterion));
   __Pyx_GIVEREF(__pyx_t_1);
-  PyTuple_SET_ITEM(__pyx_t_5, 1, __pyx_t_1);
+  PyTuple_SET_ITEM(__pyx_t_6, 1, __pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_2);
-  PyTuple_SET_ITEM(__pyx_t_5, 2, __pyx_t_2);
+  PyTuple_SET_ITEM(__pyx_t_6, 2, __pyx_t_2);
   __Pyx_GIVEREF(__pyx_t_3);
-  PyTuple_SET_ITEM(__pyx_t_5, 3, __pyx_t_3);
+  PyTuple_SET_ITEM(__pyx_t_6, 3, __pyx_t_3);
   __Pyx_INCREF(__pyx_v_self->__pyx_base.__pyx_base.random_state);
   __Pyx_GIVEREF(__pyx_v_self->__pyx_base.__pyx_base.random_state);
-  PyTuple_SET_ITEM(__pyx_t_5, 4, __pyx_v_self->__pyx_base.__pyx_base.random_state);
+  PyTuple_SET_ITEM(__pyx_t_6, 4, __pyx_v_self->__pyx_base.__pyx_base.random_state);
   __Pyx_GIVEREF(__pyx_t_4);
-  PyTuple_SET_ITEM(__pyx_t_5, 5, __pyx_t_4);
+  PyTuple_SET_ITEM(__pyx_t_6, 5, __pyx_t_4);
+  __Pyx_GIVEREF(__pyx_t_5);
+  PyTuple_SET_ITEM(__pyx_t_6, 6, __pyx_t_5);
   __pyx_t_1 = 0;
   __pyx_t_2 = 0;
   __pyx_t_3 = 0;
   __pyx_t_4 = 0;
+  __pyx_t_5 = 0;
 
-  /* "uplift/tree/_splitter.pyx":283
+  /* "uplift/tree/_splitter.pyx":296
  *                                self.min_weight_leaf,
  *                                self.random_state,
- *                                self.presort), self.__getstate__())             # <<<<<<<<<<<<<<
+ *                                self.presort,self.stat_param), self.__getstate__())             # <<<<<<<<<<<<<<
  * 
  *     cdef void node_split(self, double impurity, SplitRecord* split,
  */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_getstate); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 283, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = NULL;
-  if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_3))) {
-    __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_3);
-    if (likely(__pyx_t_2)) {
-      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_3);
-      __Pyx_INCREF(__pyx_t_2);
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_getstate); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 296, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __pyx_t_3 = NULL;
+  if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_4))) {
+    __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_4);
+    if (likely(__pyx_t_3)) {
+      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_4);
+      __Pyx_INCREF(__pyx_t_3);
       __Pyx_INCREF(function);
-      __Pyx_DECREF_SET(__pyx_t_3, function);
+      __Pyx_DECREF_SET(__pyx_t_4, function);
     }
   }
-  __pyx_t_4 = (__pyx_t_2) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_2) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
-  __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 283, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_5 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_4);
+  __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+  if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 296, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "uplift/tree/_splitter.pyx":278
+  /* "uplift/tree/_splitter.pyx":291
  *     """Splitter for finding the best split."""
  *     def __reduce__(self):
  *         return (BestSplitter, (self.criterion,             # <<<<<<<<<<<<<<
  *                                self.max_features,
  *                                self.min_samples_leaf,
  */
-  __pyx_t_3 = PyTuple_New(3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 278, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_t_4 = PyTuple_New(3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 291, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
   __Pyx_INCREF(((PyObject *)__pyx_ptype_6uplift_4tree_9_splitter_BestSplitter));
   __Pyx_GIVEREF(((PyObject *)__pyx_ptype_6uplift_4tree_9_splitter_BestSplitter));
-  PyTuple_SET_ITEM(__pyx_t_3, 0, ((PyObject *)__pyx_ptype_6uplift_4tree_9_splitter_BestSplitter));
+  PyTuple_SET_ITEM(__pyx_t_4, 0, ((PyObject *)__pyx_ptype_6uplift_4tree_9_splitter_BestSplitter));
+  __Pyx_GIVEREF(__pyx_t_6);
+  PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_t_6);
   __Pyx_GIVEREF(__pyx_t_5);
-  PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_t_5);
-  __Pyx_GIVEREF(__pyx_t_4);
-  PyTuple_SET_ITEM(__pyx_t_3, 2, __pyx_t_4);
+  PyTuple_SET_ITEM(__pyx_t_4, 2, __pyx_t_5);
+  __pyx_t_6 = 0;
   __pyx_t_5 = 0;
+  __pyx_r = __pyx_t_4;
   __pyx_t_4 = 0;
-  __pyx_r = __pyx_t_3;
-  __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "uplift/tree/_splitter.pyx":277
+  /* "uplift/tree/_splitter.pyx":290
  * cdef class BestSplitter(BaseDenseSplitter):
  *     """Splitter for finding the best split."""
  *     def __reduce__(self):             # <<<<<<<<<<<<<<
@@ -4817,6 +5008,7 @@ static PyObject *__pyx_pf_6uplift_4tree_9_splitter_12BestSplitter___reduce__(str
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
+  __Pyx_XDECREF(__pyx_t_6);
   __Pyx_AddTraceback("uplift.tree._splitter.BestSplitter.__reduce__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
@@ -4825,8 +5017,8 @@ static PyObject *__pyx_pf_6uplift_4tree_9_splitter_12BestSplitter___reduce__(str
   return __pyx_r;
 }
 
-/* "uplift/tree/_splitter.pyx":285
- *                                self.presort), self.__getstate__())
+/* "uplift/tree/_splitter.pyx":298
+ *                                self.presort,self.stat_param), self.__getstate__())
  * 
  *     cdef void node_split(self, double impurity, SplitRecord* split,             # <<<<<<<<<<<<<<
  *                          SIZE_t* n_constant_features) nogil:
@@ -4848,6 +5040,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
   __pyx_t_6uplift_4tree_9_splitter_SIZE_t __pyx_v_min_samples_leaf;
   double __pyx_v_min_weight_leaf;
   __pyx_t_6uplift_4tree_9_splitter_UINT32_t *__pyx_v_random_state;
+  CYTHON_UNUSED double __pyx_v_stat_param;
   __pyx_t_6uplift_4tree_9_splitter_INT32_t *__pyx_v_X_idx_sorted;
   __pyx_t_6uplift_4tree_9_splitter_SIZE_t *__pyx_v_sample_mask;
   struct __pyx_t_6uplift_4tree_9_splitter_SplitRecord __pyx_v_best;
@@ -4878,7 +5071,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
   __pyx_t_6uplift_4tree_9_splitter_SIZE_t __pyx_t_8;
   int __pyx_t_9;
 
-  /* "uplift/tree/_splitter.pyx":289
+  /* "uplift/tree/_splitter.pyx":302
  *         """Find the best split on node samples[start:end]."""
  *         # Find the best split
  *         cdef SIZE_t* samples = self.samples             # <<<<<<<<<<<<<<
@@ -4888,7 +5081,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
   __pyx_t_1 = __pyx_v_self->__pyx_base.__pyx_base.samples;
   __pyx_v_samples = __pyx_t_1;
 
-  /* "uplift/tree/_splitter.pyx":290
+  /* "uplift/tree/_splitter.pyx":303
  *         # Find the best split
  *         cdef SIZE_t* samples = self.samples
  *         cdef SIZE_t start = self.start             # <<<<<<<<<<<<<<
@@ -4898,7 +5091,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
   __pyx_t_2 = __pyx_v_self->__pyx_base.__pyx_base.start;
   __pyx_v_start = __pyx_t_2;
 
-  /* "uplift/tree/_splitter.pyx":291
+  /* "uplift/tree/_splitter.pyx":304
  *         cdef SIZE_t* samples = self.samples
  *         cdef SIZE_t start = self.start
  *         cdef SIZE_t end = self.end             # <<<<<<<<<<<<<<
@@ -4908,7 +5101,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
   __pyx_t_2 = __pyx_v_self->__pyx_base.__pyx_base.end;
   __pyx_v_end = __pyx_t_2;
 
-  /* "uplift/tree/_splitter.pyx":293
+  /* "uplift/tree/_splitter.pyx":306
  *         cdef SIZE_t end = self.end
  * 
  *         cdef SIZE_t* features = self.features             # <<<<<<<<<<<<<<
@@ -4918,7 +5111,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
   __pyx_t_1 = __pyx_v_self->__pyx_base.__pyx_base.features;
   __pyx_v_features = __pyx_t_1;
 
-  /* "uplift/tree/_splitter.pyx":294
+  /* "uplift/tree/_splitter.pyx":307
  * 
  *         cdef SIZE_t* features = self.features
  *         cdef SIZE_t* constant_features = self.constant_features             # <<<<<<<<<<<<<<
@@ -4928,7 +5121,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
   __pyx_t_1 = __pyx_v_self->__pyx_base.__pyx_base.constant_features;
   __pyx_v_constant_features = __pyx_t_1;
 
-  /* "uplift/tree/_splitter.pyx":295
+  /* "uplift/tree/_splitter.pyx":308
  *         cdef SIZE_t* features = self.features
  *         cdef SIZE_t* constant_features = self.constant_features
  *         cdef SIZE_t n_features = self.n_features             # <<<<<<<<<<<<<<
@@ -4938,7 +5131,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
   __pyx_t_2 = __pyx_v_self->__pyx_base.__pyx_base.n_features;
   __pyx_v_n_features = __pyx_t_2;
 
-  /* "uplift/tree/_splitter.pyx":297
+  /* "uplift/tree/_splitter.pyx":310
  *         cdef SIZE_t n_features = self.n_features
  * 
  *         cdef DTYPE_t* X = self.X             # <<<<<<<<<<<<<<
@@ -4948,7 +5141,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
   __pyx_t_3 = __pyx_v_self->__pyx_base.X;
   __pyx_v_X = __pyx_t_3;
 
-  /* "uplift/tree/_splitter.pyx":298
+  /* "uplift/tree/_splitter.pyx":311
  * 
  *         cdef DTYPE_t* X = self.X
  *         cdef DTYPE_t* Xf = self.feature_values             # <<<<<<<<<<<<<<
@@ -4958,7 +5151,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
   __pyx_t_3 = __pyx_v_self->__pyx_base.__pyx_base.feature_values;
   __pyx_v_Xf = __pyx_t_3;
 
-  /* "uplift/tree/_splitter.pyx":299
+  /* "uplift/tree/_splitter.pyx":312
  *         cdef DTYPE_t* X = self.X
  *         cdef DTYPE_t* Xf = self.feature_values
  *         cdef SIZE_t X_sample_stride = self.X_sample_stride             # <<<<<<<<<<<<<<
@@ -4968,7 +5161,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
   __pyx_t_2 = __pyx_v_self->__pyx_base.X_sample_stride;
   __pyx_v_X_sample_stride = __pyx_t_2;
 
-  /* "uplift/tree/_splitter.pyx":300
+  /* "uplift/tree/_splitter.pyx":313
  *         cdef DTYPE_t* Xf = self.feature_values
  *         cdef SIZE_t X_sample_stride = self.X_sample_stride
  *         cdef SIZE_t X_feature_stride = self.X_feature_stride             # <<<<<<<<<<<<<<
@@ -4978,7 +5171,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
   __pyx_t_2 = __pyx_v_self->__pyx_base.X_feature_stride;
   __pyx_v_X_feature_stride = __pyx_t_2;
 
-  /* "uplift/tree/_splitter.pyx":301
+  /* "uplift/tree/_splitter.pyx":314
  *         cdef SIZE_t X_sample_stride = self.X_sample_stride
  *         cdef SIZE_t X_feature_stride = self.X_feature_stride
  *         cdef SIZE_t max_features = self.max_features             # <<<<<<<<<<<<<<
@@ -4988,7 +5181,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
   __pyx_t_2 = __pyx_v_self->__pyx_base.__pyx_base.max_features;
   __pyx_v_max_features = __pyx_t_2;
 
-  /* "uplift/tree/_splitter.pyx":302
+  /* "uplift/tree/_splitter.pyx":315
  *         cdef SIZE_t X_feature_stride = self.X_feature_stride
  *         cdef SIZE_t max_features = self.max_features
  *         cdef SIZE_t min_samples_leaf = self.min_samples_leaf             # <<<<<<<<<<<<<<
@@ -4998,27 +5191,37 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
   __pyx_t_2 = __pyx_v_self->__pyx_base.__pyx_base.min_samples_leaf;
   __pyx_v_min_samples_leaf = __pyx_t_2;
 
-  /* "uplift/tree/_splitter.pyx":303
+  /* "uplift/tree/_splitter.pyx":316
  *         cdef SIZE_t max_features = self.max_features
  *         cdef SIZE_t min_samples_leaf = self.min_samples_leaf
  *         cdef double min_weight_leaf = self.min_weight_leaf             # <<<<<<<<<<<<<<
  *         cdef UINT32_t* random_state = &self.rand_r_state
- * 
+ *         cdef double stat_param = self.stat_param
  */
   __pyx_t_4 = __pyx_v_self->__pyx_base.__pyx_base.min_weight_leaf;
   __pyx_v_min_weight_leaf = __pyx_t_4;
 
-  /* "uplift/tree/_splitter.pyx":304
+  /* "uplift/tree/_splitter.pyx":317
  *         cdef SIZE_t min_samples_leaf = self.min_samples_leaf
  *         cdef double min_weight_leaf = self.min_weight_leaf
  *         cdef UINT32_t* random_state = &self.rand_r_state             # <<<<<<<<<<<<<<
+ *         cdef double stat_param = self.stat_param
  * 
- *         cdef INT32_t* X_idx_sorted = self.X_idx_sorted_ptr
  */
   __pyx_v_random_state = (&__pyx_v_self->__pyx_base.__pyx_base.rand_r_state);
 
-  /* "uplift/tree/_splitter.pyx":306
+  /* "uplift/tree/_splitter.pyx":318
+ *         cdef double min_weight_leaf = self.min_weight_leaf
  *         cdef UINT32_t* random_state = &self.rand_r_state
+ *         cdef double stat_param = self.stat_param             # <<<<<<<<<<<<<<
+ * 
+ *         cdef INT32_t* X_idx_sorted = self.X_idx_sorted_ptr
+ */
+  __pyx_t_4 = __pyx_v_self->__pyx_base.__pyx_base.stat_param;
+  __pyx_v_stat_param = __pyx_t_4;
+
+  /* "uplift/tree/_splitter.pyx":320
+ *         cdef double stat_param = self.stat_param
  * 
  *         cdef INT32_t* X_idx_sorted = self.X_idx_sorted_ptr             # <<<<<<<<<<<<<<
  *         cdef SIZE_t* sample_mask = self.sample_mask
@@ -5027,7 +5230,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
   __pyx_t_5 = __pyx_v_self->__pyx_base.X_idx_sorted_ptr;
   __pyx_v_X_idx_sorted = __pyx_t_5;
 
-  /* "uplift/tree/_splitter.pyx":307
+  /* "uplift/tree/_splitter.pyx":321
  * 
  *         cdef INT32_t* X_idx_sorted = self.X_idx_sorted_ptr
  *         cdef SIZE_t* sample_mask = self.sample_mask             # <<<<<<<<<<<<<<
@@ -5037,7 +5240,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
   __pyx_t_1 = __pyx_v_self->__pyx_base.sample_mask;
   __pyx_v_sample_mask = __pyx_t_1;
 
-  /* "uplift/tree/_splitter.pyx":310
+  /* "uplift/tree/_splitter.pyx":324
  * 
  *         cdef SplitRecord best, current
  *         cdef double current_proxy_improvement = -INFINITY             # <<<<<<<<<<<<<<
@@ -5046,7 +5249,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
  */
   __pyx_v_current_proxy_improvement = (-__pyx_v_6uplift_4tree_9_splitter_INFINITY);
 
-  /* "uplift/tree/_splitter.pyx":311
+  /* "uplift/tree/_splitter.pyx":325
  *         cdef SplitRecord best, current
  *         cdef double current_proxy_improvement = -INFINITY
  *         cdef double best_proxy_improvement = -INFINITY             # <<<<<<<<<<<<<<
@@ -5055,7 +5258,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
  */
   __pyx_v_best_proxy_improvement = (-__pyx_v_6uplift_4tree_9_splitter_INFINITY);
 
-  /* "uplift/tree/_splitter.pyx":313
+  /* "uplift/tree/_splitter.pyx":327
  *         cdef double best_proxy_improvement = -INFINITY
  * 
  *         cdef SIZE_t f_i = n_features             # <<<<<<<<<<<<<<
@@ -5064,7 +5267,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
  */
   __pyx_v_f_i = __pyx_v_n_features;
 
-  /* "uplift/tree/_splitter.pyx":322
+  /* "uplift/tree/_splitter.pyx":336
  *         cdef SIZE_t j
  * 
  *         cdef SIZE_t n_visited_features = 0             # <<<<<<<<<<<<<<
@@ -5073,7 +5276,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
  */
   __pyx_v_n_visited_features = 0;
 
-  /* "uplift/tree/_splitter.pyx":324
+  /* "uplift/tree/_splitter.pyx":338
  *         cdef SIZE_t n_visited_features = 0
  *         # Number of features discovered to be constant during the split search
  *         cdef SIZE_t n_found_constants = 0             # <<<<<<<<<<<<<<
@@ -5082,7 +5285,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
  */
   __pyx_v_n_found_constants = 0;
 
-  /* "uplift/tree/_splitter.pyx":326
+  /* "uplift/tree/_splitter.pyx":340
  *         cdef SIZE_t n_found_constants = 0
  *         # Number of features known to be constant and drawn without replacement
  *         cdef SIZE_t n_drawn_constants = 0             # <<<<<<<<<<<<<<
@@ -5091,7 +5294,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
  */
   __pyx_v_n_drawn_constants = 0;
 
-  /* "uplift/tree/_splitter.pyx":327
+  /* "uplift/tree/_splitter.pyx":341
  *         # Number of features known to be constant and drawn without replacement
  *         cdef SIZE_t n_drawn_constants = 0
  *         cdef SIZE_t n_known_constants = n_constant_features[0]             # <<<<<<<<<<<<<<
@@ -5100,7 +5303,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
  */
   __pyx_v_n_known_constants = (__pyx_v_n_constant_features[0]);
 
-  /* "uplift/tree/_splitter.pyx":329
+  /* "uplift/tree/_splitter.pyx":343
  *         cdef SIZE_t n_known_constants = n_constant_features[0]
  *         # n_total_constants = n_known_constants + n_found_constants
  *         cdef SIZE_t n_total_constants = n_known_constants             # <<<<<<<<<<<<<<
@@ -5109,7 +5312,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
  */
   __pyx_v_n_total_constants = __pyx_v_n_known_constants;
 
-  /* "uplift/tree/_splitter.pyx":333
+  /* "uplift/tree/_splitter.pyx":347
  *         cdef SIZE_t partition_end
  * 
  *         _init_split(&best, end)             # <<<<<<<<<<<<<<
@@ -5118,7 +5321,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
  */
   __pyx_f_6uplift_4tree_9_splitter__init_split((&__pyx_v_best), __pyx_v_end);
 
-  /* "uplift/tree/_splitter.pyx":335
+  /* "uplift/tree/_splitter.pyx":349
  *         _init_split(&best, end)
  * 
  *         if self.presort == 1:             # <<<<<<<<<<<<<<
@@ -5128,7 +5331,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
   __pyx_t_6 = ((__pyx_v_self->__pyx_base.__pyx_base.presort == 1) != 0);
   if (__pyx_t_6) {
 
-    /* "uplift/tree/_splitter.pyx":336
+    /* "uplift/tree/_splitter.pyx":350
  * 
  *         if self.presort == 1:
  *             for p in range(start, end):             # <<<<<<<<<<<<<<
@@ -5140,7 +5343,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
     for (__pyx_t_8 = __pyx_v_start; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
       __pyx_v_p = __pyx_t_8;
 
-      /* "uplift/tree/_splitter.pyx":337
+      /* "uplift/tree/_splitter.pyx":351
  *         if self.presort == 1:
  *             for p in range(start, end):
  *                 sample_mask[samples[p]] = 1             # <<<<<<<<<<<<<<
@@ -5150,7 +5353,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
       (__pyx_v_sample_mask[(__pyx_v_samples[__pyx_v_p])]) = 1;
     }
 
-    /* "uplift/tree/_splitter.pyx":335
+    /* "uplift/tree/_splitter.pyx":349
  *         _init_split(&best, end)
  * 
  *         if self.presort == 1:             # <<<<<<<<<<<<<<
@@ -5159,7 +5362,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
  */
   }
 
-  /* "uplift/tree/_splitter.pyx":348
+  /* "uplift/tree/_splitter.pyx":362
  *         # newly discovered constant features to spare computation on descendant
  *         # nodes.
  *         while (f_i > n_total_constants and  # Stop early if remaining features             # <<<<<<<<<<<<<<
@@ -5174,7 +5377,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
       goto __pyx_L8_bool_binop_done;
     }
 
-    /* "uplift/tree/_splitter.pyx":350
+    /* "uplift/tree/_splitter.pyx":364
  *         while (f_i > n_total_constants and  # Stop early if remaining features
  *                                             # are constant
  *                 (n_visited_features < max_features or             # <<<<<<<<<<<<<<
@@ -5188,7 +5391,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
       goto __pyx_L8_bool_binop_done;
     }
 
-    /* "uplift/tree/_splitter.pyx":352
+    /* "uplift/tree/_splitter.pyx":366
  *                 (n_visited_features < max_features or
  *                  # At least one drawn features must be non constant
  *                  n_visited_features <= n_found_constants + n_drawn_constants)):             # <<<<<<<<<<<<<<
@@ -5200,7 +5403,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
     __pyx_L8_bool_binop_done:;
     if (!__pyx_t_6) break;
 
-    /* "uplift/tree/_splitter.pyx":354
+    /* "uplift/tree/_splitter.pyx":368
  *                  n_visited_features <= n_found_constants + n_drawn_constants)):
  * 
  *             n_visited_features += 1             # <<<<<<<<<<<<<<
@@ -5209,7 +5412,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
  */
     __pyx_v_n_visited_features = (__pyx_v_n_visited_features + 1);
 
-    /* "uplift/tree/_splitter.pyx":368
+    /* "uplift/tree/_splitter.pyx":382
  * 
  *             # Draw a feature at random
  *             f_j = rand_int(n_drawn_constants, f_i - n_found_constants,             # <<<<<<<<<<<<<<
@@ -5218,7 +5421,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
  */
     __pyx_v_f_j = __pyx_f_6uplift_4tree_6_utils_rand_int(__pyx_v_n_drawn_constants, (__pyx_v_f_i - __pyx_v_n_found_constants), __pyx_v_random_state);
 
-    /* "uplift/tree/_splitter.pyx":371
+    /* "uplift/tree/_splitter.pyx":385
  *                            random_state)
  * 
  *             if f_j < n_known_constants:             # <<<<<<<<<<<<<<
@@ -5228,7 +5431,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
     __pyx_t_6 = ((__pyx_v_f_j < __pyx_v_n_known_constants) != 0);
     if (__pyx_t_6) {
 
-      /* "uplift/tree/_splitter.pyx":373
+      /* "uplift/tree/_splitter.pyx":387
  *             if f_j < n_known_constants:
  *                 # f_j in the interval [n_drawn_constants, n_known_constants[
  *                 tmp = features[f_j]             # <<<<<<<<<<<<<<
@@ -5237,7 +5440,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
  */
       __pyx_v_tmp = (__pyx_v_features[__pyx_v_f_j]);
 
-      /* "uplift/tree/_splitter.pyx":374
+      /* "uplift/tree/_splitter.pyx":388
  *                 # f_j in the interval [n_drawn_constants, n_known_constants[
  *                 tmp = features[f_j]
  *                 features[f_j] = features[n_drawn_constants]             # <<<<<<<<<<<<<<
@@ -5246,7 +5449,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
  */
       (__pyx_v_features[__pyx_v_f_j]) = (__pyx_v_features[__pyx_v_n_drawn_constants]);
 
-      /* "uplift/tree/_splitter.pyx":375
+      /* "uplift/tree/_splitter.pyx":389
  *                 tmp = features[f_j]
  *                 features[f_j] = features[n_drawn_constants]
  *                 features[n_drawn_constants] = tmp             # <<<<<<<<<<<<<<
@@ -5255,7 +5458,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
  */
       (__pyx_v_features[__pyx_v_n_drawn_constants]) = __pyx_v_tmp;
 
-      /* "uplift/tree/_splitter.pyx":377
+      /* "uplift/tree/_splitter.pyx":391
  *                 features[n_drawn_constants] = tmp
  * 
  *                 n_drawn_constants += 1             # <<<<<<<<<<<<<<
@@ -5264,7 +5467,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
  */
       __pyx_v_n_drawn_constants = (__pyx_v_n_drawn_constants + 1);
 
-      /* "uplift/tree/_splitter.pyx":371
+      /* "uplift/tree/_splitter.pyx":385
  *                            random_state)
  * 
  *             if f_j < n_known_constants:             # <<<<<<<<<<<<<<
@@ -5274,7 +5477,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
       goto __pyx_L11;
     }
 
-    /* "uplift/tree/_splitter.pyx":381
+    /* "uplift/tree/_splitter.pyx":395
  *             else:
  *                 # f_j in the interval [n_known_constants, f_i - n_found_constants[
  *                 f_j += n_found_constants             # <<<<<<<<<<<<<<
@@ -5284,7 +5487,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
     /*else*/ {
       __pyx_v_f_j = (__pyx_v_f_j + __pyx_v_n_found_constants);
 
-      /* "uplift/tree/_splitter.pyx":383
+      /* "uplift/tree/_splitter.pyx":397
  *                 f_j += n_found_constants
  *                 # f_j in the interval [n_total_constants, f_i[
  *                 current.feature = features[f_j]             # <<<<<<<<<<<<<<
@@ -5293,7 +5496,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
  */
       __pyx_v_current.feature = (__pyx_v_features[__pyx_v_f_j]);
 
-      /* "uplift/tree/_splitter.pyx":384
+      /* "uplift/tree/_splitter.pyx":398
  *                 # f_j in the interval [n_total_constants, f_i[
  *                 current.feature = features[f_j]
  *                 feature_offset = self.X_feature_stride * current.feature             # <<<<<<<<<<<<<<
@@ -5302,7 +5505,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
  */
       __pyx_v_feature_offset = (__pyx_v_self->__pyx_base.X_feature_stride * __pyx_v_current.feature);
 
-      /* "uplift/tree/_splitter.pyx":390
+      /* "uplift/tree/_splitter.pyx":404
  *                 # sorting the array in a manner which utilizes the cache more
  *                 # effectively.
  *                 if self.presort == 1:             # <<<<<<<<<<<<<<
@@ -5312,7 +5515,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
       __pyx_t_6 = ((__pyx_v_self->__pyx_base.__pyx_base.presort == 1) != 0);
       if (__pyx_t_6) {
 
-        /* "uplift/tree/_splitter.pyx":391
+        /* "uplift/tree/_splitter.pyx":405
  *                 # effectively.
  *                 if self.presort == 1:
  *                     p = start             # <<<<<<<<<<<<<<
@@ -5321,7 +5524,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
  */
         __pyx_v_p = __pyx_v_start;
 
-        /* "uplift/tree/_splitter.pyx":392
+        /* "uplift/tree/_splitter.pyx":406
  *                 if self.presort == 1:
  *                     p = start
  *                     feature_idx_offset = self.X_idx_sorted_stride * current.feature             # <<<<<<<<<<<<<<
@@ -5330,7 +5533,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
  */
         __pyx_v_feature_idx_offset = (__pyx_v_self->__pyx_base.X_idx_sorted_stride * __pyx_v_current.feature);
 
-        /* "uplift/tree/_splitter.pyx":394
+        /* "uplift/tree/_splitter.pyx":408
  *                     feature_idx_offset = self.X_idx_sorted_stride * current.feature
  * 
  *                     for i in range(self.n_total_samples):             # <<<<<<<<<<<<<<
@@ -5342,7 +5545,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
         for (__pyx_t_8 = 0; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
           __pyx_v_i = __pyx_t_8;
 
-          /* "uplift/tree/_splitter.pyx":395
+          /* "uplift/tree/_splitter.pyx":409
  * 
  *                     for i in range(self.n_total_samples):
  *                         j = X_idx_sorted[i + feature_idx_offset]             # <<<<<<<<<<<<<<
@@ -5351,7 +5554,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
  */
           __pyx_v_j = (__pyx_v_X_idx_sorted[(__pyx_v_i + __pyx_v_feature_idx_offset)]);
 
-          /* "uplift/tree/_splitter.pyx":396
+          /* "uplift/tree/_splitter.pyx":410
  *                     for i in range(self.n_total_samples):
  *                         j = X_idx_sorted[i + feature_idx_offset]
  *                         if sample_mask[j] == 1:             # <<<<<<<<<<<<<<
@@ -5361,7 +5564,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
           __pyx_t_6 = (((__pyx_v_sample_mask[__pyx_v_j]) == 1) != 0);
           if (__pyx_t_6) {
 
-            /* "uplift/tree/_splitter.pyx":397
+            /* "uplift/tree/_splitter.pyx":411
  *                         j = X_idx_sorted[i + feature_idx_offset]
  *                         if sample_mask[j] == 1:
  *                             samples[p] = j             # <<<<<<<<<<<<<<
@@ -5370,7 +5573,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
  */
             (__pyx_v_samples[__pyx_v_p]) = __pyx_v_j;
 
-            /* "uplift/tree/_splitter.pyx":398
+            /* "uplift/tree/_splitter.pyx":412
  *                         if sample_mask[j] == 1:
  *                             samples[p] = j
  *                             Xf[p] = X[self.X_sample_stride * j + feature_offset]             # <<<<<<<<<<<<<<
@@ -5379,7 +5582,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
  */
             (__pyx_v_Xf[__pyx_v_p]) = (__pyx_v_X[((__pyx_v_self->__pyx_base.X_sample_stride * __pyx_v_j) + __pyx_v_feature_offset)]);
 
-            /* "uplift/tree/_splitter.pyx":399
+            /* "uplift/tree/_splitter.pyx":413
  *                             samples[p] = j
  *                             Xf[p] = X[self.X_sample_stride * j + feature_offset]
  *                             p += 1             # <<<<<<<<<<<<<<
@@ -5388,7 +5591,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
  */
             __pyx_v_p = (__pyx_v_p + 1);
 
-            /* "uplift/tree/_splitter.pyx":396
+            /* "uplift/tree/_splitter.pyx":410
  *                     for i in range(self.n_total_samples):
  *                         j = X_idx_sorted[i + feature_idx_offset]
  *                         if sample_mask[j] == 1:             # <<<<<<<<<<<<<<
@@ -5398,7 +5601,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
           }
         }
 
-        /* "uplift/tree/_splitter.pyx":390
+        /* "uplift/tree/_splitter.pyx":404
  *                 # sorting the array in a manner which utilizes the cache more
  *                 # effectively.
  *                 if self.presort == 1:             # <<<<<<<<<<<<<<
@@ -5408,7 +5611,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
         goto __pyx_L12;
       }
 
-      /* "uplift/tree/_splitter.pyx":401
+      /* "uplift/tree/_splitter.pyx":415
  *                             p += 1
  *                 else:
  *                     for i in range(start, end):             # <<<<<<<<<<<<<<
@@ -5421,7 +5624,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
         for (__pyx_t_8 = __pyx_v_start; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
           __pyx_v_i = __pyx_t_8;
 
-          /* "uplift/tree/_splitter.pyx":402
+          /* "uplift/tree/_splitter.pyx":416
  *                 else:
  *                     for i in range(start, end):
  *                         Xf[i] = X[self.X_sample_stride * samples[i] + feature_offset]             # <<<<<<<<<<<<<<
@@ -5431,403 +5634,403 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
           (__pyx_v_Xf[__pyx_v_i]) = (__pyx_v_X[((__pyx_v_self->__pyx_base.X_sample_stride * (__pyx_v_samples[__pyx_v_i])) + __pyx_v_feature_offset)]);
         }
 
-        /* "uplift/tree/_splitter.pyx":404
+        /* "uplift/tree/_splitter.pyx":418
  *                         Xf[i] = X[self.X_sample_stride * samples[i] + feature_offset]
  * 
  *                     sort(Xf + start, samples + start, end - start)             # <<<<<<<<<<<<<<
  * 
- *                 if Xf[end - 1] <= Xf[start] + FEATURE_THRESHOLD:
+ *                     if Xf[end - 1] <= Xf[start] + FEATURE_THRESHOLD:
  */
         __pyx_f_6uplift_4tree_9_splitter_sort((__pyx_v_Xf + __pyx_v_start), (__pyx_v_samples + __pyx_v_start), (__pyx_v_end - __pyx_v_start));
-      }
-      __pyx_L12:;
 
-      /* "uplift/tree/_splitter.pyx":406
+        /* "uplift/tree/_splitter.pyx":420
  *                     sort(Xf + start, samples + start, end - start)
  * 
- *                 if Xf[end - 1] <= Xf[start] + FEATURE_THRESHOLD:             # <<<<<<<<<<<<<<
- *                     features[f_j] = features[n_total_constants]
- *                     features[n_total_constants] = current.feature
+ *                     if Xf[end - 1] <= Xf[start] + FEATURE_THRESHOLD:             # <<<<<<<<<<<<<<
+ *                         features[f_j] = features[n_total_constants]
+ *                         features[n_total_constants] = current.feature
  */
-      __pyx_t_6 = (((__pyx_v_Xf[(__pyx_v_end - 1)]) <= ((__pyx_v_Xf[__pyx_v_start]) + __pyx_v_6uplift_4tree_9_splitter_FEATURE_THRESHOLD)) != 0);
-      if (__pyx_t_6) {
+        __pyx_t_6 = (((__pyx_v_Xf[(__pyx_v_end - 1)]) <= ((__pyx_v_Xf[__pyx_v_start]) + __pyx_v_6uplift_4tree_9_splitter_FEATURE_THRESHOLD)) != 0);
+        if (__pyx_t_6) {
 
-        /* "uplift/tree/_splitter.pyx":407
+          /* "uplift/tree/_splitter.pyx":421
  * 
- *                 if Xf[end - 1] <= Xf[start] + FEATURE_THRESHOLD:
- *                     features[f_j] = features[n_total_constants]             # <<<<<<<<<<<<<<
- *                     features[n_total_constants] = current.feature
- * 
- */
-        (__pyx_v_features[__pyx_v_f_j]) = (__pyx_v_features[__pyx_v_n_total_constants]);
-
-        /* "uplift/tree/_splitter.pyx":408
- *                 if Xf[end - 1] <= Xf[start] + FEATURE_THRESHOLD:
- *                     features[f_j] = features[n_total_constants]
- *                     features[n_total_constants] = current.feature             # <<<<<<<<<<<<<<
- * 
- *                     n_found_constants += 1
- */
-        __pyx_t_2 = __pyx_v_current.feature;
-        (__pyx_v_features[__pyx_v_n_total_constants]) = __pyx_t_2;
-
-        /* "uplift/tree/_splitter.pyx":410
- *                     features[n_total_constants] = current.feature
- * 
- *                     n_found_constants += 1             # <<<<<<<<<<<<<<
- *                     n_total_constants += 1
+ *                     if Xf[end - 1] <= Xf[start] + FEATURE_THRESHOLD:
+ *                         features[f_j] = features[n_total_constants]             # <<<<<<<<<<<<<<
+ *                         features[n_total_constants] = current.feature
  * 
  */
-        __pyx_v_n_found_constants = (__pyx_v_n_found_constants + 1);
-
-        /* "uplift/tree/_splitter.pyx":411
- * 
- *                     n_found_constants += 1
- *                     n_total_constants += 1             # <<<<<<<<<<<<<<
- * 
- *                 else:
- */
-        __pyx_v_n_total_constants = (__pyx_v_n_total_constants + 1);
-
-        /* "uplift/tree/_splitter.pyx":406
- *                     sort(Xf + start, samples + start, end - start)
- * 
- *                 if Xf[end - 1] <= Xf[start] + FEATURE_THRESHOLD:             # <<<<<<<<<<<<<<
- *                     features[f_j] = features[n_total_constants]
- *                     features[n_total_constants] = current.feature
- */
-        goto __pyx_L18;
-      }
-
-      /* "uplift/tree/_splitter.pyx":414
- * 
- *                 else:
- *                     f_i -= 1             # <<<<<<<<<<<<<<
- *                     features[f_i], features[f_j] = features[f_j], features[f_i]
- * 
- */
-      /*else*/ {
-        __pyx_v_f_i = (__pyx_v_f_i - 1);
-
-        /* "uplift/tree/_splitter.pyx":415
- *                 else:
- *                     f_i -= 1
- *                     features[f_i], features[f_j] = features[f_j], features[f_i]             # <<<<<<<<<<<<<<
- * 
- *                     # Evaluate all splits
- */
-        __pyx_t_2 = (__pyx_v_features[__pyx_v_f_j]);
-        __pyx_t_7 = (__pyx_v_features[__pyx_v_f_i]);
-        (__pyx_v_features[__pyx_v_f_i]) = __pyx_t_2;
-        (__pyx_v_features[__pyx_v_f_j]) = __pyx_t_7;
-
-        /* "uplift/tree/_splitter.pyx":418
- * 
- *                     # Evaluate all splits
- *                     self.criterion.reset()             # <<<<<<<<<<<<<<
- *                     p = start
- * 
- */
-        ((struct __pyx_vtabstruct_6uplift_4tree_10_criterion_Criterion *)__pyx_v_self->__pyx_base.__pyx_base.criterion->__pyx_vtab)->reset(__pyx_v_self->__pyx_base.__pyx_base.criterion);
-
-        /* "uplift/tree/_splitter.pyx":419
- *                     # Evaluate all splits
- *                     self.criterion.reset()
- *                     p = start             # <<<<<<<<<<<<<<
- * 
- *                     while p < end:
- */
-        __pyx_v_p = __pyx_v_start;
-
-        /* "uplift/tree/_splitter.pyx":421
- *                     p = start
- * 
- *                     while p < end:             # <<<<<<<<<<<<<<
- *                         while (p + 1 < end and
- *                                Xf[p + 1] <= Xf[p] + FEATURE_THRESHOLD):
- */
-        while (1) {
-          __pyx_t_6 = ((__pyx_v_p < __pyx_v_end) != 0);
-          if (!__pyx_t_6) break;
+          (__pyx_v_features[__pyx_v_f_j]) = (__pyx_v_features[__pyx_v_n_total_constants]);
 
           /* "uplift/tree/_splitter.pyx":422
+ *                     if Xf[end - 1] <= Xf[start] + FEATURE_THRESHOLD:
+ *                         features[f_j] = features[n_total_constants]
+ *                         features[n_total_constants] = current.feature             # <<<<<<<<<<<<<<
  * 
- *                     while p < end:
- *                         while (p + 1 < end and             # <<<<<<<<<<<<<<
- *                                Xf[p + 1] <= Xf[p] + FEATURE_THRESHOLD):
- *                             p += 1
+ *                         n_found_constants += 1
  */
-          while (1) {
-            __pyx_t_9 = (((__pyx_v_p + 1) < __pyx_v_end) != 0);
-            if (__pyx_t_9) {
-            } else {
-              __pyx_t_6 = __pyx_t_9;
-              goto __pyx_L23_bool_binop_done;
-            }
+          __pyx_t_2 = __pyx_v_current.feature;
+          (__pyx_v_features[__pyx_v_n_total_constants]) = __pyx_t_2;
 
-            /* "uplift/tree/_splitter.pyx":423
- *                     while p < end:
- *                         while (p + 1 < end and
- *                                Xf[p + 1] <= Xf[p] + FEATURE_THRESHOLD):             # <<<<<<<<<<<<<<
- *                             p += 1
+          /* "uplift/tree/_splitter.pyx":424
+ *                         features[n_total_constants] = current.feature
+ * 
+ *                         n_found_constants += 1             # <<<<<<<<<<<<<<
+ *                         n_total_constants += 1
  * 
  */
-            __pyx_t_9 = (((__pyx_v_Xf[(__pyx_v_p + 1)]) <= ((__pyx_v_Xf[__pyx_v_p]) + __pyx_v_6uplift_4tree_9_splitter_FEATURE_THRESHOLD)) != 0);
-            __pyx_t_6 = __pyx_t_9;
-            __pyx_L23_bool_binop_done:;
-            if (!__pyx_t_6) break;
+          __pyx_v_n_found_constants = (__pyx_v_n_found_constants + 1);
 
-            /* "uplift/tree/_splitter.pyx":424
- *                         while (p + 1 < end and
- *                                Xf[p + 1] <= Xf[p] + FEATURE_THRESHOLD):
- *                             p += 1             # <<<<<<<<<<<<<<
+          /* "uplift/tree/_splitter.pyx":425
  * 
- *                         # (p + 1 >= end) or (X[samples[p + 1], current.feature] >
+ *                         n_found_constants += 1
+ *                         n_total_constants += 1             # <<<<<<<<<<<<<<
+ * 
+ *                     else:
  */
-            __pyx_v_p = (__pyx_v_p + 1);
-          }
+          __pyx_v_n_total_constants = (__pyx_v_n_total_constants + 1);
 
-          /* "uplift/tree/_splitter.pyx":428
- *                         # (p + 1 >= end) or (X[samples[p + 1], current.feature] >
- *                         #                    X[samples[p], current.feature])
- *                         p += 1             # <<<<<<<<<<<<<<
- *                         # (p >= end) or (X[samples[p], current.feature] >
- *                         #                X[samples[p - 1], current.feature])
+          /* "uplift/tree/_splitter.pyx":420
+ *                     sort(Xf + start, samples + start, end - start)
+ * 
+ *                     if Xf[end - 1] <= Xf[start] + FEATURE_THRESHOLD:             # <<<<<<<<<<<<<<
+ *                         features[f_j] = features[n_total_constants]
+ *                         features[n_total_constants] = current.feature
  */
-          __pyx_v_p = (__pyx_v_p + 1);
+          goto __pyx_L18;
+        }
+
+        /* "uplift/tree/_splitter.pyx":428
+ * 
+ *                     else:
+ *                         f_i -= 1             # <<<<<<<<<<<<<<
+ *                         features[f_i], features[f_j] = features[f_j], features[f_i]
+ * 
+ */
+        /*else*/ {
+          __pyx_v_f_i = (__pyx_v_f_i - 1);
+
+          /* "uplift/tree/_splitter.pyx":429
+ *                     else:
+ *                         f_i -= 1
+ *                         features[f_i], features[f_j] = features[f_j], features[f_i]             # <<<<<<<<<<<<<<
+ * 
+ *                         # Evaluate all splits
+ */
+          __pyx_t_2 = (__pyx_v_features[__pyx_v_f_j]);
+          __pyx_t_7 = (__pyx_v_features[__pyx_v_f_i]);
+          (__pyx_v_features[__pyx_v_f_i]) = __pyx_t_2;
+          (__pyx_v_features[__pyx_v_f_j]) = __pyx_t_7;
 
           /* "uplift/tree/_splitter.pyx":432
- *                         #                X[samples[p - 1], current.feature])
  * 
- *                         if p < end:             # <<<<<<<<<<<<<<
- *                             current.pos = p
+ *                         # Evaluate all splits
+ *                         self.criterion.reset()             # <<<<<<<<<<<<<<
+ *                         p = start
  * 
  */
-          __pyx_t_6 = ((__pyx_v_p < __pyx_v_end) != 0);
-          if (__pyx_t_6) {
+          ((struct __pyx_vtabstruct_6uplift_4tree_10_criterion_Criterion *)__pyx_v_self->__pyx_base.__pyx_base.criterion->__pyx_vtab)->reset(__pyx_v_self->__pyx_base.__pyx_base.criterion);
 
-            /* "uplift/tree/_splitter.pyx":433
+          /* "uplift/tree/_splitter.pyx":433
+ *                         # Evaluate all splits
+ *                         self.criterion.reset()
+ *                         p = start             # <<<<<<<<<<<<<<
  * 
- *                         if p < end:
- *                             current.pos = p             # <<<<<<<<<<<<<<
- * 
- *                             # Reject if min_samples_leaf is not guaranteed
+ *                         while p < end:
  */
-            __pyx_v_current.pos = __pyx_v_p;
+          __pyx_v_p = __pyx_v_start;
+
+          /* "uplift/tree/_splitter.pyx":435
+ *                         p = start
+ * 
+ *                         while p < end:             # <<<<<<<<<<<<<<
+ *                             while (p + 1 < end and
+ *                                 Xf[p + 1] <= Xf[p] + FEATURE_THRESHOLD):
+ */
+          while (1) {
+            __pyx_t_6 = ((__pyx_v_p < __pyx_v_end) != 0);
+            if (!__pyx_t_6) break;
 
             /* "uplift/tree/_splitter.pyx":436
  * 
- *                             # Reject if min_samples_leaf is not guaranteed
- *                             if (((current.pos - start) < min_samples_leaf) or             # <<<<<<<<<<<<<<
- *                                     ((end - current.pos) < min_samples_leaf)):
- *                                 continue
+ *                         while p < end:
+ *                             while (p + 1 < end and             # <<<<<<<<<<<<<<
+ *                                 Xf[p + 1] <= Xf[p] + FEATURE_THRESHOLD):
+ *                                 p += 1
  */
-            __pyx_t_9 = (((__pyx_v_current.pos - __pyx_v_start) < __pyx_v_min_samples_leaf) != 0);
-            if (!__pyx_t_9) {
-            } else {
+            while (1) {
+              __pyx_t_9 = (((__pyx_v_p + 1) < __pyx_v_end) != 0);
+              if (__pyx_t_9) {
+              } else {
+                __pyx_t_6 = __pyx_t_9;
+                goto __pyx_L23_bool_binop_done;
+              }
+
+              /* "uplift/tree/_splitter.pyx":437
+ *                         while p < end:
+ *                             while (p + 1 < end and
+ *                                 Xf[p + 1] <= Xf[p] + FEATURE_THRESHOLD):             # <<<<<<<<<<<<<<
+ *                                 p += 1
+ * 
+ */
+              __pyx_t_9 = (((__pyx_v_Xf[(__pyx_v_p + 1)]) <= ((__pyx_v_Xf[__pyx_v_p]) + __pyx_v_6uplift_4tree_9_splitter_FEATURE_THRESHOLD)) != 0);
               __pyx_t_6 = __pyx_t_9;
-              goto __pyx_L27_bool_binop_done;
-            }
-
-            /* "uplift/tree/_splitter.pyx":437
- *                             # Reject if min_samples_leaf is not guaranteed
- *                             if (((current.pos - start) < min_samples_leaf) or
- *                                     ((end - current.pos) < min_samples_leaf)):             # <<<<<<<<<<<<<<
- *                                 continue
- * 
- */
-            __pyx_t_9 = (((__pyx_v_end - __pyx_v_current.pos) < __pyx_v_min_samples_leaf) != 0);
-            __pyx_t_6 = __pyx_t_9;
-            __pyx_L27_bool_binop_done:;
-
-            /* "uplift/tree/_splitter.pyx":436
- * 
- *                             # Reject if min_samples_leaf is not guaranteed
- *                             if (((current.pos - start) < min_samples_leaf) or             # <<<<<<<<<<<<<<
- *                                     ((end - current.pos) < min_samples_leaf)):
- *                                 continue
- */
-            if (__pyx_t_6) {
+              __pyx_L23_bool_binop_done:;
+              if (!__pyx_t_6) break;
 
               /* "uplift/tree/_splitter.pyx":438
- *                             if (((current.pos - start) < min_samples_leaf) or
- *                                     ((end - current.pos) < min_samples_leaf)):
- *                                 continue             # <<<<<<<<<<<<<<
+ *                             while (p + 1 < end and
+ *                                 Xf[p + 1] <= Xf[p] + FEATURE_THRESHOLD):
+ *                                 p += 1             # <<<<<<<<<<<<<<
  * 
- *                             self.criterion.update(current.pos)
+ *                             # (p + 1 >= end) or (X[samples[p + 1], current.feature] >
  */
-              goto __pyx_L19_continue;
-
-              /* "uplift/tree/_splitter.pyx":436
- * 
- *                             # Reject if min_samples_leaf is not guaranteed
- *                             if (((current.pos - start) < min_samples_leaf) or             # <<<<<<<<<<<<<<
- *                                     ((end - current.pos) < min_samples_leaf)):
- *                                 continue
- */
+              __pyx_v_p = (__pyx_v_p + 1);
             }
 
-            /* "uplift/tree/_splitter.pyx":440
- *                                 continue
- * 
- *                             self.criterion.update(current.pos)             # <<<<<<<<<<<<<<
- * 
- *                             # Reject if min_weight_leaf is not satisfied
+            /* "uplift/tree/_splitter.pyx":442
+ *                             # (p + 1 >= end) or (X[samples[p + 1], current.feature] >
+ *                             #                    X[samples[p], current.feature])
+ *                             p += 1             # <<<<<<<<<<<<<<
+ *                             # (p >= end) or (X[samples[p], current.feature] >
+ *                             #                X[samples[p - 1], current.feature])
  */
-            ((struct __pyx_vtabstruct_6uplift_4tree_10_criterion_Criterion *)__pyx_v_self->__pyx_base.__pyx_base.criterion->__pyx_vtab)->update(__pyx_v_self->__pyx_base.__pyx_base.criterion, __pyx_v_current.pos);
+            __pyx_v_p = (__pyx_v_p + 1);
 
-            /* "uplift/tree/_splitter.pyx":443
+            /* "uplift/tree/_splitter.pyx":446
+ *                             #                X[samples[p - 1], current.feature])
  * 
- *                             # Reject if min_weight_leaf is not satisfied
- *                             if ((self.criterion.weighted_n_left < min_weight_leaf) or             # <<<<<<<<<<<<<<
- *                                     (self.criterion.weighted_n_right < min_weight_leaf)):
- *                                 continue
- */
-            __pyx_t_9 = ((__pyx_v_self->__pyx_base.__pyx_base.criterion->weighted_n_left < __pyx_v_min_weight_leaf) != 0);
-            if (!__pyx_t_9) {
-            } else {
-              __pyx_t_6 = __pyx_t_9;
-              goto __pyx_L30_bool_binop_done;
-            }
-
-            /* "uplift/tree/_splitter.pyx":444
- *                             # Reject if min_weight_leaf is not satisfied
- *                             if ((self.criterion.weighted_n_left < min_weight_leaf) or
- *                                     (self.criterion.weighted_n_right < min_weight_leaf)):             # <<<<<<<<<<<<<<
- *                                 continue
+ *                             if p < end:             # <<<<<<<<<<<<<<
+ *                                 current.pos = p
  * 
  */
-            __pyx_t_9 = ((__pyx_v_self->__pyx_base.__pyx_base.criterion->weighted_n_right < __pyx_v_min_weight_leaf) != 0);
-            __pyx_t_6 = __pyx_t_9;
-            __pyx_L30_bool_binop_done:;
-
-            /* "uplift/tree/_splitter.pyx":443
- * 
- *                             # Reject if min_weight_leaf is not satisfied
- *                             if ((self.criterion.weighted_n_left < min_weight_leaf) or             # <<<<<<<<<<<<<<
- *                                     (self.criterion.weighted_n_right < min_weight_leaf)):
- *                                 continue
- */
+            __pyx_t_6 = ((__pyx_v_p < __pyx_v_end) != 0);
             if (__pyx_t_6) {
 
-              /* "uplift/tree/_splitter.pyx":445
- *                             if ((self.criterion.weighted_n_left < min_weight_leaf) or
- *                                     (self.criterion.weighted_n_right < min_weight_leaf)):
- *                                 continue             # <<<<<<<<<<<<<<
+              /* "uplift/tree/_splitter.pyx":447
  * 
- *                             current_proxy_improvement = self.criterion.proxy_impurity_improvement()
+ *                             if p < end:
+ *                                 current.pos = p             # <<<<<<<<<<<<<<
+ * 
+ *                                 # Reject if min_samples_leaf is not guaranteed
  */
-              goto __pyx_L19_continue;
-
-              /* "uplift/tree/_splitter.pyx":443
- * 
- *                             # Reject if min_weight_leaf is not satisfied
- *                             if ((self.criterion.weighted_n_left < min_weight_leaf) or             # <<<<<<<<<<<<<<
- *                                     (self.criterion.weighted_n_right < min_weight_leaf)):
- *                                 continue
- */
-            }
-
-            /* "uplift/tree/_splitter.pyx":447
- *                                 continue
- * 
- *                             current_proxy_improvement = self.criterion.proxy_impurity_improvement()             # <<<<<<<<<<<<<<
- * 
- *                             if current_proxy_improvement > best_proxy_improvement:
- */
-            __pyx_v_current_proxy_improvement = ((struct __pyx_vtabstruct_6uplift_4tree_10_criterion_Criterion *)__pyx_v_self->__pyx_base.__pyx_base.criterion->__pyx_vtab)->proxy_impurity_improvement(__pyx_v_self->__pyx_base.__pyx_base.criterion);
-
-            /* "uplift/tree/_splitter.pyx":449
- *                             current_proxy_improvement = self.criterion.proxy_impurity_improvement()
- * 
- *                             if current_proxy_improvement > best_proxy_improvement:             # <<<<<<<<<<<<<<
- *                                 best_proxy_improvement = current_proxy_improvement
- *                                 current.threshold = (Xf[p - 1] + Xf[p]) / 2.0
- */
-            __pyx_t_6 = ((__pyx_v_current_proxy_improvement > __pyx_v_best_proxy_improvement) != 0);
-            if (__pyx_t_6) {
+              __pyx_v_current.pos = __pyx_v_p;
 
               /* "uplift/tree/_splitter.pyx":450
  * 
- *                             if current_proxy_improvement > best_proxy_improvement:
- *                                 best_proxy_improvement = current_proxy_improvement             # <<<<<<<<<<<<<<
- *                                 current.threshold = (Xf[p - 1] + Xf[p]) / 2.0
+ *                                 # Reject if min_samples_leaf is not guaranteed
+ *                                 if (((current.pos - start) < min_samples_leaf) or             # <<<<<<<<<<<<<<
+ *                                         ((end - current.pos) < min_samples_leaf)):
  * 
  */
-              __pyx_v_best_proxy_improvement = __pyx_v_current_proxy_improvement;
+              __pyx_t_9 = (((__pyx_v_current.pos - __pyx_v_start) < __pyx_v_min_samples_leaf) != 0);
+              if (!__pyx_t_9) {
+              } else {
+                __pyx_t_6 = __pyx_t_9;
+                goto __pyx_L27_bool_binop_done;
+              }
 
               /* "uplift/tree/_splitter.pyx":451
- *                             if current_proxy_improvement > best_proxy_improvement:
- *                                 best_proxy_improvement = current_proxy_improvement
- *                                 current.threshold = (Xf[p - 1] + Xf[p]) / 2.0             # <<<<<<<<<<<<<<
+ *                                 # Reject if min_samples_leaf is not guaranteed
+ *                                 if (((current.pos - start) < min_samples_leaf) or
+ *                                         ((end - current.pos) < min_samples_leaf)):             # <<<<<<<<<<<<<<
  * 
- *                                 if current.threshold == Xf[p]:
+ *                                     continue
  */
-              __pyx_v_current.threshold = (((__pyx_v_Xf[(__pyx_v_p - 1)]) + (__pyx_v_Xf[__pyx_v_p])) / 2.0);
+              __pyx_t_9 = (((__pyx_v_end - __pyx_v_current.pos) < __pyx_v_min_samples_leaf) != 0);
+              __pyx_t_6 = __pyx_t_9;
+              __pyx_L27_bool_binop_done:;
 
-              /* "uplift/tree/_splitter.pyx":453
- *                                 current.threshold = (Xf[p - 1] + Xf[p]) / 2.0
+              /* "uplift/tree/_splitter.pyx":450
  * 
- *                                 if current.threshold == Xf[p]:             # <<<<<<<<<<<<<<
- *                                     current.threshold = Xf[p - 1]
+ *                                 # Reject if min_samples_leaf is not guaranteed
+ *                                 if (((current.pos - start) < min_samples_leaf) or             # <<<<<<<<<<<<<<
+ *                                         ((end - current.pos) < min_samples_leaf)):
  * 
  */
-              __pyx_t_6 = ((__pyx_v_current.threshold == (__pyx_v_Xf[__pyx_v_p])) != 0);
               if (__pyx_t_6) {
 
-                /* "uplift/tree/_splitter.pyx":454
- * 
- *                                 if current.threshold == Xf[p]:
- *                                     current.threshold = Xf[p - 1]             # <<<<<<<<<<<<<<
- * 
- *                                 best = current  # copy
- */
-                __pyx_v_current.threshold = (__pyx_v_Xf[(__pyx_v_p - 1)]);
-
                 /* "uplift/tree/_splitter.pyx":453
- *                                 current.threshold = (Xf[p - 1] + Xf[p]) / 2.0
+ *                                         ((end - current.pos) < min_samples_leaf)):
  * 
- *                                 if current.threshold == Xf[p]:             # <<<<<<<<<<<<<<
- *                                     current.threshold = Xf[p - 1]
+ *                                     continue             # <<<<<<<<<<<<<<
+ * 
+ *                                 self.criterion.update(current.pos)
+ */
+                goto __pyx_L19_continue;
+
+                /* "uplift/tree/_splitter.pyx":450
+ * 
+ *                                 # Reject if min_samples_leaf is not guaranteed
+ *                                 if (((current.pos - start) < min_samples_leaf) or             # <<<<<<<<<<<<<<
+ *                                         ((end - current.pos) < min_samples_leaf)):
  * 
  */
               }
 
-              /* "uplift/tree/_splitter.pyx":456
- *                                     current.threshold = Xf[p - 1]
+              /* "uplift/tree/_splitter.pyx":455
+ *                                     continue
  * 
- *                                 best = current  # copy             # <<<<<<<<<<<<<<
+ *                                 self.criterion.update(current.pos)             # <<<<<<<<<<<<<<
+ * 
+ *                                 # Reject if min_weight_leaf is not satisfied
+ */
+              ((struct __pyx_vtabstruct_6uplift_4tree_10_criterion_Criterion *)__pyx_v_self->__pyx_base.__pyx_base.criterion->__pyx_vtab)->update(__pyx_v_self->__pyx_base.__pyx_base.criterion, __pyx_v_current.pos);
+
+              /* "uplift/tree/_splitter.pyx":458
+ * 
+ *                                 # Reject if min_weight_leaf is not satisfied
+ *                                 if ((self.criterion.weighted_n_left < min_weight_leaf) or             # <<<<<<<<<<<<<<
+ *                                         (self.criterion.weighted_n_right < min_weight_leaf)):
+ *                                     continue
+ */
+              __pyx_t_9 = ((__pyx_v_self->__pyx_base.__pyx_base.criterion->weighted_n_left < __pyx_v_min_weight_leaf) != 0);
+              if (!__pyx_t_9) {
+              } else {
+                __pyx_t_6 = __pyx_t_9;
+                goto __pyx_L30_bool_binop_done;
+              }
+
+              /* "uplift/tree/_splitter.pyx":459
+ *                                 # Reject if min_weight_leaf is not satisfied
+ *                                 if ((self.criterion.weighted_n_left < min_weight_leaf) or
+ *                                         (self.criterion.weighted_n_right < min_weight_leaf)):             # <<<<<<<<<<<<<<
+ *                                     continue
+ * 
+ */
+              __pyx_t_9 = ((__pyx_v_self->__pyx_base.__pyx_base.criterion->weighted_n_right < __pyx_v_min_weight_leaf) != 0);
+              __pyx_t_6 = __pyx_t_9;
+              __pyx_L30_bool_binop_done:;
+
+              /* "uplift/tree/_splitter.pyx":458
+ * 
+ *                                 # Reject if min_weight_leaf is not satisfied
+ *                                 if ((self.criterion.weighted_n_left < min_weight_leaf) or             # <<<<<<<<<<<<<<
+ *                                         (self.criterion.weighted_n_right < min_weight_leaf)):
+ *                                     continue
+ */
+              if (__pyx_t_6) {
+
+                /* "uplift/tree/_splitter.pyx":460
+ *                                 if ((self.criterion.weighted_n_left < min_weight_leaf) or
+ *                                         (self.criterion.weighted_n_right < min_weight_leaf)):
+ *                                     continue             # <<<<<<<<<<<<<<
+ * 
+ *                                 current_proxy_improvement = self.criterion.proxy_impurity_improvement()
+ */
+                goto __pyx_L19_continue;
+
+                /* "uplift/tree/_splitter.pyx":458
+ * 
+ *                                 # Reject if min_weight_leaf is not satisfied
+ *                                 if ((self.criterion.weighted_n_left < min_weight_leaf) or             # <<<<<<<<<<<<<<
+ *                                         (self.criterion.weighted_n_right < min_weight_leaf)):
+ *                                     continue
+ */
+              }
+
+              /* "uplift/tree/_splitter.pyx":462
+ *                                     continue
+ * 
+ *                                 current_proxy_improvement = self.criterion.proxy_impurity_improvement()             # <<<<<<<<<<<<<<
+ * 
+ * 
+ */
+              __pyx_v_current_proxy_improvement = ((struct __pyx_vtabstruct_6uplift_4tree_10_criterion_Criterion *)__pyx_v_self->__pyx_base.__pyx_base.criterion->__pyx_vtab)->proxy_impurity_improvement(__pyx_v_self->__pyx_base.__pyx_base.criterion);
+
+              /* "uplift/tree/_splitter.pyx":478
+ * 
+ * 
+ *                                 if current_proxy_improvement > best_proxy_improvement:             # <<<<<<<<<<<<<<
+ *                                     best_proxy_improvement = current_proxy_improvement
+ *                                     current.threshold = (Xf[p - 1] + Xf[p]) / 2.0
+ */
+              __pyx_t_6 = ((__pyx_v_current_proxy_improvement > __pyx_v_best_proxy_improvement) != 0);
+              if (__pyx_t_6) {
+
+                /* "uplift/tree/_splitter.pyx":479
+ * 
+ *                                 if current_proxy_improvement > best_proxy_improvement:
+ *                                     best_proxy_improvement = current_proxy_improvement             # <<<<<<<<<<<<<<
+ *                                     current.threshold = (Xf[p - 1] + Xf[p]) / 2.0
+ * 
+ */
+                __pyx_v_best_proxy_improvement = __pyx_v_current_proxy_improvement;
+
+                /* "uplift/tree/_splitter.pyx":480
+ *                                 if current_proxy_improvement > best_proxy_improvement:
+ *                                     best_proxy_improvement = current_proxy_improvement
+ *                                     current.threshold = (Xf[p - 1] + Xf[p]) / 2.0             # <<<<<<<<<<<<<<
+ * 
+ *                                     if current.threshold == Xf[p]:
+ */
+                __pyx_v_current.threshold = (((__pyx_v_Xf[(__pyx_v_p - 1)]) + (__pyx_v_Xf[__pyx_v_p])) / 2.0);
+
+                /* "uplift/tree/_splitter.pyx":482
+ *                                     current.threshold = (Xf[p - 1] + Xf[p]) / 2.0
+ * 
+ *                                     if current.threshold == Xf[p]:             # <<<<<<<<<<<<<<
+ *                                         current.threshold = Xf[p - 1]
+ * 
+ */
+                __pyx_t_6 = ((__pyx_v_current.threshold == (__pyx_v_Xf[__pyx_v_p])) != 0);
+                if (__pyx_t_6) {
+
+                  /* "uplift/tree/_splitter.pyx":483
+ * 
+ *                                     if current.threshold == Xf[p]:
+ *                                         current.threshold = Xf[p - 1]             # <<<<<<<<<<<<<<
+ * 
+ *                                     best = current  # copy
+ */
+                  __pyx_v_current.threshold = (__pyx_v_Xf[(__pyx_v_p - 1)]);
+
+                  /* "uplift/tree/_splitter.pyx":482
+ *                                     current.threshold = (Xf[p - 1] + Xf[p]) / 2.0
+ * 
+ *                                     if current.threshold == Xf[p]:             # <<<<<<<<<<<<<<
+ *                                         current.threshold = Xf[p - 1]
+ * 
+ */
+                }
+
+                /* "uplift/tree/_splitter.pyx":485
+ *                                         current.threshold = Xf[p - 1]
+ * 
+ *                                     best = current  # copy             # <<<<<<<<<<<<<<
  * 
  *         # Reorganize into samples[start:best.pos] + samples[best.pos:end]
  */
-              __pyx_v_best = __pyx_v_current;
+                __pyx_v_best = __pyx_v_current;
 
-              /* "uplift/tree/_splitter.pyx":449
- *                             current_proxy_improvement = self.criterion.proxy_impurity_improvement()
+                /* "uplift/tree/_splitter.pyx":478
  * 
- *                             if current_proxy_improvement > best_proxy_improvement:             # <<<<<<<<<<<<<<
- *                                 best_proxy_improvement = current_proxy_improvement
- *                                 current.threshold = (Xf[p - 1] + Xf[p]) / 2.0
+ * 
+ *                                 if current_proxy_improvement > best_proxy_improvement:             # <<<<<<<<<<<<<<
+ *                                     best_proxy_improvement = current_proxy_improvement
+ *                                     current.threshold = (Xf[p - 1] + Xf[p]) / 2.0
+ */
+              }
+
+              /* "uplift/tree/_splitter.pyx":446
+ *                             #                X[samples[p - 1], current.feature])
+ * 
+ *                             if p < end:             # <<<<<<<<<<<<<<
+ *                                 current.pos = p
+ * 
  */
             }
-
-            /* "uplift/tree/_splitter.pyx":432
- *                         #                X[samples[p - 1], current.feature])
- * 
- *                         if p < end:             # <<<<<<<<<<<<<<
- *                             current.pos = p
- * 
- */
+            __pyx_L19_continue:;
           }
-          __pyx_L19_continue:;
         }
+        __pyx_L18:;
       }
-      __pyx_L18:;
+      __pyx_L12:;
     }
     __pyx_L11:;
   }
 
-  /* "uplift/tree/_splitter.pyx":459
+  /* "uplift/tree/_splitter.pyx":488
  * 
  *         # Reorganize into samples[start:best.pos] + samples[best.pos:end]
  *         if best.pos < end:             # <<<<<<<<<<<<<<
@@ -5837,7 +6040,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
   __pyx_t_6 = ((__pyx_v_best.pos < __pyx_v_end) != 0);
   if (__pyx_t_6) {
 
-    /* "uplift/tree/_splitter.pyx":460
+    /* "uplift/tree/_splitter.pyx":489
  *         # Reorganize into samples[start:best.pos] + samples[best.pos:end]
  *         if best.pos < end:
  *             feature_offset = X_feature_stride * best.feature             # <<<<<<<<<<<<<<
@@ -5846,7 +6049,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
  */
     __pyx_v_feature_offset = (__pyx_v_X_feature_stride * __pyx_v_best.feature);
 
-    /* "uplift/tree/_splitter.pyx":461
+    /* "uplift/tree/_splitter.pyx":490
  *         if best.pos < end:
  *             feature_offset = X_feature_stride * best.feature
  *             partition_end = end             # <<<<<<<<<<<<<<
@@ -5855,7 +6058,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
  */
     __pyx_v_partition_end = __pyx_v_end;
 
-    /* "uplift/tree/_splitter.pyx":462
+    /* "uplift/tree/_splitter.pyx":491
  *             feature_offset = X_feature_stride * best.feature
  *             partition_end = end
  *             p = start             # <<<<<<<<<<<<<<
@@ -5864,7 +6067,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
  */
     __pyx_v_p = __pyx_v_start;
 
-    /* "uplift/tree/_splitter.pyx":464
+    /* "uplift/tree/_splitter.pyx":493
  *             p = start
  * 
  *             while p < partition_end:             # <<<<<<<<<<<<<<
@@ -5875,7 +6078,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
       __pyx_t_6 = ((__pyx_v_p < __pyx_v_partition_end) != 0);
       if (!__pyx_t_6) break;
 
-      /* "uplift/tree/_splitter.pyx":465
+      /* "uplift/tree/_splitter.pyx":494
  * 
  *             while p < partition_end:
  *                 if X[X_sample_stride * samples[p] + feature_offset] <= best.threshold:             # <<<<<<<<<<<<<<
@@ -5885,7 +6088,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
       __pyx_t_6 = (((__pyx_v_X[((__pyx_v_X_sample_stride * (__pyx_v_samples[__pyx_v_p])) + __pyx_v_feature_offset)]) <= __pyx_v_best.threshold) != 0);
       if (__pyx_t_6) {
 
-        /* "uplift/tree/_splitter.pyx":466
+        /* "uplift/tree/_splitter.pyx":495
  *             while p < partition_end:
  *                 if X[X_sample_stride * samples[p] + feature_offset] <= best.threshold:
  *                     p += 1             # <<<<<<<<<<<<<<
@@ -5894,7 +6097,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
  */
         __pyx_v_p = (__pyx_v_p + 1);
 
-        /* "uplift/tree/_splitter.pyx":465
+        /* "uplift/tree/_splitter.pyx":494
  * 
  *             while p < partition_end:
  *                 if X[X_sample_stride * samples[p] + feature_offset] <= best.threshold:             # <<<<<<<<<<<<<<
@@ -5904,7 +6107,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
         goto __pyx_L37;
       }
 
-      /* "uplift/tree/_splitter.pyx":469
+      /* "uplift/tree/_splitter.pyx":498
  * 
  *                 else:
  *                     partition_end -= 1             # <<<<<<<<<<<<<<
@@ -5914,7 +6117,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
       /*else*/ {
         __pyx_v_partition_end = (__pyx_v_partition_end - 1);
 
-        /* "uplift/tree/_splitter.pyx":471
+        /* "uplift/tree/_splitter.pyx":500
  *                     partition_end -= 1
  * 
  *                     tmp = samples[partition_end]             # <<<<<<<<<<<<<<
@@ -5923,7 +6126,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
  */
         __pyx_v_tmp = (__pyx_v_samples[__pyx_v_partition_end]);
 
-        /* "uplift/tree/_splitter.pyx":472
+        /* "uplift/tree/_splitter.pyx":501
  * 
  *                     tmp = samples[partition_end]
  *                     samples[partition_end] = samples[p]             # <<<<<<<<<<<<<<
@@ -5932,7 +6135,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
  */
         (__pyx_v_samples[__pyx_v_partition_end]) = (__pyx_v_samples[__pyx_v_p]);
 
-        /* "uplift/tree/_splitter.pyx":473
+        /* "uplift/tree/_splitter.pyx":502
  *                     tmp = samples[partition_end]
  *                     samples[partition_end] = samples[p]
  *                     samples[p] = tmp             # <<<<<<<<<<<<<<
@@ -5944,7 +6147,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
       __pyx_L37:;
     }
 
-    /* "uplift/tree/_splitter.pyx":475
+    /* "uplift/tree/_splitter.pyx":504
  *                     samples[p] = tmp
  * 
  *             self.criterion.reset()             # <<<<<<<<<<<<<<
@@ -5953,7 +6156,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
  */
     ((struct __pyx_vtabstruct_6uplift_4tree_10_criterion_Criterion *)__pyx_v_self->__pyx_base.__pyx_base.criterion->__pyx_vtab)->reset(__pyx_v_self->__pyx_base.__pyx_base.criterion);
 
-    /* "uplift/tree/_splitter.pyx":476
+    /* "uplift/tree/_splitter.pyx":505
  * 
  *             self.criterion.reset()
  *             self.criterion.update(best.pos)             # <<<<<<<<<<<<<<
@@ -5962,7 +6165,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
  */
     ((struct __pyx_vtabstruct_6uplift_4tree_10_criterion_Criterion *)__pyx_v_self->__pyx_base.__pyx_base.criterion->__pyx_vtab)->update(__pyx_v_self->__pyx_base.__pyx_base.criterion, __pyx_v_best.pos);
 
-    /* "uplift/tree/_splitter.pyx":477
+    /* "uplift/tree/_splitter.pyx":506
  *             self.criterion.reset()
  *             self.criterion.update(best.pos)
  *             best.improvement = self.criterion.impurity_improvement(impurity)             # <<<<<<<<<<<<<<
@@ -5971,7 +6174,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
  */
     __pyx_v_best.improvement = ((struct __pyx_vtabstruct_6uplift_4tree_10_criterion_Criterion *)__pyx_v_self->__pyx_base.__pyx_base.criterion->__pyx_vtab)->impurity_improvement(__pyx_v_self->__pyx_base.__pyx_base.criterion, __pyx_v_impurity);
 
-    /* "uplift/tree/_splitter.pyx":478
+    /* "uplift/tree/_splitter.pyx":507
  *             self.criterion.update(best.pos)
  *             best.improvement = self.criterion.impurity_improvement(impurity)
  *             self.criterion.children_impurity(&best.impurity_left,             # <<<<<<<<<<<<<<
@@ -5980,7 +6183,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
  */
     ((struct __pyx_vtabstruct_6uplift_4tree_10_criterion_Criterion *)__pyx_v_self->__pyx_base.__pyx_base.criterion->__pyx_vtab)->children_impurity(__pyx_v_self->__pyx_base.__pyx_base.criterion, (&__pyx_v_best.impurity_left), (&__pyx_v_best.impurity_right));
 
-    /* "uplift/tree/_splitter.pyx":459
+    /* "uplift/tree/_splitter.pyx":488
  * 
  *         # Reorganize into samples[start:best.pos] + samples[best.pos:end]
  *         if best.pos < end:             # <<<<<<<<<<<<<<
@@ -5989,7 +6192,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
  */
   }
 
-  /* "uplift/tree/_splitter.pyx":482
+  /* "uplift/tree/_splitter.pyx":511
  * 
  *         # Reset sample mask
  *         if self.presort == 1:             # <<<<<<<<<<<<<<
@@ -5999,7 +6202,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
   __pyx_t_6 = ((__pyx_v_self->__pyx_base.__pyx_base.presort == 1) != 0);
   if (__pyx_t_6) {
 
-    /* "uplift/tree/_splitter.pyx":483
+    /* "uplift/tree/_splitter.pyx":512
  *         # Reset sample mask
  *         if self.presort == 1:
  *             for p in range(start, end):             # <<<<<<<<<<<<<<
@@ -6011,7 +6214,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
     for (__pyx_t_8 = __pyx_v_start; __pyx_t_8 < __pyx_t_2; __pyx_t_8+=1) {
       __pyx_v_p = __pyx_t_8;
 
-      /* "uplift/tree/_splitter.pyx":484
+      /* "uplift/tree/_splitter.pyx":513
  *         if self.presort == 1:
  *             for p in range(start, end):
  *                 sample_mask[samples[p]] = 0             # <<<<<<<<<<<<<<
@@ -6021,7 +6224,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
       (__pyx_v_sample_mask[(__pyx_v_samples[__pyx_v_p])]) = 0;
     }
 
-    /* "uplift/tree/_splitter.pyx":482
+    /* "uplift/tree/_splitter.pyx":511
  * 
  *         # Reset sample mask
  *         if self.presort == 1:             # <<<<<<<<<<<<<<
@@ -6030,7 +6233,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
  */
   }
 
-  /* "uplift/tree/_splitter.pyx":489
+  /* "uplift/tree/_splitter.pyx":518
  *         # element in features[:n_known_constants] must be preserved for sibling
  *         # and child nodes
  *         memcpy(features, constant_features, sizeof(SIZE_t) * n_known_constants)             # <<<<<<<<<<<<<<
@@ -6039,7 +6242,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
  */
   (void)(memcpy(__pyx_v_features, __pyx_v_constant_features, ((sizeof(__pyx_t_6uplift_4tree_9_splitter_SIZE_t)) * __pyx_v_n_known_constants)));
 
-  /* "uplift/tree/_splitter.pyx":492
+  /* "uplift/tree/_splitter.pyx":521
  * 
  *         # Copy newly found constant features
  *         memcpy(constant_features + n_known_constants,             # <<<<<<<<<<<<<<
@@ -6048,7 +6251,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
  */
   (void)(memcpy((__pyx_v_constant_features + __pyx_v_n_known_constants), (__pyx_v_features + __pyx_v_n_known_constants), ((sizeof(__pyx_t_6uplift_4tree_9_splitter_SIZE_t)) * __pyx_v_n_found_constants)));
 
-  /* "uplift/tree/_splitter.pyx":497
+  /* "uplift/tree/_splitter.pyx":526
  * 
  *         # Return values
  *         split[0] = best             # <<<<<<<<<<<<<<
@@ -6057,7 +6260,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
  */
   (__pyx_v_split[0]) = __pyx_v_best;
 
-  /* "uplift/tree/_splitter.pyx":498
+  /* "uplift/tree/_splitter.pyx":527
  *         # Return values
  *         split[0] = best
  *         n_constant_features[0] = n_total_constants             # <<<<<<<<<<<<<<
@@ -6066,8 +6269,8 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
  */
   (__pyx_v_n_constant_features[0]) = __pyx_v_n_total_constants;
 
-  /* "uplift/tree/_splitter.pyx":285
- *                                self.presort), self.__getstate__())
+  /* "uplift/tree/_splitter.pyx":298
+ *                                self.presort,self.stat_param), self.__getstate__())
  * 
  *     cdef void node_split(self, double impurity, SplitRecord* split,             # <<<<<<<<<<<<<<
  *                          SIZE_t* n_constant_features) nogil:
@@ -6077,7 +6280,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
   /* function exit code */
 }
 
-/* "uplift/tree/_splitter.pyx":503
+/* "uplift/tree/_splitter.pyx":532
  * # Sort n-element arrays pointed to by Xf and samples, simultaneously,
  * # by the values in Xf. Algorithm: Introsort (Musser, SP&E, 1997).
  * cdef inline void sort(DTYPE_t* Xf, SIZE_t* samples, SIZE_t n) nogil:             # <<<<<<<<<<<<<<
@@ -6088,7 +6291,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split(struct __
 static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_sort(__pyx_t_6uplift_4tree_9_splitter_DTYPE_t *__pyx_v_Xf, __pyx_t_6uplift_4tree_9_splitter_SIZE_t *__pyx_v_samples, __pyx_t_6uplift_4tree_9_splitter_SIZE_t __pyx_v_n) {
   int __pyx_v_maxd;
 
-  /* "uplift/tree/_splitter.pyx":504
+  /* "uplift/tree/_splitter.pyx":533
  * # by the values in Xf. Algorithm: Introsort (Musser, SP&E, 1997).
  * cdef inline void sort(DTYPE_t* Xf, SIZE_t* samples, SIZE_t n) nogil:
  *     cdef int maxd = 2 * <int>log(n)             # <<<<<<<<<<<<<<
@@ -6097,7 +6300,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_sort(__pyx_t_6uplift_
  */
   __pyx_v_maxd = (2 * ((int)__pyx_f_6uplift_4tree_6_utils_log(__pyx_v_n)));
 
-  /* "uplift/tree/_splitter.pyx":505
+  /* "uplift/tree/_splitter.pyx":534
  * cdef inline void sort(DTYPE_t* Xf, SIZE_t* samples, SIZE_t n) nogil:
  *     cdef int maxd = 2 * <int>log(n)
  *     introsort(Xf, samples, n, maxd)             # <<<<<<<<<<<<<<
@@ -6106,7 +6309,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_sort(__pyx_t_6uplift_
  */
   __pyx_f_6uplift_4tree_9_splitter_introsort(__pyx_v_Xf, __pyx_v_samples, __pyx_v_n, __pyx_v_maxd);
 
-  /* "uplift/tree/_splitter.pyx":503
+  /* "uplift/tree/_splitter.pyx":532
  * # Sort n-element arrays pointed to by Xf and samples, simultaneously,
  * # by the values in Xf. Algorithm: Introsort (Musser, SP&E, 1997).
  * cdef inline void sort(DTYPE_t* Xf, SIZE_t* samples, SIZE_t n) nogil:             # <<<<<<<<<<<<<<
@@ -6117,7 +6320,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_sort(__pyx_t_6uplift_
   /* function exit code */
 }
 
-/* "uplift/tree/_splitter.pyx":508
+/* "uplift/tree/_splitter.pyx":537
  * 
  * 
  * cdef inline void swap(DTYPE_t* Xf, SIZE_t* samples, SIZE_t i, SIZE_t j) nogil:             # <<<<<<<<<<<<<<
@@ -6131,7 +6334,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_swap(__pyx_t_6uplift_
   __pyx_t_6uplift_4tree_9_splitter_SIZE_t __pyx_t_3;
   __pyx_t_6uplift_4tree_9_splitter_SIZE_t __pyx_t_4;
 
-  /* "uplift/tree/_splitter.pyx":510
+  /* "uplift/tree/_splitter.pyx":539
  * cdef inline void swap(DTYPE_t* Xf, SIZE_t* samples, SIZE_t i, SIZE_t j) nogil:
  *     # Helper for sort
  *     Xf[i], Xf[j] = Xf[j], Xf[i]             # <<<<<<<<<<<<<<
@@ -6143,7 +6346,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_swap(__pyx_t_6uplift_
   (__pyx_v_Xf[__pyx_v_i]) = __pyx_t_1;
   (__pyx_v_Xf[__pyx_v_j]) = __pyx_t_2;
 
-  /* "uplift/tree/_splitter.pyx":511
+  /* "uplift/tree/_splitter.pyx":540
  *     # Helper for sort
  *     Xf[i], Xf[j] = Xf[j], Xf[i]
  *     samples[i], samples[j] = samples[j], samples[i]             # <<<<<<<<<<<<<<
@@ -6155,7 +6358,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_swap(__pyx_t_6uplift_
   (__pyx_v_samples[__pyx_v_i]) = __pyx_t_3;
   (__pyx_v_samples[__pyx_v_j]) = __pyx_t_4;
 
-  /* "uplift/tree/_splitter.pyx":508
+  /* "uplift/tree/_splitter.pyx":537
  * 
  * 
  * cdef inline void swap(DTYPE_t* Xf, SIZE_t* samples, SIZE_t i, SIZE_t j) nogil:             # <<<<<<<<<<<<<<
@@ -6166,7 +6369,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_swap(__pyx_t_6uplift_
   /* function exit code */
 }
 
-/* "uplift/tree/_splitter.pyx":514
+/* "uplift/tree/_splitter.pyx":543
  * 
  * 
  * cdef inline DTYPE_t median3(DTYPE_t* Xf, SIZE_t n) nogil:             # <<<<<<<<<<<<<<
@@ -6181,7 +6384,7 @@ static CYTHON_INLINE __pyx_t_6uplift_4tree_9_splitter_DTYPE_t __pyx_f_6uplift_4t
   __pyx_t_6uplift_4tree_9_splitter_DTYPE_t __pyx_r;
   int __pyx_t_1;
 
-  /* "uplift/tree/_splitter.pyx":517
+  /* "uplift/tree/_splitter.pyx":546
  *     # Median of three pivot selection, after Bentley and McIlroy (1993).
  *     # Engineering a sort function. SP&E. Requires 8/3 comparisons on average.
  *     cdef DTYPE_t a = Xf[0], b = Xf[n / 2], c = Xf[n - 1]             # <<<<<<<<<<<<<<
@@ -6192,7 +6395,7 @@ static CYTHON_INLINE __pyx_t_6uplift_4tree_9_splitter_DTYPE_t __pyx_f_6uplift_4t
   __pyx_v_b = (__pyx_v_Xf[(__pyx_v_n / 2)]);
   __pyx_v_c = (__pyx_v_Xf[(__pyx_v_n - 1)]);
 
-  /* "uplift/tree/_splitter.pyx":518
+  /* "uplift/tree/_splitter.pyx":547
  *     # Engineering a sort function. SP&E. Requires 8/3 comparisons on average.
  *     cdef DTYPE_t a = Xf[0], b = Xf[n / 2], c = Xf[n - 1]
  *     if a < b:             # <<<<<<<<<<<<<<
@@ -6202,7 +6405,7 @@ static CYTHON_INLINE __pyx_t_6uplift_4tree_9_splitter_DTYPE_t __pyx_f_6uplift_4t
   __pyx_t_1 = ((__pyx_v_a < __pyx_v_b) != 0);
   if (__pyx_t_1) {
 
-    /* "uplift/tree/_splitter.pyx":519
+    /* "uplift/tree/_splitter.pyx":548
  *     cdef DTYPE_t a = Xf[0], b = Xf[n / 2], c = Xf[n - 1]
  *     if a < b:
  *         if b < c:             # <<<<<<<<<<<<<<
@@ -6212,7 +6415,7 @@ static CYTHON_INLINE __pyx_t_6uplift_4tree_9_splitter_DTYPE_t __pyx_f_6uplift_4t
     __pyx_t_1 = ((__pyx_v_b < __pyx_v_c) != 0);
     if (__pyx_t_1) {
 
-      /* "uplift/tree/_splitter.pyx":520
+      /* "uplift/tree/_splitter.pyx":549
  *     if a < b:
  *         if b < c:
  *             return b             # <<<<<<<<<<<<<<
@@ -6222,7 +6425,7 @@ static CYTHON_INLINE __pyx_t_6uplift_4tree_9_splitter_DTYPE_t __pyx_f_6uplift_4t
       __pyx_r = __pyx_v_b;
       goto __pyx_L0;
 
-      /* "uplift/tree/_splitter.pyx":519
+      /* "uplift/tree/_splitter.pyx":548
  *     cdef DTYPE_t a = Xf[0], b = Xf[n / 2], c = Xf[n - 1]
  *     if a < b:
  *         if b < c:             # <<<<<<<<<<<<<<
@@ -6231,7 +6434,7 @@ static CYTHON_INLINE __pyx_t_6uplift_4tree_9_splitter_DTYPE_t __pyx_f_6uplift_4t
  */
     }
 
-    /* "uplift/tree/_splitter.pyx":521
+    /* "uplift/tree/_splitter.pyx":550
  *         if b < c:
  *             return b
  *         elif a < c:             # <<<<<<<<<<<<<<
@@ -6241,7 +6444,7 @@ static CYTHON_INLINE __pyx_t_6uplift_4tree_9_splitter_DTYPE_t __pyx_f_6uplift_4t
     __pyx_t_1 = ((__pyx_v_a < __pyx_v_c) != 0);
     if (__pyx_t_1) {
 
-      /* "uplift/tree/_splitter.pyx":522
+      /* "uplift/tree/_splitter.pyx":551
  *             return b
  *         elif a < c:
  *             return c             # <<<<<<<<<<<<<<
@@ -6251,7 +6454,7 @@ static CYTHON_INLINE __pyx_t_6uplift_4tree_9_splitter_DTYPE_t __pyx_f_6uplift_4t
       __pyx_r = __pyx_v_c;
       goto __pyx_L0;
 
-      /* "uplift/tree/_splitter.pyx":521
+      /* "uplift/tree/_splitter.pyx":550
  *         if b < c:
  *             return b
  *         elif a < c:             # <<<<<<<<<<<<<<
@@ -6260,7 +6463,7 @@ static CYTHON_INLINE __pyx_t_6uplift_4tree_9_splitter_DTYPE_t __pyx_f_6uplift_4t
  */
     }
 
-    /* "uplift/tree/_splitter.pyx":524
+    /* "uplift/tree/_splitter.pyx":553
  *             return c
  *         else:
  *             return a             # <<<<<<<<<<<<<<
@@ -6272,7 +6475,7 @@ static CYTHON_INLINE __pyx_t_6uplift_4tree_9_splitter_DTYPE_t __pyx_f_6uplift_4t
       goto __pyx_L0;
     }
 
-    /* "uplift/tree/_splitter.pyx":518
+    /* "uplift/tree/_splitter.pyx":547
  *     # Engineering a sort function. SP&E. Requires 8/3 comparisons on average.
  *     cdef DTYPE_t a = Xf[0], b = Xf[n / 2], c = Xf[n - 1]
  *     if a < b:             # <<<<<<<<<<<<<<
@@ -6281,7 +6484,7 @@ static CYTHON_INLINE __pyx_t_6uplift_4tree_9_splitter_DTYPE_t __pyx_f_6uplift_4t
  */
   }
 
-  /* "uplift/tree/_splitter.pyx":525
+  /* "uplift/tree/_splitter.pyx":554
  *         else:
  *             return a
  *     elif b < c:             # <<<<<<<<<<<<<<
@@ -6291,7 +6494,7 @@ static CYTHON_INLINE __pyx_t_6uplift_4tree_9_splitter_DTYPE_t __pyx_f_6uplift_4t
   __pyx_t_1 = ((__pyx_v_b < __pyx_v_c) != 0);
   if (__pyx_t_1) {
 
-    /* "uplift/tree/_splitter.pyx":526
+    /* "uplift/tree/_splitter.pyx":555
  *             return a
  *     elif b < c:
  *         if a < c:             # <<<<<<<<<<<<<<
@@ -6301,7 +6504,7 @@ static CYTHON_INLINE __pyx_t_6uplift_4tree_9_splitter_DTYPE_t __pyx_f_6uplift_4t
     __pyx_t_1 = ((__pyx_v_a < __pyx_v_c) != 0);
     if (__pyx_t_1) {
 
-      /* "uplift/tree/_splitter.pyx":527
+      /* "uplift/tree/_splitter.pyx":556
  *     elif b < c:
  *         if a < c:
  *             return a             # <<<<<<<<<<<<<<
@@ -6311,7 +6514,7 @@ static CYTHON_INLINE __pyx_t_6uplift_4tree_9_splitter_DTYPE_t __pyx_f_6uplift_4t
       __pyx_r = __pyx_v_a;
       goto __pyx_L0;
 
-      /* "uplift/tree/_splitter.pyx":526
+      /* "uplift/tree/_splitter.pyx":555
  *             return a
  *     elif b < c:
  *         if a < c:             # <<<<<<<<<<<<<<
@@ -6320,7 +6523,7 @@ static CYTHON_INLINE __pyx_t_6uplift_4tree_9_splitter_DTYPE_t __pyx_f_6uplift_4t
  */
     }
 
-    /* "uplift/tree/_splitter.pyx":529
+    /* "uplift/tree/_splitter.pyx":558
  *             return a
  *         else:
  *             return c             # <<<<<<<<<<<<<<
@@ -6332,7 +6535,7 @@ static CYTHON_INLINE __pyx_t_6uplift_4tree_9_splitter_DTYPE_t __pyx_f_6uplift_4t
       goto __pyx_L0;
     }
 
-    /* "uplift/tree/_splitter.pyx":525
+    /* "uplift/tree/_splitter.pyx":554
  *         else:
  *             return a
  *     elif b < c:             # <<<<<<<<<<<<<<
@@ -6341,7 +6544,7 @@ static CYTHON_INLINE __pyx_t_6uplift_4tree_9_splitter_DTYPE_t __pyx_f_6uplift_4t
  */
   }
 
-  /* "uplift/tree/_splitter.pyx":531
+  /* "uplift/tree/_splitter.pyx":560
  *             return c
  *     else:
  *         return b             # <<<<<<<<<<<<<<
@@ -6353,7 +6556,7 @@ static CYTHON_INLINE __pyx_t_6uplift_4tree_9_splitter_DTYPE_t __pyx_f_6uplift_4t
     goto __pyx_L0;
   }
 
-  /* "uplift/tree/_splitter.pyx":514
+  /* "uplift/tree/_splitter.pyx":543
  * 
  * 
  * cdef inline DTYPE_t median3(DTYPE_t* Xf, SIZE_t n) nogil:             # <<<<<<<<<<<<<<
@@ -6366,7 +6569,7 @@ static CYTHON_INLINE __pyx_t_6uplift_4tree_9_splitter_DTYPE_t __pyx_f_6uplift_4t
   return __pyx_r;
 }
 
-/* "uplift/tree/_splitter.pyx":536
+/* "uplift/tree/_splitter.pyx":565
  * # Introsort with median of 3 pivot selection and 3-way partition function
  * # (robust to repeated elements, e.g. lots of zero features).
  * cdef void introsort(DTYPE_t* Xf, SIZE_t *samples, SIZE_t n, int maxd) nogil:             # <<<<<<<<<<<<<<
@@ -6381,7 +6584,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_introsort(__pyx_t_6uplift_4tree_9_s
   __pyx_t_6uplift_4tree_9_splitter_SIZE_t __pyx_v_r;
   int __pyx_t_1;
 
-  /* "uplift/tree/_splitter.pyx":540
+  /* "uplift/tree/_splitter.pyx":569
  *     cdef SIZE_t i, l, r
  * 
  *     while n > 1:             # <<<<<<<<<<<<<<
@@ -6392,7 +6595,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_introsort(__pyx_t_6uplift_4tree_9_s
     __pyx_t_1 = ((__pyx_v_n > 1) != 0);
     if (!__pyx_t_1) break;
 
-    /* "uplift/tree/_splitter.pyx":541
+    /* "uplift/tree/_splitter.pyx":570
  * 
  *     while n > 1:
  *         if maxd <= 0:   # max depth limit exceeded ("gone quadratic")             # <<<<<<<<<<<<<<
@@ -6402,7 +6605,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_introsort(__pyx_t_6uplift_4tree_9_s
     __pyx_t_1 = ((__pyx_v_maxd <= 0) != 0);
     if (__pyx_t_1) {
 
-      /* "uplift/tree/_splitter.pyx":542
+      /* "uplift/tree/_splitter.pyx":571
  *     while n > 1:
  *         if maxd <= 0:   # max depth limit exceeded ("gone quadratic")
  *             heapsort(Xf, samples, n)             # <<<<<<<<<<<<<<
@@ -6411,7 +6614,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_introsort(__pyx_t_6uplift_4tree_9_s
  */
       __pyx_f_6uplift_4tree_9_splitter_heapsort(__pyx_v_Xf, __pyx_v_samples, __pyx_v_n);
 
-      /* "uplift/tree/_splitter.pyx":543
+      /* "uplift/tree/_splitter.pyx":572
  *         if maxd <= 0:   # max depth limit exceeded ("gone quadratic")
  *             heapsort(Xf, samples, n)
  *             return             # <<<<<<<<<<<<<<
@@ -6420,7 +6623,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_introsort(__pyx_t_6uplift_4tree_9_s
  */
       goto __pyx_L0;
 
-      /* "uplift/tree/_splitter.pyx":541
+      /* "uplift/tree/_splitter.pyx":570
  * 
  *     while n > 1:
  *         if maxd <= 0:   # max depth limit exceeded ("gone quadratic")             # <<<<<<<<<<<<<<
@@ -6429,7 +6632,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_introsort(__pyx_t_6uplift_4tree_9_s
  */
     }
 
-    /* "uplift/tree/_splitter.pyx":544
+    /* "uplift/tree/_splitter.pyx":573
  *             heapsort(Xf, samples, n)
  *             return
  *         maxd -= 1             # <<<<<<<<<<<<<<
@@ -6438,7 +6641,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_introsort(__pyx_t_6uplift_4tree_9_s
  */
     __pyx_v_maxd = (__pyx_v_maxd - 1);
 
-    /* "uplift/tree/_splitter.pyx":546
+    /* "uplift/tree/_splitter.pyx":575
  *         maxd -= 1
  * 
  *         pivot = median3(Xf, n)             # <<<<<<<<<<<<<<
@@ -6447,7 +6650,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_introsort(__pyx_t_6uplift_4tree_9_s
  */
     __pyx_v_pivot = __pyx_f_6uplift_4tree_9_splitter_median3(__pyx_v_Xf, __pyx_v_n);
 
-    /* "uplift/tree/_splitter.pyx":549
+    /* "uplift/tree/_splitter.pyx":578
  * 
  *         # Three-way partition.
  *         i = l = 0             # <<<<<<<<<<<<<<
@@ -6457,7 +6660,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_introsort(__pyx_t_6uplift_4tree_9_s
     __pyx_v_i = 0;
     __pyx_v_l = 0;
 
-    /* "uplift/tree/_splitter.pyx":550
+    /* "uplift/tree/_splitter.pyx":579
  *         # Three-way partition.
  *         i = l = 0
  *         r = n             # <<<<<<<<<<<<<<
@@ -6466,7 +6669,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_introsort(__pyx_t_6uplift_4tree_9_s
  */
     __pyx_v_r = __pyx_v_n;
 
-    /* "uplift/tree/_splitter.pyx":551
+    /* "uplift/tree/_splitter.pyx":580
  *         i = l = 0
  *         r = n
  *         while i < r:             # <<<<<<<<<<<<<<
@@ -6477,7 +6680,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_introsort(__pyx_t_6uplift_4tree_9_s
       __pyx_t_1 = ((__pyx_v_i < __pyx_v_r) != 0);
       if (!__pyx_t_1) break;
 
-      /* "uplift/tree/_splitter.pyx":552
+      /* "uplift/tree/_splitter.pyx":581
  *         r = n
  *         while i < r:
  *             if Xf[i] < pivot:             # <<<<<<<<<<<<<<
@@ -6487,7 +6690,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_introsort(__pyx_t_6uplift_4tree_9_s
       __pyx_t_1 = (((__pyx_v_Xf[__pyx_v_i]) < __pyx_v_pivot) != 0);
       if (__pyx_t_1) {
 
-        /* "uplift/tree/_splitter.pyx":553
+        /* "uplift/tree/_splitter.pyx":582
  *         while i < r:
  *             if Xf[i] < pivot:
  *                 swap(Xf, samples, i, l)             # <<<<<<<<<<<<<<
@@ -6496,7 +6699,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_introsort(__pyx_t_6uplift_4tree_9_s
  */
         __pyx_f_6uplift_4tree_9_splitter_swap(__pyx_v_Xf, __pyx_v_samples, __pyx_v_i, __pyx_v_l);
 
-        /* "uplift/tree/_splitter.pyx":554
+        /* "uplift/tree/_splitter.pyx":583
  *             if Xf[i] < pivot:
  *                 swap(Xf, samples, i, l)
  *                 i += 1             # <<<<<<<<<<<<<<
@@ -6505,7 +6708,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_introsort(__pyx_t_6uplift_4tree_9_s
  */
         __pyx_v_i = (__pyx_v_i + 1);
 
-        /* "uplift/tree/_splitter.pyx":555
+        /* "uplift/tree/_splitter.pyx":584
  *                 swap(Xf, samples, i, l)
  *                 i += 1
  *                 l += 1             # <<<<<<<<<<<<<<
@@ -6514,7 +6717,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_introsort(__pyx_t_6uplift_4tree_9_s
  */
         __pyx_v_l = (__pyx_v_l + 1);
 
-        /* "uplift/tree/_splitter.pyx":552
+        /* "uplift/tree/_splitter.pyx":581
  *         r = n
  *         while i < r:
  *             if Xf[i] < pivot:             # <<<<<<<<<<<<<<
@@ -6524,7 +6727,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_introsort(__pyx_t_6uplift_4tree_9_s
         goto __pyx_L8;
       }
 
-      /* "uplift/tree/_splitter.pyx":556
+      /* "uplift/tree/_splitter.pyx":585
  *                 i += 1
  *                 l += 1
  *             elif Xf[i] > pivot:             # <<<<<<<<<<<<<<
@@ -6534,7 +6737,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_introsort(__pyx_t_6uplift_4tree_9_s
       __pyx_t_1 = (((__pyx_v_Xf[__pyx_v_i]) > __pyx_v_pivot) != 0);
       if (__pyx_t_1) {
 
-        /* "uplift/tree/_splitter.pyx":557
+        /* "uplift/tree/_splitter.pyx":586
  *                 l += 1
  *             elif Xf[i] > pivot:
  *                 r -= 1             # <<<<<<<<<<<<<<
@@ -6543,7 +6746,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_introsort(__pyx_t_6uplift_4tree_9_s
  */
         __pyx_v_r = (__pyx_v_r - 1);
 
-        /* "uplift/tree/_splitter.pyx":558
+        /* "uplift/tree/_splitter.pyx":587
  *             elif Xf[i] > pivot:
  *                 r -= 1
  *                 swap(Xf, samples, i, r)             # <<<<<<<<<<<<<<
@@ -6552,7 +6755,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_introsort(__pyx_t_6uplift_4tree_9_s
  */
         __pyx_f_6uplift_4tree_9_splitter_swap(__pyx_v_Xf, __pyx_v_samples, __pyx_v_i, __pyx_v_r);
 
-        /* "uplift/tree/_splitter.pyx":556
+        /* "uplift/tree/_splitter.pyx":585
  *                 i += 1
  *                 l += 1
  *             elif Xf[i] > pivot:             # <<<<<<<<<<<<<<
@@ -6562,7 +6765,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_introsort(__pyx_t_6uplift_4tree_9_s
         goto __pyx_L8;
       }
 
-      /* "uplift/tree/_splitter.pyx":560
+      /* "uplift/tree/_splitter.pyx":589
  *                 swap(Xf, samples, i, r)
  *             else:
  *                 i += 1             # <<<<<<<<<<<<<<
@@ -6575,7 +6778,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_introsort(__pyx_t_6uplift_4tree_9_s
       __pyx_L8:;
     }
 
-    /* "uplift/tree/_splitter.pyx":562
+    /* "uplift/tree/_splitter.pyx":591
  *                 i += 1
  * 
  *         introsort(Xf, samples, l, maxd)             # <<<<<<<<<<<<<<
@@ -6584,7 +6787,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_introsort(__pyx_t_6uplift_4tree_9_s
  */
     __pyx_f_6uplift_4tree_9_splitter_introsort(__pyx_v_Xf, __pyx_v_samples, __pyx_v_l, __pyx_v_maxd);
 
-    /* "uplift/tree/_splitter.pyx":563
+    /* "uplift/tree/_splitter.pyx":592
  * 
  *         introsort(Xf, samples, l, maxd)
  *         Xf += r             # <<<<<<<<<<<<<<
@@ -6593,7 +6796,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_introsort(__pyx_t_6uplift_4tree_9_s
  */
     __pyx_v_Xf = (__pyx_v_Xf + __pyx_v_r);
 
-    /* "uplift/tree/_splitter.pyx":564
+    /* "uplift/tree/_splitter.pyx":593
  *         introsort(Xf, samples, l, maxd)
  *         Xf += r
  *         samples += r             # <<<<<<<<<<<<<<
@@ -6602,7 +6805,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_introsort(__pyx_t_6uplift_4tree_9_s
  */
     __pyx_v_samples = (__pyx_v_samples + __pyx_v_r);
 
-    /* "uplift/tree/_splitter.pyx":565
+    /* "uplift/tree/_splitter.pyx":594
  *         Xf += r
  *         samples += r
  *         n -= r             # <<<<<<<<<<<<<<
@@ -6612,7 +6815,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_introsort(__pyx_t_6uplift_4tree_9_s
     __pyx_v_n = (__pyx_v_n - __pyx_v_r);
   }
 
-  /* "uplift/tree/_splitter.pyx":536
+  /* "uplift/tree/_splitter.pyx":565
  * # Introsort with median of 3 pivot selection and 3-way partition function
  * # (robust to repeated elements, e.g. lots of zero features).
  * cdef void introsort(DTYPE_t* Xf, SIZE_t *samples, SIZE_t n, int maxd) nogil:             # <<<<<<<<<<<<<<
@@ -6624,7 +6827,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_introsort(__pyx_t_6uplift_4tree_9_s
   __pyx_L0:;
 }
 
-/* "uplift/tree/_splitter.pyx":568
+/* "uplift/tree/_splitter.pyx":597
  * 
  * 
  * cdef inline void sift_down(DTYPE_t* Xf, SIZE_t* samples,             # <<<<<<<<<<<<<<
@@ -6639,7 +6842,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_sift_down(__pyx_t_6up
   int __pyx_t_1;
   int __pyx_t_2;
 
-  /* "uplift/tree/_splitter.pyx":573
+  /* "uplift/tree/_splitter.pyx":602
  *     cdef SIZE_t child, maxind, root
  * 
  *     root = start             # <<<<<<<<<<<<<<
@@ -6648,7 +6851,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_sift_down(__pyx_t_6up
  */
   __pyx_v_root = __pyx_v_start;
 
-  /* "uplift/tree/_splitter.pyx":574
+  /* "uplift/tree/_splitter.pyx":603
  * 
  *     root = start
  *     while True:             # <<<<<<<<<<<<<<
@@ -6657,7 +6860,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_sift_down(__pyx_t_6up
  */
   while (1) {
 
-    /* "uplift/tree/_splitter.pyx":575
+    /* "uplift/tree/_splitter.pyx":604
  *     root = start
  *     while True:
  *         child = root * 2 + 1             # <<<<<<<<<<<<<<
@@ -6666,7 +6869,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_sift_down(__pyx_t_6up
  */
     __pyx_v_child = ((__pyx_v_root * 2) + 1);
 
-    /* "uplift/tree/_splitter.pyx":578
+    /* "uplift/tree/_splitter.pyx":607
  * 
  *         # find max of root, left child, right child
  *         maxind = root             # <<<<<<<<<<<<<<
@@ -6675,7 +6878,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_sift_down(__pyx_t_6up
  */
     __pyx_v_maxind = __pyx_v_root;
 
-    /* "uplift/tree/_splitter.pyx":579
+    /* "uplift/tree/_splitter.pyx":608
  *         # find max of root, left child, right child
  *         maxind = root
  *         if child < end and Xf[maxind] < Xf[child]:             # <<<<<<<<<<<<<<
@@ -6693,7 +6896,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_sift_down(__pyx_t_6up
     __pyx_L6_bool_binop_done:;
     if (__pyx_t_1) {
 
-      /* "uplift/tree/_splitter.pyx":580
+      /* "uplift/tree/_splitter.pyx":609
  *         maxind = root
  *         if child < end and Xf[maxind] < Xf[child]:
  *             maxind = child             # <<<<<<<<<<<<<<
@@ -6702,7 +6905,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_sift_down(__pyx_t_6up
  */
       __pyx_v_maxind = __pyx_v_child;
 
-      /* "uplift/tree/_splitter.pyx":579
+      /* "uplift/tree/_splitter.pyx":608
  *         # find max of root, left child, right child
  *         maxind = root
  *         if child < end and Xf[maxind] < Xf[child]:             # <<<<<<<<<<<<<<
@@ -6711,7 +6914,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_sift_down(__pyx_t_6up
  */
     }
 
-    /* "uplift/tree/_splitter.pyx":581
+    /* "uplift/tree/_splitter.pyx":610
  *         if child < end and Xf[maxind] < Xf[child]:
  *             maxind = child
  *         if child + 1 < end and Xf[maxind] < Xf[child + 1]:             # <<<<<<<<<<<<<<
@@ -6729,7 +6932,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_sift_down(__pyx_t_6up
     __pyx_L9_bool_binop_done:;
     if (__pyx_t_1) {
 
-      /* "uplift/tree/_splitter.pyx":582
+      /* "uplift/tree/_splitter.pyx":611
  *             maxind = child
  *         if child + 1 < end and Xf[maxind] < Xf[child + 1]:
  *             maxind = child + 1             # <<<<<<<<<<<<<<
@@ -6738,7 +6941,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_sift_down(__pyx_t_6up
  */
       __pyx_v_maxind = (__pyx_v_child + 1);
 
-      /* "uplift/tree/_splitter.pyx":581
+      /* "uplift/tree/_splitter.pyx":610
  *         if child < end and Xf[maxind] < Xf[child]:
  *             maxind = child
  *         if child + 1 < end and Xf[maxind] < Xf[child + 1]:             # <<<<<<<<<<<<<<
@@ -6747,7 +6950,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_sift_down(__pyx_t_6up
  */
     }
 
-    /* "uplift/tree/_splitter.pyx":584
+    /* "uplift/tree/_splitter.pyx":613
  *             maxind = child + 1
  * 
  *         if maxind == root:             # <<<<<<<<<<<<<<
@@ -6757,7 +6960,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_sift_down(__pyx_t_6up
     __pyx_t_1 = ((__pyx_v_maxind == __pyx_v_root) != 0);
     if (__pyx_t_1) {
 
-      /* "uplift/tree/_splitter.pyx":585
+      /* "uplift/tree/_splitter.pyx":614
  * 
  *         if maxind == root:
  *             break             # <<<<<<<<<<<<<<
@@ -6766,7 +6969,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_sift_down(__pyx_t_6up
  */
       goto __pyx_L4_break;
 
-      /* "uplift/tree/_splitter.pyx":584
+      /* "uplift/tree/_splitter.pyx":613
  *             maxind = child + 1
  * 
  *         if maxind == root:             # <<<<<<<<<<<<<<
@@ -6775,7 +6978,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_sift_down(__pyx_t_6up
  */
     }
 
-    /* "uplift/tree/_splitter.pyx":587
+    /* "uplift/tree/_splitter.pyx":616
  *             break
  *         else:
  *             swap(Xf, samples, root, maxind)             # <<<<<<<<<<<<<<
@@ -6785,7 +6988,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_sift_down(__pyx_t_6up
     /*else*/ {
       __pyx_f_6uplift_4tree_9_splitter_swap(__pyx_v_Xf, __pyx_v_samples, __pyx_v_root, __pyx_v_maxind);
 
-      /* "uplift/tree/_splitter.pyx":588
+      /* "uplift/tree/_splitter.pyx":617
  *         else:
  *             swap(Xf, samples, root, maxind)
  *             root = maxind             # <<<<<<<<<<<<<<
@@ -6797,7 +7000,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_sift_down(__pyx_t_6up
   }
   __pyx_L4_break:;
 
-  /* "uplift/tree/_splitter.pyx":568
+  /* "uplift/tree/_splitter.pyx":597
  * 
  * 
  * cdef inline void sift_down(DTYPE_t* Xf, SIZE_t* samples,             # <<<<<<<<<<<<<<
@@ -6808,7 +7011,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_sift_down(__pyx_t_6up
   /* function exit code */
 }
 
-/* "uplift/tree/_splitter.pyx":591
+/* "uplift/tree/_splitter.pyx":620
  * 
  * 
  * cdef void heapsort(DTYPE_t* Xf, SIZE_t* samples, SIZE_t n) nogil:             # <<<<<<<<<<<<<<
@@ -6821,7 +7024,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_heapsort(__pyx_t_6uplift_4tree_9_sp
   __pyx_t_6uplift_4tree_9_splitter_SIZE_t __pyx_v_end;
   int __pyx_t_1;
 
-  /* "uplift/tree/_splitter.pyx":595
+  /* "uplift/tree/_splitter.pyx":624
  * 
  *     # heapify
  *     start = (n - 2) / 2             # <<<<<<<<<<<<<<
@@ -6830,7 +7033,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_heapsort(__pyx_t_6uplift_4tree_9_sp
  */
   __pyx_v_start = ((__pyx_v_n - 2) / 2);
 
-  /* "uplift/tree/_splitter.pyx":596
+  /* "uplift/tree/_splitter.pyx":625
  *     # heapify
  *     start = (n - 2) / 2
  *     end = n             # <<<<<<<<<<<<<<
@@ -6839,7 +7042,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_heapsort(__pyx_t_6uplift_4tree_9_sp
  */
   __pyx_v_end = __pyx_v_n;
 
-  /* "uplift/tree/_splitter.pyx":597
+  /* "uplift/tree/_splitter.pyx":626
  *     start = (n - 2) / 2
  *     end = n
  *     while True:             # <<<<<<<<<<<<<<
@@ -6848,7 +7051,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_heapsort(__pyx_t_6uplift_4tree_9_sp
  */
   while (1) {
 
-    /* "uplift/tree/_splitter.pyx":598
+    /* "uplift/tree/_splitter.pyx":627
  *     end = n
  *     while True:
  *         sift_down(Xf, samples, start, end)             # <<<<<<<<<<<<<<
@@ -6857,7 +7060,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_heapsort(__pyx_t_6uplift_4tree_9_sp
  */
     __pyx_f_6uplift_4tree_9_splitter_sift_down(__pyx_v_Xf, __pyx_v_samples, __pyx_v_start, __pyx_v_end);
 
-    /* "uplift/tree/_splitter.pyx":599
+    /* "uplift/tree/_splitter.pyx":628
  *     while True:
  *         sift_down(Xf, samples, start, end)
  *         if start == 0:             # <<<<<<<<<<<<<<
@@ -6867,7 +7070,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_heapsort(__pyx_t_6uplift_4tree_9_sp
     __pyx_t_1 = ((__pyx_v_start == 0) != 0);
     if (__pyx_t_1) {
 
-      /* "uplift/tree/_splitter.pyx":600
+      /* "uplift/tree/_splitter.pyx":629
  *         sift_down(Xf, samples, start, end)
  *         if start == 0:
  *             break             # <<<<<<<<<<<<<<
@@ -6876,7 +7079,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_heapsort(__pyx_t_6uplift_4tree_9_sp
  */
       goto __pyx_L4_break;
 
-      /* "uplift/tree/_splitter.pyx":599
+      /* "uplift/tree/_splitter.pyx":628
  *     while True:
  *         sift_down(Xf, samples, start, end)
  *         if start == 0:             # <<<<<<<<<<<<<<
@@ -6885,7 +7088,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_heapsort(__pyx_t_6uplift_4tree_9_sp
  */
     }
 
-    /* "uplift/tree/_splitter.pyx":601
+    /* "uplift/tree/_splitter.pyx":630
  *         if start == 0:
  *             break
  *         start -= 1             # <<<<<<<<<<<<<<
@@ -6896,7 +7099,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_heapsort(__pyx_t_6uplift_4tree_9_sp
   }
   __pyx_L4_break:;
 
-  /* "uplift/tree/_splitter.pyx":604
+  /* "uplift/tree/_splitter.pyx":633
  * 
  *     # sort by shrinking the heap, putting the max element immediately after it
  *     end = n - 1             # <<<<<<<<<<<<<<
@@ -6905,7 +7108,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_heapsort(__pyx_t_6uplift_4tree_9_sp
  */
   __pyx_v_end = (__pyx_v_n - 1);
 
-  /* "uplift/tree/_splitter.pyx":605
+  /* "uplift/tree/_splitter.pyx":634
  *     # sort by shrinking the heap, putting the max element immediately after it
  *     end = n - 1
  *     while end > 0:             # <<<<<<<<<<<<<<
@@ -6916,7 +7119,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_heapsort(__pyx_t_6uplift_4tree_9_sp
     __pyx_t_1 = ((__pyx_v_end > 0) != 0);
     if (!__pyx_t_1) break;
 
-    /* "uplift/tree/_splitter.pyx":606
+    /* "uplift/tree/_splitter.pyx":635
  *     end = n - 1
  *     while end > 0:
  *         swap(Xf, samples, 0, end)             # <<<<<<<<<<<<<<
@@ -6925,7 +7128,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_heapsort(__pyx_t_6uplift_4tree_9_sp
  */
     __pyx_f_6uplift_4tree_9_splitter_swap(__pyx_v_Xf, __pyx_v_samples, 0, __pyx_v_end);
 
-    /* "uplift/tree/_splitter.pyx":607
+    /* "uplift/tree/_splitter.pyx":636
  *     while end > 0:
  *         swap(Xf, samples, 0, end)
  *         sift_down(Xf, samples, 0, end)             # <<<<<<<<<<<<<<
@@ -6934,7 +7137,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_heapsort(__pyx_t_6uplift_4tree_9_sp
  */
     __pyx_f_6uplift_4tree_9_splitter_sift_down(__pyx_v_Xf, __pyx_v_samples, 0, __pyx_v_end);
 
-    /* "uplift/tree/_splitter.pyx":608
+    /* "uplift/tree/_splitter.pyx":637
  *         swap(Xf, samples, 0, end)
  *         sift_down(Xf, samples, 0, end)
  *         end = end - 1             # <<<<<<<<<<<<<<
@@ -6944,7 +7147,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_heapsort(__pyx_t_6uplift_4tree_9_sp
     __pyx_v_end = (__pyx_v_end - 1);
   }
 
-  /* "uplift/tree/_splitter.pyx":591
+  /* "uplift/tree/_splitter.pyx":620
  * 
  * 
  * cdef void heapsort(DTYPE_t* Xf, SIZE_t* samples, SIZE_t n) nogil:             # <<<<<<<<<<<<<<
@@ -6955,7 +7158,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_heapsort(__pyx_t_6uplift_4tree_9_sp
   /* function exit code */
 }
 
-/* "uplift/tree/_splitter.pyx":613
+/* "uplift/tree/_splitter.pyx":642
  * cdef class RandomSplitter(BaseDenseSplitter):
  *     """Splitter for finding the best random split."""
  *     def __reduce__(self):             # <<<<<<<<<<<<<<
@@ -6984,9 +7187,10 @@ static PyObject *__pyx_pf_6uplift_4tree_9_splitter_14RandomSplitter___reduce__(s
   PyObject *__pyx_t_3 = NULL;
   PyObject *__pyx_t_4 = NULL;
   PyObject *__pyx_t_5 = NULL;
+  PyObject *__pyx_t_6 = NULL;
   __Pyx_RefNannySetupContext("__reduce__", 0);
 
-  /* "uplift/tree/_splitter.pyx":614
+  /* "uplift/tree/_splitter.pyx":643
  *     """Splitter for finding the best random split."""
  *     def __reduce__(self):
  *         return (RandomSplitter, (self.criterion,             # <<<<<<<<<<<<<<
@@ -6995,122 +7199,127 @@ static PyObject *__pyx_pf_6uplift_4tree_9_splitter_14RandomSplitter___reduce__(s
  */
   __Pyx_XDECREF(__pyx_r);
 
-  /* "uplift/tree/_splitter.pyx":615
+  /* "uplift/tree/_splitter.pyx":644
  *     def __reduce__(self):
  *         return (RandomSplitter, (self.criterion,
  *                                  self.max_features,             # <<<<<<<<<<<<<<
  *                                  self.min_samples_leaf,
  *                                  self.min_weight_leaf,
  */
-  __pyx_t_1 = __Pyx_PyInt_From_Py_intptr_t(__pyx_v_self->__pyx_base.__pyx_base.max_features); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 615, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_Py_intptr_t(__pyx_v_self->__pyx_base.__pyx_base.max_features); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 644, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
 
-  /* "uplift/tree/_splitter.pyx":616
+  /* "uplift/tree/_splitter.pyx":645
  *         return (RandomSplitter, (self.criterion,
  *                                  self.max_features,
  *                                  self.min_samples_leaf,             # <<<<<<<<<<<<<<
  *                                  self.min_weight_leaf,
  *                                  self.random_state,
  */
-  __pyx_t_2 = __Pyx_PyInt_From_Py_intptr_t(__pyx_v_self->__pyx_base.__pyx_base.min_samples_leaf); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 616, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_From_Py_intptr_t(__pyx_v_self->__pyx_base.__pyx_base.min_samples_leaf); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 645, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
 
-  /* "uplift/tree/_splitter.pyx":617
+  /* "uplift/tree/_splitter.pyx":646
  *                                  self.max_features,
  *                                  self.min_samples_leaf,
  *                                  self.min_weight_leaf,             # <<<<<<<<<<<<<<
  *                                  self.random_state,
- *                                  self.presort), self.__getstate__())
+ *                                  self.presort, self.stat_param), self.__getstate__())
  */
-  __pyx_t_3 = PyFloat_FromDouble(__pyx_v_self->__pyx_base.__pyx_base.min_weight_leaf); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 617, __pyx_L1_error)
+  __pyx_t_3 = PyFloat_FromDouble(__pyx_v_self->__pyx_base.__pyx_base.min_weight_leaf); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 646, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
 
-  /* "uplift/tree/_splitter.pyx":619
+  /* "uplift/tree/_splitter.pyx":648
  *                                  self.min_weight_leaf,
  *                                  self.random_state,
- *                                  self.presort), self.__getstate__())             # <<<<<<<<<<<<<<
+ *                                  self.presort, self.stat_param), self.__getstate__())             # <<<<<<<<<<<<<<
  * 
  *     cdef void node_split(self, double impurity, SplitRecord* split,
  */
-  __pyx_t_4 = __Pyx_PyBool_FromLong(__pyx_v_self->__pyx_base.__pyx_base.presort); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 619, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyBool_FromLong(__pyx_v_self->__pyx_base.__pyx_base.presort); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 648, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
+  __pyx_t_5 = PyFloat_FromDouble(__pyx_v_self->__pyx_base.__pyx_base.stat_param); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 648, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
 
-  /* "uplift/tree/_splitter.pyx":614
+  /* "uplift/tree/_splitter.pyx":643
  *     """Splitter for finding the best random split."""
  *     def __reduce__(self):
  *         return (RandomSplitter, (self.criterion,             # <<<<<<<<<<<<<<
  *                                  self.max_features,
  *                                  self.min_samples_leaf,
  */
-  __pyx_t_5 = PyTuple_New(6); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 614, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_5);
+  __pyx_t_6 = PyTuple_New(7); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 643, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_6);
   __Pyx_INCREF(((PyObject *)__pyx_v_self->__pyx_base.__pyx_base.criterion));
   __Pyx_GIVEREF(((PyObject *)__pyx_v_self->__pyx_base.__pyx_base.criterion));
-  PyTuple_SET_ITEM(__pyx_t_5, 0, ((PyObject *)__pyx_v_self->__pyx_base.__pyx_base.criterion));
+  PyTuple_SET_ITEM(__pyx_t_6, 0, ((PyObject *)__pyx_v_self->__pyx_base.__pyx_base.criterion));
   __Pyx_GIVEREF(__pyx_t_1);
-  PyTuple_SET_ITEM(__pyx_t_5, 1, __pyx_t_1);
+  PyTuple_SET_ITEM(__pyx_t_6, 1, __pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_2);
-  PyTuple_SET_ITEM(__pyx_t_5, 2, __pyx_t_2);
+  PyTuple_SET_ITEM(__pyx_t_6, 2, __pyx_t_2);
   __Pyx_GIVEREF(__pyx_t_3);
-  PyTuple_SET_ITEM(__pyx_t_5, 3, __pyx_t_3);
+  PyTuple_SET_ITEM(__pyx_t_6, 3, __pyx_t_3);
   __Pyx_INCREF(__pyx_v_self->__pyx_base.__pyx_base.random_state);
   __Pyx_GIVEREF(__pyx_v_self->__pyx_base.__pyx_base.random_state);
-  PyTuple_SET_ITEM(__pyx_t_5, 4, __pyx_v_self->__pyx_base.__pyx_base.random_state);
+  PyTuple_SET_ITEM(__pyx_t_6, 4, __pyx_v_self->__pyx_base.__pyx_base.random_state);
   __Pyx_GIVEREF(__pyx_t_4);
-  PyTuple_SET_ITEM(__pyx_t_5, 5, __pyx_t_4);
+  PyTuple_SET_ITEM(__pyx_t_6, 5, __pyx_t_4);
+  __Pyx_GIVEREF(__pyx_t_5);
+  PyTuple_SET_ITEM(__pyx_t_6, 6, __pyx_t_5);
   __pyx_t_1 = 0;
   __pyx_t_2 = 0;
   __pyx_t_3 = 0;
   __pyx_t_4 = 0;
+  __pyx_t_5 = 0;
 
-  /* "uplift/tree/_splitter.pyx":619
+  /* "uplift/tree/_splitter.pyx":648
  *                                  self.min_weight_leaf,
  *                                  self.random_state,
- *                                  self.presort), self.__getstate__())             # <<<<<<<<<<<<<<
+ *                                  self.presort, self.stat_param), self.__getstate__())             # <<<<<<<<<<<<<<
  * 
  *     cdef void node_split(self, double impurity, SplitRecord* split,
  */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_getstate); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 619, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = NULL;
-  if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_3))) {
-    __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_3);
-    if (likely(__pyx_t_2)) {
-      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_3);
-      __Pyx_INCREF(__pyx_t_2);
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_getstate); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 648, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __pyx_t_3 = NULL;
+  if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_4))) {
+    __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_4);
+    if (likely(__pyx_t_3)) {
+      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_4);
+      __Pyx_INCREF(__pyx_t_3);
       __Pyx_INCREF(function);
-      __Pyx_DECREF_SET(__pyx_t_3, function);
+      __Pyx_DECREF_SET(__pyx_t_4, function);
     }
   }
-  __pyx_t_4 = (__pyx_t_2) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_2) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
-  __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 619, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_5 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_4);
+  __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+  if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 648, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "uplift/tree/_splitter.pyx":614
+  /* "uplift/tree/_splitter.pyx":643
  *     """Splitter for finding the best random split."""
  *     def __reduce__(self):
  *         return (RandomSplitter, (self.criterion,             # <<<<<<<<<<<<<<
  *                                  self.max_features,
  *                                  self.min_samples_leaf,
  */
-  __pyx_t_3 = PyTuple_New(3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 614, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_t_4 = PyTuple_New(3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 643, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
   __Pyx_INCREF(((PyObject *)__pyx_ptype_6uplift_4tree_9_splitter_RandomSplitter));
   __Pyx_GIVEREF(((PyObject *)__pyx_ptype_6uplift_4tree_9_splitter_RandomSplitter));
-  PyTuple_SET_ITEM(__pyx_t_3, 0, ((PyObject *)__pyx_ptype_6uplift_4tree_9_splitter_RandomSplitter));
+  PyTuple_SET_ITEM(__pyx_t_4, 0, ((PyObject *)__pyx_ptype_6uplift_4tree_9_splitter_RandomSplitter));
+  __Pyx_GIVEREF(__pyx_t_6);
+  PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_t_6);
   __Pyx_GIVEREF(__pyx_t_5);
-  PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_t_5);
-  __Pyx_GIVEREF(__pyx_t_4);
-  PyTuple_SET_ITEM(__pyx_t_3, 2, __pyx_t_4);
+  PyTuple_SET_ITEM(__pyx_t_4, 2, __pyx_t_5);
+  __pyx_t_6 = 0;
   __pyx_t_5 = 0;
+  __pyx_r = __pyx_t_4;
   __pyx_t_4 = 0;
-  __pyx_r = __pyx_t_3;
-  __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "uplift/tree/_splitter.pyx":613
+  /* "uplift/tree/_splitter.pyx":642
  * cdef class RandomSplitter(BaseDenseSplitter):
  *     """Splitter for finding the best random split."""
  *     def __reduce__(self):             # <<<<<<<<<<<<<<
@@ -7125,6 +7334,7 @@ static PyObject *__pyx_pf_6uplift_4tree_9_splitter_14RandomSplitter___reduce__(s
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
+  __Pyx_XDECREF(__pyx_t_6);
   __Pyx_AddTraceback("uplift.tree._splitter.RandomSplitter.__reduce__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
@@ -7133,8 +7343,8 @@ static PyObject *__pyx_pf_6uplift_4tree_9_splitter_14RandomSplitter___reduce__(s
   return __pyx_r;
 }
 
-/* "uplift/tree/_splitter.pyx":621
- *                                  self.presort), self.__getstate__())
+/* "uplift/tree/_splitter.pyx":650
+ *                                  self.presort, self.stat_param), self.__getstate__())
  * 
  *     cdef void node_split(self, double impurity, SplitRecord* split,             # <<<<<<<<<<<<<<
  *                          SIZE_t* n_constant_features) nogil:
@@ -7156,6 +7366,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
   __pyx_t_6uplift_4tree_9_splitter_SIZE_t __pyx_v_min_samples_leaf;
   double __pyx_v_min_weight_leaf;
   __pyx_t_6uplift_4tree_9_splitter_UINT32_t *__pyx_v_random_state;
+  CYTHON_UNUSED double __pyx_v_stat_param;
   struct __pyx_t_6uplift_4tree_9_splitter_SplitRecord __pyx_v_best;
   struct __pyx_t_6uplift_4tree_9_splitter_SplitRecord __pyx_v_current;
   double __pyx_v_current_proxy_improvement;
@@ -7183,7 +7394,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
   __pyx_t_6uplift_4tree_9_splitter_SIZE_t __pyx_t_7;
   __pyx_t_6uplift_4tree_9_splitter_SIZE_t __pyx_t_8;
 
-  /* "uplift/tree/_splitter.pyx":625
+  /* "uplift/tree/_splitter.pyx":654
  *         """Find the best random split on node samples[start:end]."""
  *         # Draw random splits and pick the best
  *         cdef SIZE_t* samples = self.samples             # <<<<<<<<<<<<<<
@@ -7193,7 +7404,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
   __pyx_t_1 = __pyx_v_self->__pyx_base.__pyx_base.samples;
   __pyx_v_samples = __pyx_t_1;
 
-  /* "uplift/tree/_splitter.pyx":626
+  /* "uplift/tree/_splitter.pyx":655
  *         # Draw random splits and pick the best
  *         cdef SIZE_t* samples = self.samples
  *         cdef SIZE_t start = self.start             # <<<<<<<<<<<<<<
@@ -7203,7 +7414,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
   __pyx_t_2 = __pyx_v_self->__pyx_base.__pyx_base.start;
   __pyx_v_start = __pyx_t_2;
 
-  /* "uplift/tree/_splitter.pyx":627
+  /* "uplift/tree/_splitter.pyx":656
  *         cdef SIZE_t* samples = self.samples
  *         cdef SIZE_t start = self.start
  *         cdef SIZE_t end = self.end             # <<<<<<<<<<<<<<
@@ -7213,7 +7424,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
   __pyx_t_2 = __pyx_v_self->__pyx_base.__pyx_base.end;
   __pyx_v_end = __pyx_t_2;
 
-  /* "uplift/tree/_splitter.pyx":629
+  /* "uplift/tree/_splitter.pyx":658
  *         cdef SIZE_t end = self.end
  * 
  *         cdef SIZE_t* features = self.features             # <<<<<<<<<<<<<<
@@ -7223,7 +7434,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
   __pyx_t_1 = __pyx_v_self->__pyx_base.__pyx_base.features;
   __pyx_v_features = __pyx_t_1;
 
-  /* "uplift/tree/_splitter.pyx":630
+  /* "uplift/tree/_splitter.pyx":659
  * 
  *         cdef SIZE_t* features = self.features
  *         cdef SIZE_t* constant_features = self.constant_features             # <<<<<<<<<<<<<<
@@ -7233,7 +7444,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
   __pyx_t_1 = __pyx_v_self->__pyx_base.__pyx_base.constant_features;
   __pyx_v_constant_features = __pyx_t_1;
 
-  /* "uplift/tree/_splitter.pyx":631
+  /* "uplift/tree/_splitter.pyx":660
  *         cdef SIZE_t* features = self.features
  *         cdef SIZE_t* constant_features = self.constant_features
  *         cdef SIZE_t n_features = self.n_features             # <<<<<<<<<<<<<<
@@ -7243,7 +7454,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
   __pyx_t_2 = __pyx_v_self->__pyx_base.__pyx_base.n_features;
   __pyx_v_n_features = __pyx_t_2;
 
-  /* "uplift/tree/_splitter.pyx":633
+  /* "uplift/tree/_splitter.pyx":662
  *         cdef SIZE_t n_features = self.n_features
  * 
  *         cdef DTYPE_t* X = self.X             # <<<<<<<<<<<<<<
@@ -7253,7 +7464,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
   __pyx_t_3 = __pyx_v_self->__pyx_base.X;
   __pyx_v_X = __pyx_t_3;
 
-  /* "uplift/tree/_splitter.pyx":634
+  /* "uplift/tree/_splitter.pyx":663
  * 
  *         cdef DTYPE_t* X = self.X
  *         cdef DTYPE_t* Xf = self.feature_values             # <<<<<<<<<<<<<<
@@ -7263,7 +7474,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
   __pyx_t_3 = __pyx_v_self->__pyx_base.__pyx_base.feature_values;
   __pyx_v_Xf = __pyx_t_3;
 
-  /* "uplift/tree/_splitter.pyx":635
+  /* "uplift/tree/_splitter.pyx":664
  *         cdef DTYPE_t* X = self.X
  *         cdef DTYPE_t* Xf = self.feature_values
  *         cdef SIZE_t X_sample_stride = self.X_sample_stride             # <<<<<<<<<<<<<<
@@ -7273,7 +7484,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
   __pyx_t_2 = __pyx_v_self->__pyx_base.X_sample_stride;
   __pyx_v_X_sample_stride = __pyx_t_2;
 
-  /* "uplift/tree/_splitter.pyx":636
+  /* "uplift/tree/_splitter.pyx":665
  *         cdef DTYPE_t* Xf = self.feature_values
  *         cdef SIZE_t X_sample_stride = self.X_sample_stride
  *         cdef SIZE_t X_feature_stride = self.X_feature_stride             # <<<<<<<<<<<<<<
@@ -7283,7 +7494,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
   __pyx_t_2 = __pyx_v_self->__pyx_base.X_feature_stride;
   __pyx_v_X_feature_stride = __pyx_t_2;
 
-  /* "uplift/tree/_splitter.pyx":637
+  /* "uplift/tree/_splitter.pyx":666
  *         cdef SIZE_t X_sample_stride = self.X_sample_stride
  *         cdef SIZE_t X_feature_stride = self.X_feature_stride
  *         cdef SIZE_t max_features = self.max_features             # <<<<<<<<<<<<<<
@@ -7293,7 +7504,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
   __pyx_t_2 = __pyx_v_self->__pyx_base.__pyx_base.max_features;
   __pyx_v_max_features = __pyx_t_2;
 
-  /* "uplift/tree/_splitter.pyx":638
+  /* "uplift/tree/_splitter.pyx":667
  *         cdef SIZE_t X_feature_stride = self.X_feature_stride
  *         cdef SIZE_t max_features = self.max_features
  *         cdef SIZE_t min_samples_leaf = self.min_samples_leaf             # <<<<<<<<<<<<<<
@@ -7303,26 +7514,36 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
   __pyx_t_2 = __pyx_v_self->__pyx_base.__pyx_base.min_samples_leaf;
   __pyx_v_min_samples_leaf = __pyx_t_2;
 
-  /* "uplift/tree/_splitter.pyx":639
+  /* "uplift/tree/_splitter.pyx":668
  *         cdef SIZE_t max_features = self.max_features
  *         cdef SIZE_t min_samples_leaf = self.min_samples_leaf
  *         cdef double min_weight_leaf = self.min_weight_leaf             # <<<<<<<<<<<<<<
  *         cdef UINT32_t* random_state = &self.rand_r_state
- * 
+ *         cdef double stat_param = self.stat_param
  */
   __pyx_t_4 = __pyx_v_self->__pyx_base.__pyx_base.min_weight_leaf;
   __pyx_v_min_weight_leaf = __pyx_t_4;
 
-  /* "uplift/tree/_splitter.pyx":640
+  /* "uplift/tree/_splitter.pyx":669
  *         cdef SIZE_t min_samples_leaf = self.min_samples_leaf
  *         cdef double min_weight_leaf = self.min_weight_leaf
  *         cdef UINT32_t* random_state = &self.rand_r_state             # <<<<<<<<<<<<<<
+ *         cdef double stat_param = self.stat_param
  * 
- *         cdef SplitRecord best, current
  */
   __pyx_v_random_state = (&__pyx_v_self->__pyx_base.__pyx_base.rand_r_state);
 
-  /* "uplift/tree/_splitter.pyx":643
+  /* "uplift/tree/_splitter.pyx":670
+ *         cdef double min_weight_leaf = self.min_weight_leaf
+ *         cdef UINT32_t* random_state = &self.rand_r_state
+ *         cdef double stat_param = self.stat_param             # <<<<<<<<<<<<<<
+ * 
+ *         cdef SplitRecord best, current
+ */
+  __pyx_t_4 = __pyx_v_self->__pyx_base.__pyx_base.stat_param;
+  __pyx_v_stat_param = __pyx_t_4;
+
+  /* "uplift/tree/_splitter.pyx":673
  * 
  *         cdef SplitRecord best, current
  *         cdef double current_proxy_improvement = - INFINITY             # <<<<<<<<<<<<<<
@@ -7331,7 +7552,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
  */
   __pyx_v_current_proxy_improvement = (-__pyx_v_6uplift_4tree_9_splitter_INFINITY);
 
-  /* "uplift/tree/_splitter.pyx":644
+  /* "uplift/tree/_splitter.pyx":674
  *         cdef SplitRecord best, current
  *         cdef double current_proxy_improvement = - INFINITY
  *         cdef double best_proxy_improvement = - INFINITY             # <<<<<<<<<<<<<<
@@ -7340,7 +7561,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
  */
   __pyx_v_best_proxy_improvement = (-__pyx_v_6uplift_4tree_9_splitter_INFINITY);
 
-  /* "uplift/tree/_splitter.pyx":646
+  /* "uplift/tree/_splitter.pyx":676
  *         cdef double best_proxy_improvement = - INFINITY
  * 
  *         cdef SIZE_t f_i = n_features             # <<<<<<<<<<<<<<
@@ -7349,7 +7570,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
  */
   __pyx_v_f_i = __pyx_v_n_features;
 
-  /* "uplift/tree/_splitter.pyx":652
+  /* "uplift/tree/_splitter.pyx":682
  *         cdef SIZE_t feature_stride
  *         # Number of features discovered to be constant during the split search
  *         cdef SIZE_t n_found_constants = 0             # <<<<<<<<<<<<<<
@@ -7358,7 +7579,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
  */
   __pyx_v_n_found_constants = 0;
 
-  /* "uplift/tree/_splitter.pyx":654
+  /* "uplift/tree/_splitter.pyx":684
  *         cdef SIZE_t n_found_constants = 0
  *         # Number of features known to be constant and drawn without replacement
  *         cdef SIZE_t n_drawn_constants = 0             # <<<<<<<<<<<<<<
@@ -7367,7 +7588,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
  */
   __pyx_v_n_drawn_constants = 0;
 
-  /* "uplift/tree/_splitter.pyx":655
+  /* "uplift/tree/_splitter.pyx":685
  *         # Number of features known to be constant and drawn without replacement
  *         cdef SIZE_t n_drawn_constants = 0
  *         cdef SIZE_t n_known_constants = n_constant_features[0]             # <<<<<<<<<<<<<<
@@ -7376,7 +7597,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
  */
   __pyx_v_n_known_constants = (__pyx_v_n_constant_features[0]);
 
-  /* "uplift/tree/_splitter.pyx":657
+  /* "uplift/tree/_splitter.pyx":687
  *         cdef SIZE_t n_known_constants = n_constant_features[0]
  *         # n_total_constants = n_known_constants + n_found_constants
  *         cdef SIZE_t n_total_constants = n_known_constants             # <<<<<<<<<<<<<<
@@ -7385,7 +7606,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
  */
   __pyx_v_n_total_constants = __pyx_v_n_known_constants;
 
-  /* "uplift/tree/_splitter.pyx":658
+  /* "uplift/tree/_splitter.pyx":688
  *         # n_total_constants = n_known_constants + n_found_constants
  *         cdef SIZE_t n_total_constants = n_known_constants
  *         cdef SIZE_t n_visited_features = 0             # <<<<<<<<<<<<<<
@@ -7394,7 +7615,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
  */
   __pyx_v_n_visited_features = 0;
 
-  /* "uplift/tree/_splitter.pyx":664
+  /* "uplift/tree/_splitter.pyx":694
  *         cdef SIZE_t partition_end
  * 
  *         _init_split(&best, end)             # <<<<<<<<<<<<<<
@@ -7403,7 +7624,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
  */
   __pyx_f_6uplift_4tree_9_splitter__init_split((&__pyx_v_best), __pyx_v_end);
 
-  /* "uplift/tree/_splitter.pyx":675
+  /* "uplift/tree/_splitter.pyx":705
  *         # newly discovered constant features to spare computation on descendant
  *         # nodes.
  *         while (f_i > n_total_constants and  # Stop early if remaining features             # <<<<<<<<<<<<<<
@@ -7418,7 +7639,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
       goto __pyx_L5_bool_binop_done;
     }
 
-    /* "uplift/tree/_splitter.pyx":677
+    /* "uplift/tree/_splitter.pyx":707
  *         while (f_i > n_total_constants and  # Stop early if remaining features
  *                                             # are constant
  *                 (n_visited_features < max_features or             # <<<<<<<<<<<<<<
@@ -7432,7 +7653,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
       goto __pyx_L5_bool_binop_done;
     }
 
-    /* "uplift/tree/_splitter.pyx":679
+    /* "uplift/tree/_splitter.pyx":709
  *                 (n_visited_features < max_features or
  *                  # At least one drawn features must be non constant
  *                  n_visited_features <= n_found_constants + n_drawn_constants)):             # <<<<<<<<<<<<<<
@@ -7444,7 +7665,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
     __pyx_L5_bool_binop_done:;
     if (!__pyx_t_5) break;
 
-    /* "uplift/tree/_splitter.pyx":680
+    /* "uplift/tree/_splitter.pyx":710
  *                  # At least one drawn features must be non constant
  *                  n_visited_features <= n_found_constants + n_drawn_constants)):
  *             n_visited_features += 1             # <<<<<<<<<<<<<<
@@ -7453,7 +7674,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
  */
     __pyx_v_n_visited_features = (__pyx_v_n_visited_features + 1);
 
-    /* "uplift/tree/_splitter.pyx":694
+    /* "uplift/tree/_splitter.pyx":724
  * 
  *             # Draw a feature at random
  *             f_j = rand_int(n_drawn_constants, f_i - n_found_constants,             # <<<<<<<<<<<<<<
@@ -7462,7 +7683,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
  */
     __pyx_v_f_j = __pyx_f_6uplift_4tree_6_utils_rand_int(__pyx_v_n_drawn_constants, (__pyx_v_f_i - __pyx_v_n_found_constants), __pyx_v_random_state);
 
-    /* "uplift/tree/_splitter.pyx":697
+    /* "uplift/tree/_splitter.pyx":727
  *                            random_state)
  * 
  *             if f_j < n_known_constants:             # <<<<<<<<<<<<<<
@@ -7472,7 +7693,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
     __pyx_t_5 = ((__pyx_v_f_j < __pyx_v_n_known_constants) != 0);
     if (__pyx_t_5) {
 
-      /* "uplift/tree/_splitter.pyx":699
+      /* "uplift/tree/_splitter.pyx":729
  *             if f_j < n_known_constants:
  *                 # f_j in the interval [n_drawn_constants, n_known_constants[
  *                 tmp = features[f_j]             # <<<<<<<<<<<<<<
@@ -7481,7 +7702,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
  */
       __pyx_v_tmp = (__pyx_v_features[__pyx_v_f_j]);
 
-      /* "uplift/tree/_splitter.pyx":700
+      /* "uplift/tree/_splitter.pyx":730
  *                 # f_j in the interval [n_drawn_constants, n_known_constants[
  *                 tmp = features[f_j]
  *                 features[f_j] = features[n_drawn_constants]             # <<<<<<<<<<<<<<
@@ -7490,7 +7711,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
  */
       (__pyx_v_features[__pyx_v_f_j]) = (__pyx_v_features[__pyx_v_n_drawn_constants]);
 
-      /* "uplift/tree/_splitter.pyx":701
+      /* "uplift/tree/_splitter.pyx":731
  *                 tmp = features[f_j]
  *                 features[f_j] = features[n_drawn_constants]
  *                 features[n_drawn_constants] = tmp             # <<<<<<<<<<<<<<
@@ -7499,7 +7720,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
  */
       (__pyx_v_features[__pyx_v_n_drawn_constants]) = __pyx_v_tmp;
 
-      /* "uplift/tree/_splitter.pyx":703
+      /* "uplift/tree/_splitter.pyx":733
  *                 features[n_drawn_constants] = tmp
  * 
  *                 n_drawn_constants += 1             # <<<<<<<<<<<<<<
@@ -7508,7 +7729,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
  */
       __pyx_v_n_drawn_constants = (__pyx_v_n_drawn_constants + 1);
 
-      /* "uplift/tree/_splitter.pyx":697
+      /* "uplift/tree/_splitter.pyx":727
  *                            random_state)
  * 
  *             if f_j < n_known_constants:             # <<<<<<<<<<<<<<
@@ -7518,7 +7739,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
       goto __pyx_L8;
     }
 
-    /* "uplift/tree/_splitter.pyx":707
+    /* "uplift/tree/_splitter.pyx":737
  *             else:
  *                 # f_j in the interval [n_known_constants, f_i - n_found_constants[
  *                 f_j += n_found_constants             # <<<<<<<<<<<<<<
@@ -7528,7 +7749,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
     /*else*/ {
       __pyx_v_f_j = (__pyx_v_f_j + __pyx_v_n_found_constants);
 
-      /* "uplift/tree/_splitter.pyx":710
+      /* "uplift/tree/_splitter.pyx":740
  *                 # f_j in the interval [n_total_constants, f_i[
  * 
  *                 current.feature = features[f_j]             # <<<<<<<<<<<<<<
@@ -7537,7 +7758,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
  */
       __pyx_v_current.feature = (__pyx_v_features[__pyx_v_f_j]);
 
-      /* "uplift/tree/_splitter.pyx":711
+      /* "uplift/tree/_splitter.pyx":741
  * 
  *                 current.feature = features[f_j]
  *                 feature_stride = X_feature_stride * current.feature             # <<<<<<<<<<<<<<
@@ -7546,7 +7767,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
  */
       __pyx_v_feature_stride = (__pyx_v_X_feature_stride * __pyx_v_current.feature);
 
-      /* "uplift/tree/_splitter.pyx":714
+      /* "uplift/tree/_splitter.pyx":744
  * 
  *                 # Find min, max
  *                 min_feature_value = X[X_sample_stride * samples[start] + feature_stride]             # <<<<<<<<<<<<<<
@@ -7555,7 +7776,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
  */
       __pyx_v_min_feature_value = (__pyx_v_X[((__pyx_v_X_sample_stride * (__pyx_v_samples[__pyx_v_start])) + __pyx_v_feature_stride)]);
 
-      /* "uplift/tree/_splitter.pyx":715
+      /* "uplift/tree/_splitter.pyx":745
  *                 # Find min, max
  *                 min_feature_value = X[X_sample_stride * samples[start] + feature_stride]
  *                 max_feature_value = min_feature_value             # <<<<<<<<<<<<<<
@@ -7564,7 +7785,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
  */
       __pyx_v_max_feature_value = __pyx_v_min_feature_value;
 
-      /* "uplift/tree/_splitter.pyx":716
+      /* "uplift/tree/_splitter.pyx":746
  *                 min_feature_value = X[X_sample_stride * samples[start] + feature_stride]
  *                 max_feature_value = min_feature_value
  *                 Xf[start] = min_feature_value             # <<<<<<<<<<<<<<
@@ -7573,7 +7794,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
  */
       (__pyx_v_Xf[__pyx_v_start]) = __pyx_v_min_feature_value;
 
-      /* "uplift/tree/_splitter.pyx":718
+      /* "uplift/tree/_splitter.pyx":748
  *                 Xf[start] = min_feature_value
  * 
  *                 for p in range(start + 1, end):             # <<<<<<<<<<<<<<
@@ -7585,7 +7806,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
       for (__pyx_t_8 = (__pyx_v_start + 1); __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
         __pyx_v_p = __pyx_t_8;
 
-        /* "uplift/tree/_splitter.pyx":719
+        /* "uplift/tree/_splitter.pyx":749
  * 
  *                 for p in range(start + 1, end):
  *                     current_feature_value = X[X_sample_stride * samples[p] + feature_stride]             # <<<<<<<<<<<<<<
@@ -7594,7 +7815,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
  */
         __pyx_v_current_feature_value = (__pyx_v_X[((__pyx_v_X_sample_stride * (__pyx_v_samples[__pyx_v_p])) + __pyx_v_feature_stride)]);
 
-        /* "uplift/tree/_splitter.pyx":720
+        /* "uplift/tree/_splitter.pyx":750
  *                 for p in range(start + 1, end):
  *                     current_feature_value = X[X_sample_stride * samples[p] + feature_stride]
  *                     Xf[p] = current_feature_value             # <<<<<<<<<<<<<<
@@ -7603,7 +7824,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
  */
         (__pyx_v_Xf[__pyx_v_p]) = __pyx_v_current_feature_value;
 
-        /* "uplift/tree/_splitter.pyx":722
+        /* "uplift/tree/_splitter.pyx":752
  *                     Xf[p] = current_feature_value
  * 
  *                     if current_feature_value < min_feature_value:             # <<<<<<<<<<<<<<
@@ -7613,7 +7834,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
         __pyx_t_5 = ((__pyx_v_current_feature_value < __pyx_v_min_feature_value) != 0);
         if (__pyx_t_5) {
 
-          /* "uplift/tree/_splitter.pyx":723
+          /* "uplift/tree/_splitter.pyx":753
  * 
  *                     if current_feature_value < min_feature_value:
  *                         min_feature_value = current_feature_value             # <<<<<<<<<<<<<<
@@ -7622,7 +7843,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
  */
           __pyx_v_min_feature_value = __pyx_v_current_feature_value;
 
-          /* "uplift/tree/_splitter.pyx":722
+          /* "uplift/tree/_splitter.pyx":752
  *                     Xf[p] = current_feature_value
  * 
  *                     if current_feature_value < min_feature_value:             # <<<<<<<<<<<<<<
@@ -7632,7 +7853,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
           goto __pyx_L11;
         }
 
-        /* "uplift/tree/_splitter.pyx":724
+        /* "uplift/tree/_splitter.pyx":754
  *                     if current_feature_value < min_feature_value:
  *                         min_feature_value = current_feature_value
  *                     elif current_feature_value > max_feature_value:             # <<<<<<<<<<<<<<
@@ -7642,7 +7863,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
         __pyx_t_5 = ((__pyx_v_current_feature_value > __pyx_v_max_feature_value) != 0);
         if (__pyx_t_5) {
 
-          /* "uplift/tree/_splitter.pyx":725
+          /* "uplift/tree/_splitter.pyx":755
  *                         min_feature_value = current_feature_value
  *                     elif current_feature_value > max_feature_value:
  *                         max_feature_value = current_feature_value             # <<<<<<<<<<<<<<
@@ -7651,7 +7872,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
  */
           __pyx_v_max_feature_value = __pyx_v_current_feature_value;
 
-          /* "uplift/tree/_splitter.pyx":724
+          /* "uplift/tree/_splitter.pyx":754
  *                     if current_feature_value < min_feature_value:
  *                         min_feature_value = current_feature_value
  *                     elif current_feature_value > max_feature_value:             # <<<<<<<<<<<<<<
@@ -7662,7 +7883,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
         __pyx_L11:;
       }
 
-      /* "uplift/tree/_splitter.pyx":727
+      /* "uplift/tree/_splitter.pyx":757
  *                         max_feature_value = current_feature_value
  * 
  *                 if max_feature_value <= min_feature_value + FEATURE_THRESHOLD:             # <<<<<<<<<<<<<<
@@ -7672,7 +7893,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
       __pyx_t_5 = ((__pyx_v_max_feature_value <= (__pyx_v_min_feature_value + __pyx_v_6uplift_4tree_9_splitter_FEATURE_THRESHOLD)) != 0);
       if (__pyx_t_5) {
 
-        /* "uplift/tree/_splitter.pyx":728
+        /* "uplift/tree/_splitter.pyx":758
  * 
  *                 if max_feature_value <= min_feature_value + FEATURE_THRESHOLD:
  *                     features[f_j] = features[n_total_constants]             # <<<<<<<<<<<<<<
@@ -7681,7 +7902,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
  */
         (__pyx_v_features[__pyx_v_f_j]) = (__pyx_v_features[__pyx_v_n_total_constants]);
 
-        /* "uplift/tree/_splitter.pyx":729
+        /* "uplift/tree/_splitter.pyx":759
  *                 if max_feature_value <= min_feature_value + FEATURE_THRESHOLD:
  *                     features[f_j] = features[n_total_constants]
  *                     features[n_total_constants] = current.feature             # <<<<<<<<<<<<<<
@@ -7691,7 +7912,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
         __pyx_t_2 = __pyx_v_current.feature;
         (__pyx_v_features[__pyx_v_n_total_constants]) = __pyx_t_2;
 
-        /* "uplift/tree/_splitter.pyx":731
+        /* "uplift/tree/_splitter.pyx":761
  *                     features[n_total_constants] = current.feature
  * 
  *                     n_found_constants += 1             # <<<<<<<<<<<<<<
@@ -7700,7 +7921,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
  */
         __pyx_v_n_found_constants = (__pyx_v_n_found_constants + 1);
 
-        /* "uplift/tree/_splitter.pyx":732
+        /* "uplift/tree/_splitter.pyx":762
  * 
  *                     n_found_constants += 1
  *                     n_total_constants += 1             # <<<<<<<<<<<<<<
@@ -7709,7 +7930,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
  */
         __pyx_v_n_total_constants = (__pyx_v_n_total_constants + 1);
 
-        /* "uplift/tree/_splitter.pyx":727
+        /* "uplift/tree/_splitter.pyx":757
  *                         max_feature_value = current_feature_value
  * 
  *                 if max_feature_value <= min_feature_value + FEATURE_THRESHOLD:             # <<<<<<<<<<<<<<
@@ -7719,7 +7940,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
         goto __pyx_L12;
       }
 
-      /* "uplift/tree/_splitter.pyx":735
+      /* "uplift/tree/_splitter.pyx":765
  * 
  *                 else:
  *                     f_i -= 1             # <<<<<<<<<<<<<<
@@ -7729,7 +7950,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
       /*else*/ {
         __pyx_v_f_i = (__pyx_v_f_i - 1);
 
-        /* "uplift/tree/_splitter.pyx":736
+        /* "uplift/tree/_splitter.pyx":766
  *                 else:
  *                     f_i -= 1
  *                     features[f_i], features[f_j] = features[f_j], features[f_i]             # <<<<<<<<<<<<<<
@@ -7741,7 +7962,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
         (__pyx_v_features[__pyx_v_f_i]) = __pyx_t_2;
         (__pyx_v_features[__pyx_v_f_j]) = __pyx_t_7;
 
-        /* "uplift/tree/_splitter.pyx":739
+        /* "uplift/tree/_splitter.pyx":769
  * 
  *                     # Draw a random threshold
  *                     current.threshold = rand_uniform(min_feature_value,             # <<<<<<<<<<<<<<
@@ -7750,7 +7971,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
  */
         __pyx_v_current.threshold = __pyx_f_6uplift_4tree_6_utils_rand_uniform(__pyx_v_min_feature_value, __pyx_v_max_feature_value, __pyx_v_random_state);
 
-        /* "uplift/tree/_splitter.pyx":743
+        /* "uplift/tree/_splitter.pyx":773
  *                                                      random_state)
  * 
  *                     if current.threshold == max_feature_value:             # <<<<<<<<<<<<<<
@@ -7760,7 +7981,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
         __pyx_t_5 = ((__pyx_v_current.threshold == __pyx_v_max_feature_value) != 0);
         if (__pyx_t_5) {
 
-          /* "uplift/tree/_splitter.pyx":744
+          /* "uplift/tree/_splitter.pyx":774
  * 
  *                     if current.threshold == max_feature_value:
  *                         current.threshold = min_feature_value             # <<<<<<<<<<<<<<
@@ -7769,7 +7990,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
  */
           __pyx_v_current.threshold = __pyx_v_min_feature_value;
 
-          /* "uplift/tree/_splitter.pyx":743
+          /* "uplift/tree/_splitter.pyx":773
  *                                                      random_state)
  * 
  *                     if current.threshold == max_feature_value:             # <<<<<<<<<<<<<<
@@ -7778,7 +7999,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
  */
         }
 
-        /* "uplift/tree/_splitter.pyx":747
+        /* "uplift/tree/_splitter.pyx":777
  * 
  *                     # Partition
  *                     partition_end = end             # <<<<<<<<<<<<<<
@@ -7787,7 +8008,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
  */
         __pyx_v_partition_end = __pyx_v_end;
 
-        /* "uplift/tree/_splitter.pyx":748
+        /* "uplift/tree/_splitter.pyx":778
  *                     # Partition
  *                     partition_end = end
  *                     p = start             # <<<<<<<<<<<<<<
@@ -7796,7 +8017,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
  */
         __pyx_v_p = __pyx_v_start;
 
-        /* "uplift/tree/_splitter.pyx":749
+        /* "uplift/tree/_splitter.pyx":779
  *                     partition_end = end
  *                     p = start
  *                     while p < partition_end:             # <<<<<<<<<<<<<<
@@ -7807,7 +8028,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
           __pyx_t_5 = ((__pyx_v_p < __pyx_v_partition_end) != 0);
           if (!__pyx_t_5) break;
 
-          /* "uplift/tree/_splitter.pyx":750
+          /* "uplift/tree/_splitter.pyx":780
  *                     p = start
  *                     while p < partition_end:
  *                         current_feature_value = Xf[p]             # <<<<<<<<<<<<<<
@@ -7816,7 +8037,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
  */
           __pyx_v_current_feature_value = (__pyx_v_Xf[__pyx_v_p]);
 
-          /* "uplift/tree/_splitter.pyx":751
+          /* "uplift/tree/_splitter.pyx":781
  *                     while p < partition_end:
  *                         current_feature_value = Xf[p]
  *                         if current_feature_value <= current.threshold:             # <<<<<<<<<<<<<<
@@ -7826,7 +8047,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
           __pyx_t_5 = ((__pyx_v_current_feature_value <= __pyx_v_current.threshold) != 0);
           if (__pyx_t_5) {
 
-            /* "uplift/tree/_splitter.pyx":752
+            /* "uplift/tree/_splitter.pyx":782
  *                         current_feature_value = Xf[p]
  *                         if current_feature_value <= current.threshold:
  *                             p += 1             # <<<<<<<<<<<<<<
@@ -7835,7 +8056,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
  */
             __pyx_v_p = (__pyx_v_p + 1);
 
-            /* "uplift/tree/_splitter.pyx":751
+            /* "uplift/tree/_splitter.pyx":781
  *                     while p < partition_end:
  *                         current_feature_value = Xf[p]
  *                         if current_feature_value <= current.threshold:             # <<<<<<<<<<<<<<
@@ -7845,7 +8066,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
             goto __pyx_L16;
           }
 
-          /* "uplift/tree/_splitter.pyx":754
+          /* "uplift/tree/_splitter.pyx":784
  *                             p += 1
  *                         else:
  *                             partition_end -= 1             # <<<<<<<<<<<<<<
@@ -7855,7 +8076,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
           /*else*/ {
             __pyx_v_partition_end = (__pyx_v_partition_end - 1);
 
-            /* "uplift/tree/_splitter.pyx":756
+            /* "uplift/tree/_splitter.pyx":786
  *                             partition_end -= 1
  * 
  *                             Xf[p] = Xf[partition_end]             # <<<<<<<<<<<<<<
@@ -7864,7 +8085,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
  */
             (__pyx_v_Xf[__pyx_v_p]) = (__pyx_v_Xf[__pyx_v_partition_end]);
 
-            /* "uplift/tree/_splitter.pyx":757
+            /* "uplift/tree/_splitter.pyx":787
  * 
  *                             Xf[p] = Xf[partition_end]
  *                             Xf[partition_end] = current_feature_value             # <<<<<<<<<<<<<<
@@ -7873,7 +8094,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
  */
             (__pyx_v_Xf[__pyx_v_partition_end]) = __pyx_v_current_feature_value;
 
-            /* "uplift/tree/_splitter.pyx":759
+            /* "uplift/tree/_splitter.pyx":789
  *                             Xf[partition_end] = current_feature_value
  * 
  *                             tmp = samples[partition_end]             # <<<<<<<<<<<<<<
@@ -7882,7 +8103,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
  */
             __pyx_v_tmp = (__pyx_v_samples[__pyx_v_partition_end]);
 
-            /* "uplift/tree/_splitter.pyx":760
+            /* "uplift/tree/_splitter.pyx":790
  * 
  *                             tmp = samples[partition_end]
  *                             samples[partition_end] = samples[p]             # <<<<<<<<<<<<<<
@@ -7891,7 +8112,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
  */
             (__pyx_v_samples[__pyx_v_partition_end]) = (__pyx_v_samples[__pyx_v_p]);
 
-            /* "uplift/tree/_splitter.pyx":761
+            /* "uplift/tree/_splitter.pyx":791
  *                             tmp = samples[partition_end]
  *                             samples[partition_end] = samples[p]
  *                             samples[p] = tmp             # <<<<<<<<<<<<<<
@@ -7903,7 +8124,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
           __pyx_L16:;
         }
 
-        /* "uplift/tree/_splitter.pyx":763
+        /* "uplift/tree/_splitter.pyx":793
  *                             samples[p] = tmp
  * 
  *                     current.pos = partition_end             # <<<<<<<<<<<<<<
@@ -7912,7 +8133,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
  */
         __pyx_v_current.pos = __pyx_v_partition_end;
 
-        /* "uplift/tree/_splitter.pyx":766
+        /* "uplift/tree/_splitter.pyx":796
  * 
  *                     # Reject if min_samples_leaf is not guaranteed
  *                     if (((current.pos - start) < min_samples_leaf) or             # <<<<<<<<<<<<<<
@@ -7926,7 +8147,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
           goto __pyx_L18_bool_binop_done;
         }
 
-        /* "uplift/tree/_splitter.pyx":767
+        /* "uplift/tree/_splitter.pyx":797
  *                     # Reject if min_samples_leaf is not guaranteed
  *                     if (((current.pos - start) < min_samples_leaf) or
  *                             ((end - current.pos) < min_samples_leaf)):             # <<<<<<<<<<<<<<
@@ -7937,7 +8158,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
         __pyx_t_5 = __pyx_t_6;
         __pyx_L18_bool_binop_done:;
 
-        /* "uplift/tree/_splitter.pyx":766
+        /* "uplift/tree/_splitter.pyx":796
  * 
  *                     # Reject if min_samples_leaf is not guaranteed
  *                     if (((current.pos - start) < min_samples_leaf) or             # <<<<<<<<<<<<<<
@@ -7946,7 +8167,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
  */
         if (__pyx_t_5) {
 
-          /* "uplift/tree/_splitter.pyx":768
+          /* "uplift/tree/_splitter.pyx":798
  *                     if (((current.pos - start) < min_samples_leaf) or
  *                             ((end - current.pos) < min_samples_leaf)):
  *                         continue             # <<<<<<<<<<<<<<
@@ -7955,7 +8176,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
  */
           goto __pyx_L3_continue;
 
-          /* "uplift/tree/_splitter.pyx":766
+          /* "uplift/tree/_splitter.pyx":796
  * 
  *                     # Reject if min_samples_leaf is not guaranteed
  *                     if (((current.pos - start) < min_samples_leaf) or             # <<<<<<<<<<<<<<
@@ -7964,7 +8185,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
  */
         }
 
-        /* "uplift/tree/_splitter.pyx":771
+        /* "uplift/tree/_splitter.pyx":801
  * 
  *                     # Evaluate split
  *                     self.criterion.reset()             # <<<<<<<<<<<<<<
@@ -7973,7 +8194,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
  */
         ((struct __pyx_vtabstruct_6uplift_4tree_10_criterion_Criterion *)__pyx_v_self->__pyx_base.__pyx_base.criterion->__pyx_vtab)->reset(__pyx_v_self->__pyx_base.__pyx_base.criterion);
 
-        /* "uplift/tree/_splitter.pyx":772
+        /* "uplift/tree/_splitter.pyx":802
  *                     # Evaluate split
  *                     self.criterion.reset()
  *                     self.criterion.update(current.pos)             # <<<<<<<<<<<<<<
@@ -7982,7 +8203,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
  */
         ((struct __pyx_vtabstruct_6uplift_4tree_10_criterion_Criterion *)__pyx_v_self->__pyx_base.__pyx_base.criterion->__pyx_vtab)->update(__pyx_v_self->__pyx_base.__pyx_base.criterion, __pyx_v_current.pos);
 
-        /* "uplift/tree/_splitter.pyx":775
+        /* "uplift/tree/_splitter.pyx":805
  * 
  *                     # Reject if min_weight_leaf is not satisfied
  *                     if ((self.criterion.weighted_n_left < min_weight_leaf) or             # <<<<<<<<<<<<<<
@@ -7996,7 +8217,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
           goto __pyx_L21_bool_binop_done;
         }
 
-        /* "uplift/tree/_splitter.pyx":776
+        /* "uplift/tree/_splitter.pyx":806
  *                     # Reject if min_weight_leaf is not satisfied
  *                     if ((self.criterion.weighted_n_left < min_weight_leaf) or
  *                             (self.criterion.weighted_n_right < min_weight_leaf)):             # <<<<<<<<<<<<<<
@@ -8007,7 +8228,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
         __pyx_t_5 = __pyx_t_6;
         __pyx_L21_bool_binop_done:;
 
-        /* "uplift/tree/_splitter.pyx":775
+        /* "uplift/tree/_splitter.pyx":805
  * 
  *                     # Reject if min_weight_leaf is not satisfied
  *                     if ((self.criterion.weighted_n_left < min_weight_leaf) or             # <<<<<<<<<<<<<<
@@ -8016,7 +8237,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
  */
         if (__pyx_t_5) {
 
-          /* "uplift/tree/_splitter.pyx":777
+          /* "uplift/tree/_splitter.pyx":807
  *                     if ((self.criterion.weighted_n_left < min_weight_leaf) or
  *                             (self.criterion.weighted_n_right < min_weight_leaf)):
  *                         continue             # <<<<<<<<<<<<<<
@@ -8025,7 +8246,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
  */
           goto __pyx_L3_continue;
 
-          /* "uplift/tree/_splitter.pyx":775
+          /* "uplift/tree/_splitter.pyx":805
  * 
  *                     # Reject if min_weight_leaf is not satisfied
  *                     if ((self.criterion.weighted_n_left < min_weight_leaf) or             # <<<<<<<<<<<<<<
@@ -8034,17 +8255,17 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
  */
         }
 
-        /* "uplift/tree/_splitter.pyx":779
+        /* "uplift/tree/_splitter.pyx":809
  *                         continue
  * 
  *                     current_proxy_improvement = self.criterion.proxy_impurity_improvement()             # <<<<<<<<<<<<<<
  * 
- *                     if current_proxy_improvement > best_proxy_improvement:
+ *                     #if (float(current_proxy_improvement) < float(stat_param)):
  */
         __pyx_v_current_proxy_improvement = ((struct __pyx_vtabstruct_6uplift_4tree_10_criterion_Criterion *)__pyx_v_self->__pyx_base.__pyx_base.criterion->__pyx_vtab)->proxy_impurity_improvement(__pyx_v_self->__pyx_base.__pyx_base.criterion);
 
-        /* "uplift/tree/_splitter.pyx":781
- *                     current_proxy_improvement = self.criterion.proxy_impurity_improvement()
+        /* "uplift/tree/_splitter.pyx":817
+ *                     #    continue
  * 
  *                     if current_proxy_improvement > best_proxy_improvement:             # <<<<<<<<<<<<<<
  *                         best_proxy_improvement = current_proxy_improvement
@@ -8053,7 +8274,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
         __pyx_t_5 = ((__pyx_v_current_proxy_improvement > __pyx_v_best_proxy_improvement) != 0);
         if (__pyx_t_5) {
 
-          /* "uplift/tree/_splitter.pyx":782
+          /* "uplift/tree/_splitter.pyx":818
  * 
  *                     if current_proxy_improvement > best_proxy_improvement:
  *                         best_proxy_improvement = current_proxy_improvement             # <<<<<<<<<<<<<<
@@ -8062,7 +8283,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
  */
           __pyx_v_best_proxy_improvement = __pyx_v_current_proxy_improvement;
 
-          /* "uplift/tree/_splitter.pyx":783
+          /* "uplift/tree/_splitter.pyx":819
  *                     if current_proxy_improvement > best_proxy_improvement:
  *                         best_proxy_improvement = current_proxy_improvement
  *                         best = current  # copy             # <<<<<<<<<<<<<<
@@ -8071,8 +8292,8 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
  */
           __pyx_v_best = __pyx_v_current;
 
-          /* "uplift/tree/_splitter.pyx":781
- *                     current_proxy_improvement = self.criterion.proxy_impurity_improvement()
+          /* "uplift/tree/_splitter.pyx":817
+ *                     #    continue
  * 
  *                     if current_proxy_improvement > best_proxy_improvement:             # <<<<<<<<<<<<<<
  *                         best_proxy_improvement = current_proxy_improvement
@@ -8086,7 +8307,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
     __pyx_L3_continue:;
   }
 
-  /* "uplift/tree/_splitter.pyx":786
+  /* "uplift/tree/_splitter.pyx":822
  * 
  *         # Reorganize into samples[start:best.pos] + samples[best.pos:end]
  *         feature_stride = X_feature_stride * best.feature             # <<<<<<<<<<<<<<
@@ -8095,7 +8316,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
  */
   __pyx_v_feature_stride = (__pyx_v_X_feature_stride * __pyx_v_best.feature);
 
-  /* "uplift/tree/_splitter.pyx":787
+  /* "uplift/tree/_splitter.pyx":823
  *         # Reorganize into samples[start:best.pos] + samples[best.pos:end]
  *         feature_stride = X_feature_stride * best.feature
  *         if best.pos < end:             # <<<<<<<<<<<<<<
@@ -8105,7 +8326,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
   __pyx_t_5 = ((__pyx_v_best.pos < __pyx_v_end) != 0);
   if (__pyx_t_5) {
 
-    /* "uplift/tree/_splitter.pyx":788
+    /* "uplift/tree/_splitter.pyx":824
  *         feature_stride = X_feature_stride * best.feature
  *         if best.pos < end:
  *             if current.feature != best.feature:             # <<<<<<<<<<<<<<
@@ -8115,7 +8336,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
     __pyx_t_5 = ((__pyx_v_current.feature != __pyx_v_best.feature) != 0);
     if (__pyx_t_5) {
 
-      /* "uplift/tree/_splitter.pyx":789
+      /* "uplift/tree/_splitter.pyx":825
  *         if best.pos < end:
  *             if current.feature != best.feature:
  *                 partition_end = end             # <<<<<<<<<<<<<<
@@ -8124,7 +8345,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
  */
       __pyx_v_partition_end = __pyx_v_end;
 
-      /* "uplift/tree/_splitter.pyx":790
+      /* "uplift/tree/_splitter.pyx":826
  *             if current.feature != best.feature:
  *                 partition_end = end
  *                 p = start             # <<<<<<<<<<<<<<
@@ -8133,7 +8354,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
  */
       __pyx_v_p = __pyx_v_start;
 
-      /* "uplift/tree/_splitter.pyx":792
+      /* "uplift/tree/_splitter.pyx":828
  *                 p = start
  * 
  *                 while p < partition_end:             # <<<<<<<<<<<<<<
@@ -8144,7 +8365,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
         __pyx_t_5 = ((__pyx_v_p < __pyx_v_partition_end) != 0);
         if (!__pyx_t_5) break;
 
-        /* "uplift/tree/_splitter.pyx":793
+        /* "uplift/tree/_splitter.pyx":829
  * 
  *                 while p < partition_end:
  *                     if X[X_sample_stride * samples[p] + feature_stride] <= best.threshold:             # <<<<<<<<<<<<<<
@@ -8154,7 +8375,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
         __pyx_t_5 = (((__pyx_v_X[((__pyx_v_X_sample_stride * (__pyx_v_samples[__pyx_v_p])) + __pyx_v_feature_stride)]) <= __pyx_v_best.threshold) != 0);
         if (__pyx_t_5) {
 
-          /* "uplift/tree/_splitter.pyx":794
+          /* "uplift/tree/_splitter.pyx":830
  *                 while p < partition_end:
  *                     if X[X_sample_stride * samples[p] + feature_stride] <= best.threshold:
  *                         p += 1             # <<<<<<<<<<<<<<
@@ -8163,7 +8384,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
  */
           __pyx_v_p = (__pyx_v_p + 1);
 
-          /* "uplift/tree/_splitter.pyx":793
+          /* "uplift/tree/_splitter.pyx":829
  * 
  *                 while p < partition_end:
  *                     if X[X_sample_stride * samples[p] + feature_stride] <= best.threshold:             # <<<<<<<<<<<<<<
@@ -8173,7 +8394,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
           goto __pyx_L28;
         }
 
-        /* "uplift/tree/_splitter.pyx":797
+        /* "uplift/tree/_splitter.pyx":833
  * 
  *                     else:
  *                         partition_end -= 1             # <<<<<<<<<<<<<<
@@ -8183,7 +8404,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
         /*else*/ {
           __pyx_v_partition_end = (__pyx_v_partition_end - 1);
 
-          /* "uplift/tree/_splitter.pyx":799
+          /* "uplift/tree/_splitter.pyx":835
  *                         partition_end -= 1
  * 
  *                         tmp = samples[partition_end]             # <<<<<<<<<<<<<<
@@ -8192,7 +8413,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
  */
           __pyx_v_tmp = (__pyx_v_samples[__pyx_v_partition_end]);
 
-          /* "uplift/tree/_splitter.pyx":800
+          /* "uplift/tree/_splitter.pyx":836
  * 
  *                         tmp = samples[partition_end]
  *                         samples[partition_end] = samples[p]             # <<<<<<<<<<<<<<
@@ -8201,7 +8422,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
  */
           (__pyx_v_samples[__pyx_v_partition_end]) = (__pyx_v_samples[__pyx_v_p]);
 
-          /* "uplift/tree/_splitter.pyx":801
+          /* "uplift/tree/_splitter.pyx":837
  *                         tmp = samples[partition_end]
  *                         samples[partition_end] = samples[p]
  *                         samples[p] = tmp             # <<<<<<<<<<<<<<
@@ -8213,7 +8434,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
         __pyx_L28:;
       }
 
-      /* "uplift/tree/_splitter.pyx":788
+      /* "uplift/tree/_splitter.pyx":824
  *         feature_stride = X_feature_stride * best.feature
  *         if best.pos < end:
  *             if current.feature != best.feature:             # <<<<<<<<<<<<<<
@@ -8222,7 +8443,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
  */
     }
 
-    /* "uplift/tree/_splitter.pyx":804
+    /* "uplift/tree/_splitter.pyx":840
  * 
  * 
  *             self.criterion.reset()             # <<<<<<<<<<<<<<
@@ -8231,7 +8452,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
  */
     ((struct __pyx_vtabstruct_6uplift_4tree_10_criterion_Criterion *)__pyx_v_self->__pyx_base.__pyx_base.criterion->__pyx_vtab)->reset(__pyx_v_self->__pyx_base.__pyx_base.criterion);
 
-    /* "uplift/tree/_splitter.pyx":805
+    /* "uplift/tree/_splitter.pyx":841
  * 
  *             self.criterion.reset()
  *             self.criterion.update(best.pos)             # <<<<<<<<<<<<<<
@@ -8240,7 +8461,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
  */
     ((struct __pyx_vtabstruct_6uplift_4tree_10_criterion_Criterion *)__pyx_v_self->__pyx_base.__pyx_base.criterion->__pyx_vtab)->update(__pyx_v_self->__pyx_base.__pyx_base.criterion, __pyx_v_best.pos);
 
-    /* "uplift/tree/_splitter.pyx":806
+    /* "uplift/tree/_splitter.pyx":842
  *             self.criterion.reset()
  *             self.criterion.update(best.pos)
  *             best.improvement = self.criterion.impurity_improvement(impurity)             # <<<<<<<<<<<<<<
@@ -8249,7 +8470,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
  */
     __pyx_v_best.improvement = ((struct __pyx_vtabstruct_6uplift_4tree_10_criterion_Criterion *)__pyx_v_self->__pyx_base.__pyx_base.criterion->__pyx_vtab)->impurity_improvement(__pyx_v_self->__pyx_base.__pyx_base.criterion, __pyx_v_impurity);
 
-    /* "uplift/tree/_splitter.pyx":807
+    /* "uplift/tree/_splitter.pyx":843
  *             self.criterion.update(best.pos)
  *             best.improvement = self.criterion.impurity_improvement(impurity)
  *             self.criterion.children_impurity(&best.impurity_left,             # <<<<<<<<<<<<<<
@@ -8258,7 +8479,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
  */
     ((struct __pyx_vtabstruct_6uplift_4tree_10_criterion_Criterion *)__pyx_v_self->__pyx_base.__pyx_base.criterion->__pyx_vtab)->children_impurity(__pyx_v_self->__pyx_base.__pyx_base.criterion, (&__pyx_v_best.impurity_left), (&__pyx_v_best.impurity_right));
 
-    /* "uplift/tree/_splitter.pyx":787
+    /* "uplift/tree/_splitter.pyx":823
  *         # Reorganize into samples[start:best.pos] + samples[best.pos:end]
  *         feature_stride = X_feature_stride * best.feature
  *         if best.pos < end:             # <<<<<<<<<<<<<<
@@ -8267,7 +8488,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
  */
   }
 
-  /* "uplift/tree/_splitter.pyx":813
+  /* "uplift/tree/_splitter.pyx":849
  *         # element in features[:n_known_constants] must be preserved for sibling
  *         # and child nodes
  *         memcpy(features, constant_features, sizeof(SIZE_t) * n_known_constants)             # <<<<<<<<<<<<<<
@@ -8276,7 +8497,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
  */
   (void)(memcpy(__pyx_v_features, __pyx_v_constant_features, ((sizeof(__pyx_t_6uplift_4tree_9_splitter_SIZE_t)) * __pyx_v_n_known_constants)));
 
-  /* "uplift/tree/_splitter.pyx":816
+  /* "uplift/tree/_splitter.pyx":852
  * 
  *         # Copy newly found constant features
  *         memcpy(constant_features + n_known_constants,             # <<<<<<<<<<<<<<
@@ -8285,7 +8506,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
  */
   (void)(memcpy((__pyx_v_constant_features + __pyx_v_n_known_constants), (__pyx_v_features + __pyx_v_n_known_constants), ((sizeof(__pyx_t_6uplift_4tree_9_splitter_SIZE_t)) * __pyx_v_n_found_constants)));
 
-  /* "uplift/tree/_splitter.pyx":821
+  /* "uplift/tree/_splitter.pyx":857
  * 
  *         # Return values
  *         split[0] = best             # <<<<<<<<<<<<<<
@@ -8294,7 +8515,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
  */
   (__pyx_v_split[0]) = __pyx_v_best;
 
-  /* "uplift/tree/_splitter.pyx":822
+  /* "uplift/tree/_splitter.pyx":858
  *         # Return values
  *         split[0] = best
  *         n_constant_features[0] = n_total_constants             # <<<<<<<<<<<<<<
@@ -8303,8 +8524,8 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
  */
   (__pyx_v_n_constant_features[0]) = __pyx_v_n_total_constants;
 
-  /* "uplift/tree/_splitter.pyx":621
- *                                  self.presort), self.__getstate__())
+  /* "uplift/tree/_splitter.pyx":650
+ *                                  self.presort, self.stat_param), self.__getstate__())
  * 
  *     cdef void node_split(self, double impurity, SplitRecord* split,             # <<<<<<<<<<<<<<
  *                          SIZE_t* n_constant_features) nogil:
@@ -8314,12 +8535,12 @@ static void __pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split(struct 
   /* function exit code */
 }
 
-/* "uplift/tree/_splitter.pyx":836
+/* "uplift/tree/_splitter.pyx":872
  *     cdef SIZE_t* sorted_samples
  * 
  *     def __cinit__(self, Criterion criterion, SIZE_t max_features,             # <<<<<<<<<<<<<<
  *                   SIZE_t min_samples_leaf, double min_weight_leaf,
- *                   object random_state, bint presort):
+ *                   object random_state, bint presort,double stat_param):
  */
 
 /* Python wrapper */
@@ -8331,16 +8552,19 @@ static int __pyx_pw_6uplift_4tree_9_splitter_18BaseSparseSplitter_1__cinit__(PyO
   CYTHON_UNUSED double __pyx_v_min_weight_leaf;
   CYTHON_UNUSED PyObject *__pyx_v_random_state = 0;
   CYTHON_UNUSED int __pyx_v_presort;
+  CYTHON_UNUSED double __pyx_v_stat_param;
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__cinit__ (wrapper)", 0);
   {
-    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_criterion,&__pyx_n_s_max_features,&__pyx_n_s_min_samples_leaf,&__pyx_n_s_min_weight_leaf,&__pyx_n_s_random_state,&__pyx_n_s_presort,0};
-    PyObject* values[6] = {0,0,0,0,0,0};
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_criterion,&__pyx_n_s_max_features,&__pyx_n_s_min_samples_leaf,&__pyx_n_s_min_weight_leaf,&__pyx_n_s_random_state,&__pyx_n_s_presort,&__pyx_n_s_stat_param,0};
+    PyObject* values[7] = {0,0,0,0,0,0,0};
     if (unlikely(__pyx_kwds)) {
       Py_ssize_t kw_args;
       const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
       switch (pos_args) {
+        case  7: values[6] = PyTuple_GET_ITEM(__pyx_args, 6);
+        CYTHON_FALLTHROUGH;
         case  6: values[5] = PyTuple_GET_ITEM(__pyx_args, 5);
         CYTHON_FALLTHROUGH;
         case  5: values[4] = PyTuple_GET_ITEM(__pyx_args, 4);
@@ -8365,37 +8589,43 @@ static int __pyx_pw_6uplift_4tree_9_splitter_18BaseSparseSplitter_1__cinit__(PyO
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_max_features)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 6, 6, 1); __PYX_ERR(0, 836, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 7, 7, 1); __PYX_ERR(0, 872, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_min_samples_leaf)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 6, 6, 2); __PYX_ERR(0, 836, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 7, 7, 2); __PYX_ERR(0, 872, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
         if (likely((values[3] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_min_weight_leaf)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 6, 6, 3); __PYX_ERR(0, 836, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 7, 7, 3); __PYX_ERR(0, 872, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  4:
         if (likely((values[4] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_random_state)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 6, 6, 4); __PYX_ERR(0, 836, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 7, 7, 4); __PYX_ERR(0, 872, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  5:
         if (likely((values[5] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_presort)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 6, 6, 5); __PYX_ERR(0, 836, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 7, 7, 5); __PYX_ERR(0, 872, __pyx_L3_error)
+        }
+        CYTHON_FALLTHROUGH;
+        case  6:
+        if (likely((values[6] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_stat_param)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 7, 7, 6); __PYX_ERR(0, 872, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__cinit__") < 0)) __PYX_ERR(0, 836, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__cinit__") < 0)) __PYX_ERR(0, 872, __pyx_L3_error)
       }
-    } else if (PyTuple_GET_SIZE(__pyx_args) != 6) {
+    } else if (PyTuple_GET_SIZE(__pyx_args) != 7) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
@@ -8404,24 +8634,26 @@ static int __pyx_pw_6uplift_4tree_9_splitter_18BaseSparseSplitter_1__cinit__(PyO
       values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
       values[4] = PyTuple_GET_ITEM(__pyx_args, 4);
       values[5] = PyTuple_GET_ITEM(__pyx_args, 5);
+      values[6] = PyTuple_GET_ITEM(__pyx_args, 6);
     }
     __pyx_v_criterion = ((struct __pyx_obj_6uplift_4tree_10_criterion_Criterion *)values[0]);
-    __pyx_v_max_features = __Pyx_PyInt_As_Py_intptr_t(values[1]); if (unlikely((__pyx_v_max_features == ((npy_intp)-1)) && PyErr_Occurred())) __PYX_ERR(0, 836, __pyx_L3_error)
-    __pyx_v_min_samples_leaf = __Pyx_PyInt_As_Py_intptr_t(values[2]); if (unlikely((__pyx_v_min_samples_leaf == ((npy_intp)-1)) && PyErr_Occurred())) __PYX_ERR(0, 837, __pyx_L3_error)
-    __pyx_v_min_weight_leaf = __pyx_PyFloat_AsDouble(values[3]); if (unlikely((__pyx_v_min_weight_leaf == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 837, __pyx_L3_error)
+    __pyx_v_max_features = __Pyx_PyInt_As_Py_intptr_t(values[1]); if (unlikely((__pyx_v_max_features == ((npy_intp)-1)) && PyErr_Occurred())) __PYX_ERR(0, 872, __pyx_L3_error)
+    __pyx_v_min_samples_leaf = __Pyx_PyInt_As_Py_intptr_t(values[2]); if (unlikely((__pyx_v_min_samples_leaf == ((npy_intp)-1)) && PyErr_Occurred())) __PYX_ERR(0, 873, __pyx_L3_error)
+    __pyx_v_min_weight_leaf = __pyx_PyFloat_AsDouble(values[3]); if (unlikely((__pyx_v_min_weight_leaf == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 873, __pyx_L3_error)
     __pyx_v_random_state = values[4];
-    __pyx_v_presort = __Pyx_PyObject_IsTrue(values[5]); if (unlikely((__pyx_v_presort == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 838, __pyx_L3_error)
+    __pyx_v_presort = __Pyx_PyObject_IsTrue(values[5]); if (unlikely((__pyx_v_presort == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 874, __pyx_L3_error)
+    __pyx_v_stat_param = __pyx_PyFloat_AsDouble(values[6]); if (unlikely((__pyx_v_stat_param == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 874, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 6, 6, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 836, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 7, 7, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 872, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("uplift.tree._splitter.BaseSparseSplitter.__cinit__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return -1;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_criterion), __pyx_ptype_6uplift_4tree_10_criterion_Criterion, 1, "criterion", 0))) __PYX_ERR(0, 836, __pyx_L1_error)
-  __pyx_r = __pyx_pf_6uplift_4tree_9_splitter_18BaseSparseSplitter___cinit__(((struct __pyx_obj_6uplift_4tree_9_splitter_BaseSparseSplitter *)__pyx_v_self), __pyx_v_criterion, __pyx_v_max_features, __pyx_v_min_samples_leaf, __pyx_v_min_weight_leaf, __pyx_v_random_state, __pyx_v_presort);
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_criterion), __pyx_ptype_6uplift_4tree_10_criterion_Criterion, 1, "criterion", 0))) __PYX_ERR(0, 872, __pyx_L1_error)
+  __pyx_r = __pyx_pf_6uplift_4tree_9_splitter_18BaseSparseSplitter___cinit__(((struct __pyx_obj_6uplift_4tree_9_splitter_BaseSparseSplitter *)__pyx_v_self), __pyx_v_criterion, __pyx_v_max_features, __pyx_v_min_samples_leaf, __pyx_v_min_weight_leaf, __pyx_v_random_state, __pyx_v_presort, __pyx_v_stat_param);
 
   /* function exit code */
   goto __pyx_L0;
@@ -8432,12 +8664,12 @@ static int __pyx_pw_6uplift_4tree_9_splitter_18BaseSparseSplitter_1__cinit__(PyO
   return __pyx_r;
 }
 
-static int __pyx_pf_6uplift_4tree_9_splitter_18BaseSparseSplitter___cinit__(struct __pyx_obj_6uplift_4tree_9_splitter_BaseSparseSplitter *__pyx_v_self, CYTHON_UNUSED struct __pyx_obj_6uplift_4tree_10_criterion_Criterion *__pyx_v_criterion, CYTHON_UNUSED __pyx_t_6uplift_4tree_9_splitter_SIZE_t __pyx_v_max_features, CYTHON_UNUSED __pyx_t_6uplift_4tree_9_splitter_SIZE_t __pyx_v_min_samples_leaf, CYTHON_UNUSED double __pyx_v_min_weight_leaf, CYTHON_UNUSED PyObject *__pyx_v_random_state, CYTHON_UNUSED int __pyx_v_presort) {
+static int __pyx_pf_6uplift_4tree_9_splitter_18BaseSparseSplitter___cinit__(struct __pyx_obj_6uplift_4tree_9_splitter_BaseSparseSplitter *__pyx_v_self, CYTHON_UNUSED struct __pyx_obj_6uplift_4tree_10_criterion_Criterion *__pyx_v_criterion, CYTHON_UNUSED __pyx_t_6uplift_4tree_9_splitter_SIZE_t __pyx_v_max_features, CYTHON_UNUSED __pyx_t_6uplift_4tree_9_splitter_SIZE_t __pyx_v_min_samples_leaf, CYTHON_UNUSED double __pyx_v_min_weight_leaf, CYTHON_UNUSED PyObject *__pyx_v_random_state, CYTHON_UNUSED int __pyx_v_presort, CYTHON_UNUSED double __pyx_v_stat_param) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__cinit__", 0);
 
-  /* "uplift/tree/_splitter.pyx":841
+  /* "uplift/tree/_splitter.pyx":877
  *         # Parent __cinit__ is automatically called
  * 
  *         self.X_data = NULL             # <<<<<<<<<<<<<<
@@ -8446,7 +8678,7 @@ static int __pyx_pf_6uplift_4tree_9_splitter_18BaseSparseSplitter___cinit__(stru
  */
   __pyx_v_self->X_data = NULL;
 
-  /* "uplift/tree/_splitter.pyx":842
+  /* "uplift/tree/_splitter.pyx":878
  * 
  *         self.X_data = NULL
  *         self.X_indices = NULL             # <<<<<<<<<<<<<<
@@ -8455,7 +8687,7 @@ static int __pyx_pf_6uplift_4tree_9_splitter_18BaseSparseSplitter___cinit__(stru
  */
   __pyx_v_self->X_indices = NULL;
 
-  /* "uplift/tree/_splitter.pyx":843
+  /* "uplift/tree/_splitter.pyx":879
  *         self.X_data = NULL
  *         self.X_indices = NULL
  *         self.X_indptr = NULL             # <<<<<<<<<<<<<<
@@ -8464,7 +8696,7 @@ static int __pyx_pf_6uplift_4tree_9_splitter_18BaseSparseSplitter___cinit__(stru
  */
   __pyx_v_self->X_indptr = NULL;
 
-  /* "uplift/tree/_splitter.pyx":845
+  /* "uplift/tree/_splitter.pyx":881
  *         self.X_indptr = NULL
  * 
  *         self.n_total_samples = 0             # <<<<<<<<<<<<<<
@@ -8473,7 +8705,7 @@ static int __pyx_pf_6uplift_4tree_9_splitter_18BaseSparseSplitter___cinit__(stru
  */
   __pyx_v_self->n_total_samples = 0;
 
-  /* "uplift/tree/_splitter.pyx":847
+  /* "uplift/tree/_splitter.pyx":883
  *         self.n_total_samples = 0
  * 
  *         self.index_to_samples = NULL             # <<<<<<<<<<<<<<
@@ -8482,7 +8714,7 @@ static int __pyx_pf_6uplift_4tree_9_splitter_18BaseSparseSplitter___cinit__(stru
  */
   __pyx_v_self->index_to_samples = NULL;
 
-  /* "uplift/tree/_splitter.pyx":848
+  /* "uplift/tree/_splitter.pyx":884
  * 
  *         self.index_to_samples = NULL
  *         self.sorted_samples = NULL             # <<<<<<<<<<<<<<
@@ -8491,12 +8723,12 @@ static int __pyx_pf_6uplift_4tree_9_splitter_18BaseSparseSplitter___cinit__(stru
  */
   __pyx_v_self->sorted_samples = NULL;
 
-  /* "uplift/tree/_splitter.pyx":836
+  /* "uplift/tree/_splitter.pyx":872
  *     cdef SIZE_t* sorted_samples
  * 
  *     def __cinit__(self, Criterion criterion, SIZE_t max_features,             # <<<<<<<<<<<<<<
  *                   SIZE_t min_samples_leaf, double min_weight_leaf,
- *                   object random_state, bint presort):
+ *                   object random_state, bint presort,double stat_param):
  */
 
   /* function exit code */
@@ -8505,7 +8737,7 @@ static int __pyx_pf_6uplift_4tree_9_splitter_18BaseSparseSplitter___cinit__(stru
   return __pyx_r;
 }
 
-/* "uplift/tree/_splitter.pyx":850
+/* "uplift/tree/_splitter.pyx":886
  *         self.sorted_samples = NULL
  * 
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -8528,7 +8760,7 @@ static void __pyx_pf_6uplift_4tree_9_splitter_18BaseSparseSplitter_2__dealloc__(
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__dealloc__", 0);
 
-  /* "uplift/tree/_splitter.pyx":852
+  /* "uplift/tree/_splitter.pyx":888
  *     def __dealloc__(self):
  *         """Deallocate memory."""
  *         free(self.index_to_samples)             # <<<<<<<<<<<<<<
@@ -8537,7 +8769,7 @@ static void __pyx_pf_6uplift_4tree_9_splitter_18BaseSparseSplitter_2__dealloc__(
  */
   free(__pyx_v_self->index_to_samples);
 
-  /* "uplift/tree/_splitter.pyx":853
+  /* "uplift/tree/_splitter.pyx":889
  *         """Deallocate memory."""
  *         free(self.index_to_samples)
  *         free(self.sorted_samples)             # <<<<<<<<<<<<<<
@@ -8546,7 +8778,7 @@ static void __pyx_pf_6uplift_4tree_9_splitter_18BaseSparseSplitter_2__dealloc__(
  */
   free(__pyx_v_self->sorted_samples);
 
-  /* "uplift/tree/_splitter.pyx":850
+  /* "uplift/tree/_splitter.pyx":886
  *         self.sorted_samples = NULL
  * 
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -8558,7 +8790,7 @@ static void __pyx_pf_6uplift_4tree_9_splitter_18BaseSparseSplitter_2__dealloc__(
   __Pyx_RefNannyFinishContext();
 }
 
-/* "uplift/tree/_splitter.pyx":855
+/* "uplift/tree/_splitter.pyx":891
  *         free(self.sorted_samples)
  * 
  *     cdef void init(self,             # <<<<<<<<<<<<<<
@@ -8616,47 +8848,47 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BaseSparseSplitter_init(struct __
   __pyx_pybuffernd_y.rcbuffer = &__pyx_pybuffer_y;
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_y.rcbuffer->pybuffer, (PyObject*)__pyx_v_y, &__Pyx_TypeInfo_nn___pyx_t_6uplift_4tree_9_splitter_DOUBLE_t, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 855, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_y.rcbuffer->pybuffer, (PyObject*)__pyx_v_y, &__Pyx_TypeInfo_nn___pyx_t_6uplift_4tree_9_splitter_DOUBLE_t, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 891, __pyx_L1_error)
   }
   __pyx_pybuffernd_y.diminfo[0].strides = __pyx_pybuffernd_y.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_y.diminfo[0].shape = __pyx_pybuffernd_y.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_y.diminfo[1].strides = __pyx_pybuffernd_y.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_y.diminfo[1].shape = __pyx_pybuffernd_y.rcbuffer->pybuffer.shape[1];
 
-  /* "uplift/tree/_splitter.pyx":863
+  /* "uplift/tree/_splitter.pyx":899
  * 
  *         # Call parent init
  *         Splitter.init(self, X, y, sample_weight)             # <<<<<<<<<<<<<<
  * 
  *         if not isinstance(X, csc_matrix):
  */
-  __pyx_vtabptr_6uplift_4tree_9_splitter_Splitter->init(((struct __pyx_obj_6uplift_4tree_9_splitter_Splitter *)__pyx_v_self), __pyx_v_X, ((PyArrayObject *)__pyx_v_y), __pyx_v_sample_weight, NULL); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 863, __pyx_L1_error)
+  __pyx_vtabptr_6uplift_4tree_9_splitter_Splitter->init(((struct __pyx_obj_6uplift_4tree_9_splitter_Splitter *)__pyx_v_self), __pyx_v_X, ((PyArrayObject *)__pyx_v_y), __pyx_v_sample_weight, NULL); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 899, __pyx_L1_error)
 
-  /* "uplift/tree/_splitter.pyx":865
+  /* "uplift/tree/_splitter.pyx":901
  *         Splitter.init(self, X, y, sample_weight)
  * 
  *         if not isinstance(X, csc_matrix):             # <<<<<<<<<<<<<<
  *             raise ValueError("X should be in csc format")
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_csc_matrix); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 865, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_csc_matrix); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 901, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = PyObject_IsInstance(__pyx_v_X, __pyx_t_1); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 865, __pyx_L1_error)
+  __pyx_t_2 = PyObject_IsInstance(__pyx_v_X, __pyx_t_1); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 901, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_3 = ((!(__pyx_t_2 != 0)) != 0);
   if (unlikely(__pyx_t_3)) {
 
-    /* "uplift/tree/_splitter.pyx":866
+    /* "uplift/tree/_splitter.pyx":902
  * 
  *         if not isinstance(X, csc_matrix):
  *             raise ValueError("X should be in csc format")             # <<<<<<<<<<<<<<
  * 
  *         cdef SIZE_t* samples = self.samples
  */
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__5, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 866, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__5, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 902, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_Raise(__pyx_t_1, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __PYX_ERR(0, 866, __pyx_L1_error)
+    __PYX_ERR(0, 902, __pyx_L1_error)
 
-    /* "uplift/tree/_splitter.pyx":865
+    /* "uplift/tree/_splitter.pyx":901
  *         Splitter.init(self, X, y, sample_weight)
  * 
  *         if not isinstance(X, csc_matrix):             # <<<<<<<<<<<<<<
@@ -8665,7 +8897,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BaseSparseSplitter_init(struct __
  */
   }
 
-  /* "uplift/tree/_splitter.pyx":868
+  /* "uplift/tree/_splitter.pyx":904
  *             raise ValueError("X should be in csc format")
  * 
  *         cdef SIZE_t* samples = self.samples             # <<<<<<<<<<<<<<
@@ -8675,7 +8907,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BaseSparseSplitter_init(struct __
   __pyx_t_4 = __pyx_v_self->__pyx_base.samples;
   __pyx_v_samples = __pyx_t_4;
 
-  /* "uplift/tree/_splitter.pyx":869
+  /* "uplift/tree/_splitter.pyx":905
  * 
  *         cdef SIZE_t* samples = self.samples
  *         cdef SIZE_t n_samples = self.n_samples             # <<<<<<<<<<<<<<
@@ -8685,22 +8917,22 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BaseSparseSplitter_init(struct __
   __pyx_t_5 = __pyx_v_self->__pyx_base.n_samples;
   __pyx_v_n_samples = __pyx_t_5;
 
-  /* "uplift/tree/_splitter.pyx":872
+  /* "uplift/tree/_splitter.pyx":908
  * 
  *         # Initialize X
  *         cdef np.ndarray[dtype=DTYPE_t, ndim=1] data = X.data             # <<<<<<<<<<<<<<
  *         cdef np.ndarray[dtype=INT32_t, ndim=1] indices = X.indices
  *         cdef np.ndarray[dtype=INT32_t, ndim=1] indptr = X.indptr
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_X, __pyx_n_s_data); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 872, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_X, __pyx_n_s_data); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 908, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 872, __pyx_L1_error)
+  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 908, __pyx_L1_error)
   __pyx_t_6 = ((PyArrayObject *)__pyx_t_1);
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
     if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_data.rcbuffer->pybuffer, (PyObject*)__pyx_t_6, &__Pyx_TypeInfo_nn___pyx_t_6uplift_4tree_9_splitter_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) {
       __pyx_v_data = ((PyArrayObject *)Py_None); __Pyx_INCREF(Py_None); __pyx_pybuffernd_data.rcbuffer->pybuffer.buf = NULL;
-      __PYX_ERR(0, 872, __pyx_L1_error)
+      __PYX_ERR(0, 908, __pyx_L1_error)
     } else {__pyx_pybuffernd_data.diminfo[0].strides = __pyx_pybuffernd_data.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_data.diminfo[0].shape = __pyx_pybuffernd_data.rcbuffer->pybuffer.shape[0];
     }
   }
@@ -8708,22 +8940,22 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BaseSparseSplitter_init(struct __
   __pyx_v_data = ((PyArrayObject *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "uplift/tree/_splitter.pyx":873
+  /* "uplift/tree/_splitter.pyx":909
  *         # Initialize X
  *         cdef np.ndarray[dtype=DTYPE_t, ndim=1] data = X.data
  *         cdef np.ndarray[dtype=INT32_t, ndim=1] indices = X.indices             # <<<<<<<<<<<<<<
  *         cdef np.ndarray[dtype=INT32_t, ndim=1] indptr = X.indptr
  *         cdef SIZE_t n_total_samples = X.shape[0]
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_X, __pyx_n_s_indices); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 873, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_X, __pyx_n_s_indices); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 909, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 873, __pyx_L1_error)
+  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 909, __pyx_L1_error)
   __pyx_t_7 = ((PyArrayObject *)__pyx_t_1);
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
     if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_indices.rcbuffer->pybuffer, (PyObject*)__pyx_t_7, &__Pyx_TypeInfo_nn___pyx_t_6uplift_4tree_9_splitter_INT32_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) {
       __pyx_v_indices = ((PyArrayObject *)Py_None); __Pyx_INCREF(Py_None); __pyx_pybuffernd_indices.rcbuffer->pybuffer.buf = NULL;
-      __PYX_ERR(0, 873, __pyx_L1_error)
+      __PYX_ERR(0, 909, __pyx_L1_error)
     } else {__pyx_pybuffernd_indices.diminfo[0].strides = __pyx_pybuffernd_indices.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_indices.diminfo[0].shape = __pyx_pybuffernd_indices.rcbuffer->pybuffer.shape[0];
     }
   }
@@ -8731,22 +8963,22 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BaseSparseSplitter_init(struct __
   __pyx_v_indices = ((PyArrayObject *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "uplift/tree/_splitter.pyx":874
+  /* "uplift/tree/_splitter.pyx":910
  *         cdef np.ndarray[dtype=DTYPE_t, ndim=1] data = X.data
  *         cdef np.ndarray[dtype=INT32_t, ndim=1] indices = X.indices
  *         cdef np.ndarray[dtype=INT32_t, ndim=1] indptr = X.indptr             # <<<<<<<<<<<<<<
  *         cdef SIZE_t n_total_samples = X.shape[0]
  * 
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_X, __pyx_n_s_indptr); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 874, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_X, __pyx_n_s_indptr); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 910, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 874, __pyx_L1_error)
+  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 910, __pyx_L1_error)
   __pyx_t_8 = ((PyArrayObject *)__pyx_t_1);
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
     if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_indptr.rcbuffer->pybuffer, (PyObject*)__pyx_t_8, &__Pyx_TypeInfo_nn___pyx_t_6uplift_4tree_9_splitter_INT32_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) {
       __pyx_v_indptr = ((PyArrayObject *)Py_None); __Pyx_INCREF(Py_None); __pyx_pybuffernd_indptr.rcbuffer->pybuffer.buf = NULL;
-      __PYX_ERR(0, 874, __pyx_L1_error)
+      __PYX_ERR(0, 910, __pyx_L1_error)
     } else {__pyx_pybuffernd_indptr.diminfo[0].strides = __pyx_pybuffernd_indptr.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_indptr.diminfo[0].shape = __pyx_pybuffernd_indptr.rcbuffer->pybuffer.shape[0];
     }
   }
@@ -8754,23 +8986,23 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BaseSparseSplitter_init(struct __
   __pyx_v_indptr = ((PyArrayObject *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "uplift/tree/_splitter.pyx":875
+  /* "uplift/tree/_splitter.pyx":911
  *         cdef np.ndarray[dtype=INT32_t, ndim=1] indices = X.indices
  *         cdef np.ndarray[dtype=INT32_t, ndim=1] indptr = X.indptr
  *         cdef SIZE_t n_total_samples = X.shape[0]             # <<<<<<<<<<<<<<
  * 
  *         self.X_data = <DTYPE_t*> data.data
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_X, __pyx_n_s_shape); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 875, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_X, __pyx_n_s_shape); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 911, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_9 = __Pyx_GetItemInt(__pyx_t_1, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 875, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_GetItemInt(__pyx_t_1, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 911, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_5 = __Pyx_PyInt_As_Py_intptr_t(__pyx_t_9); if (unlikely((__pyx_t_5 == ((npy_intp)-1)) && PyErr_Occurred())) __PYX_ERR(0, 875, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyInt_As_Py_intptr_t(__pyx_t_9); if (unlikely((__pyx_t_5 == ((npy_intp)-1)) && PyErr_Occurred())) __PYX_ERR(0, 911, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
   __pyx_v_n_total_samples = __pyx_t_5;
 
-  /* "uplift/tree/_splitter.pyx":877
+  /* "uplift/tree/_splitter.pyx":913
  *         cdef SIZE_t n_total_samples = X.shape[0]
  * 
  *         self.X_data = <DTYPE_t*> data.data             # <<<<<<<<<<<<<<
@@ -8779,7 +9011,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BaseSparseSplitter_init(struct __
  */
   __pyx_v_self->X_data = ((__pyx_t_6uplift_4tree_9_splitter_DTYPE_t *)__pyx_v_data->data);
 
-  /* "uplift/tree/_splitter.pyx":878
+  /* "uplift/tree/_splitter.pyx":914
  * 
  *         self.X_data = <DTYPE_t*> data.data
  *         self.X_indices = <INT32_t*> indices.data             # <<<<<<<<<<<<<<
@@ -8788,7 +9020,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BaseSparseSplitter_init(struct __
  */
   __pyx_v_self->X_indices = ((__pyx_t_6uplift_4tree_9_splitter_INT32_t *)__pyx_v_indices->data);
 
-  /* "uplift/tree/_splitter.pyx":879
+  /* "uplift/tree/_splitter.pyx":915
  *         self.X_data = <DTYPE_t*> data.data
  *         self.X_indices = <INT32_t*> indices.data
  *         self.X_indptr = <INT32_t*> indptr.data             # <<<<<<<<<<<<<<
@@ -8797,7 +9029,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BaseSparseSplitter_init(struct __
  */
   __pyx_v_self->X_indptr = ((__pyx_t_6uplift_4tree_9_splitter_INT32_t *)__pyx_v_indptr->data);
 
-  /* "uplift/tree/_splitter.pyx":880
+  /* "uplift/tree/_splitter.pyx":916
  *         self.X_indices = <INT32_t*> indices.data
  *         self.X_indptr = <INT32_t*> indptr.data
  *         self.n_total_samples = n_total_samples             # <<<<<<<<<<<<<<
@@ -8806,25 +9038,25 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BaseSparseSplitter_init(struct __
  */
   __pyx_v_self->n_total_samples = __pyx_v_n_total_samples;
 
-  /* "uplift/tree/_splitter.pyx":883
+  /* "uplift/tree/_splitter.pyx":919
  * 
  *         # Initialize auxiliary array used to perform split
  *         safe_realloc(&self.index_to_samples, n_total_samples)             # <<<<<<<<<<<<<<
  *         safe_realloc(&self.sorted_samples, n_samples)
  * 
  */
-  __pyx_fuse_1__pyx_f_6uplift_4tree_6_utils_safe_realloc((&__pyx_v_self->index_to_samples), __pyx_v_n_total_samples); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 883, __pyx_L1_error)
+  __pyx_fuse_1__pyx_f_6uplift_4tree_6_utils_safe_realloc((&__pyx_v_self->index_to_samples), __pyx_v_n_total_samples); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 919, __pyx_L1_error)
 
-  /* "uplift/tree/_splitter.pyx":884
+  /* "uplift/tree/_splitter.pyx":920
  *         # Initialize auxiliary array used to perform split
  *         safe_realloc(&self.index_to_samples, n_total_samples)
  *         safe_realloc(&self.sorted_samples, n_samples)             # <<<<<<<<<<<<<<
  * 
  *         cdef SIZE_t* index_to_samples = self.index_to_samples
  */
-  __pyx_fuse_1__pyx_f_6uplift_4tree_6_utils_safe_realloc((&__pyx_v_self->sorted_samples), __pyx_v_n_samples); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 884, __pyx_L1_error)
+  __pyx_fuse_1__pyx_f_6uplift_4tree_6_utils_safe_realloc((&__pyx_v_self->sorted_samples), __pyx_v_n_samples); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 920, __pyx_L1_error)
 
-  /* "uplift/tree/_splitter.pyx":886
+  /* "uplift/tree/_splitter.pyx":922
  *         safe_realloc(&self.sorted_samples, n_samples)
  * 
  *         cdef SIZE_t* index_to_samples = self.index_to_samples             # <<<<<<<<<<<<<<
@@ -8834,7 +9066,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BaseSparseSplitter_init(struct __
   __pyx_t_4 = __pyx_v_self->index_to_samples;
   __pyx_v_index_to_samples = __pyx_t_4;
 
-  /* "uplift/tree/_splitter.pyx":888
+  /* "uplift/tree/_splitter.pyx":924
  *         cdef SIZE_t* index_to_samples = self.index_to_samples
  *         cdef SIZE_t p
  *         for p in range(n_total_samples):             # <<<<<<<<<<<<<<
@@ -8846,7 +9078,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BaseSparseSplitter_init(struct __
   for (__pyx_t_11 = 0; __pyx_t_11 < __pyx_t_10; __pyx_t_11+=1) {
     __pyx_v_p = __pyx_t_11;
 
-    /* "uplift/tree/_splitter.pyx":889
+    /* "uplift/tree/_splitter.pyx":925
  *         cdef SIZE_t p
  *         for p in range(n_total_samples):
  *             index_to_samples[p] = -1             # <<<<<<<<<<<<<<
@@ -8856,7 +9088,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BaseSparseSplitter_init(struct __
     (__pyx_v_index_to_samples[__pyx_v_p]) = -1;
   }
 
-  /* "uplift/tree/_splitter.pyx":891
+  /* "uplift/tree/_splitter.pyx":927
  *             index_to_samples[p] = -1
  * 
  *         for p in range(n_samples):             # <<<<<<<<<<<<<<
@@ -8868,7 +9100,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BaseSparseSplitter_init(struct __
   for (__pyx_t_11 = 0; __pyx_t_11 < __pyx_t_10; __pyx_t_11+=1) {
     __pyx_v_p = __pyx_t_11;
 
-    /* "uplift/tree/_splitter.pyx":892
+    /* "uplift/tree/_splitter.pyx":928
  * 
  *         for p in range(n_samples):
  *             index_to_samples[samples[p]] = p             # <<<<<<<<<<<<<<
@@ -8878,7 +9110,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BaseSparseSplitter_init(struct __
     (__pyx_v_index_to_samples[(__pyx_v_samples[__pyx_v_p])]) = __pyx_v_p;
   }
 
-  /* "uplift/tree/_splitter.pyx":855
+  /* "uplift/tree/_splitter.pyx":891
  *         free(self.sorted_samples)
  * 
  *     cdef void init(self,             # <<<<<<<<<<<<<<
@@ -8914,7 +9146,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BaseSparseSplitter_init(struct __
   __Pyx_RefNannyFinishContext();
 }
 
-/* "uplift/tree/_splitter.pyx":894
+/* "uplift/tree/_splitter.pyx":930
  *             index_to_samples[samples[p]] = p
  * 
  *     cdef inline SIZE_t _partition(self, double threshold,             # <<<<<<<<<<<<<<
@@ -8935,7 +9167,7 @@ static CYTHON_INLINE __pyx_t_6uplift_4tree_9_splitter_SIZE_t __pyx_f_6uplift_4tr
   int __pyx_t_3;
   __pyx_t_6uplift_4tree_9_splitter_SIZE_t __pyx_t_4;
 
-  /* "uplift/tree/_splitter.pyx":903
+  /* "uplift/tree/_splitter.pyx":939
  *         cdef SIZE_t p
  * 
  *         cdef DTYPE_t* Xf = self.feature_values             # <<<<<<<<<<<<<<
@@ -8945,7 +9177,7 @@ static CYTHON_INLINE __pyx_t_6uplift_4tree_9_splitter_SIZE_t __pyx_f_6uplift_4tr
   __pyx_t_1 = __pyx_v_self->__pyx_base.feature_values;
   __pyx_v_Xf = __pyx_t_1;
 
-  /* "uplift/tree/_splitter.pyx":904
+  /* "uplift/tree/_splitter.pyx":940
  * 
  *         cdef DTYPE_t* Xf = self.feature_values
  *         cdef SIZE_t* samples = self.samples             # <<<<<<<<<<<<<<
@@ -8955,7 +9187,7 @@ static CYTHON_INLINE __pyx_t_6uplift_4tree_9_splitter_SIZE_t __pyx_f_6uplift_4tr
   __pyx_t_2 = __pyx_v_self->__pyx_base.samples;
   __pyx_v_samples = __pyx_t_2;
 
-  /* "uplift/tree/_splitter.pyx":905
+  /* "uplift/tree/_splitter.pyx":941
  *         cdef DTYPE_t* Xf = self.feature_values
  *         cdef SIZE_t* samples = self.samples
  *         cdef SIZE_t* index_to_samples = self.index_to_samples             # <<<<<<<<<<<<<<
@@ -8965,7 +9197,7 @@ static CYTHON_INLINE __pyx_t_6uplift_4tree_9_splitter_SIZE_t __pyx_f_6uplift_4tr
   __pyx_t_2 = __pyx_v_self->index_to_samples;
   __pyx_v_index_to_samples = __pyx_t_2;
 
-  /* "uplift/tree/_splitter.pyx":907
+  /* "uplift/tree/_splitter.pyx":943
  *         cdef SIZE_t* index_to_samples = self.index_to_samples
  * 
  *         if threshold < 0.:             # <<<<<<<<<<<<<<
@@ -8975,7 +9207,7 @@ static CYTHON_INLINE __pyx_t_6uplift_4tree_9_splitter_SIZE_t __pyx_f_6uplift_4tr
   __pyx_t_3 = ((__pyx_v_threshold < 0.) != 0);
   if (__pyx_t_3) {
 
-    /* "uplift/tree/_splitter.pyx":908
+    /* "uplift/tree/_splitter.pyx":944
  * 
  *         if threshold < 0.:
  *             p = self.start             # <<<<<<<<<<<<<<
@@ -8985,7 +9217,7 @@ static CYTHON_INLINE __pyx_t_6uplift_4tree_9_splitter_SIZE_t __pyx_f_6uplift_4tr
     __pyx_t_4 = __pyx_v_self->__pyx_base.start;
     __pyx_v_p = __pyx_t_4;
 
-    /* "uplift/tree/_splitter.pyx":909
+    /* "uplift/tree/_splitter.pyx":945
  *         if threshold < 0.:
  *             p = self.start
  *             partition_end = end_negative             # <<<<<<<<<<<<<<
@@ -8994,7 +9226,7 @@ static CYTHON_INLINE __pyx_t_6uplift_4tree_9_splitter_SIZE_t __pyx_f_6uplift_4tr
  */
     __pyx_v_partition_end = __pyx_v_end_negative;
 
-    /* "uplift/tree/_splitter.pyx":907
+    /* "uplift/tree/_splitter.pyx":943
  *         cdef SIZE_t* index_to_samples = self.index_to_samples
  * 
  *         if threshold < 0.:             # <<<<<<<<<<<<<<
@@ -9004,7 +9236,7 @@ static CYTHON_INLINE __pyx_t_6uplift_4tree_9_splitter_SIZE_t __pyx_f_6uplift_4tr
     goto __pyx_L3;
   }
 
-  /* "uplift/tree/_splitter.pyx":910
+  /* "uplift/tree/_splitter.pyx":946
  *             p = self.start
  *             partition_end = end_negative
  *         elif threshold > 0.:             # <<<<<<<<<<<<<<
@@ -9014,7 +9246,7 @@ static CYTHON_INLINE __pyx_t_6uplift_4tree_9_splitter_SIZE_t __pyx_f_6uplift_4tr
   __pyx_t_3 = ((__pyx_v_threshold > 0.) != 0);
   if (__pyx_t_3) {
 
-    /* "uplift/tree/_splitter.pyx":911
+    /* "uplift/tree/_splitter.pyx":947
  *             partition_end = end_negative
  *         elif threshold > 0.:
  *             p = start_positive             # <<<<<<<<<<<<<<
@@ -9023,7 +9255,7 @@ static CYTHON_INLINE __pyx_t_6uplift_4tree_9_splitter_SIZE_t __pyx_f_6uplift_4tr
  */
     __pyx_v_p = __pyx_v_start_positive;
 
-    /* "uplift/tree/_splitter.pyx":912
+    /* "uplift/tree/_splitter.pyx":948
  *         elif threshold > 0.:
  *             p = start_positive
  *             partition_end = self.end             # <<<<<<<<<<<<<<
@@ -9033,7 +9265,7 @@ static CYTHON_INLINE __pyx_t_6uplift_4tree_9_splitter_SIZE_t __pyx_f_6uplift_4tr
     __pyx_t_4 = __pyx_v_self->__pyx_base.end;
     __pyx_v_partition_end = __pyx_t_4;
 
-    /* "uplift/tree/_splitter.pyx":910
+    /* "uplift/tree/_splitter.pyx":946
  *             p = self.start
  *             partition_end = end_negative
  *         elif threshold > 0.:             # <<<<<<<<<<<<<<
@@ -9043,7 +9275,7 @@ static CYTHON_INLINE __pyx_t_6uplift_4tree_9_splitter_SIZE_t __pyx_f_6uplift_4tr
     goto __pyx_L3;
   }
 
-  /* "uplift/tree/_splitter.pyx":915
+  /* "uplift/tree/_splitter.pyx":951
  *         else:
  *             # Data are already split
  *             return zero_pos             # <<<<<<<<<<<<<<
@@ -9056,7 +9288,7 @@ static CYTHON_INLINE __pyx_t_6uplift_4tree_9_splitter_SIZE_t __pyx_f_6uplift_4tr
   }
   __pyx_L3:;
 
-  /* "uplift/tree/_splitter.pyx":917
+  /* "uplift/tree/_splitter.pyx":953
  *             return zero_pos
  * 
  *         while p < partition_end:             # <<<<<<<<<<<<<<
@@ -9067,7 +9299,7 @@ static CYTHON_INLINE __pyx_t_6uplift_4tree_9_splitter_SIZE_t __pyx_f_6uplift_4tr
     __pyx_t_3 = ((__pyx_v_p < __pyx_v_partition_end) != 0);
     if (!__pyx_t_3) break;
 
-    /* "uplift/tree/_splitter.pyx":918
+    /* "uplift/tree/_splitter.pyx":954
  * 
  *         while p < partition_end:
  *             value = Xf[p]             # <<<<<<<<<<<<<<
@@ -9076,7 +9308,7 @@ static CYTHON_INLINE __pyx_t_6uplift_4tree_9_splitter_SIZE_t __pyx_f_6uplift_4tr
  */
     __pyx_v_value = (__pyx_v_Xf[__pyx_v_p]);
 
-    /* "uplift/tree/_splitter.pyx":920
+    /* "uplift/tree/_splitter.pyx":956
  *             value = Xf[p]
  * 
  *             if value <= threshold:             # <<<<<<<<<<<<<<
@@ -9086,7 +9318,7 @@ static CYTHON_INLINE __pyx_t_6uplift_4tree_9_splitter_SIZE_t __pyx_f_6uplift_4tr
     __pyx_t_3 = ((__pyx_v_value <= __pyx_v_threshold) != 0);
     if (__pyx_t_3) {
 
-      /* "uplift/tree/_splitter.pyx":921
+      /* "uplift/tree/_splitter.pyx":957
  * 
  *             if value <= threshold:
  *                 p += 1             # <<<<<<<<<<<<<<
@@ -9095,7 +9327,7 @@ static CYTHON_INLINE __pyx_t_6uplift_4tree_9_splitter_SIZE_t __pyx_f_6uplift_4tr
  */
       __pyx_v_p = (__pyx_v_p + 1);
 
-      /* "uplift/tree/_splitter.pyx":920
+      /* "uplift/tree/_splitter.pyx":956
  *             value = Xf[p]
  * 
  *             if value <= threshold:             # <<<<<<<<<<<<<<
@@ -9105,7 +9337,7 @@ static CYTHON_INLINE __pyx_t_6uplift_4tree_9_splitter_SIZE_t __pyx_f_6uplift_4tr
       goto __pyx_L6;
     }
 
-    /* "uplift/tree/_splitter.pyx":924
+    /* "uplift/tree/_splitter.pyx":960
  * 
  *             else:
  *                 partition_end -= 1             # <<<<<<<<<<<<<<
@@ -9115,7 +9347,7 @@ static CYTHON_INLINE __pyx_t_6uplift_4tree_9_splitter_SIZE_t __pyx_f_6uplift_4tr
     /*else*/ {
       __pyx_v_partition_end = (__pyx_v_partition_end - 1);
 
-      /* "uplift/tree/_splitter.pyx":926
+      /* "uplift/tree/_splitter.pyx":962
  *                 partition_end -= 1
  * 
  *                 Xf[p] = Xf[partition_end]             # <<<<<<<<<<<<<<
@@ -9124,7 +9356,7 @@ static CYTHON_INLINE __pyx_t_6uplift_4tree_9_splitter_SIZE_t __pyx_f_6uplift_4tr
  */
       (__pyx_v_Xf[__pyx_v_p]) = (__pyx_v_Xf[__pyx_v_partition_end]);
 
-      /* "uplift/tree/_splitter.pyx":927
+      /* "uplift/tree/_splitter.pyx":963
  * 
  *                 Xf[p] = Xf[partition_end]
  *                 Xf[partition_end] = value             # <<<<<<<<<<<<<<
@@ -9133,7 +9365,7 @@ static CYTHON_INLINE __pyx_t_6uplift_4tree_9_splitter_SIZE_t __pyx_f_6uplift_4tr
  */
       (__pyx_v_Xf[__pyx_v_partition_end]) = __pyx_v_value;
 
-      /* "uplift/tree/_splitter.pyx":928
+      /* "uplift/tree/_splitter.pyx":964
  *                 Xf[p] = Xf[partition_end]
  *                 Xf[partition_end] = value
  *                 sparse_swap(index_to_samples, samples, p, partition_end)             # <<<<<<<<<<<<<<
@@ -9145,7 +9377,7 @@ static CYTHON_INLINE __pyx_t_6uplift_4tree_9_splitter_SIZE_t __pyx_f_6uplift_4tr
     __pyx_L6:;
   }
 
-  /* "uplift/tree/_splitter.pyx":930
+  /* "uplift/tree/_splitter.pyx":966
  *                 sparse_swap(index_to_samples, samples, p, partition_end)
  * 
  *         return partition_end             # <<<<<<<<<<<<<<
@@ -9155,7 +9387,7 @@ static CYTHON_INLINE __pyx_t_6uplift_4tree_9_splitter_SIZE_t __pyx_f_6uplift_4tr
   __pyx_r = __pyx_v_partition_end;
   goto __pyx_L0;
 
-  /* "uplift/tree/_splitter.pyx":894
+  /* "uplift/tree/_splitter.pyx":930
  *             index_to_samples[samples[p]] = p
  * 
  *     cdef inline SIZE_t _partition(self, double threshold,             # <<<<<<<<<<<<<<
@@ -9168,7 +9400,7 @@ static CYTHON_INLINE __pyx_t_6uplift_4tree_9_splitter_SIZE_t __pyx_f_6uplift_4tr
   return __pyx_r;
 }
 
-/* "uplift/tree/_splitter.pyx":932
+/* "uplift/tree/_splitter.pyx":968
  *         return partition_end
  * 
  *     cdef inline void extract_nnz(self, SIZE_t feature,             # <<<<<<<<<<<<<<
@@ -9183,7 +9415,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_18BaseSparseSplitter_
   __pyx_t_6uplift_4tree_9_splitter_SIZE_t __pyx_v_n_samples;
   int __pyx_t_1;
 
-  /* "uplift/tree/_splitter.pyx":964
+  /* "uplift/tree/_splitter.pyx":1000
  * 
  *         """
  *         cdef SIZE_t indptr_start = self.X_indptr[feature],             # <<<<<<<<<<<<<<
@@ -9192,7 +9424,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_18BaseSparseSplitter_
  */
   __pyx_v_indptr_start = (__pyx_v_self->X_indptr[__pyx_v_feature]);
 
-  /* "uplift/tree/_splitter.pyx":965
+  /* "uplift/tree/_splitter.pyx":1001
  *         """
  *         cdef SIZE_t indptr_start = self.X_indptr[feature],
  *         cdef SIZE_t indptr_end = self.X_indptr[feature + 1]             # <<<<<<<<<<<<<<
@@ -9201,7 +9433,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_18BaseSparseSplitter_
  */
   __pyx_v_indptr_end = (__pyx_v_self->X_indptr[(__pyx_v_feature + 1)]);
 
-  /* "uplift/tree/_splitter.pyx":966
+  /* "uplift/tree/_splitter.pyx":1002
  *         cdef SIZE_t indptr_start = self.X_indptr[feature],
  *         cdef SIZE_t indptr_end = self.X_indptr[feature + 1]
  *         cdef SIZE_t n_indices = <SIZE_t>(indptr_end - indptr_start)             # <<<<<<<<<<<<<<
@@ -9210,7 +9442,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_18BaseSparseSplitter_
  */
   __pyx_v_n_indices = ((__pyx_t_6uplift_4tree_9_splitter_SIZE_t)(__pyx_v_indptr_end - __pyx_v_indptr_start));
 
-  /* "uplift/tree/_splitter.pyx":967
+  /* "uplift/tree/_splitter.pyx":1003
  *         cdef SIZE_t indptr_end = self.X_indptr[feature + 1]
  *         cdef SIZE_t n_indices = <SIZE_t>(indptr_end - indptr_start)
  *         cdef SIZE_t n_samples = self.end - self.start             # <<<<<<<<<<<<<<
@@ -9219,7 +9451,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_18BaseSparseSplitter_
  */
   __pyx_v_n_samples = (__pyx_v_self->__pyx_base.end - __pyx_v_self->__pyx_base.start);
 
-  /* "uplift/tree/_splitter.pyx":975
+  /* "uplift/tree/_splitter.pyx":1011
  *         # approach.
  *         if ((1 - is_samples_sorted[0]) * n_samples * log(n_samples) +
  *                 n_samples * log(n_indices) < EXTRACT_NNZ_SWITCH * n_indices):             # <<<<<<<<<<<<<<
@@ -9228,7 +9460,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_18BaseSparseSplitter_
  */
   __pyx_t_1 = ((((((1 - (__pyx_v_is_samples_sorted[0])) * __pyx_v_n_samples) * __pyx_f_6uplift_4tree_6_utils_log(__pyx_v_n_samples)) + (__pyx_v_n_samples * __pyx_f_6uplift_4tree_6_utils_log(__pyx_v_n_indices))) < (__pyx_v_6uplift_4tree_9_splitter_EXTRACT_NNZ_SWITCH * __pyx_v_n_indices)) != 0);
 
-  /* "uplift/tree/_splitter.pyx":974
+  /* "uplift/tree/_splitter.pyx":1010
  *         # search and O(n_indices) is the running time of index_to_samples
  *         # approach.
  *         if ((1 - is_samples_sorted[0]) * n_samples * log(n_samples) +             # <<<<<<<<<<<<<<
@@ -9237,7 +9469,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_18BaseSparseSplitter_
  */
   if (__pyx_t_1) {
 
-    /* "uplift/tree/_splitter.pyx":976
+    /* "uplift/tree/_splitter.pyx":1012
  *         if ((1 - is_samples_sorted[0]) * n_samples * log(n_samples) +
  *                 n_samples * log(n_indices) < EXTRACT_NNZ_SWITCH * n_indices):
  *             extract_nnz_binary_search(self.X_indices, self.X_data,             # <<<<<<<<<<<<<<
@@ -9246,7 +9478,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_18BaseSparseSplitter_
  */
     __pyx_f_6uplift_4tree_9_splitter_extract_nnz_binary_search(__pyx_v_self->X_indices, __pyx_v_self->X_data, __pyx_v_indptr_start, __pyx_v_indptr_end, __pyx_v_self->__pyx_base.samples, __pyx_v_self->__pyx_base.start, __pyx_v_self->__pyx_base.end, __pyx_v_self->index_to_samples, __pyx_v_self->__pyx_base.feature_values, __pyx_v_end_negative, __pyx_v_start_positive, __pyx_v_self->sorted_samples, __pyx_v_is_samples_sorted);
 
-    /* "uplift/tree/_splitter.pyx":974
+    /* "uplift/tree/_splitter.pyx":1010
  *         # search and O(n_indices) is the running time of index_to_samples
  *         # approach.
  *         if ((1 - is_samples_sorted[0]) * n_samples * log(n_samples) +             # <<<<<<<<<<<<<<
@@ -9256,7 +9488,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_18BaseSparseSplitter_
     goto __pyx_L3;
   }
 
-  /* "uplift/tree/_splitter.pyx":987
+  /* "uplift/tree/_splitter.pyx":1023
  *         # index_to_samples is a mapping from X_indices to samples
  *         else:
  *             extract_nnz_index_to_samples(self.X_indices, self.X_data,             # <<<<<<<<<<<<<<
@@ -9265,7 +9497,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_18BaseSparseSplitter_
  */
   /*else*/ {
 
-    /* "uplift/tree/_splitter.pyx":992
+    /* "uplift/tree/_splitter.pyx":1028
  *                                          self.index_to_samples,
  *                                          self.feature_values,
  *                                          end_negative, start_positive)             # <<<<<<<<<<<<<<
@@ -9276,7 +9508,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_18BaseSparseSplitter_
   }
   __pyx_L3:;
 
-  /* "uplift/tree/_splitter.pyx":932
+  /* "uplift/tree/_splitter.pyx":968
  *         return partition_end
  * 
  *     cdef inline void extract_nnz(self, SIZE_t feature,             # <<<<<<<<<<<<<<
@@ -9394,7 +9626,7 @@ static PyObject *__pyx_pf_6uplift_4tree_9_splitter_18BaseSparseSplitter_6__setst
   return __pyx_r;
 }
 
-/* "uplift/tree/_splitter.pyx":995
+/* "uplift/tree/_splitter.pyx":1031
  * 
  * 
  * cdef int compare_SIZE_t(const void* a, const void* b) nogil:             # <<<<<<<<<<<<<<
@@ -9405,7 +9637,7 @@ static PyObject *__pyx_pf_6uplift_4tree_9_splitter_18BaseSparseSplitter_6__setst
 static int __pyx_f_6uplift_4tree_9_splitter_compare_SIZE_t(void const *__pyx_v_a, void const *__pyx_v_b) {
   int __pyx_r;
 
-  /* "uplift/tree/_splitter.pyx":997
+  /* "uplift/tree/_splitter.pyx":1033
  * cdef int compare_SIZE_t(const void* a, const void* b) nogil:
  *     """Comparison function for sort."""
  *     return <int>((<SIZE_t*>a)[0] - (<SIZE_t*>b)[0])             # <<<<<<<<<<<<<<
@@ -9415,7 +9647,7 @@ static int __pyx_f_6uplift_4tree_9_splitter_compare_SIZE_t(void const *__pyx_v_a
   __pyx_r = ((int)((((__pyx_t_6uplift_4tree_9_splitter_SIZE_t *)__pyx_v_a)[0]) - (((__pyx_t_6uplift_4tree_9_splitter_SIZE_t *)__pyx_v_b)[0])));
   goto __pyx_L0;
 
-  /* "uplift/tree/_splitter.pyx":995
+  /* "uplift/tree/_splitter.pyx":1031
  * 
  * 
  * cdef int compare_SIZE_t(const void* a, const void* b) nogil:             # <<<<<<<<<<<<<<
@@ -9428,7 +9660,7 @@ static int __pyx_f_6uplift_4tree_9_splitter_compare_SIZE_t(void const *__pyx_v_a
   return __pyx_r;
 }
 
-/* "uplift/tree/_splitter.pyx":1000
+/* "uplift/tree/_splitter.pyx":1036
  * 
  * 
  * cdef inline void binary_search(INT32_t* sorted_array,             # <<<<<<<<<<<<<<
@@ -9440,7 +9672,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_binary_search(__pyx_t
   __pyx_t_6uplift_4tree_9_splitter_INT32_t __pyx_v_pivot;
   int __pyx_t_1;
 
-  /* "uplift/tree/_splitter.pyx":1009
+  /* "uplift/tree/_splitter.pyx":1045
  *     """
  *     cdef INT32_t pivot
  *     index[0] = -1             # <<<<<<<<<<<<<<
@@ -9449,7 +9681,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_binary_search(__pyx_t
  */
   (__pyx_v_index[0]) = -1;
 
-  /* "uplift/tree/_splitter.pyx":1010
+  /* "uplift/tree/_splitter.pyx":1046
  *     cdef INT32_t pivot
  *     index[0] = -1
  *     while start < end:             # <<<<<<<<<<<<<<
@@ -9460,7 +9692,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_binary_search(__pyx_t
     __pyx_t_1 = ((__pyx_v_start < __pyx_v_end) != 0);
     if (!__pyx_t_1) break;
 
-    /* "uplift/tree/_splitter.pyx":1011
+    /* "uplift/tree/_splitter.pyx":1047
  *     index[0] = -1
  *     while start < end:
  *         pivot = start + (end - start) / 2             # <<<<<<<<<<<<<<
@@ -9469,7 +9701,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_binary_search(__pyx_t
  */
     __pyx_v_pivot = (__pyx_v_start + ((__pyx_v_end - __pyx_v_start) / 2));
 
-    /* "uplift/tree/_splitter.pyx":1013
+    /* "uplift/tree/_splitter.pyx":1049
  *         pivot = start + (end - start) / 2
  * 
  *         if sorted_array[pivot] == value:             # <<<<<<<<<<<<<<
@@ -9479,7 +9711,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_binary_search(__pyx_t
     __pyx_t_1 = (((__pyx_v_sorted_array[__pyx_v_pivot]) == __pyx_v_value) != 0);
     if (__pyx_t_1) {
 
-      /* "uplift/tree/_splitter.pyx":1014
+      /* "uplift/tree/_splitter.pyx":1050
  * 
  *         if sorted_array[pivot] == value:
  *             index[0] = pivot             # <<<<<<<<<<<<<<
@@ -9488,7 +9720,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_binary_search(__pyx_t
  */
       (__pyx_v_index[0]) = __pyx_v_pivot;
 
-      /* "uplift/tree/_splitter.pyx":1015
+      /* "uplift/tree/_splitter.pyx":1051
  *         if sorted_array[pivot] == value:
  *             index[0] = pivot
  *             start = pivot + 1             # <<<<<<<<<<<<<<
@@ -9497,7 +9729,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_binary_search(__pyx_t
  */
       __pyx_v_start = (__pyx_v_pivot + 1);
 
-      /* "uplift/tree/_splitter.pyx":1016
+      /* "uplift/tree/_splitter.pyx":1052
  *             index[0] = pivot
  *             start = pivot + 1
  *             break             # <<<<<<<<<<<<<<
@@ -9506,7 +9738,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_binary_search(__pyx_t
  */
       goto __pyx_L4_break;
 
-      /* "uplift/tree/_splitter.pyx":1013
+      /* "uplift/tree/_splitter.pyx":1049
  *         pivot = start + (end - start) / 2
  * 
  *         if sorted_array[pivot] == value:             # <<<<<<<<<<<<<<
@@ -9515,7 +9747,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_binary_search(__pyx_t
  */
     }
 
-    /* "uplift/tree/_splitter.pyx":1018
+    /* "uplift/tree/_splitter.pyx":1054
  *             break
  * 
  *         if sorted_array[pivot] < value:             # <<<<<<<<<<<<<<
@@ -9525,7 +9757,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_binary_search(__pyx_t
     __pyx_t_1 = (((__pyx_v_sorted_array[__pyx_v_pivot]) < __pyx_v_value) != 0);
     if (__pyx_t_1) {
 
-      /* "uplift/tree/_splitter.pyx":1019
+      /* "uplift/tree/_splitter.pyx":1055
  * 
  *         if sorted_array[pivot] < value:
  *             start = pivot + 1             # <<<<<<<<<<<<<<
@@ -9534,7 +9766,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_binary_search(__pyx_t
  */
       __pyx_v_start = (__pyx_v_pivot + 1);
 
-      /* "uplift/tree/_splitter.pyx":1018
+      /* "uplift/tree/_splitter.pyx":1054
  *             break
  * 
  *         if sorted_array[pivot] < value:             # <<<<<<<<<<<<<<
@@ -9544,7 +9776,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_binary_search(__pyx_t
       goto __pyx_L6;
     }
 
-    /* "uplift/tree/_splitter.pyx":1021
+    /* "uplift/tree/_splitter.pyx":1057
  *             start = pivot + 1
  *         else:
  *             end = pivot             # <<<<<<<<<<<<<<
@@ -9558,7 +9790,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_binary_search(__pyx_t
   }
   __pyx_L4_break:;
 
-  /* "uplift/tree/_splitter.pyx":1022
+  /* "uplift/tree/_splitter.pyx":1058
  *         else:
  *             end = pivot
  *     new_start[0] = start             # <<<<<<<<<<<<<<
@@ -9567,7 +9799,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_binary_search(__pyx_t
  */
   (__pyx_v_new_start[0]) = __pyx_v_start;
 
-  /* "uplift/tree/_splitter.pyx":1000
+  /* "uplift/tree/_splitter.pyx":1036
  * 
  * 
  * cdef inline void binary_search(INT32_t* sorted_array,             # <<<<<<<<<<<<<<
@@ -9578,7 +9810,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_binary_search(__pyx_t
   /* function exit code */
 }
 
-/* "uplift/tree/_splitter.pyx":1025
+/* "uplift/tree/_splitter.pyx":1061
  * 
  * 
  * cdef inline void extract_nnz_index_to_samples(INT32_t* X_indices,             # <<<<<<<<<<<<<<
@@ -9597,7 +9829,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_extract_nnz_index_to_
   int __pyx_t_4;
   int __pyx_t_5;
 
-  /* "uplift/tree/_splitter.pyx":1042
+  /* "uplift/tree/_splitter.pyx":1078
  *     cdef INT32_t k
  *     cdef SIZE_t index
  *     cdef SIZE_t end_negative_ = start             # <<<<<<<<<<<<<<
@@ -9606,7 +9838,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_extract_nnz_index_to_
  */
   __pyx_v_end_negative_ = __pyx_v_start;
 
-  /* "uplift/tree/_splitter.pyx":1043
+  /* "uplift/tree/_splitter.pyx":1079
  *     cdef SIZE_t index
  *     cdef SIZE_t end_negative_ = start
  *     cdef SIZE_t start_positive_ = end             # <<<<<<<<<<<<<<
@@ -9615,7 +9847,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_extract_nnz_index_to_
  */
   __pyx_v_start_positive_ = __pyx_v_end;
 
-  /* "uplift/tree/_splitter.pyx":1045
+  /* "uplift/tree/_splitter.pyx":1081
  *     cdef SIZE_t start_positive_ = end
  * 
  *     for k in range(indptr_start, indptr_end):             # <<<<<<<<<<<<<<
@@ -9627,7 +9859,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_extract_nnz_index_to_
   for (__pyx_t_3 = __pyx_v_indptr_start; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_k = __pyx_t_3;
 
-    /* "uplift/tree/_splitter.pyx":1046
+    /* "uplift/tree/_splitter.pyx":1082
  * 
  *     for k in range(indptr_start, indptr_end):
  *         if start <= index_to_samples[X_indices[k]] < end:             # <<<<<<<<<<<<<<
@@ -9641,7 +9873,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_extract_nnz_index_to_
     __pyx_t_5 = (__pyx_t_4 != 0);
     if (__pyx_t_5) {
 
-      /* "uplift/tree/_splitter.pyx":1047
+      /* "uplift/tree/_splitter.pyx":1083
  *     for k in range(indptr_start, indptr_end):
  *         if start <= index_to_samples[X_indices[k]] < end:
  *             if X_data[k] > 0:             # <<<<<<<<<<<<<<
@@ -9651,7 +9883,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_extract_nnz_index_to_
       __pyx_t_5 = (((__pyx_v_X_data[__pyx_v_k]) > 0.0) != 0);
       if (__pyx_t_5) {
 
-        /* "uplift/tree/_splitter.pyx":1048
+        /* "uplift/tree/_splitter.pyx":1084
  *         if start <= index_to_samples[X_indices[k]] < end:
  *             if X_data[k] > 0:
  *                 start_positive_ -= 1             # <<<<<<<<<<<<<<
@@ -9660,7 +9892,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_extract_nnz_index_to_
  */
         __pyx_v_start_positive_ = (__pyx_v_start_positive_ - 1);
 
-        /* "uplift/tree/_splitter.pyx":1049
+        /* "uplift/tree/_splitter.pyx":1085
  *             if X_data[k] > 0:
  *                 start_positive_ -= 1
  *                 Xf[start_positive_] = X_data[k]             # <<<<<<<<<<<<<<
@@ -9669,7 +9901,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_extract_nnz_index_to_
  */
         (__pyx_v_Xf[__pyx_v_start_positive_]) = (__pyx_v_X_data[__pyx_v_k]);
 
-        /* "uplift/tree/_splitter.pyx":1050
+        /* "uplift/tree/_splitter.pyx":1086
  *                 start_positive_ -= 1
  *                 Xf[start_positive_] = X_data[k]
  *                 index = index_to_samples[X_indices[k]]             # <<<<<<<<<<<<<<
@@ -9678,7 +9910,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_extract_nnz_index_to_
  */
         __pyx_v_index = (__pyx_v_index_to_samples[(__pyx_v_X_indices[__pyx_v_k])]);
 
-        /* "uplift/tree/_splitter.pyx":1051
+        /* "uplift/tree/_splitter.pyx":1087
  *                 Xf[start_positive_] = X_data[k]
  *                 index = index_to_samples[X_indices[k]]
  *                 sparse_swap(index_to_samples, samples, index, start_positive_)             # <<<<<<<<<<<<<<
@@ -9687,7 +9919,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_extract_nnz_index_to_
  */
         __pyx_f_6uplift_4tree_9_splitter_sparse_swap(__pyx_v_index_to_samples, __pyx_v_samples, __pyx_v_index, __pyx_v_start_positive_);
 
-        /* "uplift/tree/_splitter.pyx":1047
+        /* "uplift/tree/_splitter.pyx":1083
  *     for k in range(indptr_start, indptr_end):
  *         if start <= index_to_samples[X_indices[k]] < end:
  *             if X_data[k] > 0:             # <<<<<<<<<<<<<<
@@ -9697,7 +9929,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_extract_nnz_index_to_
         goto __pyx_L6;
       }
 
-      /* "uplift/tree/_splitter.pyx":1054
+      /* "uplift/tree/_splitter.pyx":1090
  * 
  * 
  *             elif X_data[k] < 0:             # <<<<<<<<<<<<<<
@@ -9707,7 +9939,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_extract_nnz_index_to_
       __pyx_t_5 = (((__pyx_v_X_data[__pyx_v_k]) < 0.0) != 0);
       if (__pyx_t_5) {
 
-        /* "uplift/tree/_splitter.pyx":1055
+        /* "uplift/tree/_splitter.pyx":1091
  * 
  *             elif X_data[k] < 0:
  *                 Xf[end_negative_] = X_data[k]             # <<<<<<<<<<<<<<
@@ -9716,7 +9948,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_extract_nnz_index_to_
  */
         (__pyx_v_Xf[__pyx_v_end_negative_]) = (__pyx_v_X_data[__pyx_v_k]);
 
-        /* "uplift/tree/_splitter.pyx":1056
+        /* "uplift/tree/_splitter.pyx":1092
  *             elif X_data[k] < 0:
  *                 Xf[end_negative_] = X_data[k]
  *                 index = index_to_samples[X_indices[k]]             # <<<<<<<<<<<<<<
@@ -9725,7 +9957,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_extract_nnz_index_to_
  */
         __pyx_v_index = (__pyx_v_index_to_samples[(__pyx_v_X_indices[__pyx_v_k])]);
 
-        /* "uplift/tree/_splitter.pyx":1057
+        /* "uplift/tree/_splitter.pyx":1093
  *                 Xf[end_negative_] = X_data[k]
  *                 index = index_to_samples[X_indices[k]]
  *                 sparse_swap(index_to_samples, samples, index, end_negative_)             # <<<<<<<<<<<<<<
@@ -9734,7 +9966,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_extract_nnz_index_to_
  */
         __pyx_f_6uplift_4tree_9_splitter_sparse_swap(__pyx_v_index_to_samples, __pyx_v_samples, __pyx_v_index, __pyx_v_end_negative_);
 
-        /* "uplift/tree/_splitter.pyx":1058
+        /* "uplift/tree/_splitter.pyx":1094
  *                 index = index_to_samples[X_indices[k]]
  *                 sparse_swap(index_to_samples, samples, index, end_negative_)
  *                 end_negative_ += 1             # <<<<<<<<<<<<<<
@@ -9743,7 +9975,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_extract_nnz_index_to_
  */
         __pyx_v_end_negative_ = (__pyx_v_end_negative_ + 1);
 
-        /* "uplift/tree/_splitter.pyx":1054
+        /* "uplift/tree/_splitter.pyx":1090
  * 
  * 
  *             elif X_data[k] < 0:             # <<<<<<<<<<<<<<
@@ -9753,7 +9985,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_extract_nnz_index_to_
       }
       __pyx_L6:;
 
-      /* "uplift/tree/_splitter.pyx":1046
+      /* "uplift/tree/_splitter.pyx":1082
  * 
  *     for k in range(indptr_start, indptr_end):
  *         if start <= index_to_samples[X_indices[k]] < end:             # <<<<<<<<<<<<<<
@@ -9763,7 +9995,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_extract_nnz_index_to_
     }
   }
 
-  /* "uplift/tree/_splitter.pyx":1061
+  /* "uplift/tree/_splitter.pyx":1097
  * 
  *     # Returned values
  *     end_negative[0] = end_negative_             # <<<<<<<<<<<<<<
@@ -9772,7 +10004,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_extract_nnz_index_to_
  */
   (__pyx_v_end_negative[0]) = __pyx_v_end_negative_;
 
-  /* "uplift/tree/_splitter.pyx":1062
+  /* "uplift/tree/_splitter.pyx":1098
  *     # Returned values
  *     end_negative[0] = end_negative_
  *     start_positive[0] = start_positive_             # <<<<<<<<<<<<<<
@@ -9781,7 +10013,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_extract_nnz_index_to_
  */
   (__pyx_v_start_positive[0]) = __pyx_v_start_positive_;
 
-  /* "uplift/tree/_splitter.pyx":1025
+  /* "uplift/tree/_splitter.pyx":1061
  * 
  * 
  * cdef inline void extract_nnz_index_to_samples(INT32_t* X_indices,             # <<<<<<<<<<<<<<
@@ -9792,7 +10024,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_extract_nnz_index_to_
   /* function exit code */
 }
 
-/* "uplift/tree/_splitter.pyx":1065
+/* "uplift/tree/_splitter.pyx":1101
  * 
  * 
  * cdef inline void extract_nnz_binary_search(INT32_t* X_indices,             # <<<<<<<<<<<<<<
@@ -9810,7 +10042,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_extract_nnz_binary_se
   int __pyx_t_1;
   int __pyx_t_2;
 
-  /* "uplift/tree/_splitter.pyx":1088
+  /* "uplift/tree/_splitter.pyx":1124
  *     cdef SIZE_t n_samples
  * 
  *     if not is_samples_sorted[0]:             # <<<<<<<<<<<<<<
@@ -9820,7 +10052,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_extract_nnz_binary_se
   __pyx_t_1 = ((!((__pyx_v_is_samples_sorted[0]) != 0)) != 0);
   if (__pyx_t_1) {
 
-    /* "uplift/tree/_splitter.pyx":1089
+    /* "uplift/tree/_splitter.pyx":1125
  * 
  *     if not is_samples_sorted[0]:
  *         n_samples = end - start             # <<<<<<<<<<<<<<
@@ -9829,7 +10061,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_extract_nnz_binary_se
  */
     __pyx_v_n_samples = (__pyx_v_end - __pyx_v_start);
 
-    /* "uplift/tree/_splitter.pyx":1090
+    /* "uplift/tree/_splitter.pyx":1126
  *     if not is_samples_sorted[0]:
  *         n_samples = end - start
  *         memcpy(sorted_samples + start, samples + start,             # <<<<<<<<<<<<<<
@@ -9838,7 +10070,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_extract_nnz_binary_se
  */
     (void)(memcpy((__pyx_v_sorted_samples + __pyx_v_start), (__pyx_v_samples + __pyx_v_start), (__pyx_v_n_samples * (sizeof(__pyx_t_6uplift_4tree_9_splitter_SIZE_t)))));
 
-    /* "uplift/tree/_splitter.pyx":1092
+    /* "uplift/tree/_splitter.pyx":1128
  *         memcpy(sorted_samples + start, samples + start,
  *                n_samples * sizeof(SIZE_t))
  *         qsort(sorted_samples + start, n_samples, sizeof(SIZE_t),             # <<<<<<<<<<<<<<
@@ -9847,7 +10079,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_extract_nnz_binary_se
  */
     qsort((__pyx_v_sorted_samples + __pyx_v_start), __pyx_v_n_samples, (sizeof(__pyx_t_6uplift_4tree_9_splitter_SIZE_t)), __pyx_f_6uplift_4tree_9_splitter_compare_SIZE_t);
 
-    /* "uplift/tree/_splitter.pyx":1094
+    /* "uplift/tree/_splitter.pyx":1130
  *         qsort(sorted_samples + start, n_samples, sizeof(SIZE_t),
  *               compare_SIZE_t)
  *         is_samples_sorted[0] = 1             # <<<<<<<<<<<<<<
@@ -9856,7 +10088,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_extract_nnz_binary_se
  */
     (__pyx_v_is_samples_sorted[0]) = 1;
 
-    /* "uplift/tree/_splitter.pyx":1088
+    /* "uplift/tree/_splitter.pyx":1124
  *     cdef SIZE_t n_samples
  * 
  *     if not is_samples_sorted[0]:             # <<<<<<<<<<<<<<
@@ -9865,7 +10097,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_extract_nnz_binary_se
  */
   }
 
-  /* "uplift/tree/_splitter.pyx":1096
+  /* "uplift/tree/_splitter.pyx":1132
  *         is_samples_sorted[0] = 1
  * 
  *     while (indptr_start < indptr_end and             # <<<<<<<<<<<<<<
@@ -9880,7 +10112,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_extract_nnz_binary_se
       goto __pyx_L6_bool_binop_done;
     }
 
-    /* "uplift/tree/_splitter.pyx":1097
+    /* "uplift/tree/_splitter.pyx":1133
  * 
  *     while (indptr_start < indptr_end and
  *            sorted_samples[start] > X_indices[indptr_start]):             # <<<<<<<<<<<<<<
@@ -9892,7 +10124,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_extract_nnz_binary_se
     __pyx_L6_bool_binop_done:;
     if (!__pyx_t_1) break;
 
-    /* "uplift/tree/_splitter.pyx":1098
+    /* "uplift/tree/_splitter.pyx":1134
  *     while (indptr_start < indptr_end and
  *            sorted_samples[start] > X_indices[indptr_start]):
  *         indptr_start += 1             # <<<<<<<<<<<<<<
@@ -9902,7 +10134,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_extract_nnz_binary_se
     __pyx_v_indptr_start = (__pyx_v_indptr_start + 1);
   }
 
-  /* "uplift/tree/_splitter.pyx":1100
+  /* "uplift/tree/_splitter.pyx":1136
  *         indptr_start += 1
  * 
  *     while (indptr_start < indptr_end and             # <<<<<<<<<<<<<<
@@ -9917,7 +10149,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_extract_nnz_binary_se
       goto __pyx_L10_bool_binop_done;
     }
 
-    /* "uplift/tree/_splitter.pyx":1101
+    /* "uplift/tree/_splitter.pyx":1137
  * 
  *     while (indptr_start < indptr_end and
  *            sorted_samples[end - 1] < X_indices[indptr_end - 1]):             # <<<<<<<<<<<<<<
@@ -9929,7 +10161,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_extract_nnz_binary_se
     __pyx_L10_bool_binop_done:;
     if (!__pyx_t_1) break;
 
-    /* "uplift/tree/_splitter.pyx":1102
+    /* "uplift/tree/_splitter.pyx":1138
  *     while (indptr_start < indptr_end and
  *            sorted_samples[end - 1] < X_indices[indptr_end - 1]):
  *         indptr_end -= 1             # <<<<<<<<<<<<<<
@@ -9939,7 +10171,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_extract_nnz_binary_se
     __pyx_v_indptr_end = (__pyx_v_indptr_end - 1);
   }
 
-  /* "uplift/tree/_splitter.pyx":1104
+  /* "uplift/tree/_splitter.pyx":1140
  *         indptr_end -= 1
  * 
  *     cdef SIZE_t p = start             # <<<<<<<<<<<<<<
@@ -9948,7 +10180,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_extract_nnz_binary_se
  */
   __pyx_v_p = __pyx_v_start;
 
-  /* "uplift/tree/_splitter.pyx":1107
+  /* "uplift/tree/_splitter.pyx":1143
  *     cdef SIZE_t index
  *     cdef SIZE_t k
  *     cdef SIZE_t end_negative_ = start             # <<<<<<<<<<<<<<
@@ -9957,7 +10189,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_extract_nnz_binary_se
  */
   __pyx_v_end_negative_ = __pyx_v_start;
 
-  /* "uplift/tree/_splitter.pyx":1108
+  /* "uplift/tree/_splitter.pyx":1144
  *     cdef SIZE_t k
  *     cdef SIZE_t end_negative_ = start
  *     cdef SIZE_t start_positive_ = end             # <<<<<<<<<<<<<<
@@ -9966,7 +10198,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_extract_nnz_binary_se
  */
   __pyx_v_start_positive_ = __pyx_v_end;
 
-  /* "uplift/tree/_splitter.pyx":1110
+  /* "uplift/tree/_splitter.pyx":1146
  *     cdef SIZE_t start_positive_ = end
  * 
  *     while (p < end and indptr_start < indptr_end):             # <<<<<<<<<<<<<<
@@ -9985,7 +10217,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_extract_nnz_binary_se
     __pyx_L14_bool_binop_done:;
     if (!__pyx_t_1) break;
 
-    /* "uplift/tree/_splitter.pyx":1112
+    /* "uplift/tree/_splitter.pyx":1148
  *     while (p < end and indptr_start < indptr_end):
  *         # Find index of sorted_samples[p] in X_indices
  *         binary_search(X_indices, indptr_start, indptr_end,             # <<<<<<<<<<<<<<
@@ -9994,7 +10226,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_extract_nnz_binary_se
  */
     __pyx_f_6uplift_4tree_9_splitter_binary_search(__pyx_v_X_indices, __pyx_v_indptr_start, __pyx_v_indptr_end, (__pyx_v_sorted_samples[__pyx_v_p]), (&__pyx_v_k), (&__pyx_v_indptr_start));
 
-    /* "uplift/tree/_splitter.pyx":1115
+    /* "uplift/tree/_splitter.pyx":1151
  *                       sorted_samples[p], &k, &indptr_start)
  * 
  *         if k != -1:             # <<<<<<<<<<<<<<
@@ -10004,7 +10236,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_extract_nnz_binary_se
     __pyx_t_1 = ((__pyx_v_k != -1L) != 0);
     if (__pyx_t_1) {
 
-      /* "uplift/tree/_splitter.pyx":1118
+      /* "uplift/tree/_splitter.pyx":1154
  *              # If k != -1, we have found a non zero value
  * 
  *             if X_data[k] > 0:             # <<<<<<<<<<<<<<
@@ -10014,7 +10246,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_extract_nnz_binary_se
       __pyx_t_1 = (((__pyx_v_X_data[__pyx_v_k]) > 0.0) != 0);
       if (__pyx_t_1) {
 
-        /* "uplift/tree/_splitter.pyx":1119
+        /* "uplift/tree/_splitter.pyx":1155
  * 
  *             if X_data[k] > 0:
  *                 start_positive_ -= 1             # <<<<<<<<<<<<<<
@@ -10023,7 +10255,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_extract_nnz_binary_se
  */
         __pyx_v_start_positive_ = (__pyx_v_start_positive_ - 1);
 
-        /* "uplift/tree/_splitter.pyx":1120
+        /* "uplift/tree/_splitter.pyx":1156
  *             if X_data[k] > 0:
  *                 start_positive_ -= 1
  *                 Xf[start_positive_] = X_data[k]             # <<<<<<<<<<<<<<
@@ -10032,7 +10264,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_extract_nnz_binary_se
  */
         (__pyx_v_Xf[__pyx_v_start_positive_]) = (__pyx_v_X_data[__pyx_v_k]);
 
-        /* "uplift/tree/_splitter.pyx":1121
+        /* "uplift/tree/_splitter.pyx":1157
  *                 start_positive_ -= 1
  *                 Xf[start_positive_] = X_data[k]
  *                 index = index_to_samples[X_indices[k]]             # <<<<<<<<<<<<<<
@@ -10041,7 +10273,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_extract_nnz_binary_se
  */
         __pyx_v_index = (__pyx_v_index_to_samples[(__pyx_v_X_indices[__pyx_v_k])]);
 
-        /* "uplift/tree/_splitter.pyx":1122
+        /* "uplift/tree/_splitter.pyx":1158
  *                 Xf[start_positive_] = X_data[k]
  *                 index = index_to_samples[X_indices[k]]
  *                 sparse_swap(index_to_samples, samples, index, start_positive_)             # <<<<<<<<<<<<<<
@@ -10050,7 +10282,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_extract_nnz_binary_se
  */
         __pyx_f_6uplift_4tree_9_splitter_sparse_swap(__pyx_v_index_to_samples, __pyx_v_samples, __pyx_v_index, __pyx_v_start_positive_);
 
-        /* "uplift/tree/_splitter.pyx":1118
+        /* "uplift/tree/_splitter.pyx":1154
  *              # If k != -1, we have found a non zero value
  * 
  *             if X_data[k] > 0:             # <<<<<<<<<<<<<<
@@ -10060,7 +10292,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_extract_nnz_binary_se
         goto __pyx_L17;
       }
 
-      /* "uplift/tree/_splitter.pyx":1125
+      /* "uplift/tree/_splitter.pyx":1161
  * 
  * 
  *             elif X_data[k] < 0:             # <<<<<<<<<<<<<<
@@ -10070,7 +10302,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_extract_nnz_binary_se
       __pyx_t_1 = (((__pyx_v_X_data[__pyx_v_k]) < 0.0) != 0);
       if (__pyx_t_1) {
 
-        /* "uplift/tree/_splitter.pyx":1126
+        /* "uplift/tree/_splitter.pyx":1162
  * 
  *             elif X_data[k] < 0:
  *                 Xf[end_negative_] = X_data[k]             # <<<<<<<<<<<<<<
@@ -10079,7 +10311,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_extract_nnz_binary_se
  */
         (__pyx_v_Xf[__pyx_v_end_negative_]) = (__pyx_v_X_data[__pyx_v_k]);
 
-        /* "uplift/tree/_splitter.pyx":1127
+        /* "uplift/tree/_splitter.pyx":1163
  *             elif X_data[k] < 0:
  *                 Xf[end_negative_] = X_data[k]
  *                 index = index_to_samples[X_indices[k]]             # <<<<<<<<<<<<<<
@@ -10088,7 +10320,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_extract_nnz_binary_se
  */
         __pyx_v_index = (__pyx_v_index_to_samples[(__pyx_v_X_indices[__pyx_v_k])]);
 
-        /* "uplift/tree/_splitter.pyx":1128
+        /* "uplift/tree/_splitter.pyx":1164
  *                 Xf[end_negative_] = X_data[k]
  *                 index = index_to_samples[X_indices[k]]
  *                 sparse_swap(index_to_samples, samples, index, end_negative_)             # <<<<<<<<<<<<<<
@@ -10097,7 +10329,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_extract_nnz_binary_se
  */
         __pyx_f_6uplift_4tree_9_splitter_sparse_swap(__pyx_v_index_to_samples, __pyx_v_samples, __pyx_v_index, __pyx_v_end_negative_);
 
-        /* "uplift/tree/_splitter.pyx":1129
+        /* "uplift/tree/_splitter.pyx":1165
  *                 index = index_to_samples[X_indices[k]]
  *                 sparse_swap(index_to_samples, samples, index, end_negative_)
  *                 end_negative_ += 1             # <<<<<<<<<<<<<<
@@ -10106,7 +10338,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_extract_nnz_binary_se
  */
         __pyx_v_end_negative_ = (__pyx_v_end_negative_ + 1);
 
-        /* "uplift/tree/_splitter.pyx":1125
+        /* "uplift/tree/_splitter.pyx":1161
  * 
  * 
  *             elif X_data[k] < 0:             # <<<<<<<<<<<<<<
@@ -10116,7 +10348,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_extract_nnz_binary_se
       }
       __pyx_L17:;
 
-      /* "uplift/tree/_splitter.pyx":1115
+      /* "uplift/tree/_splitter.pyx":1151
  *                       sorted_samples[p], &k, &indptr_start)
  * 
  *         if k != -1:             # <<<<<<<<<<<<<<
@@ -10125,7 +10357,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_extract_nnz_binary_se
  */
     }
 
-    /* "uplift/tree/_splitter.pyx":1130
+    /* "uplift/tree/_splitter.pyx":1166
  *                 sparse_swap(index_to_samples, samples, index, end_negative_)
  *                 end_negative_ += 1
  *         p += 1             # <<<<<<<<<<<<<<
@@ -10135,7 +10367,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_extract_nnz_binary_se
     __pyx_v_p = (__pyx_v_p + 1);
   }
 
-  /* "uplift/tree/_splitter.pyx":1133
+  /* "uplift/tree/_splitter.pyx":1169
  * 
  *     # Returned values
  *     end_negative[0] = end_negative_             # <<<<<<<<<<<<<<
@@ -10144,7 +10376,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_extract_nnz_binary_se
  */
   (__pyx_v_end_negative[0]) = __pyx_v_end_negative_;
 
-  /* "uplift/tree/_splitter.pyx":1134
+  /* "uplift/tree/_splitter.pyx":1170
  *     # Returned values
  *     end_negative[0] = end_negative_
  *     start_positive[0] = start_positive_             # <<<<<<<<<<<<<<
@@ -10153,7 +10385,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_extract_nnz_binary_se
  */
   (__pyx_v_start_positive[0]) = __pyx_v_start_positive_;
 
-  /* "uplift/tree/_splitter.pyx":1065
+  /* "uplift/tree/_splitter.pyx":1101
  * 
  * 
  * cdef inline void extract_nnz_binary_search(INT32_t* X_indices,             # <<<<<<<<<<<<<<
@@ -10164,7 +10396,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_extract_nnz_binary_se
   /* function exit code */
 }
 
-/* "uplift/tree/_splitter.pyx":1137
+/* "uplift/tree/_splitter.pyx":1173
  * 
  * 
  * cdef inline void sparse_swap(SIZE_t* index_to_samples, SIZE_t* samples,             # <<<<<<<<<<<<<<
@@ -10176,7 +10408,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_sparse_swap(__pyx_t_6
   __pyx_t_6uplift_4tree_9_splitter_SIZE_t __pyx_t_1;
   __pyx_t_6uplift_4tree_9_splitter_SIZE_t __pyx_t_2;
 
-  /* "uplift/tree/_splitter.pyx":1140
+  /* "uplift/tree/_splitter.pyx":1176
  *                              SIZE_t pos_1, SIZE_t pos_2) nogil  :
  *     """Swap sample pos_1 and pos_2 preserving sparse invariant."""
  *     samples[pos_1], samples[pos_2] =  samples[pos_2], samples[pos_1]             # <<<<<<<<<<<<<<
@@ -10188,7 +10420,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_sparse_swap(__pyx_t_6
   (__pyx_v_samples[__pyx_v_pos_1]) = __pyx_t_1;
   (__pyx_v_samples[__pyx_v_pos_2]) = __pyx_t_2;
 
-  /* "uplift/tree/_splitter.pyx":1141
+  /* "uplift/tree/_splitter.pyx":1177
  *     """Swap sample pos_1 and pos_2 preserving sparse invariant."""
  *     samples[pos_1], samples[pos_2] =  samples[pos_2], samples[pos_1]
  *     index_to_samples[samples[pos_1]] = pos_1             # <<<<<<<<<<<<<<
@@ -10197,7 +10429,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_sparse_swap(__pyx_t_6
  */
   (__pyx_v_index_to_samples[(__pyx_v_samples[__pyx_v_pos_1])]) = __pyx_v_pos_1;
 
-  /* "uplift/tree/_splitter.pyx":1142
+  /* "uplift/tree/_splitter.pyx":1178
  *     samples[pos_1], samples[pos_2] =  samples[pos_2], samples[pos_1]
  *     index_to_samples[samples[pos_1]] = pos_1
  *     index_to_samples[samples[pos_2]] = pos_2             # <<<<<<<<<<<<<<
@@ -10206,7 +10438,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_sparse_swap(__pyx_t_6
  */
   (__pyx_v_index_to_samples[(__pyx_v_samples[__pyx_v_pos_2])]) = __pyx_v_pos_2;
 
-  /* "uplift/tree/_splitter.pyx":1137
+  /* "uplift/tree/_splitter.pyx":1173
  * 
  * 
  * cdef inline void sparse_swap(SIZE_t* index_to_samples, SIZE_t* samples,             # <<<<<<<<<<<<<<
@@ -10217,7 +10449,7 @@ static CYTHON_INLINE void __pyx_f_6uplift_4tree_9_splitter_sparse_swap(__pyx_t_6
   /* function exit code */
 }
 
-/* "uplift/tree/_splitter.pyx":1148
+/* "uplift/tree/_splitter.pyx":1184
  *     """Splitter for finding the best split, using the sparse data."""
  * 
  *     def __reduce__(self):             # <<<<<<<<<<<<<<
@@ -10246,9 +10478,10 @@ static PyObject *__pyx_pf_6uplift_4tree_9_splitter_18BestSparseSplitter___reduce
   PyObject *__pyx_t_3 = NULL;
   PyObject *__pyx_t_4 = NULL;
   PyObject *__pyx_t_5 = NULL;
+  PyObject *__pyx_t_6 = NULL;
   __Pyx_RefNannySetupContext("__reduce__", 0);
 
-  /* "uplift/tree/_splitter.pyx":1149
+  /* "uplift/tree/_splitter.pyx":1185
  * 
  *     def __reduce__(self):
  *         return (BestSparseSplitter, (self.criterion,             # <<<<<<<<<<<<<<
@@ -10257,122 +10490,127 @@ static PyObject *__pyx_pf_6uplift_4tree_9_splitter_18BestSparseSplitter___reduce
  */
   __Pyx_XDECREF(__pyx_r);
 
-  /* "uplift/tree/_splitter.pyx":1150
+  /* "uplift/tree/_splitter.pyx":1186
  *     def __reduce__(self):
  *         return (BestSparseSplitter, (self.criterion,
  *                                      self.max_features,             # <<<<<<<<<<<<<<
  *                                      self.min_samples_leaf,
  *                                      self.min_weight_leaf,
  */
-  __pyx_t_1 = __Pyx_PyInt_From_Py_intptr_t(__pyx_v_self->__pyx_base.__pyx_base.max_features); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1150, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_Py_intptr_t(__pyx_v_self->__pyx_base.__pyx_base.max_features); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1186, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
 
-  /* "uplift/tree/_splitter.pyx":1151
+  /* "uplift/tree/_splitter.pyx":1187
  *         return (BestSparseSplitter, (self.criterion,
  *                                      self.max_features,
  *                                      self.min_samples_leaf,             # <<<<<<<<<<<<<<
  *                                      self.min_weight_leaf,
  *                                      self.random_state,
  */
-  __pyx_t_2 = __Pyx_PyInt_From_Py_intptr_t(__pyx_v_self->__pyx_base.__pyx_base.min_samples_leaf); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1151, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_From_Py_intptr_t(__pyx_v_self->__pyx_base.__pyx_base.min_samples_leaf); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1187, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
 
-  /* "uplift/tree/_splitter.pyx":1152
+  /* "uplift/tree/_splitter.pyx":1188
  *                                      self.max_features,
  *                                      self.min_samples_leaf,
  *                                      self.min_weight_leaf,             # <<<<<<<<<<<<<<
  *                                      self.random_state,
- *                                      self.presort), self.__getstate__())
+ *                                      self.presort,self.stat_param), self.__getstate__())
  */
-  __pyx_t_3 = PyFloat_FromDouble(__pyx_v_self->__pyx_base.__pyx_base.min_weight_leaf); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1152, __pyx_L1_error)
+  __pyx_t_3 = PyFloat_FromDouble(__pyx_v_self->__pyx_base.__pyx_base.min_weight_leaf); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1188, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
 
-  /* "uplift/tree/_splitter.pyx":1154
+  /* "uplift/tree/_splitter.pyx":1190
  *                                      self.min_weight_leaf,
  *                                      self.random_state,
- *                                      self.presort), self.__getstate__())             # <<<<<<<<<<<<<<
+ *                                      self.presort,self.stat_param), self.__getstate__())             # <<<<<<<<<<<<<<
  * 
  *     cdef void node_split(self, double impurity, SplitRecord* split,
  */
-  __pyx_t_4 = __Pyx_PyBool_FromLong(__pyx_v_self->__pyx_base.__pyx_base.presort); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1154, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyBool_FromLong(__pyx_v_self->__pyx_base.__pyx_base.presort); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1190, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
+  __pyx_t_5 = PyFloat_FromDouble(__pyx_v_self->__pyx_base.__pyx_base.stat_param); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1190, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
 
-  /* "uplift/tree/_splitter.pyx":1149
+  /* "uplift/tree/_splitter.pyx":1185
  * 
  *     def __reduce__(self):
  *         return (BestSparseSplitter, (self.criterion,             # <<<<<<<<<<<<<<
  *                                      self.max_features,
  *                                      self.min_samples_leaf,
  */
-  __pyx_t_5 = PyTuple_New(6); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1149, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_5);
+  __pyx_t_6 = PyTuple_New(7); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1185, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_6);
   __Pyx_INCREF(((PyObject *)__pyx_v_self->__pyx_base.__pyx_base.criterion));
   __Pyx_GIVEREF(((PyObject *)__pyx_v_self->__pyx_base.__pyx_base.criterion));
-  PyTuple_SET_ITEM(__pyx_t_5, 0, ((PyObject *)__pyx_v_self->__pyx_base.__pyx_base.criterion));
+  PyTuple_SET_ITEM(__pyx_t_6, 0, ((PyObject *)__pyx_v_self->__pyx_base.__pyx_base.criterion));
   __Pyx_GIVEREF(__pyx_t_1);
-  PyTuple_SET_ITEM(__pyx_t_5, 1, __pyx_t_1);
+  PyTuple_SET_ITEM(__pyx_t_6, 1, __pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_2);
-  PyTuple_SET_ITEM(__pyx_t_5, 2, __pyx_t_2);
+  PyTuple_SET_ITEM(__pyx_t_6, 2, __pyx_t_2);
   __Pyx_GIVEREF(__pyx_t_3);
-  PyTuple_SET_ITEM(__pyx_t_5, 3, __pyx_t_3);
+  PyTuple_SET_ITEM(__pyx_t_6, 3, __pyx_t_3);
   __Pyx_INCREF(__pyx_v_self->__pyx_base.__pyx_base.random_state);
   __Pyx_GIVEREF(__pyx_v_self->__pyx_base.__pyx_base.random_state);
-  PyTuple_SET_ITEM(__pyx_t_5, 4, __pyx_v_self->__pyx_base.__pyx_base.random_state);
+  PyTuple_SET_ITEM(__pyx_t_6, 4, __pyx_v_self->__pyx_base.__pyx_base.random_state);
   __Pyx_GIVEREF(__pyx_t_4);
-  PyTuple_SET_ITEM(__pyx_t_5, 5, __pyx_t_4);
+  PyTuple_SET_ITEM(__pyx_t_6, 5, __pyx_t_4);
+  __Pyx_GIVEREF(__pyx_t_5);
+  PyTuple_SET_ITEM(__pyx_t_6, 6, __pyx_t_5);
   __pyx_t_1 = 0;
   __pyx_t_2 = 0;
   __pyx_t_3 = 0;
   __pyx_t_4 = 0;
+  __pyx_t_5 = 0;
 
-  /* "uplift/tree/_splitter.pyx":1154
+  /* "uplift/tree/_splitter.pyx":1190
  *                                      self.min_weight_leaf,
  *                                      self.random_state,
- *                                      self.presort), self.__getstate__())             # <<<<<<<<<<<<<<
+ *                                      self.presort,self.stat_param), self.__getstate__())             # <<<<<<<<<<<<<<
  * 
  *     cdef void node_split(self, double impurity, SplitRecord* split,
  */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_getstate); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1154, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = NULL;
-  if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_3))) {
-    __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_3);
-    if (likely(__pyx_t_2)) {
-      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_3);
-      __Pyx_INCREF(__pyx_t_2);
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_getstate); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1190, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __pyx_t_3 = NULL;
+  if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_4))) {
+    __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_4);
+    if (likely(__pyx_t_3)) {
+      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_4);
+      __Pyx_INCREF(__pyx_t_3);
       __Pyx_INCREF(function);
-      __Pyx_DECREF_SET(__pyx_t_3, function);
+      __Pyx_DECREF_SET(__pyx_t_4, function);
     }
   }
-  __pyx_t_4 = (__pyx_t_2) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_2) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
-  __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1154, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_5 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_4);
+  __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+  if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1190, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "uplift/tree/_splitter.pyx":1149
+  /* "uplift/tree/_splitter.pyx":1185
  * 
  *     def __reduce__(self):
  *         return (BestSparseSplitter, (self.criterion,             # <<<<<<<<<<<<<<
  *                                      self.max_features,
  *                                      self.min_samples_leaf,
  */
-  __pyx_t_3 = PyTuple_New(3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1149, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_t_4 = PyTuple_New(3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1185, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
   __Pyx_INCREF(((PyObject *)__pyx_ptype_6uplift_4tree_9_splitter_BestSparseSplitter));
   __Pyx_GIVEREF(((PyObject *)__pyx_ptype_6uplift_4tree_9_splitter_BestSparseSplitter));
-  PyTuple_SET_ITEM(__pyx_t_3, 0, ((PyObject *)__pyx_ptype_6uplift_4tree_9_splitter_BestSparseSplitter));
+  PyTuple_SET_ITEM(__pyx_t_4, 0, ((PyObject *)__pyx_ptype_6uplift_4tree_9_splitter_BestSparseSplitter));
+  __Pyx_GIVEREF(__pyx_t_6);
+  PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_t_6);
   __Pyx_GIVEREF(__pyx_t_5);
-  PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_t_5);
-  __Pyx_GIVEREF(__pyx_t_4);
-  PyTuple_SET_ITEM(__pyx_t_3, 2, __pyx_t_4);
+  PyTuple_SET_ITEM(__pyx_t_4, 2, __pyx_t_5);
+  __pyx_t_6 = 0;
   __pyx_t_5 = 0;
+  __pyx_r = __pyx_t_4;
   __pyx_t_4 = 0;
-  __pyx_r = __pyx_t_3;
-  __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "uplift/tree/_splitter.pyx":1148
+  /* "uplift/tree/_splitter.pyx":1184
  *     """Splitter for finding the best split, using the sparse data."""
  * 
  *     def __reduce__(self):             # <<<<<<<<<<<<<<
@@ -10387,6 +10625,7 @@ static PyObject *__pyx_pf_6uplift_4tree_9_splitter_18BestSparseSplitter___reduce
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
+  __Pyx_XDECREF(__pyx_t_6);
   __Pyx_AddTraceback("uplift.tree._splitter.BestSparseSplitter.__reduce__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
@@ -10395,8 +10634,8 @@ static PyObject *__pyx_pf_6uplift_4tree_9_splitter_18BestSparseSplitter___reduce
   return __pyx_r;
 }
 
-/* "uplift/tree/_splitter.pyx":1156
- *                                      self.presort), self.__getstate__())
+/* "uplift/tree/_splitter.pyx":1192
+ *                                      self.presort,self.stat_param), self.__getstate__())
  * 
  *     cdef void node_split(self, double impurity, SplitRecord* split,             # <<<<<<<<<<<<<<
  *                          SIZE_t* n_constant_features) nogil:
@@ -10420,6 +10659,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
   __pyx_t_6uplift_4tree_9_splitter_SIZE_t __pyx_v_min_samples_leaf;
   double __pyx_v_min_weight_leaf;
   __pyx_t_6uplift_4tree_9_splitter_UINT32_t *__pyx_v_random_state;
+  CYTHON_UNUSED double __pyx_v_stat_param;
   struct __pyx_t_6uplift_4tree_9_splitter_SplitRecord __pyx_v_best;
   struct __pyx_t_6uplift_4tree_9_splitter_SplitRecord __pyx_v_current;
   double __pyx_v_current_proxy_improvement;
@@ -10448,7 +10688,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
   __pyx_t_6uplift_4tree_9_splitter_SIZE_t __pyx_t_8;
   __pyx_t_6uplift_4tree_9_splitter_SIZE_t __pyx_t_9;
 
-  /* "uplift/tree/_splitter.pyx":1162
+  /* "uplift/tree/_splitter.pyx":1198
  *         """
  *         # Find the best split
  *         cdef SIZE_t* samples = self.samples             # <<<<<<<<<<<<<<
@@ -10458,7 +10698,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
   __pyx_t_1 = __pyx_v_self->__pyx_base.__pyx_base.samples;
   __pyx_v_samples = __pyx_t_1;
 
-  /* "uplift/tree/_splitter.pyx":1163
+  /* "uplift/tree/_splitter.pyx":1199
  *         # Find the best split
  *         cdef SIZE_t* samples = self.samples
  *         cdef SIZE_t start = self.start             # <<<<<<<<<<<<<<
@@ -10468,7 +10708,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
   __pyx_t_2 = __pyx_v_self->__pyx_base.__pyx_base.start;
   __pyx_v_start = __pyx_t_2;
 
-  /* "uplift/tree/_splitter.pyx":1164
+  /* "uplift/tree/_splitter.pyx":1200
  *         cdef SIZE_t* samples = self.samples
  *         cdef SIZE_t start = self.start
  *         cdef SIZE_t end = self.end             # <<<<<<<<<<<<<<
@@ -10478,7 +10718,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
   __pyx_t_2 = __pyx_v_self->__pyx_base.__pyx_base.end;
   __pyx_v_end = __pyx_t_2;
 
-  /* "uplift/tree/_splitter.pyx":1166
+  /* "uplift/tree/_splitter.pyx":1202
  *         cdef SIZE_t end = self.end
  * 
  *         cdef INT32_t* X_indices = self.X_indices             # <<<<<<<<<<<<<<
@@ -10488,7 +10728,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
   __pyx_t_3 = __pyx_v_self->__pyx_base.X_indices;
   __pyx_v_X_indices = __pyx_t_3;
 
-  /* "uplift/tree/_splitter.pyx":1167
+  /* "uplift/tree/_splitter.pyx":1203
  * 
  *         cdef INT32_t* X_indices = self.X_indices
  *         cdef INT32_t* X_indptr = self.X_indptr             # <<<<<<<<<<<<<<
@@ -10498,7 +10738,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
   __pyx_t_3 = __pyx_v_self->__pyx_base.X_indptr;
   __pyx_v_X_indptr = __pyx_t_3;
 
-  /* "uplift/tree/_splitter.pyx":1168
+  /* "uplift/tree/_splitter.pyx":1204
  *         cdef INT32_t* X_indices = self.X_indices
  *         cdef INT32_t* X_indptr = self.X_indptr
  *         cdef DTYPE_t* X_data = self.X_data             # <<<<<<<<<<<<<<
@@ -10508,7 +10748,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
   __pyx_t_4 = __pyx_v_self->__pyx_base.X_data;
   __pyx_v_X_data = __pyx_t_4;
 
-  /* "uplift/tree/_splitter.pyx":1170
+  /* "uplift/tree/_splitter.pyx":1206
  *         cdef DTYPE_t* X_data = self.X_data
  * 
  *         cdef SIZE_t* features = self.features             # <<<<<<<<<<<<<<
@@ -10518,7 +10758,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
   __pyx_t_1 = __pyx_v_self->__pyx_base.__pyx_base.features;
   __pyx_v_features = __pyx_t_1;
 
-  /* "uplift/tree/_splitter.pyx":1171
+  /* "uplift/tree/_splitter.pyx":1207
  * 
  *         cdef SIZE_t* features = self.features
  *         cdef SIZE_t* constant_features = self.constant_features             # <<<<<<<<<<<<<<
@@ -10528,7 +10768,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
   __pyx_t_1 = __pyx_v_self->__pyx_base.__pyx_base.constant_features;
   __pyx_v_constant_features = __pyx_t_1;
 
-  /* "uplift/tree/_splitter.pyx":1172
+  /* "uplift/tree/_splitter.pyx":1208
  *         cdef SIZE_t* features = self.features
  *         cdef SIZE_t* constant_features = self.constant_features
  *         cdef SIZE_t n_features = self.n_features             # <<<<<<<<<<<<<<
@@ -10538,7 +10778,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
   __pyx_t_2 = __pyx_v_self->__pyx_base.__pyx_base.n_features;
   __pyx_v_n_features = __pyx_t_2;
 
-  /* "uplift/tree/_splitter.pyx":1174
+  /* "uplift/tree/_splitter.pyx":1210
  *         cdef SIZE_t n_features = self.n_features
  * 
  *         cdef DTYPE_t* Xf = self.feature_values             # <<<<<<<<<<<<<<
@@ -10548,7 +10788,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
   __pyx_t_4 = __pyx_v_self->__pyx_base.__pyx_base.feature_values;
   __pyx_v_Xf = __pyx_t_4;
 
-  /* "uplift/tree/_splitter.pyx":1175
+  /* "uplift/tree/_splitter.pyx":1211
  * 
  *         cdef DTYPE_t* Xf = self.feature_values
  *         cdef SIZE_t* sorted_samples = self.sorted_samples             # <<<<<<<<<<<<<<
@@ -10558,7 +10798,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
   __pyx_t_1 = __pyx_v_self->__pyx_base.sorted_samples;
   __pyx_v_sorted_samples = __pyx_t_1;
 
-  /* "uplift/tree/_splitter.pyx":1176
+  /* "uplift/tree/_splitter.pyx":1212
  *         cdef DTYPE_t* Xf = self.feature_values
  *         cdef SIZE_t* sorted_samples = self.sorted_samples
  *         cdef SIZE_t* index_to_samples = self.index_to_samples             # <<<<<<<<<<<<<<
@@ -10568,7 +10808,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
   __pyx_t_1 = __pyx_v_self->__pyx_base.index_to_samples;
   __pyx_v_index_to_samples = __pyx_t_1;
 
-  /* "uplift/tree/_splitter.pyx":1177
+  /* "uplift/tree/_splitter.pyx":1213
  *         cdef SIZE_t* sorted_samples = self.sorted_samples
  *         cdef SIZE_t* index_to_samples = self.index_to_samples
  *         cdef SIZE_t max_features = self.max_features             # <<<<<<<<<<<<<<
@@ -10578,7 +10818,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
   __pyx_t_2 = __pyx_v_self->__pyx_base.__pyx_base.max_features;
   __pyx_v_max_features = __pyx_t_2;
 
-  /* "uplift/tree/_splitter.pyx":1178
+  /* "uplift/tree/_splitter.pyx":1214
  *         cdef SIZE_t* index_to_samples = self.index_to_samples
  *         cdef SIZE_t max_features = self.max_features
  *         cdef SIZE_t min_samples_leaf = self.min_samples_leaf             # <<<<<<<<<<<<<<
@@ -10588,26 +10828,36 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
   __pyx_t_2 = __pyx_v_self->__pyx_base.__pyx_base.min_samples_leaf;
   __pyx_v_min_samples_leaf = __pyx_t_2;
 
-  /* "uplift/tree/_splitter.pyx":1179
+  /* "uplift/tree/_splitter.pyx":1215
  *         cdef SIZE_t max_features = self.max_features
  *         cdef SIZE_t min_samples_leaf = self.min_samples_leaf
  *         cdef double min_weight_leaf = self.min_weight_leaf             # <<<<<<<<<<<<<<
  *         cdef UINT32_t* random_state = &self.rand_r_state
- * 
+ *         cdef double stat_param = self.stat_param
  */
   __pyx_t_5 = __pyx_v_self->__pyx_base.__pyx_base.min_weight_leaf;
   __pyx_v_min_weight_leaf = __pyx_t_5;
 
-  /* "uplift/tree/_splitter.pyx":1180
+  /* "uplift/tree/_splitter.pyx":1216
  *         cdef SIZE_t min_samples_leaf = self.min_samples_leaf
  *         cdef double min_weight_leaf = self.min_weight_leaf
  *         cdef UINT32_t* random_state = &self.rand_r_state             # <<<<<<<<<<<<<<
+ *         cdef double stat_param = self.stat_param
  * 
- *         cdef SplitRecord best, current
  */
   __pyx_v_random_state = (&__pyx_v_self->__pyx_base.__pyx_base.rand_r_state);
 
-  /* "uplift/tree/_splitter.pyx":1183
+  /* "uplift/tree/_splitter.pyx":1217
+ *         cdef double min_weight_leaf = self.min_weight_leaf
+ *         cdef UINT32_t* random_state = &self.rand_r_state
+ *         cdef double stat_param = self.stat_param             # <<<<<<<<<<<<<<
+ * 
+ *         cdef SplitRecord best, current
+ */
+  __pyx_t_5 = __pyx_v_self->__pyx_base.__pyx_base.stat_param;
+  __pyx_v_stat_param = __pyx_t_5;
+
+  /* "uplift/tree/_splitter.pyx":1220
  * 
  *         cdef SplitRecord best, current
  *         _init_split(&best, end)             # <<<<<<<<<<<<<<
@@ -10616,7 +10866,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
  */
   __pyx_f_6uplift_4tree_9_splitter__init_split((&__pyx_v_best), __pyx_v_end);
 
-  /* "uplift/tree/_splitter.pyx":1184
+  /* "uplift/tree/_splitter.pyx":1221
  *         cdef SplitRecord best, current
  *         _init_split(&best, end)
  *         cdef double current_proxy_improvement = - INFINITY             # <<<<<<<<<<<<<<
@@ -10625,7 +10875,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
  */
   __pyx_v_current_proxy_improvement = (-__pyx_v_6uplift_4tree_9_splitter_INFINITY);
 
-  /* "uplift/tree/_splitter.pyx":1185
+  /* "uplift/tree/_splitter.pyx":1222
  *         _init_split(&best, end)
  *         cdef double current_proxy_improvement = - INFINITY
  *         cdef double best_proxy_improvement = - INFINITY             # <<<<<<<<<<<<<<
@@ -10634,7 +10884,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
  */
   __pyx_v_best_proxy_improvement = (-__pyx_v_6uplift_4tree_9_splitter_INFINITY);
 
-  /* "uplift/tree/_splitter.pyx":1187
+  /* "uplift/tree/_splitter.pyx":1224
  *         cdef double best_proxy_improvement = - INFINITY
  * 
  *         cdef SIZE_t f_i = n_features             # <<<<<<<<<<<<<<
@@ -10643,7 +10893,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
  */
   __pyx_v_f_i = __pyx_v_n_features;
 
-  /* "uplift/tree/_splitter.pyx":1189
+  /* "uplift/tree/_splitter.pyx":1226
  *         cdef SIZE_t f_i = n_features
  *         cdef SIZE_t f_j, p, tmp
  *         cdef SIZE_t n_visited_features = 0             # <<<<<<<<<<<<<<
@@ -10652,7 +10902,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
  */
   __pyx_v_n_visited_features = 0;
 
-  /* "uplift/tree/_splitter.pyx":1191
+  /* "uplift/tree/_splitter.pyx":1228
  *         cdef SIZE_t n_visited_features = 0
  *         # Number of features discovered to be constant during the split search
  *         cdef SIZE_t n_found_constants = 0             # <<<<<<<<<<<<<<
@@ -10661,7 +10911,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
  */
   __pyx_v_n_found_constants = 0;
 
-  /* "uplift/tree/_splitter.pyx":1193
+  /* "uplift/tree/_splitter.pyx":1230
  *         cdef SIZE_t n_found_constants = 0
  *         # Number of features known to be constant and drawn without replacement
  *         cdef SIZE_t n_drawn_constants = 0             # <<<<<<<<<<<<<<
@@ -10670,7 +10920,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
  */
   __pyx_v_n_drawn_constants = 0;
 
-  /* "uplift/tree/_splitter.pyx":1194
+  /* "uplift/tree/_splitter.pyx":1231
  *         # Number of features known to be constant and drawn without replacement
  *         cdef SIZE_t n_drawn_constants = 0
  *         cdef SIZE_t n_known_constants = n_constant_features[0]             # <<<<<<<<<<<<<<
@@ -10679,7 +10929,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
  */
   __pyx_v_n_known_constants = (__pyx_v_n_constant_features[0]);
 
-  /* "uplift/tree/_splitter.pyx":1196
+  /* "uplift/tree/_splitter.pyx":1233
  *         cdef SIZE_t n_known_constants = n_constant_features[0]
  *         # n_total_constants = n_known_constants + n_found_constants
  *         cdef SIZE_t n_total_constants = n_known_constants             # <<<<<<<<<<<<<<
@@ -10688,7 +10938,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
  */
   __pyx_v_n_total_constants = __pyx_v_n_known_constants;
 
-  /* "uplift/tree/_splitter.pyx":1201
+  /* "uplift/tree/_splitter.pyx":1238
  *         cdef SIZE_t p_next
  *         cdef SIZE_t p_prev
  *         cdef bint is_samples_sorted = 0  # indicate is sorted_samples is             # <<<<<<<<<<<<<<
@@ -10697,7 +10947,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
  */
   __pyx_v_is_samples_sorted = 0;
 
-  /* "uplift/tree/_splitter.pyx":1218
+  /* "uplift/tree/_splitter.pyx":1255
  *         # newly discovered constant features to spare computation on descendant
  *         # nodes.
  *         while (f_i > n_total_constants and  # Stop early if remaining features             # <<<<<<<<<<<<<<
@@ -10712,7 +10962,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
       goto __pyx_L5_bool_binop_done;
     }
 
-    /* "uplift/tree/_splitter.pyx":1220
+    /* "uplift/tree/_splitter.pyx":1257
  *         while (f_i > n_total_constants and  # Stop early if remaining features
  *                                             # are constant
  *                 (n_visited_features < max_features or             # <<<<<<<<<<<<<<
@@ -10726,7 +10976,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
       goto __pyx_L5_bool_binop_done;
     }
 
-    /* "uplift/tree/_splitter.pyx":1222
+    /* "uplift/tree/_splitter.pyx":1259
  *                 (n_visited_features < max_features or
  *                  # At least one drawn features must be non constant
  *                  n_visited_features <= n_found_constants + n_drawn_constants)):             # <<<<<<<<<<<<<<
@@ -10738,7 +10988,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
     __pyx_L5_bool_binop_done:;
     if (!__pyx_t_6) break;
 
-    /* "uplift/tree/_splitter.pyx":1224
+    /* "uplift/tree/_splitter.pyx":1261
  *                  n_visited_features <= n_found_constants + n_drawn_constants)):
  * 
  *             n_visited_features += 1             # <<<<<<<<<<<<<<
@@ -10747,7 +10997,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
  */
     __pyx_v_n_visited_features = (__pyx_v_n_visited_features + 1);
 
-    /* "uplift/tree/_splitter.pyx":1238
+    /* "uplift/tree/_splitter.pyx":1275
  * 
  *             # Draw a feature at random
  *             f_j = rand_int(n_drawn_constants, f_i - n_found_constants,             # <<<<<<<<<<<<<<
@@ -10756,7 +11006,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
  */
     __pyx_v_f_j = __pyx_f_6uplift_4tree_6_utils_rand_int(__pyx_v_n_drawn_constants, (__pyx_v_f_i - __pyx_v_n_found_constants), __pyx_v_random_state);
 
-    /* "uplift/tree/_splitter.pyx":1241
+    /* "uplift/tree/_splitter.pyx":1278
  *                            random_state)
  * 
  *             if f_j < n_known_constants:             # <<<<<<<<<<<<<<
@@ -10766,7 +11016,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
     __pyx_t_6 = ((__pyx_v_f_j < __pyx_v_n_known_constants) != 0);
     if (__pyx_t_6) {
 
-      /* "uplift/tree/_splitter.pyx":1243
+      /* "uplift/tree/_splitter.pyx":1280
  *             if f_j < n_known_constants:
  *                 # f_j in the interval [n_drawn_constants, n_known_constants[
  *                 tmp = features[f_j]             # <<<<<<<<<<<<<<
@@ -10775,7 +11025,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
  */
       __pyx_v_tmp = (__pyx_v_features[__pyx_v_f_j]);
 
-      /* "uplift/tree/_splitter.pyx":1244
+      /* "uplift/tree/_splitter.pyx":1281
  *                 # f_j in the interval [n_drawn_constants, n_known_constants[
  *                 tmp = features[f_j]
  *                 features[f_j] = features[n_drawn_constants]             # <<<<<<<<<<<<<<
@@ -10784,7 +11034,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
  */
       (__pyx_v_features[__pyx_v_f_j]) = (__pyx_v_features[__pyx_v_n_drawn_constants]);
 
-      /* "uplift/tree/_splitter.pyx":1245
+      /* "uplift/tree/_splitter.pyx":1282
  *                 tmp = features[f_j]
  *                 features[f_j] = features[n_drawn_constants]
  *                 features[n_drawn_constants] = tmp             # <<<<<<<<<<<<<<
@@ -10793,7 +11043,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
  */
       (__pyx_v_features[__pyx_v_n_drawn_constants]) = __pyx_v_tmp;
 
-      /* "uplift/tree/_splitter.pyx":1247
+      /* "uplift/tree/_splitter.pyx":1284
  *                 features[n_drawn_constants] = tmp
  * 
  *                 n_drawn_constants += 1             # <<<<<<<<<<<<<<
@@ -10802,7 +11052,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
  */
       __pyx_v_n_drawn_constants = (__pyx_v_n_drawn_constants + 1);
 
-      /* "uplift/tree/_splitter.pyx":1241
+      /* "uplift/tree/_splitter.pyx":1278
  *                            random_state)
  * 
  *             if f_j < n_known_constants:             # <<<<<<<<<<<<<<
@@ -10812,7 +11062,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
       goto __pyx_L8;
     }
 
-    /* "uplift/tree/_splitter.pyx":1251
+    /* "uplift/tree/_splitter.pyx":1288
  *             else:
  *                 # f_j in the interval [n_known_constants, f_i - n_found_constants[
  *                 f_j += n_found_constants             # <<<<<<<<<<<<<<
@@ -10822,7 +11072,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
     /*else*/ {
       __pyx_v_f_j = (__pyx_v_f_j + __pyx_v_n_found_constants);
 
-      /* "uplift/tree/_splitter.pyx":1254
+      /* "uplift/tree/_splitter.pyx":1291
  *                 # f_j in the interval [n_total_constants, f_i[
  * 
  *                 current.feature = features[f_j]             # <<<<<<<<<<<<<<
@@ -10831,7 +11081,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
  */
       __pyx_v_current.feature = (__pyx_v_features[__pyx_v_f_j]);
 
-      /* "uplift/tree/_splitter.pyx":1255
+      /* "uplift/tree/_splitter.pyx":1292
  * 
  *                 current.feature = features[f_j]
  *                 self.extract_nnz(current.feature,             # <<<<<<<<<<<<<<
@@ -10840,7 +11090,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
  */
       __pyx_f_6uplift_4tree_9_splitter_18BaseSparseSplitter_extract_nnz(((struct __pyx_obj_6uplift_4tree_9_splitter_BaseSparseSplitter *)__pyx_v_self), __pyx_v_current.feature, (&__pyx_v_end_negative), (&__pyx_v_start_positive), (&__pyx_v_is_samples_sorted));
 
-      /* "uplift/tree/_splitter.pyx":1260
+      /* "uplift/tree/_splitter.pyx":1297
  * 
  *                 # Sort the positive and negative parts of `Xf`
  *                 sort(Xf + start, samples + start, end_negative - start)             # <<<<<<<<<<<<<<
@@ -10849,7 +11099,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
  */
       __pyx_f_6uplift_4tree_9_splitter_sort((__pyx_v_Xf + __pyx_v_start), (__pyx_v_samples + __pyx_v_start), (__pyx_v_end_negative - __pyx_v_start));
 
-      /* "uplift/tree/_splitter.pyx":1261
+      /* "uplift/tree/_splitter.pyx":1298
  *                 # Sort the positive and negative parts of `Xf`
  *                 sort(Xf + start, samples + start, end_negative - start)
  *                 sort(Xf + start_positive, samples + start_positive,             # <<<<<<<<<<<<<<
@@ -10858,7 +11108,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
  */
       __pyx_f_6uplift_4tree_9_splitter_sort((__pyx_v_Xf + __pyx_v_start_positive), (__pyx_v_samples + __pyx_v_start_positive), (__pyx_v_end - __pyx_v_start_positive));
 
-      /* "uplift/tree/_splitter.pyx":1265
+      /* "uplift/tree/_splitter.pyx":1302
  * 
  *                 # Update index_to_samples to take into account the sort
  *                 for p in range(start, end_negative):             # <<<<<<<<<<<<<<
@@ -10870,7 +11120,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
       for (__pyx_t_9 = __pyx_v_start; __pyx_t_9 < __pyx_t_8; __pyx_t_9+=1) {
         __pyx_v_p = __pyx_t_9;
 
-        /* "uplift/tree/_splitter.pyx":1266
+        /* "uplift/tree/_splitter.pyx":1303
  *                 # Update index_to_samples to take into account the sort
  *                 for p in range(start, end_negative):
  *                     index_to_samples[samples[p]] = p             # <<<<<<<<<<<<<<
@@ -10880,7 +11130,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
         (__pyx_v_index_to_samples[(__pyx_v_samples[__pyx_v_p])]) = __pyx_v_p;
       }
 
-      /* "uplift/tree/_splitter.pyx":1267
+      /* "uplift/tree/_splitter.pyx":1304
  *                 for p in range(start, end_negative):
  *                     index_to_samples[samples[p]] = p
  *                 for p in range(start_positive, end):             # <<<<<<<<<<<<<<
@@ -10892,7 +11142,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
       for (__pyx_t_9 = __pyx_v_start_positive; __pyx_t_9 < __pyx_t_8; __pyx_t_9+=1) {
         __pyx_v_p = __pyx_t_9;
 
-        /* "uplift/tree/_splitter.pyx":1268
+        /* "uplift/tree/_splitter.pyx":1305
  *                     index_to_samples[samples[p]] = p
  *                 for p in range(start_positive, end):
  *                     index_to_samples[samples[p]] = p             # <<<<<<<<<<<<<<
@@ -10902,7 +11152,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
         (__pyx_v_index_to_samples[(__pyx_v_samples[__pyx_v_p])]) = __pyx_v_p;
       }
 
-      /* "uplift/tree/_splitter.pyx":1271
+      /* "uplift/tree/_splitter.pyx":1308
  * 
  *                 # Add one or two zeros in Xf, if there is any
  *                 if end_negative < start_positive:             # <<<<<<<<<<<<<<
@@ -10912,7 +11162,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
       __pyx_t_6 = ((__pyx_v_end_negative < __pyx_v_start_positive) != 0);
       if (__pyx_t_6) {
 
-        /* "uplift/tree/_splitter.pyx":1272
+        /* "uplift/tree/_splitter.pyx":1309
  *                 # Add one or two zeros in Xf, if there is any
  *                 if end_negative < start_positive:
  *                     start_positive -= 1             # <<<<<<<<<<<<<<
@@ -10921,7 +11171,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
  */
         __pyx_v_start_positive = (__pyx_v_start_positive - 1);
 
-        /* "uplift/tree/_splitter.pyx":1273
+        /* "uplift/tree/_splitter.pyx":1310
  *                 if end_negative < start_positive:
  *                     start_positive -= 1
  *                     Xf[start_positive] = 0.             # <<<<<<<<<<<<<<
@@ -10930,7 +11180,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
  */
         (__pyx_v_Xf[__pyx_v_start_positive]) = 0.;
 
-        /* "uplift/tree/_splitter.pyx":1275
+        /* "uplift/tree/_splitter.pyx":1312
  *                     Xf[start_positive] = 0.
  * 
  *                     if end_negative != start_positive:             # <<<<<<<<<<<<<<
@@ -10940,7 +11190,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
         __pyx_t_6 = ((__pyx_v_end_negative != __pyx_v_start_positive) != 0);
         if (__pyx_t_6) {
 
-          /* "uplift/tree/_splitter.pyx":1276
+          /* "uplift/tree/_splitter.pyx":1313
  * 
  *                     if end_negative != start_positive:
  *                         Xf[end_negative] = 0.             # <<<<<<<<<<<<<<
@@ -10949,7 +11199,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
  */
           (__pyx_v_Xf[__pyx_v_end_negative]) = 0.;
 
-          /* "uplift/tree/_splitter.pyx":1277
+          /* "uplift/tree/_splitter.pyx":1314
  *                     if end_negative != start_positive:
  *                         Xf[end_negative] = 0.
  *                         end_negative += 1             # <<<<<<<<<<<<<<
@@ -10958,7 +11208,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
  */
           __pyx_v_end_negative = (__pyx_v_end_negative + 1);
 
-          /* "uplift/tree/_splitter.pyx":1275
+          /* "uplift/tree/_splitter.pyx":1312
  *                     Xf[start_positive] = 0.
  * 
  *                     if end_negative != start_positive:             # <<<<<<<<<<<<<<
@@ -10967,7 +11217,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
  */
         }
 
-        /* "uplift/tree/_splitter.pyx":1271
+        /* "uplift/tree/_splitter.pyx":1308
  * 
  *                 # Add one or two zeros in Xf, if there is any
  *                 if end_negative < start_positive:             # <<<<<<<<<<<<<<
@@ -10976,7 +11226,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
  */
       }
 
-      /* "uplift/tree/_splitter.pyx":1279
+      /* "uplift/tree/_splitter.pyx":1316
  *                         end_negative += 1
  * 
  *                 if Xf[end - 1] <= Xf[start] + FEATURE_THRESHOLD:             # <<<<<<<<<<<<<<
@@ -10986,7 +11236,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
       __pyx_t_6 = (((__pyx_v_Xf[(__pyx_v_end - 1)]) <= ((__pyx_v_Xf[__pyx_v_start]) + __pyx_v_6uplift_4tree_9_splitter_FEATURE_THRESHOLD)) != 0);
       if (__pyx_t_6) {
 
-        /* "uplift/tree/_splitter.pyx":1280
+        /* "uplift/tree/_splitter.pyx":1317
  * 
  *                 if Xf[end - 1] <= Xf[start] + FEATURE_THRESHOLD:
  *                     features[f_j] = features[n_total_constants]             # <<<<<<<<<<<<<<
@@ -10995,7 +11245,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
  */
         (__pyx_v_features[__pyx_v_f_j]) = (__pyx_v_features[__pyx_v_n_total_constants]);
 
-        /* "uplift/tree/_splitter.pyx":1281
+        /* "uplift/tree/_splitter.pyx":1318
  *                 if Xf[end - 1] <= Xf[start] + FEATURE_THRESHOLD:
  *                     features[f_j] = features[n_total_constants]
  *                     features[n_total_constants] = current.feature             # <<<<<<<<<<<<<<
@@ -11005,7 +11255,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
         __pyx_t_2 = __pyx_v_current.feature;
         (__pyx_v_features[__pyx_v_n_total_constants]) = __pyx_t_2;
 
-        /* "uplift/tree/_splitter.pyx":1283
+        /* "uplift/tree/_splitter.pyx":1320
  *                     features[n_total_constants] = current.feature
  * 
  *                     n_found_constants += 1             # <<<<<<<<<<<<<<
@@ -11014,7 +11264,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
  */
         __pyx_v_n_found_constants = (__pyx_v_n_found_constants + 1);
 
-        /* "uplift/tree/_splitter.pyx":1284
+        /* "uplift/tree/_splitter.pyx":1321
  * 
  *                     n_found_constants += 1
  *                     n_total_constants += 1             # <<<<<<<<<<<<<<
@@ -11023,7 +11273,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
  */
         __pyx_v_n_total_constants = (__pyx_v_n_total_constants + 1);
 
-        /* "uplift/tree/_splitter.pyx":1279
+        /* "uplift/tree/_splitter.pyx":1316
  *                         end_negative += 1
  * 
  *                 if Xf[end - 1] <= Xf[start] + FEATURE_THRESHOLD:             # <<<<<<<<<<<<<<
@@ -11033,7 +11283,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
         goto __pyx_L15;
       }
 
-      /* "uplift/tree/_splitter.pyx":1287
+      /* "uplift/tree/_splitter.pyx":1324
  * 
  *                 else:
  *                     f_i -= 1             # <<<<<<<<<<<<<<
@@ -11043,7 +11293,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
       /*else*/ {
         __pyx_v_f_i = (__pyx_v_f_i - 1);
 
-        /* "uplift/tree/_splitter.pyx":1288
+        /* "uplift/tree/_splitter.pyx":1325
  *                 else:
  *                     f_i -= 1
  *                     features[f_i], features[f_j] = features[f_j], features[f_i]             # <<<<<<<<<<<<<<
@@ -11055,7 +11305,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
         (__pyx_v_features[__pyx_v_f_i]) = __pyx_t_2;
         (__pyx_v_features[__pyx_v_f_j]) = __pyx_t_8;
 
-        /* "uplift/tree/_splitter.pyx":1291
+        /* "uplift/tree/_splitter.pyx":1328
  * 
  *                     # Evaluate all splits
  *                     self.criterion.reset()             # <<<<<<<<<<<<<<
@@ -11064,7 +11314,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
  */
         ((struct __pyx_vtabstruct_6uplift_4tree_10_criterion_Criterion *)__pyx_v_self->__pyx_base.__pyx_base.criterion->__pyx_vtab)->reset(__pyx_v_self->__pyx_base.__pyx_base.criterion);
 
-        /* "uplift/tree/_splitter.pyx":1292
+        /* "uplift/tree/_splitter.pyx":1329
  *                     # Evaluate all splits
  *                     self.criterion.reset()
  *                     p = start             # <<<<<<<<<<<<<<
@@ -11073,7 +11323,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
  */
         __pyx_v_p = __pyx_v_start;
 
-        /* "uplift/tree/_splitter.pyx":1294
+        /* "uplift/tree/_splitter.pyx":1331
  *                     p = start
  * 
  *                     while p < end:             # <<<<<<<<<<<<<<
@@ -11084,7 +11334,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
           __pyx_t_6 = ((__pyx_v_p < __pyx_v_end) != 0);
           if (!__pyx_t_6) break;
 
-          /* "uplift/tree/_splitter.pyx":1295
+          /* "uplift/tree/_splitter.pyx":1332
  * 
  *                     while p < end:
  *                         if p + 1 != end_negative:             # <<<<<<<<<<<<<<
@@ -11094,7 +11344,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
           __pyx_t_6 = (((__pyx_v_p + 1) != __pyx_v_end_negative) != 0);
           if (__pyx_t_6) {
 
-            /* "uplift/tree/_splitter.pyx":1296
+            /* "uplift/tree/_splitter.pyx":1333
  *                     while p < end:
  *                         if p + 1 != end_negative:
  *                             p_next = p + 1             # <<<<<<<<<<<<<<
@@ -11103,7 +11353,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
  */
             __pyx_v_p_next = (__pyx_v_p + 1);
 
-            /* "uplift/tree/_splitter.pyx":1295
+            /* "uplift/tree/_splitter.pyx":1332
  * 
  *                     while p < end:
  *                         if p + 1 != end_negative:             # <<<<<<<<<<<<<<
@@ -11113,7 +11363,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
             goto __pyx_L18;
           }
 
-          /* "uplift/tree/_splitter.pyx":1298
+          /* "uplift/tree/_splitter.pyx":1335
  *                             p_next = p + 1
  *                         else:
  *                             p_next = start_positive             # <<<<<<<<<<<<<<
@@ -11125,7 +11375,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
           }
           __pyx_L18:;
 
-          /* "uplift/tree/_splitter.pyx":1300
+          /* "uplift/tree/_splitter.pyx":1337
  *                             p_next = start_positive
  * 
  *                         while (p_next < end and             # <<<<<<<<<<<<<<
@@ -11140,7 +11390,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
               goto __pyx_L21_bool_binop_done;
             }
 
-            /* "uplift/tree/_splitter.pyx":1301
+            /* "uplift/tree/_splitter.pyx":1338
  * 
  *                         while (p_next < end and
  *                                Xf[p_next] <= Xf[p] + FEATURE_THRESHOLD):             # <<<<<<<<<<<<<<
@@ -11152,7 +11402,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
             __pyx_L21_bool_binop_done:;
             if (!__pyx_t_6) break;
 
-            /* "uplift/tree/_splitter.pyx":1302
+            /* "uplift/tree/_splitter.pyx":1339
  *                         while (p_next < end and
  *                                Xf[p_next] <= Xf[p] + FEATURE_THRESHOLD):
  *                             p = p_next             # <<<<<<<<<<<<<<
@@ -11161,7 +11411,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
  */
             __pyx_v_p = __pyx_v_p_next;
 
-            /* "uplift/tree/_splitter.pyx":1303
+            /* "uplift/tree/_splitter.pyx":1340
  *                                Xf[p_next] <= Xf[p] + FEATURE_THRESHOLD):
  *                             p = p_next
  *                             if p + 1 != end_negative:             # <<<<<<<<<<<<<<
@@ -11171,7 +11421,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
             __pyx_t_6 = (((__pyx_v_p + 1) != __pyx_v_end_negative) != 0);
             if (__pyx_t_6) {
 
-              /* "uplift/tree/_splitter.pyx":1304
+              /* "uplift/tree/_splitter.pyx":1341
  *                             p = p_next
  *                             if p + 1 != end_negative:
  *                                 p_next = p + 1             # <<<<<<<<<<<<<<
@@ -11180,7 +11430,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
  */
               __pyx_v_p_next = (__pyx_v_p + 1);
 
-              /* "uplift/tree/_splitter.pyx":1303
+              /* "uplift/tree/_splitter.pyx":1340
  *                                Xf[p_next] <= Xf[p] + FEATURE_THRESHOLD):
  *                             p = p_next
  *                             if p + 1 != end_negative:             # <<<<<<<<<<<<<<
@@ -11190,7 +11440,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
               goto __pyx_L23;
             }
 
-            /* "uplift/tree/_splitter.pyx":1306
+            /* "uplift/tree/_splitter.pyx":1343
  *                                 p_next = p + 1
  *                             else:
  *                                 p_next = start_positive             # <<<<<<<<<<<<<<
@@ -11203,7 +11453,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
             __pyx_L23:;
           }
 
-          /* "uplift/tree/_splitter.pyx":1311
+          /* "uplift/tree/_splitter.pyx":1348
  *                         # (p_next >= end) or (X[samples[p_next], current.feature] >
  *                         #                     X[samples[p], current.feature])
  *                         p_prev = p             # <<<<<<<<<<<<<<
@@ -11212,7 +11462,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
  */
           __pyx_v_p_prev = __pyx_v_p;
 
-          /* "uplift/tree/_splitter.pyx":1312
+          /* "uplift/tree/_splitter.pyx":1349
  *                         #                     X[samples[p], current.feature])
  *                         p_prev = p
  *                         p = p_next             # <<<<<<<<<<<<<<
@@ -11221,7 +11471,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
  */
           __pyx_v_p = __pyx_v_p_next;
 
-          /* "uplift/tree/_splitter.pyx":1317
+          /* "uplift/tree/_splitter.pyx":1354
  * 
  * 
  *                         if p < end:             # <<<<<<<<<<<<<<
@@ -11231,7 +11481,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
           __pyx_t_6 = ((__pyx_v_p < __pyx_v_end) != 0);
           if (__pyx_t_6) {
 
-            /* "uplift/tree/_splitter.pyx":1318
+            /* "uplift/tree/_splitter.pyx":1355
  * 
  *                         if p < end:
  *                             current.pos = p             # <<<<<<<<<<<<<<
@@ -11240,7 +11490,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
  */
             __pyx_v_current.pos = __pyx_v_p;
 
-            /* "uplift/tree/_splitter.pyx":1321
+            /* "uplift/tree/_splitter.pyx":1358
  * 
  *                             # Reject if min_samples_leaf is not guaranteed
  *                             if (((current.pos - start) < min_samples_leaf) or             # <<<<<<<<<<<<<<
@@ -11254,7 +11504,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
               goto __pyx_L26_bool_binop_done;
             }
 
-            /* "uplift/tree/_splitter.pyx":1322
+            /* "uplift/tree/_splitter.pyx":1359
  *                             # Reject if min_samples_leaf is not guaranteed
  *                             if (((current.pos - start) < min_samples_leaf) or
  *                                     ((end - current.pos) < min_samples_leaf)):             # <<<<<<<<<<<<<<
@@ -11265,7 +11515,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
             __pyx_t_6 = __pyx_t_7;
             __pyx_L26_bool_binop_done:;
 
-            /* "uplift/tree/_splitter.pyx":1321
+            /* "uplift/tree/_splitter.pyx":1358
  * 
  *                             # Reject if min_samples_leaf is not guaranteed
  *                             if (((current.pos - start) < min_samples_leaf) or             # <<<<<<<<<<<<<<
@@ -11274,7 +11524,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
  */
             if (__pyx_t_6) {
 
-              /* "uplift/tree/_splitter.pyx":1323
+              /* "uplift/tree/_splitter.pyx":1360
  *                             if (((current.pos - start) < min_samples_leaf) or
  *                                     ((end - current.pos) < min_samples_leaf)):
  *                                 continue             # <<<<<<<<<<<<<<
@@ -11283,7 +11533,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
  */
               goto __pyx_L16_continue;
 
-              /* "uplift/tree/_splitter.pyx":1321
+              /* "uplift/tree/_splitter.pyx":1358
  * 
  *                             # Reject if min_samples_leaf is not guaranteed
  *                             if (((current.pos - start) < min_samples_leaf) or             # <<<<<<<<<<<<<<
@@ -11292,7 +11542,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
  */
             }
 
-            /* "uplift/tree/_splitter.pyx":1325
+            /* "uplift/tree/_splitter.pyx":1362
  *                                 continue
  * 
  *                             self.criterion.update(current.pos)             # <<<<<<<<<<<<<<
@@ -11301,7 +11551,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
  */
             ((struct __pyx_vtabstruct_6uplift_4tree_10_criterion_Criterion *)__pyx_v_self->__pyx_base.__pyx_base.criterion->__pyx_vtab)->update(__pyx_v_self->__pyx_base.__pyx_base.criterion, __pyx_v_current.pos);
 
-            /* "uplift/tree/_splitter.pyx":1328
+            /* "uplift/tree/_splitter.pyx":1365
  * 
  *                             # Reject if min_weight_leaf is not satisfied
  *                             if ((self.criterion.weighted_n_left < min_weight_leaf) or             # <<<<<<<<<<<<<<
@@ -11315,7 +11565,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
               goto __pyx_L29_bool_binop_done;
             }
 
-            /* "uplift/tree/_splitter.pyx":1329
+            /* "uplift/tree/_splitter.pyx":1366
  *                             # Reject if min_weight_leaf is not satisfied
  *                             if ((self.criterion.weighted_n_left < min_weight_leaf) or
  *                                     (self.criterion.weighted_n_right < min_weight_leaf)):             # <<<<<<<<<<<<<<
@@ -11326,7 +11576,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
             __pyx_t_6 = __pyx_t_7;
             __pyx_L29_bool_binop_done:;
 
-            /* "uplift/tree/_splitter.pyx":1328
+            /* "uplift/tree/_splitter.pyx":1365
  * 
  *                             # Reject if min_weight_leaf is not satisfied
  *                             if ((self.criterion.weighted_n_left < min_weight_leaf) or             # <<<<<<<<<<<<<<
@@ -11335,7 +11585,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
  */
             if (__pyx_t_6) {
 
-              /* "uplift/tree/_splitter.pyx":1330
+              /* "uplift/tree/_splitter.pyx":1367
  *                             if ((self.criterion.weighted_n_left < min_weight_leaf) or
  *                                     (self.criterion.weighted_n_right < min_weight_leaf)):
  *                                 continue             # <<<<<<<<<<<<<<
@@ -11344,7 +11594,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
  */
               goto __pyx_L16_continue;
 
-              /* "uplift/tree/_splitter.pyx":1328
+              /* "uplift/tree/_splitter.pyx":1365
  * 
  *                             # Reject if min_weight_leaf is not satisfied
  *                             if ((self.criterion.weighted_n_left < min_weight_leaf) or             # <<<<<<<<<<<<<<
@@ -11353,17 +11603,17 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
  */
             }
 
-            /* "uplift/tree/_splitter.pyx":1332
+            /* "uplift/tree/_splitter.pyx":1369
  *                                 continue
  * 
  *                             current_proxy_improvement = self.criterion.proxy_impurity_improvement()             # <<<<<<<<<<<<<<
  * 
- *                             if current_proxy_improvement > best_proxy_improvement:
+ * 
  */
             __pyx_v_current_proxy_improvement = ((struct __pyx_vtabstruct_6uplift_4tree_10_criterion_Criterion *)__pyx_v_self->__pyx_base.__pyx_base.criterion->__pyx_vtab)->proxy_impurity_improvement(__pyx_v_self->__pyx_base.__pyx_base.criterion);
 
-            /* "uplift/tree/_splitter.pyx":1334
- *                             current_proxy_improvement = self.criterion.proxy_impurity_improvement()
+            /* "uplift/tree/_splitter.pyx":1375
+ *                             #    continue
  * 
  *                             if current_proxy_improvement > best_proxy_improvement:             # <<<<<<<<<<<<<<
  *                                 best_proxy_improvement = current_proxy_improvement
@@ -11372,7 +11622,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
             __pyx_t_6 = ((__pyx_v_current_proxy_improvement > __pyx_v_best_proxy_improvement) != 0);
             if (__pyx_t_6) {
 
-              /* "uplift/tree/_splitter.pyx":1335
+              /* "uplift/tree/_splitter.pyx":1376
  * 
  *                             if current_proxy_improvement > best_proxy_improvement:
  *                                 best_proxy_improvement = current_proxy_improvement             # <<<<<<<<<<<<<<
@@ -11381,7 +11631,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
  */
               __pyx_v_best_proxy_improvement = __pyx_v_current_proxy_improvement;
 
-              /* "uplift/tree/_splitter.pyx":1337
+              /* "uplift/tree/_splitter.pyx":1378
  *                                 best_proxy_improvement = current_proxy_improvement
  * 
  *                                 current.threshold = (Xf[p_prev] + Xf[p]) / 2.0             # <<<<<<<<<<<<<<
@@ -11390,7 +11640,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
  */
               __pyx_v_current.threshold = (((__pyx_v_Xf[__pyx_v_p_prev]) + (__pyx_v_Xf[__pyx_v_p])) / 2.0);
 
-              /* "uplift/tree/_splitter.pyx":1338
+              /* "uplift/tree/_splitter.pyx":1379
  * 
  *                                 current.threshold = (Xf[p_prev] + Xf[p]) / 2.0
  *                                 if current.threshold == Xf[p]:             # <<<<<<<<<<<<<<
@@ -11400,7 +11650,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
               __pyx_t_6 = ((__pyx_v_current.threshold == (__pyx_v_Xf[__pyx_v_p])) != 0);
               if (__pyx_t_6) {
 
-                /* "uplift/tree/_splitter.pyx":1339
+                /* "uplift/tree/_splitter.pyx":1380
  *                                 current.threshold = (Xf[p_prev] + Xf[p]) / 2.0
  *                                 if current.threshold == Xf[p]:
  *                                     current.threshold = Xf[p_prev]             # <<<<<<<<<<<<<<
@@ -11409,7 +11659,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
  */
                 __pyx_v_current.threshold = (__pyx_v_Xf[__pyx_v_p_prev]);
 
-                /* "uplift/tree/_splitter.pyx":1338
+                /* "uplift/tree/_splitter.pyx":1379
  * 
  *                                 current.threshold = (Xf[p_prev] + Xf[p]) / 2.0
  *                                 if current.threshold == Xf[p]:             # <<<<<<<<<<<<<<
@@ -11418,7 +11668,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
  */
               }
 
-              /* "uplift/tree/_splitter.pyx":1341
+              /* "uplift/tree/_splitter.pyx":1382
  *                                     current.threshold = Xf[p_prev]
  * 
  *                                 best = current             # <<<<<<<<<<<<<<
@@ -11427,8 +11677,8 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
  */
               __pyx_v_best = __pyx_v_current;
 
-              /* "uplift/tree/_splitter.pyx":1334
- *                             current_proxy_improvement = self.criterion.proxy_impurity_improvement()
+              /* "uplift/tree/_splitter.pyx":1375
+ *                             #    continue
  * 
  *                             if current_proxy_improvement > best_proxy_improvement:             # <<<<<<<<<<<<<<
  *                                 best_proxy_improvement = current_proxy_improvement
@@ -11436,7 +11686,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
  */
             }
 
-            /* "uplift/tree/_splitter.pyx":1317
+            /* "uplift/tree/_splitter.pyx":1354
  * 
  * 
  *                         if p < end:             # <<<<<<<<<<<<<<
@@ -11452,7 +11702,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
     __pyx_L8:;
   }
 
-  /* "uplift/tree/_splitter.pyx":1344
+  /* "uplift/tree/_splitter.pyx":1385
  * 
  *         # Reorganize into samples[start:best.pos] + samples[best.pos:end]
  *         if best.pos < end:             # <<<<<<<<<<<<<<
@@ -11462,7 +11712,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
   __pyx_t_6 = ((__pyx_v_best.pos < __pyx_v_end) != 0);
   if (__pyx_t_6) {
 
-    /* "uplift/tree/_splitter.pyx":1345
+    /* "uplift/tree/_splitter.pyx":1386
  *         # Reorganize into samples[start:best.pos] + samples[best.pos:end]
  *         if best.pos < end:
  *             self.extract_nnz(best.feature, &end_negative, &start_positive,             # <<<<<<<<<<<<<<
@@ -11471,7 +11721,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
  */
     __pyx_f_6uplift_4tree_9_splitter_18BaseSparseSplitter_extract_nnz(((struct __pyx_obj_6uplift_4tree_9_splitter_BaseSparseSplitter *)__pyx_v_self), __pyx_v_best.feature, (&__pyx_v_end_negative), (&__pyx_v_start_positive), (&__pyx_v_is_samples_sorted));
 
-    /* "uplift/tree/_splitter.pyx":1348
+    /* "uplift/tree/_splitter.pyx":1389
  *                              &is_samples_sorted)
  * 
  *             self._partition(best.threshold, end_negative, start_positive,             # <<<<<<<<<<<<<<
@@ -11480,7 +11730,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
  */
     (void)(__pyx_f_6uplift_4tree_9_splitter_18BaseSparseSplitter__partition(((struct __pyx_obj_6uplift_4tree_9_splitter_BaseSparseSplitter *)__pyx_v_self), __pyx_v_best.threshold, __pyx_v_end_negative, __pyx_v_start_positive, __pyx_v_best.pos));
 
-    /* "uplift/tree/_splitter.pyx":1351
+    /* "uplift/tree/_splitter.pyx":1392
  *                             best.pos)
  * 
  *             self.criterion.reset()             # <<<<<<<<<<<<<<
@@ -11489,7 +11739,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
  */
     ((struct __pyx_vtabstruct_6uplift_4tree_10_criterion_Criterion *)__pyx_v_self->__pyx_base.__pyx_base.criterion->__pyx_vtab)->reset(__pyx_v_self->__pyx_base.__pyx_base.criterion);
 
-    /* "uplift/tree/_splitter.pyx":1352
+    /* "uplift/tree/_splitter.pyx":1393
  * 
  *             self.criterion.reset()
  *             self.criterion.update(best.pos)             # <<<<<<<<<<<<<<
@@ -11498,7 +11748,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
  */
     ((struct __pyx_vtabstruct_6uplift_4tree_10_criterion_Criterion *)__pyx_v_self->__pyx_base.__pyx_base.criterion->__pyx_vtab)->update(__pyx_v_self->__pyx_base.__pyx_base.criterion, __pyx_v_best.pos);
 
-    /* "uplift/tree/_splitter.pyx":1353
+    /* "uplift/tree/_splitter.pyx":1394
  *             self.criterion.reset()
  *             self.criterion.update(best.pos)
  *             best.improvement = self.criterion.impurity_improvement(impurity)             # <<<<<<<<<<<<<<
@@ -11507,7 +11757,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
  */
     __pyx_v_best.improvement = ((struct __pyx_vtabstruct_6uplift_4tree_10_criterion_Criterion *)__pyx_v_self->__pyx_base.__pyx_base.criterion->__pyx_vtab)->impurity_improvement(__pyx_v_self->__pyx_base.__pyx_base.criterion, __pyx_v_impurity);
 
-    /* "uplift/tree/_splitter.pyx":1354
+    /* "uplift/tree/_splitter.pyx":1395
  *             self.criterion.update(best.pos)
  *             best.improvement = self.criterion.impurity_improvement(impurity)
  *             self.criterion.children_impurity(&best.impurity_left,             # <<<<<<<<<<<<<<
@@ -11516,7 +11766,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
  */
     ((struct __pyx_vtabstruct_6uplift_4tree_10_criterion_Criterion *)__pyx_v_self->__pyx_base.__pyx_base.criterion->__pyx_vtab)->children_impurity(__pyx_v_self->__pyx_base.__pyx_base.criterion, (&__pyx_v_best.impurity_left), (&__pyx_v_best.impurity_right));
 
-    /* "uplift/tree/_splitter.pyx":1344
+    /* "uplift/tree/_splitter.pyx":1385
  * 
  *         # Reorganize into samples[start:best.pos] + samples[best.pos:end]
  *         if best.pos < end:             # <<<<<<<<<<<<<<
@@ -11525,7 +11775,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
  */
   }
 
-  /* "uplift/tree/_splitter.pyx":1360
+  /* "uplift/tree/_splitter.pyx":1401
  *         # element in features[:n_known_constants] must be preserved for sibling
  *         # and child nodes
  *         memcpy(features, constant_features, sizeof(SIZE_t) * n_known_constants)             # <<<<<<<<<<<<<<
@@ -11534,7 +11784,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
  */
   (void)(memcpy(__pyx_v_features, __pyx_v_constant_features, ((sizeof(__pyx_t_6uplift_4tree_9_splitter_SIZE_t)) * __pyx_v_n_known_constants)));
 
-  /* "uplift/tree/_splitter.pyx":1363
+  /* "uplift/tree/_splitter.pyx":1404
  * 
  *         # Copy newly found constant features
  *         memcpy(constant_features + n_known_constants,             # <<<<<<<<<<<<<<
@@ -11543,7 +11793,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
  */
   (void)(memcpy((__pyx_v_constant_features + __pyx_v_n_known_constants), (__pyx_v_features + __pyx_v_n_known_constants), ((sizeof(__pyx_t_6uplift_4tree_9_splitter_SIZE_t)) * __pyx_v_n_found_constants)));
 
-  /* "uplift/tree/_splitter.pyx":1368
+  /* "uplift/tree/_splitter.pyx":1409
  * 
  *         # Return values
  *         split[0] = best             # <<<<<<<<<<<<<<
@@ -11552,7 +11802,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
  */
   (__pyx_v_split[0]) = __pyx_v_best;
 
-  /* "uplift/tree/_splitter.pyx":1369
+  /* "uplift/tree/_splitter.pyx":1410
  *         # Return values
  *         split[0] = best
  *         n_constant_features[0] = n_total_constants             # <<<<<<<<<<<<<<
@@ -11561,8 +11811,8 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
  */
   (__pyx_v_n_constant_features[0]) = __pyx_v_n_total_constants;
 
-  /* "uplift/tree/_splitter.pyx":1156
- *                                      self.presort), self.__getstate__())
+  /* "uplift/tree/_splitter.pyx":1192
+ *                                      self.presort,self.stat_param), self.__getstate__())
  * 
  *     cdef void node_split(self, double impurity, SplitRecord* split,             # <<<<<<<<<<<<<<
  *                          SIZE_t* n_constant_features) nogil:
@@ -11572,7 +11822,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split(str
   /* function exit code */
 }
 
-/* "uplift/tree/_splitter.pyx":1375
+/* "uplift/tree/_splitter.pyx":1416
  *     """Splitter for finding a random split, using the sparse data."""
  * 
  *     def __reduce__(self):             # <<<<<<<<<<<<<<
@@ -11601,9 +11851,10 @@ static PyObject *__pyx_pf_6uplift_4tree_9_splitter_20RandomSparseSplitter___redu
   PyObject *__pyx_t_3 = NULL;
   PyObject *__pyx_t_4 = NULL;
   PyObject *__pyx_t_5 = NULL;
+  PyObject *__pyx_t_6 = NULL;
   __Pyx_RefNannySetupContext("__reduce__", 0);
 
-  /* "uplift/tree/_splitter.pyx":1376
+  /* "uplift/tree/_splitter.pyx":1417
  * 
  *     def __reduce__(self):
  *         return (RandomSparseSplitter, (self.criterion,             # <<<<<<<<<<<<<<
@@ -11612,122 +11863,127 @@ static PyObject *__pyx_pf_6uplift_4tree_9_splitter_20RandomSparseSplitter___redu
  */
   __Pyx_XDECREF(__pyx_r);
 
-  /* "uplift/tree/_splitter.pyx":1377
+  /* "uplift/tree/_splitter.pyx":1418
  *     def __reduce__(self):
  *         return (RandomSparseSplitter, (self.criterion,
  *                                        self.max_features,             # <<<<<<<<<<<<<<
  *                                        self.min_samples_leaf,
  *                                        self.min_weight_leaf,
  */
-  __pyx_t_1 = __Pyx_PyInt_From_Py_intptr_t(__pyx_v_self->__pyx_base.__pyx_base.max_features); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1377, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_Py_intptr_t(__pyx_v_self->__pyx_base.__pyx_base.max_features); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1418, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
 
-  /* "uplift/tree/_splitter.pyx":1378
+  /* "uplift/tree/_splitter.pyx":1419
  *         return (RandomSparseSplitter, (self.criterion,
  *                                        self.max_features,
  *                                        self.min_samples_leaf,             # <<<<<<<<<<<<<<
  *                                        self.min_weight_leaf,
  *                                        self.random_state,
  */
-  __pyx_t_2 = __Pyx_PyInt_From_Py_intptr_t(__pyx_v_self->__pyx_base.__pyx_base.min_samples_leaf); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1378, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_From_Py_intptr_t(__pyx_v_self->__pyx_base.__pyx_base.min_samples_leaf); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1419, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
 
-  /* "uplift/tree/_splitter.pyx":1379
+  /* "uplift/tree/_splitter.pyx":1420
  *                                        self.max_features,
  *                                        self.min_samples_leaf,
  *                                        self.min_weight_leaf,             # <<<<<<<<<<<<<<
  *                                        self.random_state,
- *                                        self.presort), self.__getstate__())
+ *                                        self.presort,self.stat_param), self.__getstate__())
  */
-  __pyx_t_3 = PyFloat_FromDouble(__pyx_v_self->__pyx_base.__pyx_base.min_weight_leaf); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1379, __pyx_L1_error)
+  __pyx_t_3 = PyFloat_FromDouble(__pyx_v_self->__pyx_base.__pyx_base.min_weight_leaf); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1420, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
 
-  /* "uplift/tree/_splitter.pyx":1381
+  /* "uplift/tree/_splitter.pyx":1422
  *                                        self.min_weight_leaf,
  *                                        self.random_state,
- *                                        self.presort), self.__getstate__())             # <<<<<<<<<<<<<<
+ *                                        self.presort,self.stat_param), self.__getstate__())             # <<<<<<<<<<<<<<
  * 
  *     cdef void node_split(self, double impurity, SplitRecord* split,
  */
-  __pyx_t_4 = __Pyx_PyBool_FromLong(__pyx_v_self->__pyx_base.__pyx_base.presort); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1381, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyBool_FromLong(__pyx_v_self->__pyx_base.__pyx_base.presort); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1422, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
+  __pyx_t_5 = PyFloat_FromDouble(__pyx_v_self->__pyx_base.__pyx_base.stat_param); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1422, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
 
-  /* "uplift/tree/_splitter.pyx":1376
+  /* "uplift/tree/_splitter.pyx":1417
  * 
  *     def __reduce__(self):
  *         return (RandomSparseSplitter, (self.criterion,             # <<<<<<<<<<<<<<
  *                                        self.max_features,
  *                                        self.min_samples_leaf,
  */
-  __pyx_t_5 = PyTuple_New(6); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1376, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_5);
+  __pyx_t_6 = PyTuple_New(7); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1417, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_6);
   __Pyx_INCREF(((PyObject *)__pyx_v_self->__pyx_base.__pyx_base.criterion));
   __Pyx_GIVEREF(((PyObject *)__pyx_v_self->__pyx_base.__pyx_base.criterion));
-  PyTuple_SET_ITEM(__pyx_t_5, 0, ((PyObject *)__pyx_v_self->__pyx_base.__pyx_base.criterion));
+  PyTuple_SET_ITEM(__pyx_t_6, 0, ((PyObject *)__pyx_v_self->__pyx_base.__pyx_base.criterion));
   __Pyx_GIVEREF(__pyx_t_1);
-  PyTuple_SET_ITEM(__pyx_t_5, 1, __pyx_t_1);
+  PyTuple_SET_ITEM(__pyx_t_6, 1, __pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_2);
-  PyTuple_SET_ITEM(__pyx_t_5, 2, __pyx_t_2);
+  PyTuple_SET_ITEM(__pyx_t_6, 2, __pyx_t_2);
   __Pyx_GIVEREF(__pyx_t_3);
-  PyTuple_SET_ITEM(__pyx_t_5, 3, __pyx_t_3);
+  PyTuple_SET_ITEM(__pyx_t_6, 3, __pyx_t_3);
   __Pyx_INCREF(__pyx_v_self->__pyx_base.__pyx_base.random_state);
   __Pyx_GIVEREF(__pyx_v_self->__pyx_base.__pyx_base.random_state);
-  PyTuple_SET_ITEM(__pyx_t_5, 4, __pyx_v_self->__pyx_base.__pyx_base.random_state);
+  PyTuple_SET_ITEM(__pyx_t_6, 4, __pyx_v_self->__pyx_base.__pyx_base.random_state);
   __Pyx_GIVEREF(__pyx_t_4);
-  PyTuple_SET_ITEM(__pyx_t_5, 5, __pyx_t_4);
+  PyTuple_SET_ITEM(__pyx_t_6, 5, __pyx_t_4);
+  __Pyx_GIVEREF(__pyx_t_5);
+  PyTuple_SET_ITEM(__pyx_t_6, 6, __pyx_t_5);
   __pyx_t_1 = 0;
   __pyx_t_2 = 0;
   __pyx_t_3 = 0;
   __pyx_t_4 = 0;
+  __pyx_t_5 = 0;
 
-  /* "uplift/tree/_splitter.pyx":1381
+  /* "uplift/tree/_splitter.pyx":1422
  *                                        self.min_weight_leaf,
  *                                        self.random_state,
- *                                        self.presort), self.__getstate__())             # <<<<<<<<<<<<<<
+ *                                        self.presort,self.stat_param), self.__getstate__())             # <<<<<<<<<<<<<<
  * 
  *     cdef void node_split(self, double impurity, SplitRecord* split,
  */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_getstate); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1381, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = NULL;
-  if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_3))) {
-    __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_3);
-    if (likely(__pyx_t_2)) {
-      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_3);
-      __Pyx_INCREF(__pyx_t_2);
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_getstate); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1422, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __pyx_t_3 = NULL;
+  if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_4))) {
+    __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_4);
+    if (likely(__pyx_t_3)) {
+      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_4);
+      __Pyx_INCREF(__pyx_t_3);
       __Pyx_INCREF(function);
-      __Pyx_DECREF_SET(__pyx_t_3, function);
+      __Pyx_DECREF_SET(__pyx_t_4, function);
     }
   }
-  __pyx_t_4 = (__pyx_t_2) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_2) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
-  __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1381, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_5 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_4);
+  __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+  if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1422, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "uplift/tree/_splitter.pyx":1376
+  /* "uplift/tree/_splitter.pyx":1417
  * 
  *     def __reduce__(self):
  *         return (RandomSparseSplitter, (self.criterion,             # <<<<<<<<<<<<<<
  *                                        self.max_features,
  *                                        self.min_samples_leaf,
  */
-  __pyx_t_3 = PyTuple_New(3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1376, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_t_4 = PyTuple_New(3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1417, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
   __Pyx_INCREF(((PyObject *)__pyx_ptype_6uplift_4tree_9_splitter_RandomSparseSplitter));
   __Pyx_GIVEREF(((PyObject *)__pyx_ptype_6uplift_4tree_9_splitter_RandomSparseSplitter));
-  PyTuple_SET_ITEM(__pyx_t_3, 0, ((PyObject *)__pyx_ptype_6uplift_4tree_9_splitter_RandomSparseSplitter));
+  PyTuple_SET_ITEM(__pyx_t_4, 0, ((PyObject *)__pyx_ptype_6uplift_4tree_9_splitter_RandomSparseSplitter));
+  __Pyx_GIVEREF(__pyx_t_6);
+  PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_t_6);
   __Pyx_GIVEREF(__pyx_t_5);
-  PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_t_5);
-  __Pyx_GIVEREF(__pyx_t_4);
-  PyTuple_SET_ITEM(__pyx_t_3, 2, __pyx_t_4);
+  PyTuple_SET_ITEM(__pyx_t_4, 2, __pyx_t_5);
+  __pyx_t_6 = 0;
   __pyx_t_5 = 0;
+  __pyx_r = __pyx_t_4;
   __pyx_t_4 = 0;
-  __pyx_r = __pyx_t_3;
-  __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "uplift/tree/_splitter.pyx":1375
+  /* "uplift/tree/_splitter.pyx":1416
  *     """Splitter for finding a random split, using the sparse data."""
  * 
  *     def __reduce__(self):             # <<<<<<<<<<<<<<
@@ -11742,6 +11998,7 @@ static PyObject *__pyx_pf_6uplift_4tree_9_splitter_20RandomSparseSplitter___redu
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
+  __Pyx_XDECREF(__pyx_t_6);
   __Pyx_AddTraceback("uplift.tree._splitter.RandomSparseSplitter.__reduce__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
@@ -11750,8 +12007,8 @@ static PyObject *__pyx_pf_6uplift_4tree_9_splitter_20RandomSparseSplitter___redu
   return __pyx_r;
 }
 
-/* "uplift/tree/_splitter.pyx":1383
- *                                        self.presort), self.__getstate__())
+/* "uplift/tree/_splitter.pyx":1424
+ *                                        self.presort,self.stat_param), self.__getstate__())
  * 
  *     cdef void node_split(self, double impurity, SplitRecord* split,             # <<<<<<<<<<<<<<
  *                          SIZE_t* n_constant_features) nogil:
@@ -11775,6 +12032,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
   __pyx_t_6uplift_4tree_9_splitter_SIZE_t __pyx_v_min_samples_leaf;
   double __pyx_v_min_weight_leaf;
   __pyx_t_6uplift_4tree_9_splitter_UINT32_t *__pyx_v_random_state;
+  CYTHON_UNUSED double __pyx_v_stat_param;
   struct __pyx_t_6uplift_4tree_9_splitter_SplitRecord __pyx_v_best;
   struct __pyx_t_6uplift_4tree_9_splitter_SplitRecord __pyx_v_current;
   double __pyx_v_current_proxy_improvement;
@@ -11804,7 +12062,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
   __pyx_t_6uplift_4tree_9_splitter_SIZE_t __pyx_t_8;
   __pyx_t_6uplift_4tree_9_splitter_SIZE_t __pyx_t_9;
 
-  /* "uplift/tree/_splitter.pyx":1389
+  /* "uplift/tree/_splitter.pyx":1430
  *         """
  *         # Find the best split
  *         cdef SIZE_t* samples = self.samples             # <<<<<<<<<<<<<<
@@ -11814,7 +12072,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
   __pyx_t_1 = __pyx_v_self->__pyx_base.__pyx_base.samples;
   __pyx_v_samples = __pyx_t_1;
 
-  /* "uplift/tree/_splitter.pyx":1390
+  /* "uplift/tree/_splitter.pyx":1431
  *         # Find the best split
  *         cdef SIZE_t* samples = self.samples
  *         cdef SIZE_t start = self.start             # <<<<<<<<<<<<<<
@@ -11824,7 +12082,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
   __pyx_t_2 = __pyx_v_self->__pyx_base.__pyx_base.start;
   __pyx_v_start = __pyx_t_2;
 
-  /* "uplift/tree/_splitter.pyx":1391
+  /* "uplift/tree/_splitter.pyx":1432
  *         cdef SIZE_t* samples = self.samples
  *         cdef SIZE_t start = self.start
  *         cdef SIZE_t end = self.end             # <<<<<<<<<<<<<<
@@ -11834,7 +12092,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
   __pyx_t_2 = __pyx_v_self->__pyx_base.__pyx_base.end;
   __pyx_v_end = __pyx_t_2;
 
-  /* "uplift/tree/_splitter.pyx":1393
+  /* "uplift/tree/_splitter.pyx":1434
  *         cdef SIZE_t end = self.end
  * 
  *         cdef INT32_t* X_indices = self.X_indices             # <<<<<<<<<<<<<<
@@ -11844,7 +12102,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
   __pyx_t_3 = __pyx_v_self->__pyx_base.X_indices;
   __pyx_v_X_indices = __pyx_t_3;
 
-  /* "uplift/tree/_splitter.pyx":1394
+  /* "uplift/tree/_splitter.pyx":1435
  * 
  *         cdef INT32_t* X_indices = self.X_indices
  *         cdef INT32_t* X_indptr = self.X_indptr             # <<<<<<<<<<<<<<
@@ -11854,7 +12112,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
   __pyx_t_3 = __pyx_v_self->__pyx_base.X_indptr;
   __pyx_v_X_indptr = __pyx_t_3;
 
-  /* "uplift/tree/_splitter.pyx":1395
+  /* "uplift/tree/_splitter.pyx":1436
  *         cdef INT32_t* X_indices = self.X_indices
  *         cdef INT32_t* X_indptr = self.X_indptr
  *         cdef DTYPE_t* X_data = self.X_data             # <<<<<<<<<<<<<<
@@ -11864,7 +12122,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
   __pyx_t_4 = __pyx_v_self->__pyx_base.X_data;
   __pyx_v_X_data = __pyx_t_4;
 
-  /* "uplift/tree/_splitter.pyx":1397
+  /* "uplift/tree/_splitter.pyx":1438
  *         cdef DTYPE_t* X_data = self.X_data
  * 
  *         cdef SIZE_t* features = self.features             # <<<<<<<<<<<<<<
@@ -11874,7 +12132,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
   __pyx_t_1 = __pyx_v_self->__pyx_base.__pyx_base.features;
   __pyx_v_features = __pyx_t_1;
 
-  /* "uplift/tree/_splitter.pyx":1398
+  /* "uplift/tree/_splitter.pyx":1439
  * 
  *         cdef SIZE_t* features = self.features
  *         cdef SIZE_t* constant_features = self.constant_features             # <<<<<<<<<<<<<<
@@ -11884,7 +12142,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
   __pyx_t_1 = __pyx_v_self->__pyx_base.__pyx_base.constant_features;
   __pyx_v_constant_features = __pyx_t_1;
 
-  /* "uplift/tree/_splitter.pyx":1399
+  /* "uplift/tree/_splitter.pyx":1440
  *         cdef SIZE_t* features = self.features
  *         cdef SIZE_t* constant_features = self.constant_features
  *         cdef SIZE_t n_features = self.n_features             # <<<<<<<<<<<<<<
@@ -11894,7 +12152,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
   __pyx_t_2 = __pyx_v_self->__pyx_base.__pyx_base.n_features;
   __pyx_v_n_features = __pyx_t_2;
 
-  /* "uplift/tree/_splitter.pyx":1401
+  /* "uplift/tree/_splitter.pyx":1442
  *         cdef SIZE_t n_features = self.n_features
  * 
  *         cdef DTYPE_t* Xf = self.feature_values             # <<<<<<<<<<<<<<
@@ -11904,7 +12162,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
   __pyx_t_4 = __pyx_v_self->__pyx_base.__pyx_base.feature_values;
   __pyx_v_Xf = __pyx_t_4;
 
-  /* "uplift/tree/_splitter.pyx":1402
+  /* "uplift/tree/_splitter.pyx":1443
  * 
  *         cdef DTYPE_t* Xf = self.feature_values
  *         cdef SIZE_t* sorted_samples = self.sorted_samples             # <<<<<<<<<<<<<<
@@ -11914,7 +12172,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
   __pyx_t_1 = __pyx_v_self->__pyx_base.sorted_samples;
   __pyx_v_sorted_samples = __pyx_t_1;
 
-  /* "uplift/tree/_splitter.pyx":1403
+  /* "uplift/tree/_splitter.pyx":1444
  *         cdef DTYPE_t* Xf = self.feature_values
  *         cdef SIZE_t* sorted_samples = self.sorted_samples
  *         cdef SIZE_t* index_to_samples = self.index_to_samples             # <<<<<<<<<<<<<<
@@ -11924,7 +12182,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
   __pyx_t_1 = __pyx_v_self->__pyx_base.index_to_samples;
   __pyx_v_index_to_samples = __pyx_t_1;
 
-  /* "uplift/tree/_splitter.pyx":1404
+  /* "uplift/tree/_splitter.pyx":1445
  *         cdef SIZE_t* sorted_samples = self.sorted_samples
  *         cdef SIZE_t* index_to_samples = self.index_to_samples
  *         cdef SIZE_t max_features = self.max_features             # <<<<<<<<<<<<<<
@@ -11934,7 +12192,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
   __pyx_t_2 = __pyx_v_self->__pyx_base.__pyx_base.max_features;
   __pyx_v_max_features = __pyx_t_2;
 
-  /* "uplift/tree/_splitter.pyx":1405
+  /* "uplift/tree/_splitter.pyx":1446
  *         cdef SIZE_t* index_to_samples = self.index_to_samples
  *         cdef SIZE_t max_features = self.max_features
  *         cdef SIZE_t min_samples_leaf = self.min_samples_leaf             # <<<<<<<<<<<<<<
@@ -11944,26 +12202,36 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
   __pyx_t_2 = __pyx_v_self->__pyx_base.__pyx_base.min_samples_leaf;
   __pyx_v_min_samples_leaf = __pyx_t_2;
 
-  /* "uplift/tree/_splitter.pyx":1406
+  /* "uplift/tree/_splitter.pyx":1447
  *         cdef SIZE_t max_features = self.max_features
  *         cdef SIZE_t min_samples_leaf = self.min_samples_leaf
  *         cdef double min_weight_leaf = self.min_weight_leaf             # <<<<<<<<<<<<<<
  *         cdef UINT32_t* random_state = &self.rand_r_state
- * 
+ *         cdef double stat_param = self.stat_param
  */
   __pyx_t_5 = __pyx_v_self->__pyx_base.__pyx_base.min_weight_leaf;
   __pyx_v_min_weight_leaf = __pyx_t_5;
 
-  /* "uplift/tree/_splitter.pyx":1407
+  /* "uplift/tree/_splitter.pyx":1448
  *         cdef SIZE_t min_samples_leaf = self.min_samples_leaf
  *         cdef double min_weight_leaf = self.min_weight_leaf
  *         cdef UINT32_t* random_state = &self.rand_r_state             # <<<<<<<<<<<<<<
+ *         cdef double stat_param = self.stat_param
  * 
- *         cdef SplitRecord best, current
  */
   __pyx_v_random_state = (&__pyx_v_self->__pyx_base.__pyx_base.rand_r_state);
 
-  /* "uplift/tree/_splitter.pyx":1410
+  /* "uplift/tree/_splitter.pyx":1449
+ *         cdef double min_weight_leaf = self.min_weight_leaf
+ *         cdef UINT32_t* random_state = &self.rand_r_state
+ *         cdef double stat_param = self.stat_param             # <<<<<<<<<<<<<<
+ * 
+ *         cdef SplitRecord best, current
+ */
+  __pyx_t_5 = __pyx_v_self->__pyx_base.__pyx_base.stat_param;
+  __pyx_v_stat_param = __pyx_t_5;
+
+  /* "uplift/tree/_splitter.pyx":1452
  * 
  *         cdef SplitRecord best, current
  *         _init_split(&best, end)             # <<<<<<<<<<<<<<
@@ -11972,7 +12240,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
  */
   __pyx_f_6uplift_4tree_9_splitter__init_split((&__pyx_v_best), __pyx_v_end);
 
-  /* "uplift/tree/_splitter.pyx":1411
+  /* "uplift/tree/_splitter.pyx":1453
  *         cdef SplitRecord best, current
  *         _init_split(&best, end)
  *         cdef double current_proxy_improvement = - INFINITY             # <<<<<<<<<<<<<<
@@ -11981,7 +12249,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
  */
   __pyx_v_current_proxy_improvement = (-__pyx_v_6uplift_4tree_9_splitter_INFINITY);
 
-  /* "uplift/tree/_splitter.pyx":1412
+  /* "uplift/tree/_splitter.pyx":1454
  *         _init_split(&best, end)
  *         cdef double current_proxy_improvement = - INFINITY
  *         cdef double best_proxy_improvement = - INFINITY             # <<<<<<<<<<<<<<
@@ -11990,7 +12258,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
  */
   __pyx_v_best_proxy_improvement = (-__pyx_v_6uplift_4tree_9_splitter_INFINITY);
 
-  /* "uplift/tree/_splitter.pyx":1416
+  /* "uplift/tree/_splitter.pyx":1458
  *         cdef DTYPE_t current_feature_value
  * 
  *         cdef SIZE_t f_i = n_features             # <<<<<<<<<<<<<<
@@ -11999,7 +12267,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
  */
   __pyx_v_f_i = __pyx_v_n_features;
 
-  /* "uplift/tree/_splitter.pyx":1418
+  /* "uplift/tree/_splitter.pyx":1460
  *         cdef SIZE_t f_i = n_features
  *         cdef SIZE_t f_j, p, tmp
  *         cdef SIZE_t n_visited_features = 0             # <<<<<<<<<<<<<<
@@ -12008,7 +12276,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
  */
   __pyx_v_n_visited_features = 0;
 
-  /* "uplift/tree/_splitter.pyx":1420
+  /* "uplift/tree/_splitter.pyx":1462
  *         cdef SIZE_t n_visited_features = 0
  *         # Number of features discovered to be constant during the split search
  *         cdef SIZE_t n_found_constants = 0             # <<<<<<<<<<<<<<
@@ -12017,7 +12285,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
  */
   __pyx_v_n_found_constants = 0;
 
-  /* "uplift/tree/_splitter.pyx":1422
+  /* "uplift/tree/_splitter.pyx":1464
  *         cdef SIZE_t n_found_constants = 0
  *         # Number of features known to be constant and drawn without replacement
  *         cdef SIZE_t n_drawn_constants = 0             # <<<<<<<<<<<<<<
@@ -12026,7 +12294,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
  */
   __pyx_v_n_drawn_constants = 0;
 
-  /* "uplift/tree/_splitter.pyx":1423
+  /* "uplift/tree/_splitter.pyx":1465
  *         # Number of features known to be constant and drawn without replacement
  *         cdef SIZE_t n_drawn_constants = 0
  *         cdef SIZE_t n_known_constants = n_constant_features[0]             # <<<<<<<<<<<<<<
@@ -12035,7 +12303,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
  */
   __pyx_v_n_known_constants = (__pyx_v_n_constant_features[0]);
 
-  /* "uplift/tree/_splitter.pyx":1425
+  /* "uplift/tree/_splitter.pyx":1467
  *         cdef SIZE_t n_known_constants = n_constant_features[0]
  *         # n_total_constants = n_known_constants + n_found_constants
  *         cdef SIZE_t n_total_constants = n_known_constants             # <<<<<<<<<<<<<<
@@ -12044,7 +12312,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
  */
   __pyx_v_n_total_constants = __pyx_v_n_known_constants;
 
-  /* "uplift/tree/_splitter.pyx":1431
+  /* "uplift/tree/_splitter.pyx":1473
  *         cdef DTYPE_t max_feature_value
  * 
  *         cdef bint is_samples_sorted = 0  # indicate that sorted_samples is             # <<<<<<<<<<<<<<
@@ -12053,7 +12321,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
  */
   __pyx_v_is_samples_sorted = 0;
 
-  /* "uplift/tree/_splitter.pyx":1448
+  /* "uplift/tree/_splitter.pyx":1490
  *         # newly discovered constant features to spare computation on descendant
  *         # nodes.
  *         while (f_i > n_total_constants and  # Stop early if remaining features             # <<<<<<<<<<<<<<
@@ -12068,7 +12336,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
       goto __pyx_L5_bool_binop_done;
     }
 
-    /* "uplift/tree/_splitter.pyx":1450
+    /* "uplift/tree/_splitter.pyx":1492
  *         while (f_i > n_total_constants and  # Stop early if remaining features
  *                                             # are constant
  *                 (n_visited_features < max_features or             # <<<<<<<<<<<<<<
@@ -12082,7 +12350,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
       goto __pyx_L5_bool_binop_done;
     }
 
-    /* "uplift/tree/_splitter.pyx":1452
+    /* "uplift/tree/_splitter.pyx":1494
  *                 (n_visited_features < max_features or
  *                  # At least one drawn features must be non constant
  *                  n_visited_features <= n_found_constants + n_drawn_constants)):             # <<<<<<<<<<<<<<
@@ -12094,7 +12362,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
     __pyx_L5_bool_binop_done:;
     if (!__pyx_t_6) break;
 
-    /* "uplift/tree/_splitter.pyx":1454
+    /* "uplift/tree/_splitter.pyx":1496
  *                  n_visited_features <= n_found_constants + n_drawn_constants)):
  * 
  *             n_visited_features += 1             # <<<<<<<<<<<<<<
@@ -12103,7 +12371,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
  */
     __pyx_v_n_visited_features = (__pyx_v_n_visited_features + 1);
 
-    /* "uplift/tree/_splitter.pyx":1468
+    /* "uplift/tree/_splitter.pyx":1510
  * 
  *             # Draw a feature at random
  *             f_j = rand_int(n_drawn_constants, f_i - n_found_constants,             # <<<<<<<<<<<<<<
@@ -12112,7 +12380,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
  */
     __pyx_v_f_j = __pyx_f_6uplift_4tree_6_utils_rand_int(__pyx_v_n_drawn_constants, (__pyx_v_f_i - __pyx_v_n_found_constants), __pyx_v_random_state);
 
-    /* "uplift/tree/_splitter.pyx":1471
+    /* "uplift/tree/_splitter.pyx":1513
  *                            random_state)
  * 
  *             if f_j < n_known_constants:             # <<<<<<<<<<<<<<
@@ -12122,7 +12390,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
     __pyx_t_6 = ((__pyx_v_f_j < __pyx_v_n_known_constants) != 0);
     if (__pyx_t_6) {
 
-      /* "uplift/tree/_splitter.pyx":1473
+      /* "uplift/tree/_splitter.pyx":1515
  *             if f_j < n_known_constants:
  *                 # f_j in the interval [n_drawn_constants, n_known_constants[
  *                 tmp = features[f_j]             # <<<<<<<<<<<<<<
@@ -12131,7 +12399,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
  */
       __pyx_v_tmp = (__pyx_v_features[__pyx_v_f_j]);
 
-      /* "uplift/tree/_splitter.pyx":1474
+      /* "uplift/tree/_splitter.pyx":1516
  *                 # f_j in the interval [n_drawn_constants, n_known_constants[
  *                 tmp = features[f_j]
  *                 features[f_j] = features[n_drawn_constants]             # <<<<<<<<<<<<<<
@@ -12140,7 +12408,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
  */
       (__pyx_v_features[__pyx_v_f_j]) = (__pyx_v_features[__pyx_v_n_drawn_constants]);
 
-      /* "uplift/tree/_splitter.pyx":1475
+      /* "uplift/tree/_splitter.pyx":1517
  *                 tmp = features[f_j]
  *                 features[f_j] = features[n_drawn_constants]
  *                 features[n_drawn_constants] = tmp             # <<<<<<<<<<<<<<
@@ -12149,7 +12417,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
  */
       (__pyx_v_features[__pyx_v_n_drawn_constants]) = __pyx_v_tmp;
 
-      /* "uplift/tree/_splitter.pyx":1477
+      /* "uplift/tree/_splitter.pyx":1519
  *                 features[n_drawn_constants] = tmp
  * 
  *                 n_drawn_constants += 1             # <<<<<<<<<<<<<<
@@ -12158,7 +12426,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
  */
       __pyx_v_n_drawn_constants = (__pyx_v_n_drawn_constants + 1);
 
-      /* "uplift/tree/_splitter.pyx":1471
+      /* "uplift/tree/_splitter.pyx":1513
  *                            random_state)
  * 
  *             if f_j < n_known_constants:             # <<<<<<<<<<<<<<
@@ -12168,7 +12436,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
       goto __pyx_L8;
     }
 
-    /* "uplift/tree/_splitter.pyx":1481
+    /* "uplift/tree/_splitter.pyx":1523
  *             else:
  *                 # f_j in the interval [n_known_constants, f_i - n_found_constants[
  *                 f_j += n_found_constants             # <<<<<<<<<<<<<<
@@ -12178,7 +12446,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
     /*else*/ {
       __pyx_v_f_j = (__pyx_v_f_j + __pyx_v_n_found_constants);
 
-      /* "uplift/tree/_splitter.pyx":1484
+      /* "uplift/tree/_splitter.pyx":1526
  *                 # f_j in the interval [n_total_constants, f_i[
  * 
  *                 current.feature = features[f_j]             # <<<<<<<<<<<<<<
@@ -12187,7 +12455,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
  */
       __pyx_v_current.feature = (__pyx_v_features[__pyx_v_f_j]);
 
-      /* "uplift/tree/_splitter.pyx":1486
+      /* "uplift/tree/_splitter.pyx":1528
  *                 current.feature = features[f_j]
  * 
  *                 self.extract_nnz(current.feature,             # <<<<<<<<<<<<<<
@@ -12196,7 +12464,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
  */
       __pyx_f_6uplift_4tree_9_splitter_18BaseSparseSplitter_extract_nnz(((struct __pyx_obj_6uplift_4tree_9_splitter_BaseSparseSplitter *)__pyx_v_self), __pyx_v_current.feature, (&__pyx_v_end_negative), (&__pyx_v_start_positive), (&__pyx_v_is_samples_sorted));
 
-      /* "uplift/tree/_splitter.pyx":1491
+      /* "uplift/tree/_splitter.pyx":1533
  * 
  *                 # Add one or two zeros in Xf, if there is any
  *                 if end_negative < start_positive:             # <<<<<<<<<<<<<<
@@ -12206,7 +12474,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
       __pyx_t_6 = ((__pyx_v_end_negative < __pyx_v_start_positive) != 0);
       if (__pyx_t_6) {
 
-        /* "uplift/tree/_splitter.pyx":1492
+        /* "uplift/tree/_splitter.pyx":1534
  *                 # Add one or two zeros in Xf, if there is any
  *                 if end_negative < start_positive:
  *                     start_positive -= 1             # <<<<<<<<<<<<<<
@@ -12215,7 +12483,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
  */
         __pyx_v_start_positive = (__pyx_v_start_positive - 1);
 
-        /* "uplift/tree/_splitter.pyx":1493
+        /* "uplift/tree/_splitter.pyx":1535
  *                 if end_negative < start_positive:
  *                     start_positive -= 1
  *                     Xf[start_positive] = 0.             # <<<<<<<<<<<<<<
@@ -12224,7 +12492,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
  */
         (__pyx_v_Xf[__pyx_v_start_positive]) = 0.;
 
-        /* "uplift/tree/_splitter.pyx":1495
+        /* "uplift/tree/_splitter.pyx":1537
  *                     Xf[start_positive] = 0.
  * 
  *                     if end_negative != start_positive:             # <<<<<<<<<<<<<<
@@ -12234,7 +12502,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
         __pyx_t_6 = ((__pyx_v_end_negative != __pyx_v_start_positive) != 0);
         if (__pyx_t_6) {
 
-          /* "uplift/tree/_splitter.pyx":1496
+          /* "uplift/tree/_splitter.pyx":1538
  * 
  *                     if end_negative != start_positive:
  *                         Xf[end_negative] = 0.             # <<<<<<<<<<<<<<
@@ -12243,7 +12511,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
  */
           (__pyx_v_Xf[__pyx_v_end_negative]) = 0.;
 
-          /* "uplift/tree/_splitter.pyx":1497
+          /* "uplift/tree/_splitter.pyx":1539
  *                     if end_negative != start_positive:
  *                         Xf[end_negative] = 0.
  *                         end_negative += 1             # <<<<<<<<<<<<<<
@@ -12252,7 +12520,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
  */
           __pyx_v_end_negative = (__pyx_v_end_negative + 1);
 
-          /* "uplift/tree/_splitter.pyx":1495
+          /* "uplift/tree/_splitter.pyx":1537
  *                     Xf[start_positive] = 0.
  * 
  *                     if end_negative != start_positive:             # <<<<<<<<<<<<<<
@@ -12261,7 +12529,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
  */
         }
 
-        /* "uplift/tree/_splitter.pyx":1491
+        /* "uplift/tree/_splitter.pyx":1533
  * 
  *                 # Add one or two zeros in Xf, if there is any
  *                 if end_negative < start_positive:             # <<<<<<<<<<<<<<
@@ -12270,7 +12538,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
  */
       }
 
-      /* "uplift/tree/_splitter.pyx":1500
+      /* "uplift/tree/_splitter.pyx":1542
  * 
  *                 # Find min, max in Xf[start:end_negative]
  *                 min_feature_value = Xf[start]             # <<<<<<<<<<<<<<
@@ -12279,7 +12547,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
  */
       __pyx_v_min_feature_value = (__pyx_v_Xf[__pyx_v_start]);
 
-      /* "uplift/tree/_splitter.pyx":1501
+      /* "uplift/tree/_splitter.pyx":1543
  *                 # Find min, max in Xf[start:end_negative]
  *                 min_feature_value = Xf[start]
  *                 max_feature_value = min_feature_value             # <<<<<<<<<<<<<<
@@ -12288,7 +12556,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
  */
       __pyx_v_max_feature_value = __pyx_v_min_feature_value;
 
-      /* "uplift/tree/_splitter.pyx":1503
+      /* "uplift/tree/_splitter.pyx":1545
  *                 max_feature_value = min_feature_value
  * 
  *                 for p in range(start, end_negative):             # <<<<<<<<<<<<<<
@@ -12300,7 +12568,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
       for (__pyx_t_9 = __pyx_v_start; __pyx_t_9 < __pyx_t_8; __pyx_t_9+=1) {
         __pyx_v_p = __pyx_t_9;
 
-        /* "uplift/tree/_splitter.pyx":1504
+        /* "uplift/tree/_splitter.pyx":1546
  * 
  *                 for p in range(start, end_negative):
  *                     current_feature_value = Xf[p]             # <<<<<<<<<<<<<<
@@ -12309,7 +12577,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
  */
         __pyx_v_current_feature_value = (__pyx_v_Xf[__pyx_v_p]);
 
-        /* "uplift/tree/_splitter.pyx":1506
+        /* "uplift/tree/_splitter.pyx":1548
  *                     current_feature_value = Xf[p]
  * 
  *                     if current_feature_value < min_feature_value:             # <<<<<<<<<<<<<<
@@ -12319,7 +12587,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
         __pyx_t_6 = ((__pyx_v_current_feature_value < __pyx_v_min_feature_value) != 0);
         if (__pyx_t_6) {
 
-          /* "uplift/tree/_splitter.pyx":1507
+          /* "uplift/tree/_splitter.pyx":1549
  * 
  *                     if current_feature_value < min_feature_value:
  *                         min_feature_value = current_feature_value             # <<<<<<<<<<<<<<
@@ -12328,7 +12596,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
  */
           __pyx_v_min_feature_value = __pyx_v_current_feature_value;
 
-          /* "uplift/tree/_splitter.pyx":1506
+          /* "uplift/tree/_splitter.pyx":1548
  *                     current_feature_value = Xf[p]
  * 
  *                     if current_feature_value < min_feature_value:             # <<<<<<<<<<<<<<
@@ -12338,7 +12606,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
           goto __pyx_L13;
         }
 
-        /* "uplift/tree/_splitter.pyx":1508
+        /* "uplift/tree/_splitter.pyx":1550
  *                     if current_feature_value < min_feature_value:
  *                         min_feature_value = current_feature_value
  *                     elif current_feature_value > max_feature_value:             # <<<<<<<<<<<<<<
@@ -12348,7 +12616,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
         __pyx_t_6 = ((__pyx_v_current_feature_value > __pyx_v_max_feature_value) != 0);
         if (__pyx_t_6) {
 
-          /* "uplift/tree/_splitter.pyx":1509
+          /* "uplift/tree/_splitter.pyx":1551
  *                         min_feature_value = current_feature_value
  *                     elif current_feature_value > max_feature_value:
  *                         max_feature_value = current_feature_value             # <<<<<<<<<<<<<<
@@ -12357,7 +12625,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
  */
           __pyx_v_max_feature_value = __pyx_v_current_feature_value;
 
-          /* "uplift/tree/_splitter.pyx":1508
+          /* "uplift/tree/_splitter.pyx":1550
  *                     if current_feature_value < min_feature_value:
  *                         min_feature_value = current_feature_value
  *                     elif current_feature_value > max_feature_value:             # <<<<<<<<<<<<<<
@@ -12368,7 +12636,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
         __pyx_L13:;
       }
 
-      /* "uplift/tree/_splitter.pyx":1512
+      /* "uplift/tree/_splitter.pyx":1554
  * 
  *                 # Update min, max given Xf[start_positive:end]
  *                 for p in range(start_positive, end):             # <<<<<<<<<<<<<<
@@ -12380,7 +12648,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
       for (__pyx_t_9 = __pyx_v_start_positive; __pyx_t_9 < __pyx_t_8; __pyx_t_9+=1) {
         __pyx_v_p = __pyx_t_9;
 
-        /* "uplift/tree/_splitter.pyx":1513
+        /* "uplift/tree/_splitter.pyx":1555
  *                 # Update min, max given Xf[start_positive:end]
  *                 for p in range(start_positive, end):
  *                     current_feature_value = Xf[p]             # <<<<<<<<<<<<<<
@@ -12389,7 +12657,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
  */
         __pyx_v_current_feature_value = (__pyx_v_Xf[__pyx_v_p]);
 
-        /* "uplift/tree/_splitter.pyx":1515
+        /* "uplift/tree/_splitter.pyx":1557
  *                     current_feature_value = Xf[p]
  * 
  *                     if current_feature_value < min_feature_value:             # <<<<<<<<<<<<<<
@@ -12399,7 +12667,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
         __pyx_t_6 = ((__pyx_v_current_feature_value < __pyx_v_min_feature_value) != 0);
         if (__pyx_t_6) {
 
-          /* "uplift/tree/_splitter.pyx":1516
+          /* "uplift/tree/_splitter.pyx":1558
  * 
  *                     if current_feature_value < min_feature_value:
  *                         min_feature_value = current_feature_value             # <<<<<<<<<<<<<<
@@ -12408,7 +12676,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
  */
           __pyx_v_min_feature_value = __pyx_v_current_feature_value;
 
-          /* "uplift/tree/_splitter.pyx":1515
+          /* "uplift/tree/_splitter.pyx":1557
  *                     current_feature_value = Xf[p]
  * 
  *                     if current_feature_value < min_feature_value:             # <<<<<<<<<<<<<<
@@ -12418,7 +12686,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
           goto __pyx_L16;
         }
 
-        /* "uplift/tree/_splitter.pyx":1517
+        /* "uplift/tree/_splitter.pyx":1559
  *                     if current_feature_value < min_feature_value:
  *                         min_feature_value = current_feature_value
  *                     elif current_feature_value > max_feature_value:             # <<<<<<<<<<<<<<
@@ -12428,7 +12696,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
         __pyx_t_6 = ((__pyx_v_current_feature_value > __pyx_v_max_feature_value) != 0);
         if (__pyx_t_6) {
 
-          /* "uplift/tree/_splitter.pyx":1518
+          /* "uplift/tree/_splitter.pyx":1560
  *                         min_feature_value = current_feature_value
  *                     elif current_feature_value > max_feature_value:
  *                         max_feature_value = current_feature_value             # <<<<<<<<<<<<<<
@@ -12437,7 +12705,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
  */
           __pyx_v_max_feature_value = __pyx_v_current_feature_value;
 
-          /* "uplift/tree/_splitter.pyx":1517
+          /* "uplift/tree/_splitter.pyx":1559
  *                     if current_feature_value < min_feature_value:
  *                         min_feature_value = current_feature_value
  *                     elif current_feature_value > max_feature_value:             # <<<<<<<<<<<<<<
@@ -12448,7 +12716,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
         __pyx_L16:;
       }
 
-      /* "uplift/tree/_splitter.pyx":1520
+      /* "uplift/tree/_splitter.pyx":1562
  *                         max_feature_value = current_feature_value
  * 
  *                 if max_feature_value <= min_feature_value + FEATURE_THRESHOLD:             # <<<<<<<<<<<<<<
@@ -12458,7 +12726,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
       __pyx_t_6 = ((__pyx_v_max_feature_value <= (__pyx_v_min_feature_value + __pyx_v_6uplift_4tree_9_splitter_FEATURE_THRESHOLD)) != 0);
       if (__pyx_t_6) {
 
-        /* "uplift/tree/_splitter.pyx":1521
+        /* "uplift/tree/_splitter.pyx":1563
  * 
  *                 if max_feature_value <= min_feature_value + FEATURE_THRESHOLD:
  *                     features[f_j] = features[n_total_constants]             # <<<<<<<<<<<<<<
@@ -12467,7 +12735,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
  */
         (__pyx_v_features[__pyx_v_f_j]) = (__pyx_v_features[__pyx_v_n_total_constants]);
 
-        /* "uplift/tree/_splitter.pyx":1522
+        /* "uplift/tree/_splitter.pyx":1564
  *                 if max_feature_value <= min_feature_value + FEATURE_THRESHOLD:
  *                     features[f_j] = features[n_total_constants]
  *                     features[n_total_constants] = current.feature             # <<<<<<<<<<<<<<
@@ -12477,7 +12745,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
         __pyx_t_2 = __pyx_v_current.feature;
         (__pyx_v_features[__pyx_v_n_total_constants]) = __pyx_t_2;
 
-        /* "uplift/tree/_splitter.pyx":1524
+        /* "uplift/tree/_splitter.pyx":1566
  *                     features[n_total_constants] = current.feature
  * 
  *                     n_found_constants += 1             # <<<<<<<<<<<<<<
@@ -12486,7 +12754,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
  */
         __pyx_v_n_found_constants = (__pyx_v_n_found_constants + 1);
 
-        /* "uplift/tree/_splitter.pyx":1525
+        /* "uplift/tree/_splitter.pyx":1567
  * 
  *                     n_found_constants += 1
  *                     n_total_constants += 1             # <<<<<<<<<<<<<<
@@ -12495,7 +12763,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
  */
         __pyx_v_n_total_constants = (__pyx_v_n_total_constants + 1);
 
-        /* "uplift/tree/_splitter.pyx":1520
+        /* "uplift/tree/_splitter.pyx":1562
  *                         max_feature_value = current_feature_value
  * 
  *                 if max_feature_value <= min_feature_value + FEATURE_THRESHOLD:             # <<<<<<<<<<<<<<
@@ -12505,7 +12773,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
         goto __pyx_L17;
       }
 
-      /* "uplift/tree/_splitter.pyx":1528
+      /* "uplift/tree/_splitter.pyx":1570
  * 
  *                 else:
  *                     f_i -= 1             # <<<<<<<<<<<<<<
@@ -12515,7 +12783,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
       /*else*/ {
         __pyx_v_f_i = (__pyx_v_f_i - 1);
 
-        /* "uplift/tree/_splitter.pyx":1529
+        /* "uplift/tree/_splitter.pyx":1571
  *                 else:
  *                     f_i -= 1
  *                     features[f_i], features[f_j] = features[f_j], features[f_i]             # <<<<<<<<<<<<<<
@@ -12527,7 +12795,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
         (__pyx_v_features[__pyx_v_f_i]) = __pyx_t_2;
         (__pyx_v_features[__pyx_v_f_j]) = __pyx_t_8;
 
-        /* "uplift/tree/_splitter.pyx":1532
+        /* "uplift/tree/_splitter.pyx":1574
  * 
  *                     # Draw a random threshold
  *                     current.threshold = rand_uniform(min_feature_value,             # <<<<<<<<<<<<<<
@@ -12536,7 +12804,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
  */
         __pyx_v_current.threshold = __pyx_f_6uplift_4tree_6_utils_rand_uniform(__pyx_v_min_feature_value, __pyx_v_max_feature_value, __pyx_v_random_state);
 
-        /* "uplift/tree/_splitter.pyx":1536
+        /* "uplift/tree/_splitter.pyx":1578
  *                                                      random_state)
  * 
  *                     if current.threshold == max_feature_value:             # <<<<<<<<<<<<<<
@@ -12546,7 +12814,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
         __pyx_t_6 = ((__pyx_v_current.threshold == __pyx_v_max_feature_value) != 0);
         if (__pyx_t_6) {
 
-          /* "uplift/tree/_splitter.pyx":1537
+          /* "uplift/tree/_splitter.pyx":1579
  * 
  *                     if current.threshold == max_feature_value:
  *                         current.threshold = min_feature_value             # <<<<<<<<<<<<<<
@@ -12555,7 +12823,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
  */
           __pyx_v_current.threshold = __pyx_v_min_feature_value;
 
-          /* "uplift/tree/_splitter.pyx":1536
+          /* "uplift/tree/_splitter.pyx":1578
  *                                                      random_state)
  * 
  *                     if current.threshold == max_feature_value:             # <<<<<<<<<<<<<<
@@ -12564,7 +12832,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
  */
         }
 
-        /* "uplift/tree/_splitter.pyx":1540
+        /* "uplift/tree/_splitter.pyx":1582
  * 
  *                     # Partition
  *                     current.pos = self._partition(current.threshold,             # <<<<<<<<<<<<<<
@@ -12573,7 +12841,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
  */
         __pyx_v_current.pos = __pyx_f_6uplift_4tree_9_splitter_18BaseSparseSplitter__partition(((struct __pyx_obj_6uplift_4tree_9_splitter_BaseSparseSplitter *)__pyx_v_self), __pyx_v_current.threshold, __pyx_v_end_negative, __pyx_v_start_positive, (__pyx_v_start_positive + ((__pyx_v_Xf[__pyx_v_start_positive]) == 0.)));
 
-        /* "uplift/tree/_splitter.pyx":1547
+        /* "uplift/tree/_splitter.pyx":1589
  * 
  *                     # Reject if min_samples_leaf is not guaranteed
  *                     if (((current.pos - start) < min_samples_leaf) or             # <<<<<<<<<<<<<<
@@ -12587,7 +12855,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
           goto __pyx_L20_bool_binop_done;
         }
 
-        /* "uplift/tree/_splitter.pyx":1548
+        /* "uplift/tree/_splitter.pyx":1590
  *                     # Reject if min_samples_leaf is not guaranteed
  *                     if (((current.pos - start) < min_samples_leaf) or
  *                             ((end - current.pos) < min_samples_leaf)):             # <<<<<<<<<<<<<<
@@ -12598,7 +12866,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
         __pyx_t_6 = __pyx_t_7;
         __pyx_L20_bool_binop_done:;
 
-        /* "uplift/tree/_splitter.pyx":1547
+        /* "uplift/tree/_splitter.pyx":1589
  * 
  *                     # Reject if min_samples_leaf is not guaranteed
  *                     if (((current.pos - start) < min_samples_leaf) or             # <<<<<<<<<<<<<<
@@ -12607,7 +12875,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
  */
         if (__pyx_t_6) {
 
-          /* "uplift/tree/_splitter.pyx":1549
+          /* "uplift/tree/_splitter.pyx":1591
  *                     if (((current.pos - start) < min_samples_leaf) or
  *                             ((end - current.pos) < min_samples_leaf)):
  *                         continue             # <<<<<<<<<<<<<<
@@ -12616,7 +12884,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
  */
           goto __pyx_L3_continue;
 
-          /* "uplift/tree/_splitter.pyx":1547
+          /* "uplift/tree/_splitter.pyx":1589
  * 
  *                     # Reject if min_samples_leaf is not guaranteed
  *                     if (((current.pos - start) < min_samples_leaf) or             # <<<<<<<<<<<<<<
@@ -12625,7 +12893,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
  */
         }
 
-        /* "uplift/tree/_splitter.pyx":1552
+        /* "uplift/tree/_splitter.pyx":1594
  * 
  *                     # Evaluate split
  *                     self.criterion.reset()             # <<<<<<<<<<<<<<
@@ -12634,7 +12902,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
  */
         ((struct __pyx_vtabstruct_6uplift_4tree_10_criterion_Criterion *)__pyx_v_self->__pyx_base.__pyx_base.criterion->__pyx_vtab)->reset(__pyx_v_self->__pyx_base.__pyx_base.criterion);
 
-        /* "uplift/tree/_splitter.pyx":1553
+        /* "uplift/tree/_splitter.pyx":1595
  *                     # Evaluate split
  *                     self.criterion.reset()
  *                     self.criterion.update(current.pos)             # <<<<<<<<<<<<<<
@@ -12643,7 +12911,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
  */
         ((struct __pyx_vtabstruct_6uplift_4tree_10_criterion_Criterion *)__pyx_v_self->__pyx_base.__pyx_base.criterion->__pyx_vtab)->update(__pyx_v_self->__pyx_base.__pyx_base.criterion, __pyx_v_current.pos);
 
-        /* "uplift/tree/_splitter.pyx":1556
+        /* "uplift/tree/_splitter.pyx":1598
  * 
  *                     # Reject if min_weight_leaf is not satisfied
  *                     if ((self.criterion.weighted_n_left < min_weight_leaf) or             # <<<<<<<<<<<<<<
@@ -12657,7 +12925,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
           goto __pyx_L23_bool_binop_done;
         }
 
-        /* "uplift/tree/_splitter.pyx":1557
+        /* "uplift/tree/_splitter.pyx":1599
  *                     # Reject if min_weight_leaf is not satisfied
  *                     if ((self.criterion.weighted_n_left < min_weight_leaf) or
  *                             (self.criterion.weighted_n_right < min_weight_leaf)):             # <<<<<<<<<<<<<<
@@ -12668,7 +12936,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
         __pyx_t_6 = __pyx_t_7;
         __pyx_L23_bool_binop_done:;
 
-        /* "uplift/tree/_splitter.pyx":1556
+        /* "uplift/tree/_splitter.pyx":1598
  * 
  *                     # Reject if min_weight_leaf is not satisfied
  *                     if ((self.criterion.weighted_n_left < min_weight_leaf) or             # <<<<<<<<<<<<<<
@@ -12677,7 +12945,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
  */
         if (__pyx_t_6) {
 
-          /* "uplift/tree/_splitter.pyx":1558
+          /* "uplift/tree/_splitter.pyx":1600
  *                     if ((self.criterion.weighted_n_left < min_weight_leaf) or
  *                             (self.criterion.weighted_n_right < min_weight_leaf)):
  *                         continue             # <<<<<<<<<<<<<<
@@ -12686,7 +12954,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
  */
           goto __pyx_L3_continue;
 
-          /* "uplift/tree/_splitter.pyx":1556
+          /* "uplift/tree/_splitter.pyx":1598
  * 
  *                     # Reject if min_weight_leaf is not satisfied
  *                     if ((self.criterion.weighted_n_left < min_weight_leaf) or             # <<<<<<<<<<<<<<
@@ -12695,17 +12963,17 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
  */
         }
 
-        /* "uplift/tree/_splitter.pyx":1560
+        /* "uplift/tree/_splitter.pyx":1602
  *                         continue
  * 
  *                     current_proxy_improvement = self.criterion.proxy_impurity_improvement()             # <<<<<<<<<<<<<<
  * 
- *                     if current_proxy_improvement > best_proxy_improvement:
+ *                     #if (fabs(float(current_proxy_improvement)) < float(stat_param)):
  */
         __pyx_v_current_proxy_improvement = ((struct __pyx_vtabstruct_6uplift_4tree_10_criterion_Criterion *)__pyx_v_self->__pyx_base.__pyx_base.criterion->__pyx_vtab)->proxy_impurity_improvement(__pyx_v_self->__pyx_base.__pyx_base.criterion);
 
-        /* "uplift/tree/_splitter.pyx":1562
- *                     current_proxy_improvement = self.criterion.proxy_impurity_improvement()
+        /* "uplift/tree/_splitter.pyx":1608
+ * 
  * 
  *                     if current_proxy_improvement > best_proxy_improvement:             # <<<<<<<<<<<<<<
  *                         best_proxy_improvement = current_proxy_improvement
@@ -12714,7 +12982,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
         __pyx_t_6 = ((__pyx_v_current_proxy_improvement > __pyx_v_best_proxy_improvement) != 0);
         if (__pyx_t_6) {
 
-          /* "uplift/tree/_splitter.pyx":1563
+          /* "uplift/tree/_splitter.pyx":1609
  * 
  *                     if current_proxy_improvement > best_proxy_improvement:
  *                         best_proxy_improvement = current_proxy_improvement             # <<<<<<<<<<<<<<
@@ -12723,7 +12991,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
  */
           __pyx_v_best_proxy_improvement = __pyx_v_current_proxy_improvement;
 
-          /* "uplift/tree/_splitter.pyx":1564
+          /* "uplift/tree/_splitter.pyx":1610
  *                     if current_proxy_improvement > best_proxy_improvement:
  *                         best_proxy_improvement = current_proxy_improvement
  *                         current.improvement = self.criterion.impurity_improvement(impurity)             # <<<<<<<<<<<<<<
@@ -12732,7 +13000,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
  */
           __pyx_v_current.improvement = ((struct __pyx_vtabstruct_6uplift_4tree_10_criterion_Criterion *)__pyx_v_self->__pyx_base.__pyx_base.criterion->__pyx_vtab)->impurity_improvement(__pyx_v_self->__pyx_base.__pyx_base.criterion, __pyx_v_impurity);
 
-          /* "uplift/tree/_splitter.pyx":1566
+          /* "uplift/tree/_splitter.pyx":1612
  *                         current.improvement = self.criterion.impurity_improvement(impurity)
  * 
  *                         self.criterion.children_impurity(&current.impurity_left,             # <<<<<<<<<<<<<<
@@ -12741,7 +13009,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
  */
           ((struct __pyx_vtabstruct_6uplift_4tree_10_criterion_Criterion *)__pyx_v_self->__pyx_base.__pyx_base.criterion->__pyx_vtab)->children_impurity(__pyx_v_self->__pyx_base.__pyx_base.criterion, (&__pyx_v_current.impurity_left), (&__pyx_v_current.impurity_right));
 
-          /* "uplift/tree/_splitter.pyx":1568
+          /* "uplift/tree/_splitter.pyx":1614
  *                         self.criterion.children_impurity(&current.impurity_left,
  *                                                          &current.impurity_right)
  *                         best = current             # <<<<<<<<<<<<<<
@@ -12750,8 +13018,8 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
  */
           __pyx_v_best = __pyx_v_current;
 
-          /* "uplift/tree/_splitter.pyx":1562
- *                     current_proxy_improvement = self.criterion.proxy_impurity_improvement()
+          /* "uplift/tree/_splitter.pyx":1608
+ * 
  * 
  *                     if current_proxy_improvement > best_proxy_improvement:             # <<<<<<<<<<<<<<
  *                         best_proxy_improvement = current_proxy_improvement
@@ -12765,7 +13033,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
     __pyx_L3_continue:;
   }
 
-  /* "uplift/tree/_splitter.pyx":1571
+  /* "uplift/tree/_splitter.pyx":1617
  * 
  *         # Reorganize into samples[start:best.pos] + samples[best.pos:end]
  *         if best.pos < end:             # <<<<<<<<<<<<<<
@@ -12775,7 +13043,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
   __pyx_t_6 = ((__pyx_v_best.pos < __pyx_v_end) != 0);
   if (__pyx_t_6) {
 
-    /* "uplift/tree/_splitter.pyx":1572
+    /* "uplift/tree/_splitter.pyx":1618
  *         # Reorganize into samples[start:best.pos] + samples[best.pos:end]
  *         if best.pos < end:
  *             if current.feature != best.feature:             # <<<<<<<<<<<<<<
@@ -12785,7 +13053,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
     __pyx_t_6 = ((__pyx_v_current.feature != __pyx_v_best.feature) != 0);
     if (__pyx_t_6) {
 
-      /* "uplift/tree/_splitter.pyx":1573
+      /* "uplift/tree/_splitter.pyx":1619
  *         if best.pos < end:
  *             if current.feature != best.feature:
  *                 self.extract_nnz(best.feature, &end_negative, &start_positive,             # <<<<<<<<<<<<<<
@@ -12794,7 +13062,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
  */
       __pyx_f_6uplift_4tree_9_splitter_18BaseSparseSplitter_extract_nnz(((struct __pyx_obj_6uplift_4tree_9_splitter_BaseSparseSplitter *)__pyx_v_self), __pyx_v_best.feature, (&__pyx_v_end_negative), (&__pyx_v_start_positive), (&__pyx_v_is_samples_sorted));
 
-      /* "uplift/tree/_splitter.pyx":1576
+      /* "uplift/tree/_splitter.pyx":1622
  *                                  &is_samples_sorted)
  * 
  *                 self._partition(best.threshold, end_negative, start_positive,             # <<<<<<<<<<<<<<
@@ -12803,7 +13071,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
  */
       (void)(__pyx_f_6uplift_4tree_9_splitter_18BaseSparseSplitter__partition(((struct __pyx_obj_6uplift_4tree_9_splitter_BaseSparseSplitter *)__pyx_v_self), __pyx_v_best.threshold, __pyx_v_end_negative, __pyx_v_start_positive, __pyx_v_best.pos));
 
-      /* "uplift/tree/_splitter.pyx":1572
+      /* "uplift/tree/_splitter.pyx":1618
  *         # Reorganize into samples[start:best.pos] + samples[best.pos:end]
  *         if best.pos < end:
  *             if current.feature != best.feature:             # <<<<<<<<<<<<<<
@@ -12812,7 +13080,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
  */
     }
 
-    /* "uplift/tree/_splitter.pyx":1579
+    /* "uplift/tree/_splitter.pyx":1625
  *                                 best.pos)
  * 
  *             self.criterion.reset()             # <<<<<<<<<<<<<<
@@ -12821,7 +13089,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
  */
     ((struct __pyx_vtabstruct_6uplift_4tree_10_criterion_Criterion *)__pyx_v_self->__pyx_base.__pyx_base.criterion->__pyx_vtab)->reset(__pyx_v_self->__pyx_base.__pyx_base.criterion);
 
-    /* "uplift/tree/_splitter.pyx":1580
+    /* "uplift/tree/_splitter.pyx":1626
  * 
  *             self.criterion.reset()
  *             self.criterion.update(best.pos)             # <<<<<<<<<<<<<<
@@ -12830,7 +13098,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
  */
     ((struct __pyx_vtabstruct_6uplift_4tree_10_criterion_Criterion *)__pyx_v_self->__pyx_base.__pyx_base.criterion->__pyx_vtab)->update(__pyx_v_self->__pyx_base.__pyx_base.criterion, __pyx_v_best.pos);
 
-    /* "uplift/tree/_splitter.pyx":1581
+    /* "uplift/tree/_splitter.pyx":1627
  *             self.criterion.reset()
  *             self.criterion.update(best.pos)
  *             best.improvement = self.criterion.impurity_improvement(impurity)             # <<<<<<<<<<<<<<
@@ -12839,7 +13107,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
  */
     __pyx_v_best.improvement = ((struct __pyx_vtabstruct_6uplift_4tree_10_criterion_Criterion *)__pyx_v_self->__pyx_base.__pyx_base.criterion->__pyx_vtab)->impurity_improvement(__pyx_v_self->__pyx_base.__pyx_base.criterion, __pyx_v_impurity);
 
-    /* "uplift/tree/_splitter.pyx":1582
+    /* "uplift/tree/_splitter.pyx":1628
  *             self.criterion.update(best.pos)
  *             best.improvement = self.criterion.impurity_improvement(impurity)
  *             self.criterion.children_impurity(&best.impurity_left,             # <<<<<<<<<<<<<<
@@ -12848,7 +13116,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
  */
     ((struct __pyx_vtabstruct_6uplift_4tree_10_criterion_Criterion *)__pyx_v_self->__pyx_base.__pyx_base.criterion->__pyx_vtab)->children_impurity(__pyx_v_self->__pyx_base.__pyx_base.criterion, (&__pyx_v_best.impurity_left), (&__pyx_v_best.impurity_right));
 
-    /* "uplift/tree/_splitter.pyx":1571
+    /* "uplift/tree/_splitter.pyx":1617
  * 
  *         # Reorganize into samples[start:best.pos] + samples[best.pos:end]
  *         if best.pos < end:             # <<<<<<<<<<<<<<
@@ -12857,7 +13125,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
  */
   }
 
-  /* "uplift/tree/_splitter.pyx":1588
+  /* "uplift/tree/_splitter.pyx":1634
  *         # element in features[:n_known_constants] must be preserved for sibling
  *         # and child nodes
  *         memcpy(features, constant_features, sizeof(SIZE_t) * n_known_constants)             # <<<<<<<<<<<<<<
@@ -12866,7 +13134,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
  */
   (void)(memcpy(__pyx_v_features, __pyx_v_constant_features, ((sizeof(__pyx_t_6uplift_4tree_9_splitter_SIZE_t)) * __pyx_v_n_known_constants)));
 
-  /* "uplift/tree/_splitter.pyx":1591
+  /* "uplift/tree/_splitter.pyx":1637
  * 
  *         # Copy newly found constant features
  *         memcpy(constant_features + n_known_constants,             # <<<<<<<<<<<<<<
@@ -12875,7 +13143,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
  */
   (void)(memcpy((__pyx_v_constant_features + __pyx_v_n_known_constants), (__pyx_v_features + __pyx_v_n_known_constants), ((sizeof(__pyx_t_6uplift_4tree_9_splitter_SIZE_t)) * __pyx_v_n_found_constants)));
 
-  /* "uplift/tree/_splitter.pyx":1596
+  /* "uplift/tree/_splitter.pyx":1642
  * 
  *         # Return values
  *         split[0] = best             # <<<<<<<<<<<<<<
@@ -12883,15 +13151,15 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
  */
   (__pyx_v_split[0]) = __pyx_v_best;
 
-  /* "uplift/tree/_splitter.pyx":1597
+  /* "uplift/tree/_splitter.pyx":1643
  *         # Return values
  *         split[0] = best
  *         n_constant_features[0] = n_total_constants             # <<<<<<<<<<<<<<
  */
   (__pyx_v_n_constant_features[0]) = __pyx_v_n_total_constants;
 
-  /* "uplift/tree/_splitter.pyx":1383
- *                                        self.presort), self.__getstate__())
+  /* "uplift/tree/_splitter.pyx":1424
+ *                                        self.presort,self.stat_param), self.__getstate__())
  * 
  *     cdef void node_split(self, double impurity, SplitRecord* split,             # <<<<<<<<<<<<<<
  *                          SIZE_t* n_constant_features) nogil:
@@ -12901,7 +13169,7 @@ static void __pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split(s
   /* function exit code */
 }
 
-/* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":258
+/* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":258
  *         # experimental exception made for __getbuffer__ and __releasebuffer__
  *         # -- the details of this may change.
  *         def __getbuffer__(ndarray self, Py_buffer* info, int flags):             # <<<<<<<<<<<<<<
@@ -12950,7 +13218,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
   __pyx_v_info->obj = Py_None; __Pyx_INCREF(Py_None);
   __Pyx_GIVEREF(__pyx_v_info->obj);
 
-  /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":265
+  /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":265
  * 
  *             cdef int i, ndim
  *             cdef int endian_detector = 1             # <<<<<<<<<<<<<<
@@ -12959,7 +13227,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
  */
   __pyx_v_endian_detector = 1;
 
-  /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":266
+  /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":266
  *             cdef int i, ndim
  *             cdef int endian_detector = 1
  *             cdef bint little_endian = ((<char*>&endian_detector)[0] != 0)             # <<<<<<<<<<<<<<
@@ -12968,7 +13236,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
  */
   __pyx_v_little_endian = ((((char *)(&__pyx_v_endian_detector))[0]) != 0);
 
-  /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":268
+  /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":268
  *             cdef bint little_endian = ((<char*>&endian_detector)[0] != 0)
  * 
  *             ndim = PyArray_NDIM(self)             # <<<<<<<<<<<<<<
@@ -12977,7 +13245,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
  */
   __pyx_v_ndim = PyArray_NDIM(__pyx_v_self);
 
-  /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":270
+  /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":270
  *             ndim = PyArray_NDIM(self)
  * 
  *             if ((flags & pybuf.PyBUF_C_CONTIGUOUS == pybuf.PyBUF_C_CONTIGUOUS)             # <<<<<<<<<<<<<<
@@ -12991,7 +13259,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
     goto __pyx_L4_bool_binop_done;
   }
 
-  /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":271
+  /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":271
  * 
  *             if ((flags & pybuf.PyBUF_C_CONTIGUOUS == pybuf.PyBUF_C_CONTIGUOUS)
  *                 and not PyArray_CHKFLAGS(self, NPY_ARRAY_C_CONTIGUOUS)):             # <<<<<<<<<<<<<<
@@ -13002,7 +13270,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
   __pyx_t_1 = __pyx_t_2;
   __pyx_L4_bool_binop_done:;
 
-  /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":270
+  /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":270
  *             ndim = PyArray_NDIM(self)
  * 
  *             if ((flags & pybuf.PyBUF_C_CONTIGUOUS == pybuf.PyBUF_C_CONTIGUOUS)             # <<<<<<<<<<<<<<
@@ -13011,7 +13279,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
  */
   if (unlikely(__pyx_t_1)) {
 
-    /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":272
+    /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":272
  *             if ((flags & pybuf.PyBUF_C_CONTIGUOUS == pybuf.PyBUF_C_CONTIGUOUS)
  *                 and not PyArray_CHKFLAGS(self, NPY_ARRAY_C_CONTIGUOUS)):
  *                 raise ValueError(u"ndarray is not C contiguous")             # <<<<<<<<<<<<<<
@@ -13024,7 +13292,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __PYX_ERR(3, 272, __pyx_L1_error)
 
-    /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":270
+    /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":270
  *             ndim = PyArray_NDIM(self)
  * 
  *             if ((flags & pybuf.PyBUF_C_CONTIGUOUS == pybuf.PyBUF_C_CONTIGUOUS)             # <<<<<<<<<<<<<<
@@ -13033,7 +13301,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
  */
   }
 
-  /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":274
+  /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":274
  *                 raise ValueError(u"ndarray is not C contiguous")
  * 
  *             if ((flags & pybuf.PyBUF_F_CONTIGUOUS == pybuf.PyBUF_F_CONTIGUOUS)             # <<<<<<<<<<<<<<
@@ -13047,7 +13315,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
     goto __pyx_L7_bool_binop_done;
   }
 
-  /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":275
+  /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":275
  * 
  *             if ((flags & pybuf.PyBUF_F_CONTIGUOUS == pybuf.PyBUF_F_CONTIGUOUS)
  *                 and not PyArray_CHKFLAGS(self, NPY_ARRAY_F_CONTIGUOUS)):             # <<<<<<<<<<<<<<
@@ -13058,7 +13326,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
   __pyx_t_1 = __pyx_t_2;
   __pyx_L7_bool_binop_done:;
 
-  /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":274
+  /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":274
  *                 raise ValueError(u"ndarray is not C contiguous")
  * 
  *             if ((flags & pybuf.PyBUF_F_CONTIGUOUS == pybuf.PyBUF_F_CONTIGUOUS)             # <<<<<<<<<<<<<<
@@ -13067,7 +13335,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
  */
   if (unlikely(__pyx_t_1)) {
 
-    /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":276
+    /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":276
  *             if ((flags & pybuf.PyBUF_F_CONTIGUOUS == pybuf.PyBUF_F_CONTIGUOUS)
  *                 and not PyArray_CHKFLAGS(self, NPY_ARRAY_F_CONTIGUOUS)):
  *                 raise ValueError(u"ndarray is not Fortran contiguous")             # <<<<<<<<<<<<<<
@@ -13080,7 +13348,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __PYX_ERR(3, 276, __pyx_L1_error)
 
-    /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":274
+    /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":274
  *                 raise ValueError(u"ndarray is not C contiguous")
  * 
  *             if ((flags & pybuf.PyBUF_F_CONTIGUOUS == pybuf.PyBUF_F_CONTIGUOUS)             # <<<<<<<<<<<<<<
@@ -13089,7 +13357,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
  */
   }
 
-  /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":278
+  /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":278
  *                 raise ValueError(u"ndarray is not Fortran contiguous")
  * 
  *             info.buf = PyArray_DATA(self)             # <<<<<<<<<<<<<<
@@ -13098,7 +13366,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
  */
   __pyx_v_info->buf = PyArray_DATA(__pyx_v_self);
 
-  /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":279
+  /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":279
  * 
  *             info.buf = PyArray_DATA(self)
  *             info.ndim = ndim             # <<<<<<<<<<<<<<
@@ -13107,7 +13375,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
  */
   __pyx_v_info->ndim = __pyx_v_ndim;
 
-  /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":280
+  /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":280
  *             info.buf = PyArray_DATA(self)
  *             info.ndim = ndim
  *             if sizeof(npy_intp) != sizeof(Py_ssize_t):             # <<<<<<<<<<<<<<
@@ -13117,7 +13385,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
   __pyx_t_1 = (((sizeof(npy_intp)) != (sizeof(Py_ssize_t))) != 0);
   if (__pyx_t_1) {
 
-    /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":283
+    /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":283
  *                 # Allocate new buffer for strides and shape info.
  *                 # This is allocated as one block, strides first.
  *                 info.strides = <Py_ssize_t*>PyObject_Malloc(sizeof(Py_ssize_t) * 2 * <size_t>ndim)             # <<<<<<<<<<<<<<
@@ -13126,7 +13394,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
  */
     __pyx_v_info->strides = ((Py_ssize_t *)PyObject_Malloc((((sizeof(Py_ssize_t)) * 2) * ((size_t)__pyx_v_ndim))));
 
-    /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":284
+    /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":284
  *                 # This is allocated as one block, strides first.
  *                 info.strides = <Py_ssize_t*>PyObject_Malloc(sizeof(Py_ssize_t) * 2 * <size_t>ndim)
  *                 info.shape = info.strides + ndim             # <<<<<<<<<<<<<<
@@ -13135,7 +13403,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
  */
     __pyx_v_info->shape = (__pyx_v_info->strides + __pyx_v_ndim);
 
-    /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":285
+    /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":285
  *                 info.strides = <Py_ssize_t*>PyObject_Malloc(sizeof(Py_ssize_t) * 2 * <size_t>ndim)
  *                 info.shape = info.strides + ndim
  *                 for i in range(ndim):             # <<<<<<<<<<<<<<
@@ -13147,7 +13415,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
     for (__pyx_t_6 = 0; __pyx_t_6 < __pyx_t_5; __pyx_t_6+=1) {
       __pyx_v_i = __pyx_t_6;
 
-      /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":286
+      /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":286
  *                 info.shape = info.strides + ndim
  *                 for i in range(ndim):
  *                     info.strides[i] = PyArray_STRIDES(self)[i]             # <<<<<<<<<<<<<<
@@ -13156,7 +13424,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
  */
       (__pyx_v_info->strides[__pyx_v_i]) = (PyArray_STRIDES(__pyx_v_self)[__pyx_v_i]);
 
-      /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":287
+      /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":287
  *                 for i in range(ndim):
  *                     info.strides[i] = PyArray_STRIDES(self)[i]
  *                     info.shape[i] = PyArray_DIMS(self)[i]             # <<<<<<<<<<<<<<
@@ -13166,7 +13434,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
       (__pyx_v_info->shape[__pyx_v_i]) = (PyArray_DIMS(__pyx_v_self)[__pyx_v_i]);
     }
 
-    /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":280
+    /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":280
  *             info.buf = PyArray_DATA(self)
  *             info.ndim = ndim
  *             if sizeof(npy_intp) != sizeof(Py_ssize_t):             # <<<<<<<<<<<<<<
@@ -13176,7 +13444,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
     goto __pyx_L9;
   }
 
-  /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":289
+  /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":289
  *                     info.shape[i] = PyArray_DIMS(self)[i]
  *             else:
  *                 info.strides = <Py_ssize_t*>PyArray_STRIDES(self)             # <<<<<<<<<<<<<<
@@ -13186,7 +13454,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
   /*else*/ {
     __pyx_v_info->strides = ((Py_ssize_t *)PyArray_STRIDES(__pyx_v_self));
 
-    /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":290
+    /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":290
  *             else:
  *                 info.strides = <Py_ssize_t*>PyArray_STRIDES(self)
  *                 info.shape = <Py_ssize_t*>PyArray_DIMS(self)             # <<<<<<<<<<<<<<
@@ -13197,7 +13465,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
   }
   __pyx_L9:;
 
-  /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":291
+  /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":291
  *                 info.strides = <Py_ssize_t*>PyArray_STRIDES(self)
  *                 info.shape = <Py_ssize_t*>PyArray_DIMS(self)
  *             info.suboffsets = NULL             # <<<<<<<<<<<<<<
@@ -13206,7 +13474,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
  */
   __pyx_v_info->suboffsets = NULL;
 
-  /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":292
+  /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":292
  *                 info.shape = <Py_ssize_t*>PyArray_DIMS(self)
  *             info.suboffsets = NULL
  *             info.itemsize = PyArray_ITEMSIZE(self)             # <<<<<<<<<<<<<<
@@ -13215,7 +13483,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
  */
   __pyx_v_info->itemsize = PyArray_ITEMSIZE(__pyx_v_self);
 
-  /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":293
+  /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":293
  *             info.suboffsets = NULL
  *             info.itemsize = PyArray_ITEMSIZE(self)
  *             info.readonly = not PyArray_ISWRITEABLE(self)             # <<<<<<<<<<<<<<
@@ -13224,7 +13492,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
  */
   __pyx_v_info->readonly = (!(PyArray_ISWRITEABLE(__pyx_v_self) != 0));
 
-  /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":296
+  /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":296
  * 
  *             cdef int t
  *             cdef char* f = NULL             # <<<<<<<<<<<<<<
@@ -13233,7 +13501,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
  */
   __pyx_v_f = NULL;
 
-  /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":297
+  /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":297
  *             cdef int t
  *             cdef char* f = NULL
  *             cdef dtype descr = <dtype>PyArray_DESCR(self)             # <<<<<<<<<<<<<<
@@ -13246,7 +13514,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
   __pyx_v_descr = ((PyArray_Descr *)__pyx_t_3);
   __pyx_t_3 = 0;
 
-  /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":300
+  /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":300
  *             cdef int offset
  * 
  *             info.obj = self             # <<<<<<<<<<<<<<
@@ -13259,7 +13527,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
   __Pyx_DECREF(__pyx_v_info->obj);
   __pyx_v_info->obj = ((PyObject *)__pyx_v_self);
 
-  /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":302
+  /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":302
  *             info.obj = self
  * 
  *             if not PyDataType_HASFIELDS(descr):             # <<<<<<<<<<<<<<
@@ -13269,7 +13537,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
   __pyx_t_1 = ((!(PyDataType_HASFIELDS(__pyx_v_descr) != 0)) != 0);
   if (__pyx_t_1) {
 
-    /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":303
+    /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":303
  * 
  *             if not PyDataType_HASFIELDS(descr):
  *                 t = descr.type_num             # <<<<<<<<<<<<<<
@@ -13279,7 +13547,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
     __pyx_t_4 = __pyx_v_descr->type_num;
     __pyx_v_t = __pyx_t_4;
 
-    /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":304
+    /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":304
  *             if not PyDataType_HASFIELDS(descr):
  *                 t = descr.type_num
  *                 if ((descr.byteorder == c'>' and little_endian) or             # <<<<<<<<<<<<<<
@@ -13299,7 +13567,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
     }
     __pyx_L15_next_or:;
 
-    /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":305
+    /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":305
  *                 t = descr.type_num
  *                 if ((descr.byteorder == c'>' and little_endian) or
  *                     (descr.byteorder == c'<' and not little_endian)):             # <<<<<<<<<<<<<<
@@ -13316,7 +13584,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
     __pyx_t_1 = __pyx_t_2;
     __pyx_L14_bool_binop_done:;
 
-    /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":304
+    /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":304
  *             if not PyDataType_HASFIELDS(descr):
  *                 t = descr.type_num
  *                 if ((descr.byteorder == c'>' and little_endian) or             # <<<<<<<<<<<<<<
@@ -13325,7 +13593,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
  */
     if (unlikely(__pyx_t_1)) {
 
-      /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":306
+      /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":306
  *                 if ((descr.byteorder == c'>' and little_endian) or
  *                     (descr.byteorder == c'<' and not little_endian)):
  *                     raise ValueError(u"Non-native byte order not supported")             # <<<<<<<<<<<<<<
@@ -13338,7 +13606,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       __PYX_ERR(3, 306, __pyx_L1_error)
 
-      /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":304
+      /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":304
  *             if not PyDataType_HASFIELDS(descr):
  *                 t = descr.type_num
  *                 if ((descr.byteorder == c'>' and little_endian) or             # <<<<<<<<<<<<<<
@@ -13347,7 +13615,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
  */
     }
 
-    /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":307
+    /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":307
  *                     (descr.byteorder == c'<' and not little_endian)):
  *                     raise ValueError(u"Non-native byte order not supported")
  *                 if   t == NPY_BYTE:        f = "b"             # <<<<<<<<<<<<<<
@@ -13360,7 +13628,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
       break;
       case NPY_UBYTE:
 
-      /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":308
+      /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":308
  *                     raise ValueError(u"Non-native byte order not supported")
  *                 if   t == NPY_BYTE:        f = "b"
  *                 elif t == NPY_UBYTE:       f = "B"             # <<<<<<<<<<<<<<
@@ -13371,7 +13639,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
       break;
       case NPY_SHORT:
 
-      /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":309
+      /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":309
  *                 if   t == NPY_BYTE:        f = "b"
  *                 elif t == NPY_UBYTE:       f = "B"
  *                 elif t == NPY_SHORT:       f = "h"             # <<<<<<<<<<<<<<
@@ -13382,7 +13650,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
       break;
       case NPY_USHORT:
 
-      /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":310
+      /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":310
  *                 elif t == NPY_UBYTE:       f = "B"
  *                 elif t == NPY_SHORT:       f = "h"
  *                 elif t == NPY_USHORT:      f = "H"             # <<<<<<<<<<<<<<
@@ -13393,7 +13661,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
       break;
       case NPY_INT:
 
-      /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":311
+      /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":311
  *                 elif t == NPY_SHORT:       f = "h"
  *                 elif t == NPY_USHORT:      f = "H"
  *                 elif t == NPY_INT:         f = "i"             # <<<<<<<<<<<<<<
@@ -13404,7 +13672,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
       break;
       case NPY_UINT:
 
-      /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":312
+      /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":312
  *                 elif t == NPY_USHORT:      f = "H"
  *                 elif t == NPY_INT:         f = "i"
  *                 elif t == NPY_UINT:        f = "I"             # <<<<<<<<<<<<<<
@@ -13415,7 +13683,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
       break;
       case NPY_LONG:
 
-      /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":313
+      /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":313
  *                 elif t == NPY_INT:         f = "i"
  *                 elif t == NPY_UINT:        f = "I"
  *                 elif t == NPY_LONG:        f = "l"             # <<<<<<<<<<<<<<
@@ -13426,7 +13694,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
       break;
       case NPY_ULONG:
 
-      /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":314
+      /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":314
  *                 elif t == NPY_UINT:        f = "I"
  *                 elif t == NPY_LONG:        f = "l"
  *                 elif t == NPY_ULONG:       f = "L"             # <<<<<<<<<<<<<<
@@ -13437,7 +13705,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
       break;
       case NPY_LONGLONG:
 
-      /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":315
+      /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":315
  *                 elif t == NPY_LONG:        f = "l"
  *                 elif t == NPY_ULONG:       f = "L"
  *                 elif t == NPY_LONGLONG:    f = "q"             # <<<<<<<<<<<<<<
@@ -13448,7 +13716,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
       break;
       case NPY_ULONGLONG:
 
-      /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":316
+      /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":316
  *                 elif t == NPY_ULONG:       f = "L"
  *                 elif t == NPY_LONGLONG:    f = "q"
  *                 elif t == NPY_ULONGLONG:   f = "Q"             # <<<<<<<<<<<<<<
@@ -13459,7 +13727,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
       break;
       case NPY_FLOAT:
 
-      /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":317
+      /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":317
  *                 elif t == NPY_LONGLONG:    f = "q"
  *                 elif t == NPY_ULONGLONG:   f = "Q"
  *                 elif t == NPY_FLOAT:       f = "f"             # <<<<<<<<<<<<<<
@@ -13470,7 +13738,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
       break;
       case NPY_DOUBLE:
 
-      /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":318
+      /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":318
  *                 elif t == NPY_ULONGLONG:   f = "Q"
  *                 elif t == NPY_FLOAT:       f = "f"
  *                 elif t == NPY_DOUBLE:      f = "d"             # <<<<<<<<<<<<<<
@@ -13481,7 +13749,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
       break;
       case NPY_LONGDOUBLE:
 
-      /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":319
+      /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":319
  *                 elif t == NPY_FLOAT:       f = "f"
  *                 elif t == NPY_DOUBLE:      f = "d"
  *                 elif t == NPY_LONGDOUBLE:  f = "g"             # <<<<<<<<<<<<<<
@@ -13492,7 +13760,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
       break;
       case NPY_CFLOAT:
 
-      /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":320
+      /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":320
  *                 elif t == NPY_DOUBLE:      f = "d"
  *                 elif t == NPY_LONGDOUBLE:  f = "g"
  *                 elif t == NPY_CFLOAT:      f = "Zf"             # <<<<<<<<<<<<<<
@@ -13503,7 +13771,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
       break;
       case NPY_CDOUBLE:
 
-      /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":321
+      /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":321
  *                 elif t == NPY_LONGDOUBLE:  f = "g"
  *                 elif t == NPY_CFLOAT:      f = "Zf"
  *                 elif t == NPY_CDOUBLE:     f = "Zd"             # <<<<<<<<<<<<<<
@@ -13514,7 +13782,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
       break;
       case NPY_CLONGDOUBLE:
 
-      /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":322
+      /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":322
  *                 elif t == NPY_CFLOAT:      f = "Zf"
  *                 elif t == NPY_CDOUBLE:     f = "Zd"
  *                 elif t == NPY_CLONGDOUBLE: f = "Zg"             # <<<<<<<<<<<<<<
@@ -13525,7 +13793,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
       break;
       case NPY_OBJECT:
 
-      /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":323
+      /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":323
  *                 elif t == NPY_CDOUBLE:     f = "Zd"
  *                 elif t == NPY_CLONGDOUBLE: f = "Zg"
  *                 elif t == NPY_OBJECT:      f = "O"             # <<<<<<<<<<<<<<
@@ -13536,7 +13804,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
       break;
       default:
 
-      /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":325
+      /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":325
  *                 elif t == NPY_OBJECT:      f = "O"
  *                 else:
  *                     raise ValueError(u"unknown dtype code in numpy.pxd (%d)" % t)             # <<<<<<<<<<<<<<
@@ -13557,7 +13825,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
       break;
     }
 
-    /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":326
+    /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":326
  *                 else:
  *                     raise ValueError(u"unknown dtype code in numpy.pxd (%d)" % t)
  *                 info.format = f             # <<<<<<<<<<<<<<
@@ -13566,7 +13834,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
  */
     __pyx_v_info->format = __pyx_v_f;
 
-    /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":327
+    /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":327
  *                     raise ValueError(u"unknown dtype code in numpy.pxd (%d)" % t)
  *                 info.format = f
  *                 return             # <<<<<<<<<<<<<<
@@ -13576,7 +13844,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
     __pyx_r = 0;
     goto __pyx_L0;
 
-    /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":302
+    /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":302
  *             info.obj = self
  * 
  *             if not PyDataType_HASFIELDS(descr):             # <<<<<<<<<<<<<<
@@ -13585,7 +13853,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
  */
   }
 
-  /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":329
+  /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":329
  *                 return
  *             else:
  *                 info.format = <char*>PyObject_Malloc(_buffer_format_string_len)             # <<<<<<<<<<<<<<
@@ -13595,7 +13863,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
   /*else*/ {
     __pyx_v_info->format = ((char *)PyObject_Malloc(0xFF));
 
-    /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":330
+    /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":330
  *             else:
  *                 info.format = <char*>PyObject_Malloc(_buffer_format_string_len)
  *                 info.format[0] = c'^' # Native data types, manual alignment             # <<<<<<<<<<<<<<
@@ -13604,7 +13872,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
  */
     (__pyx_v_info->format[0]) = '^';
 
-    /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":331
+    /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":331
  *                 info.format = <char*>PyObject_Malloc(_buffer_format_string_len)
  *                 info.format[0] = c'^' # Native data types, manual alignment
  *                 offset = 0             # <<<<<<<<<<<<<<
@@ -13613,7 +13881,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
  */
     __pyx_v_offset = 0;
 
-    /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":332
+    /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":332
  *                 info.format[0] = c'^' # Native data types, manual alignment
  *                 offset = 0
  *                 f = _util_dtypestring(descr, info.format + 1,             # <<<<<<<<<<<<<<
@@ -13623,7 +13891,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
     __pyx_t_9 = __pyx_f_5numpy__util_dtypestring(__pyx_v_descr, (__pyx_v_info->format + 1), (__pyx_v_info->format + 0xFF), (&__pyx_v_offset)); if (unlikely(__pyx_t_9 == ((char *)NULL))) __PYX_ERR(3, 332, __pyx_L1_error)
     __pyx_v_f = __pyx_t_9;
 
-    /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":335
+    /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":335
  *                                       info.format + _buffer_format_string_len,
  *                                       &offset)
  *                 f[0] = c'\0' # Terminate format string             # <<<<<<<<<<<<<<
@@ -13633,7 +13901,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
     (__pyx_v_f[0]) = '\x00';
   }
 
-  /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":258
+  /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":258
  *         # experimental exception made for __getbuffer__ and __releasebuffer__
  *         # -- the details of this may change.
  *         def __getbuffer__(ndarray self, Py_buffer* info, int flags):             # <<<<<<<<<<<<<<
@@ -13665,7 +13933,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
   return __pyx_r;
 }
 
-/* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":337
+/* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":337
  *                 f[0] = c'\0' # Terminate format string
  * 
  *         def __releasebuffer__(ndarray self, Py_buffer* info):             # <<<<<<<<<<<<<<
@@ -13689,7 +13957,7 @@ static void __pyx_pf_5numpy_7ndarray_2__releasebuffer__(PyArrayObject *__pyx_v_s
   int __pyx_t_1;
   __Pyx_RefNannySetupContext("__releasebuffer__", 0);
 
-  /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":338
+  /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":338
  * 
  *         def __releasebuffer__(ndarray self, Py_buffer* info):
  *             if PyArray_HASFIELDS(self):             # <<<<<<<<<<<<<<
@@ -13699,7 +13967,7 @@ static void __pyx_pf_5numpy_7ndarray_2__releasebuffer__(PyArrayObject *__pyx_v_s
   __pyx_t_1 = (PyArray_HASFIELDS(__pyx_v_self) != 0);
   if (__pyx_t_1) {
 
-    /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":339
+    /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":339
  *         def __releasebuffer__(ndarray self, Py_buffer* info):
  *             if PyArray_HASFIELDS(self):
  *                 PyObject_Free(info.format)             # <<<<<<<<<<<<<<
@@ -13708,7 +13976,7 @@ static void __pyx_pf_5numpy_7ndarray_2__releasebuffer__(PyArrayObject *__pyx_v_s
  */
     PyObject_Free(__pyx_v_info->format);
 
-    /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":338
+    /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":338
  * 
  *         def __releasebuffer__(ndarray self, Py_buffer* info):
  *             if PyArray_HASFIELDS(self):             # <<<<<<<<<<<<<<
@@ -13717,7 +13985,7 @@ static void __pyx_pf_5numpy_7ndarray_2__releasebuffer__(PyArrayObject *__pyx_v_s
  */
   }
 
-  /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":340
+  /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":340
  *             if PyArray_HASFIELDS(self):
  *                 PyObject_Free(info.format)
  *             if sizeof(npy_intp) != sizeof(Py_ssize_t):             # <<<<<<<<<<<<<<
@@ -13727,7 +13995,7 @@ static void __pyx_pf_5numpy_7ndarray_2__releasebuffer__(PyArrayObject *__pyx_v_s
   __pyx_t_1 = (((sizeof(npy_intp)) != (sizeof(Py_ssize_t))) != 0);
   if (__pyx_t_1) {
 
-    /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":341
+    /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":341
  *                 PyObject_Free(info.format)
  *             if sizeof(npy_intp) != sizeof(Py_ssize_t):
  *                 PyObject_Free(info.strides)             # <<<<<<<<<<<<<<
@@ -13736,7 +14004,7 @@ static void __pyx_pf_5numpy_7ndarray_2__releasebuffer__(PyArrayObject *__pyx_v_s
  */
     PyObject_Free(__pyx_v_info->strides);
 
-    /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":340
+    /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":340
  *             if PyArray_HASFIELDS(self):
  *                 PyObject_Free(info.format)
  *             if sizeof(npy_intp) != sizeof(Py_ssize_t):             # <<<<<<<<<<<<<<
@@ -13745,7 +14013,7 @@ static void __pyx_pf_5numpy_7ndarray_2__releasebuffer__(PyArrayObject *__pyx_v_s
  */
   }
 
-  /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":337
+  /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":337
  *                 f[0] = c'\0' # Terminate format string
  * 
  *         def __releasebuffer__(ndarray self, Py_buffer* info):             # <<<<<<<<<<<<<<
@@ -13757,7 +14025,7 @@ static void __pyx_pf_5numpy_7ndarray_2__releasebuffer__(PyArrayObject *__pyx_v_s
   __Pyx_RefNannyFinishContext();
 }
 
-/* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":821
+/* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":821
  * ctypedef npy_cdouble     complex_t
  * 
  * cdef inline object PyArray_MultiIterNew1(a):             # <<<<<<<<<<<<<<
@@ -13771,7 +14039,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew1(PyObject *__
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("PyArray_MultiIterNew1", 0);
 
-  /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":822
+  /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":822
  * 
  * cdef inline object PyArray_MultiIterNew1(a):
  *     return PyArray_MultiIterNew(1, <void*>a)             # <<<<<<<<<<<<<<
@@ -13785,7 +14053,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew1(PyObject *__
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":821
+  /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":821
  * ctypedef npy_cdouble     complex_t
  * 
  * cdef inline object PyArray_MultiIterNew1(a):             # <<<<<<<<<<<<<<
@@ -13804,7 +14072,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew1(PyObject *__
   return __pyx_r;
 }
 
-/* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":824
+/* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":824
  *     return PyArray_MultiIterNew(1, <void*>a)
  * 
  * cdef inline object PyArray_MultiIterNew2(a, b):             # <<<<<<<<<<<<<<
@@ -13818,7 +14086,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew2(PyObject *__
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("PyArray_MultiIterNew2", 0);
 
-  /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":825
+  /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":825
  * 
  * cdef inline object PyArray_MultiIterNew2(a, b):
  *     return PyArray_MultiIterNew(2, <void*>a, <void*>b)             # <<<<<<<<<<<<<<
@@ -13832,7 +14100,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew2(PyObject *__
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":824
+  /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":824
  *     return PyArray_MultiIterNew(1, <void*>a)
  * 
  * cdef inline object PyArray_MultiIterNew2(a, b):             # <<<<<<<<<<<<<<
@@ -13851,7 +14119,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew2(PyObject *__
   return __pyx_r;
 }
 
-/* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":827
+/* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":827
  *     return PyArray_MultiIterNew(2, <void*>a, <void*>b)
  * 
  * cdef inline object PyArray_MultiIterNew3(a, b, c):             # <<<<<<<<<<<<<<
@@ -13865,7 +14133,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew3(PyObject *__
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("PyArray_MultiIterNew3", 0);
 
-  /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":828
+  /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":828
  * 
  * cdef inline object PyArray_MultiIterNew3(a, b, c):
  *     return PyArray_MultiIterNew(3, <void*>a, <void*>b, <void*> c)             # <<<<<<<<<<<<<<
@@ -13879,7 +14147,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew3(PyObject *__
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":827
+  /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":827
  *     return PyArray_MultiIterNew(2, <void*>a, <void*>b)
  * 
  * cdef inline object PyArray_MultiIterNew3(a, b, c):             # <<<<<<<<<<<<<<
@@ -13898,7 +14166,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew3(PyObject *__
   return __pyx_r;
 }
 
-/* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":830
+/* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":830
  *     return PyArray_MultiIterNew(3, <void*>a, <void*>b, <void*> c)
  * 
  * cdef inline object PyArray_MultiIterNew4(a, b, c, d):             # <<<<<<<<<<<<<<
@@ -13912,7 +14180,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew4(PyObject *__
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("PyArray_MultiIterNew4", 0);
 
-  /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":831
+  /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":831
  * 
  * cdef inline object PyArray_MultiIterNew4(a, b, c, d):
  *     return PyArray_MultiIterNew(4, <void*>a, <void*>b, <void*>c, <void*> d)             # <<<<<<<<<<<<<<
@@ -13926,7 +14194,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew4(PyObject *__
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":830
+  /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":830
  *     return PyArray_MultiIterNew(3, <void*>a, <void*>b, <void*> c)
  * 
  * cdef inline object PyArray_MultiIterNew4(a, b, c, d):             # <<<<<<<<<<<<<<
@@ -13945,7 +14213,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew4(PyObject *__
   return __pyx_r;
 }
 
-/* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":833
+/* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":833
  *     return PyArray_MultiIterNew(4, <void*>a, <void*>b, <void*>c, <void*> d)
  * 
  * cdef inline object PyArray_MultiIterNew5(a, b, c, d, e):             # <<<<<<<<<<<<<<
@@ -13959,7 +14227,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew5(PyObject *__
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("PyArray_MultiIterNew5", 0);
 
-  /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":834
+  /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":834
  * 
  * cdef inline object PyArray_MultiIterNew5(a, b, c, d, e):
  *     return PyArray_MultiIterNew(5, <void*>a, <void*>b, <void*>c, <void*> d, <void*> e)             # <<<<<<<<<<<<<<
@@ -13973,7 +14241,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew5(PyObject *__
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":833
+  /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":833
  *     return PyArray_MultiIterNew(4, <void*>a, <void*>b, <void*>c, <void*> d)
  * 
  * cdef inline object PyArray_MultiIterNew5(a, b, c, d, e):             # <<<<<<<<<<<<<<
@@ -13992,7 +14260,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew5(PyObject *__
   return __pyx_r;
 }
 
-/* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":836
+/* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":836
  *     return PyArray_MultiIterNew(5, <void*>a, <void*>b, <void*>c, <void*> d, <void*> e)
  * 
  * cdef inline tuple PyDataType_SHAPE(dtype d):             # <<<<<<<<<<<<<<
@@ -14006,7 +14274,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyDataType_SHAPE(PyArray_Descr *__
   int __pyx_t_1;
   __Pyx_RefNannySetupContext("PyDataType_SHAPE", 0);
 
-  /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":837
+  /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":837
  * 
  * cdef inline tuple PyDataType_SHAPE(dtype d):
  *     if PyDataType_HASSUBARRAY(d):             # <<<<<<<<<<<<<<
@@ -14016,7 +14284,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyDataType_SHAPE(PyArray_Descr *__
   __pyx_t_1 = (PyDataType_HASSUBARRAY(__pyx_v_d) != 0);
   if (__pyx_t_1) {
 
-    /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":838
+    /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":838
  * cdef inline tuple PyDataType_SHAPE(dtype d):
  *     if PyDataType_HASSUBARRAY(d):
  *         return <tuple>d.subarray.shape             # <<<<<<<<<<<<<<
@@ -14028,7 +14296,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyDataType_SHAPE(PyArray_Descr *__
     __pyx_r = ((PyObject*)__pyx_v_d->subarray->shape);
     goto __pyx_L0;
 
-    /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":837
+    /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":837
  * 
  * cdef inline tuple PyDataType_SHAPE(dtype d):
  *     if PyDataType_HASSUBARRAY(d):             # <<<<<<<<<<<<<<
@@ -14037,7 +14305,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyDataType_SHAPE(PyArray_Descr *__
  */
   }
 
-  /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":840
+  /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":840
  *         return <tuple>d.subarray.shape
  *     else:
  *         return ()             # <<<<<<<<<<<<<<
@@ -14051,7 +14319,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyDataType_SHAPE(PyArray_Descr *__
     goto __pyx_L0;
   }
 
-  /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":836
+  /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":836
  *     return PyArray_MultiIterNew(5, <void*>a, <void*>b, <void*>c, <void*> d, <void*> e)
  * 
  * cdef inline tuple PyDataType_SHAPE(dtype d):             # <<<<<<<<<<<<<<
@@ -14066,7 +14334,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyDataType_SHAPE(PyArray_Descr *__
   return __pyx_r;
 }
 
-/* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":842
+/* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":842
  *         return ()
  * 
  * cdef inline char* _util_dtypestring(dtype descr, char* f, char* end, int* offset) except NULL:             # <<<<<<<<<<<<<<
@@ -14095,7 +14363,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
   char *__pyx_t_9;
   __Pyx_RefNannySetupContext("_util_dtypestring", 0);
 
-  /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":847
+  /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":847
  * 
  *     cdef dtype child
  *     cdef int endian_detector = 1             # <<<<<<<<<<<<<<
@@ -14104,7 +14372,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
  */
   __pyx_v_endian_detector = 1;
 
-  /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":848
+  /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":848
  *     cdef dtype child
  *     cdef int endian_detector = 1
  *     cdef bint little_endian = ((<char*>&endian_detector)[0] != 0)             # <<<<<<<<<<<<<<
@@ -14113,7 +14381,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
  */
   __pyx_v_little_endian = ((((char *)(&__pyx_v_endian_detector))[0]) != 0);
 
-  /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":851
+  /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":851
  *     cdef tuple fields
  * 
  *     for childname in descr.names:             # <<<<<<<<<<<<<<
@@ -14136,7 +14404,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
     __Pyx_XDECREF_SET(__pyx_v_childname, __pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":852
+    /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":852
  * 
  *     for childname in descr.names:
  *         fields = descr.fields[childname]             # <<<<<<<<<<<<<<
@@ -14153,7 +14421,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
     __Pyx_XDECREF_SET(__pyx_v_fields, ((PyObject*)__pyx_t_3));
     __pyx_t_3 = 0;
 
-    /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":853
+    /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":853
  *     for childname in descr.names:
  *         fields = descr.fields[childname]
  *         child, new_offset = fields             # <<<<<<<<<<<<<<
@@ -14188,7 +14456,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
     __Pyx_XDECREF_SET(__pyx_v_new_offset, __pyx_t_4);
     __pyx_t_4 = 0;
 
-    /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":855
+    /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":855
  *         child, new_offset = fields
  * 
  *         if (end - f) - <int>(new_offset - offset[0]) < 15:             # <<<<<<<<<<<<<<
@@ -14205,7 +14473,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
     __pyx_t_6 = ((((__pyx_v_end - __pyx_v_f) - ((int)__pyx_t_5)) < 15) != 0);
     if (unlikely(__pyx_t_6)) {
 
-      /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":856
+      /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":856
  * 
  *         if (end - f) - <int>(new_offset - offset[0]) < 15:
  *             raise RuntimeError(u"Format string allocated too short, see comment in numpy.pxd")             # <<<<<<<<<<<<<<
@@ -14218,7 +14486,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       __PYX_ERR(3, 856, __pyx_L1_error)
 
-      /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":855
+      /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":855
  *         child, new_offset = fields
  * 
  *         if (end - f) - <int>(new_offset - offset[0]) < 15:             # <<<<<<<<<<<<<<
@@ -14227,7 +14495,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
  */
     }
 
-    /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":858
+    /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":858
  *             raise RuntimeError(u"Format string allocated too short, see comment in numpy.pxd")
  * 
  *         if ((child.byteorder == c'>' and little_endian) or             # <<<<<<<<<<<<<<
@@ -14247,7 +14515,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
     }
     __pyx_L8_next_or:;
 
-    /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":859
+    /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":859
  * 
  *         if ((child.byteorder == c'>' and little_endian) or
  *             (child.byteorder == c'<' and not little_endian)):             # <<<<<<<<<<<<<<
@@ -14264,7 +14532,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
     __pyx_t_6 = __pyx_t_7;
     __pyx_L7_bool_binop_done:;
 
-    /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":858
+    /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":858
  *             raise RuntimeError(u"Format string allocated too short, see comment in numpy.pxd")
  * 
  *         if ((child.byteorder == c'>' and little_endian) or             # <<<<<<<<<<<<<<
@@ -14273,7 +14541,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
  */
     if (unlikely(__pyx_t_6)) {
 
-      /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":860
+      /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":860
  *         if ((child.byteorder == c'>' and little_endian) or
  *             (child.byteorder == c'<' and not little_endian)):
  *             raise ValueError(u"Non-native byte order not supported")             # <<<<<<<<<<<<<<
@@ -14286,7 +14554,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       __PYX_ERR(3, 860, __pyx_L1_error)
 
-      /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":858
+      /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":858
  *             raise RuntimeError(u"Format string allocated too short, see comment in numpy.pxd")
  * 
  *         if ((child.byteorder == c'>' and little_endian) or             # <<<<<<<<<<<<<<
@@ -14295,7 +14563,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
  */
     }
 
-    /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":870
+    /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":870
  * 
  *         # Output padding bytes
  *         while offset[0] < new_offset:             # <<<<<<<<<<<<<<
@@ -14311,7 +14579,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       if (!__pyx_t_6) break;
 
-      /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":871
+      /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":871
  *         # Output padding bytes
  *         while offset[0] < new_offset:
  *             f[0] = 120 # "x"; pad byte             # <<<<<<<<<<<<<<
@@ -14320,7 +14588,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
  */
       (__pyx_v_f[0]) = 0x78;
 
-      /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":872
+      /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":872
  *         while offset[0] < new_offset:
  *             f[0] = 120 # "x"; pad byte
  *             f += 1             # <<<<<<<<<<<<<<
@@ -14329,7 +14597,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
  */
       __pyx_v_f = (__pyx_v_f + 1);
 
-      /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":873
+      /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":873
  *             f[0] = 120 # "x"; pad byte
  *             f += 1
  *             offset[0] += 1             # <<<<<<<<<<<<<<
@@ -14340,7 +14608,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
       (__pyx_v_offset[__pyx_t_8]) = ((__pyx_v_offset[__pyx_t_8]) + 1);
     }
 
-    /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":875
+    /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":875
  *             offset[0] += 1
  * 
  *         offset[0] += child.itemsize             # <<<<<<<<<<<<<<
@@ -14350,7 +14618,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
     __pyx_t_8 = 0;
     (__pyx_v_offset[__pyx_t_8]) = ((__pyx_v_offset[__pyx_t_8]) + __pyx_v_child->elsize);
 
-    /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":877
+    /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":877
  *         offset[0] += child.itemsize
  * 
  *         if not PyDataType_HASFIELDS(child):             # <<<<<<<<<<<<<<
@@ -14360,7 +14628,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
     __pyx_t_6 = ((!(PyDataType_HASFIELDS(__pyx_v_child) != 0)) != 0);
     if (__pyx_t_6) {
 
-      /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":878
+      /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":878
  * 
  *         if not PyDataType_HASFIELDS(child):
  *             t = child.type_num             # <<<<<<<<<<<<<<
@@ -14372,7 +14640,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
       __Pyx_XDECREF_SET(__pyx_v_t, __pyx_t_4);
       __pyx_t_4 = 0;
 
-      /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":879
+      /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":879
  *         if not PyDataType_HASFIELDS(child):
  *             t = child.type_num
  *             if end - f < 5:             # <<<<<<<<<<<<<<
@@ -14382,7 +14650,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
       __pyx_t_6 = (((__pyx_v_end - __pyx_v_f) < 5) != 0);
       if (unlikely(__pyx_t_6)) {
 
-        /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":880
+        /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":880
  *             t = child.type_num
  *             if end - f < 5:
  *                 raise RuntimeError(u"Format string allocated too short.")             # <<<<<<<<<<<<<<
@@ -14395,7 +14663,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
         __PYX_ERR(3, 880, __pyx_L1_error)
 
-        /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":879
+        /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":879
  *         if not PyDataType_HASFIELDS(child):
  *             t = child.type_num
  *             if end - f < 5:             # <<<<<<<<<<<<<<
@@ -14404,7 +14672,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
  */
       }
 
-      /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":883
+      /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":883
  * 
  *             # Until ticket #99 is fixed, use integers to avoid warnings
  *             if   t == NPY_BYTE:        f[0] =  98 #"b"             # <<<<<<<<<<<<<<
@@ -14422,7 +14690,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
         goto __pyx_L15;
       }
 
-      /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":884
+      /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":884
  *             # Until ticket #99 is fixed, use integers to avoid warnings
  *             if   t == NPY_BYTE:        f[0] =  98 #"b"
  *             elif t == NPY_UBYTE:       f[0] =  66 #"B"             # <<<<<<<<<<<<<<
@@ -14440,7 +14708,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
         goto __pyx_L15;
       }
 
-      /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":885
+      /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":885
  *             if   t == NPY_BYTE:        f[0] =  98 #"b"
  *             elif t == NPY_UBYTE:       f[0] =  66 #"B"
  *             elif t == NPY_SHORT:       f[0] = 104 #"h"             # <<<<<<<<<<<<<<
@@ -14458,7 +14726,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
         goto __pyx_L15;
       }
 
-      /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":886
+      /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":886
  *             elif t == NPY_UBYTE:       f[0] =  66 #"B"
  *             elif t == NPY_SHORT:       f[0] = 104 #"h"
  *             elif t == NPY_USHORT:      f[0] =  72 #"H"             # <<<<<<<<<<<<<<
@@ -14476,7 +14744,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
         goto __pyx_L15;
       }
 
-      /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":887
+      /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":887
  *             elif t == NPY_SHORT:       f[0] = 104 #"h"
  *             elif t == NPY_USHORT:      f[0] =  72 #"H"
  *             elif t == NPY_INT:         f[0] = 105 #"i"             # <<<<<<<<<<<<<<
@@ -14494,7 +14762,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
         goto __pyx_L15;
       }
 
-      /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":888
+      /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":888
  *             elif t == NPY_USHORT:      f[0] =  72 #"H"
  *             elif t == NPY_INT:         f[0] = 105 #"i"
  *             elif t == NPY_UINT:        f[0] =  73 #"I"             # <<<<<<<<<<<<<<
@@ -14512,7 +14780,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
         goto __pyx_L15;
       }
 
-      /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":889
+      /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":889
  *             elif t == NPY_INT:         f[0] = 105 #"i"
  *             elif t == NPY_UINT:        f[0] =  73 #"I"
  *             elif t == NPY_LONG:        f[0] = 108 #"l"             # <<<<<<<<<<<<<<
@@ -14530,7 +14798,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
         goto __pyx_L15;
       }
 
-      /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":890
+      /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":890
  *             elif t == NPY_UINT:        f[0] =  73 #"I"
  *             elif t == NPY_LONG:        f[0] = 108 #"l"
  *             elif t == NPY_ULONG:       f[0] = 76  #"L"             # <<<<<<<<<<<<<<
@@ -14548,7 +14816,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
         goto __pyx_L15;
       }
 
-      /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":891
+      /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":891
  *             elif t == NPY_LONG:        f[0] = 108 #"l"
  *             elif t == NPY_ULONG:       f[0] = 76  #"L"
  *             elif t == NPY_LONGLONG:    f[0] = 113 #"q"             # <<<<<<<<<<<<<<
@@ -14566,7 +14834,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
         goto __pyx_L15;
       }
 
-      /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":892
+      /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":892
  *             elif t == NPY_ULONG:       f[0] = 76  #"L"
  *             elif t == NPY_LONGLONG:    f[0] = 113 #"q"
  *             elif t == NPY_ULONGLONG:   f[0] = 81  #"Q"             # <<<<<<<<<<<<<<
@@ -14584,7 +14852,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
         goto __pyx_L15;
       }
 
-      /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":893
+      /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":893
  *             elif t == NPY_LONGLONG:    f[0] = 113 #"q"
  *             elif t == NPY_ULONGLONG:   f[0] = 81  #"Q"
  *             elif t == NPY_FLOAT:       f[0] = 102 #"f"             # <<<<<<<<<<<<<<
@@ -14602,7 +14870,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
         goto __pyx_L15;
       }
 
-      /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":894
+      /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":894
  *             elif t == NPY_ULONGLONG:   f[0] = 81  #"Q"
  *             elif t == NPY_FLOAT:       f[0] = 102 #"f"
  *             elif t == NPY_DOUBLE:      f[0] = 100 #"d"             # <<<<<<<<<<<<<<
@@ -14620,7 +14888,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
         goto __pyx_L15;
       }
 
-      /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":895
+      /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":895
  *             elif t == NPY_FLOAT:       f[0] = 102 #"f"
  *             elif t == NPY_DOUBLE:      f[0] = 100 #"d"
  *             elif t == NPY_LONGDOUBLE:  f[0] = 103 #"g"             # <<<<<<<<<<<<<<
@@ -14638,7 +14906,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
         goto __pyx_L15;
       }
 
-      /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":896
+      /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":896
  *             elif t == NPY_DOUBLE:      f[0] = 100 #"d"
  *             elif t == NPY_LONGDOUBLE:  f[0] = 103 #"g"
  *             elif t == NPY_CFLOAT:      f[0] = 90; f[1] = 102; f += 1 # Zf             # <<<<<<<<<<<<<<
@@ -14658,7 +14926,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
         goto __pyx_L15;
       }
 
-      /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":897
+      /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":897
  *             elif t == NPY_LONGDOUBLE:  f[0] = 103 #"g"
  *             elif t == NPY_CFLOAT:      f[0] = 90; f[1] = 102; f += 1 # Zf
  *             elif t == NPY_CDOUBLE:     f[0] = 90; f[1] = 100; f += 1 # Zd             # <<<<<<<<<<<<<<
@@ -14678,7 +14946,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
         goto __pyx_L15;
       }
 
-      /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":898
+      /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":898
  *             elif t == NPY_CFLOAT:      f[0] = 90; f[1] = 102; f += 1 # Zf
  *             elif t == NPY_CDOUBLE:     f[0] = 90; f[1] = 100; f += 1 # Zd
  *             elif t == NPY_CLONGDOUBLE: f[0] = 90; f[1] = 103; f += 1 # Zg             # <<<<<<<<<<<<<<
@@ -14698,7 +14966,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
         goto __pyx_L15;
       }
 
-      /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":899
+      /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":899
  *             elif t == NPY_CDOUBLE:     f[0] = 90; f[1] = 100; f += 1 # Zd
  *             elif t == NPY_CLONGDOUBLE: f[0] = 90; f[1] = 103; f += 1 # Zg
  *             elif t == NPY_OBJECT:      f[0] = 79 #"O"             # <<<<<<<<<<<<<<
@@ -14716,7 +14984,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
         goto __pyx_L15;
       }
 
-      /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":901
+      /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":901
  *             elif t == NPY_OBJECT:      f[0] = 79 #"O"
  *             else:
  *                 raise ValueError(u"unknown dtype code in numpy.pxd (%d)" % t)             # <<<<<<<<<<<<<<
@@ -14735,7 +15003,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
       }
       __pyx_L15:;
 
-      /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":902
+      /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":902
  *             else:
  *                 raise ValueError(u"unknown dtype code in numpy.pxd (%d)" % t)
  *             f += 1             # <<<<<<<<<<<<<<
@@ -14744,7 +15012,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
  */
       __pyx_v_f = (__pyx_v_f + 1);
 
-      /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":877
+      /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":877
  *         offset[0] += child.itemsize
  * 
  *         if not PyDataType_HASFIELDS(child):             # <<<<<<<<<<<<<<
@@ -14754,7 +15022,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
       goto __pyx_L13;
     }
 
-    /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":906
+    /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":906
  *             # Cython ignores struct boundary information ("T{...}"),
  *             # so don't output it
  *             f = _util_dtypestring(child, f, end, offset)             # <<<<<<<<<<<<<<
@@ -14767,7 +15035,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
     }
     __pyx_L13:;
 
-    /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":851
+    /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":851
  *     cdef tuple fields
  * 
  *     for childname in descr.names:             # <<<<<<<<<<<<<<
@@ -14777,7 +15045,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":907
+  /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":907
  *             # so don't output it
  *             f = _util_dtypestring(child, f, end, offset)
  *     return f             # <<<<<<<<<<<<<<
@@ -14787,7 +15055,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
   __pyx_r = __pyx_v_f;
   goto __pyx_L0;
 
-  /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":842
+  /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":842
  *         return ()
  * 
  * cdef inline char* _util_dtypestring(dtype descr, char* f, char* end, int* offset) except NULL:             # <<<<<<<<<<<<<<
@@ -14812,7 +15080,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
   return __pyx_r;
 }
 
-/* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1022
+/* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1022
  *     int _import_umath() except -1
  * 
  * cdef inline void set_array_base(ndarray arr, object base):             # <<<<<<<<<<<<<<
@@ -14824,7 +15092,7 @@ static CYTHON_INLINE void __pyx_f_5numpy_set_array_base(PyArrayObject *__pyx_v_a
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("set_array_base", 0);
 
-  /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1023
+  /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1023
  * 
  * cdef inline void set_array_base(ndarray arr, object base):
  *     Py_INCREF(base) # important to do this before stealing the reference below!             # <<<<<<<<<<<<<<
@@ -14833,7 +15101,7 @@ static CYTHON_INLINE void __pyx_f_5numpy_set_array_base(PyArrayObject *__pyx_v_a
  */
   Py_INCREF(__pyx_v_base);
 
-  /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1024
+  /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1024
  * cdef inline void set_array_base(ndarray arr, object base):
  *     Py_INCREF(base) # important to do this before stealing the reference below!
  *     PyArray_SetBaseObject(arr, base)             # <<<<<<<<<<<<<<
@@ -14842,7 +15110,7 @@ static CYTHON_INLINE void __pyx_f_5numpy_set_array_base(PyArrayObject *__pyx_v_a
  */
   (void)(PyArray_SetBaseObject(__pyx_v_arr, __pyx_v_base));
 
-  /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1022
+  /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1022
  *     int _import_umath() except -1
  * 
  * cdef inline void set_array_base(ndarray arr, object base):             # <<<<<<<<<<<<<<
@@ -14854,7 +15122,7 @@ static CYTHON_INLINE void __pyx_f_5numpy_set_array_base(PyArrayObject *__pyx_v_a
   __Pyx_RefNannyFinishContext();
 }
 
-/* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1026
+/* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1026
  *     PyArray_SetBaseObject(arr, base)
  * 
  * cdef inline object get_array_base(ndarray arr):             # <<<<<<<<<<<<<<
@@ -14869,7 +15137,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_get_array_base(PyArrayObject *__py
   int __pyx_t_1;
   __Pyx_RefNannySetupContext("get_array_base", 0);
 
-  /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1027
+  /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1027
  * 
  * cdef inline object get_array_base(ndarray arr):
  *     base = PyArray_BASE(arr)             # <<<<<<<<<<<<<<
@@ -14878,7 +15146,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_get_array_base(PyArrayObject *__py
  */
   __pyx_v_base = PyArray_BASE(__pyx_v_arr);
 
-  /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1028
+  /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1028
  * cdef inline object get_array_base(ndarray arr):
  *     base = PyArray_BASE(arr)
  *     if base is NULL:             # <<<<<<<<<<<<<<
@@ -14888,7 +15156,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_get_array_base(PyArrayObject *__py
   __pyx_t_1 = ((__pyx_v_base == NULL) != 0);
   if (__pyx_t_1) {
 
-    /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1029
+    /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1029
  *     base = PyArray_BASE(arr)
  *     if base is NULL:
  *         return None             # <<<<<<<<<<<<<<
@@ -14899,7 +15167,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_get_array_base(PyArrayObject *__py
     __pyx_r = Py_None; __Pyx_INCREF(Py_None);
     goto __pyx_L0;
 
-    /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1028
+    /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1028
  * cdef inline object get_array_base(ndarray arr):
  *     base = PyArray_BASE(arr)
  *     if base is NULL:             # <<<<<<<<<<<<<<
@@ -14908,7 +15176,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_get_array_base(PyArrayObject *__py
  */
   }
 
-  /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1030
+  /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1030
  *     if base is NULL:
  *         return None
  *     return <object>base             # <<<<<<<<<<<<<<
@@ -14920,7 +15188,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_get_array_base(PyArrayObject *__py
   __pyx_r = ((PyObject *)__pyx_v_base);
   goto __pyx_L0;
 
-  /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1026
+  /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1026
  *     PyArray_SetBaseObject(arr, base)
  * 
  * cdef inline object get_array_base(ndarray arr):             # <<<<<<<<<<<<<<
@@ -14935,7 +15203,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_get_array_base(PyArrayObject *__py
   return __pyx_r;
 }
 
-/* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1034
+/* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1034
  * # Versions of the import_* functions which are more suitable for
  * # Cython code.
  * cdef inline int import_array() except -1:             # <<<<<<<<<<<<<<
@@ -14956,7 +15224,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_array(void) {
   PyObject *__pyx_t_8 = NULL;
   __Pyx_RefNannySetupContext("import_array", 0);
 
-  /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1035
+  /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1035
  * # Cython code.
  * cdef inline int import_array() except -1:
  *     try:             # <<<<<<<<<<<<<<
@@ -14972,7 +15240,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_array(void) {
     __Pyx_XGOTREF(__pyx_t_3);
     /*try:*/ {
 
-      /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1036
+      /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1036
  * cdef inline int import_array() except -1:
  *     try:
  *         _import_array()             # <<<<<<<<<<<<<<
@@ -14981,7 +15249,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_array(void) {
  */
       __pyx_t_4 = _import_array(); if (unlikely(__pyx_t_4 == ((int)-1))) __PYX_ERR(3, 1036, __pyx_L3_error)
 
-      /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1035
+      /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1035
  * # Cython code.
  * cdef inline int import_array() except -1:
  *     try:             # <<<<<<<<<<<<<<
@@ -14995,7 +15263,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_array(void) {
     goto __pyx_L8_try_end;
     __pyx_L3_error:;
 
-    /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1037
+    /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1037
  *     try:
  *         _import_array()
  *     except Exception:             # <<<<<<<<<<<<<<
@@ -15010,7 +15278,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_array(void) {
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_GOTREF(__pyx_t_7);
 
-      /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1038
+      /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1038
  *         _import_array()
  *     except Exception:
  *         raise ImportError("numpy.core.multiarray failed to import")             # <<<<<<<<<<<<<<
@@ -15026,7 +15294,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_array(void) {
     goto __pyx_L5_except_error;
     __pyx_L5_except_error:;
 
-    /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1035
+    /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1035
  * # Cython code.
  * cdef inline int import_array() except -1:
  *     try:             # <<<<<<<<<<<<<<
@@ -15041,7 +15309,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_array(void) {
     __pyx_L8_try_end:;
   }
 
-  /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1034
+  /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1034
  * # Versions of the import_* functions which are more suitable for
  * # Cython code.
  * cdef inline int import_array() except -1:             # <<<<<<<<<<<<<<
@@ -15064,7 +15332,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_array(void) {
   return __pyx_r;
 }
 
-/* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1040
+/* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1040
  *         raise ImportError("numpy.core.multiarray failed to import")
  * 
  * cdef inline int import_umath() except -1:             # <<<<<<<<<<<<<<
@@ -15085,7 +15353,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_umath(void) {
   PyObject *__pyx_t_8 = NULL;
   __Pyx_RefNannySetupContext("import_umath", 0);
 
-  /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1041
+  /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1041
  * 
  * cdef inline int import_umath() except -1:
  *     try:             # <<<<<<<<<<<<<<
@@ -15101,7 +15369,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_umath(void) {
     __Pyx_XGOTREF(__pyx_t_3);
     /*try:*/ {
 
-      /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1042
+      /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1042
  * cdef inline int import_umath() except -1:
  *     try:
  *         _import_umath()             # <<<<<<<<<<<<<<
@@ -15110,7 +15378,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_umath(void) {
  */
       __pyx_t_4 = _import_umath(); if (unlikely(__pyx_t_4 == ((int)-1))) __PYX_ERR(3, 1042, __pyx_L3_error)
 
-      /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1041
+      /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1041
  * 
  * cdef inline int import_umath() except -1:
  *     try:             # <<<<<<<<<<<<<<
@@ -15124,7 +15392,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_umath(void) {
     goto __pyx_L8_try_end;
     __pyx_L3_error:;
 
-    /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1043
+    /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1043
  *     try:
  *         _import_umath()
  *     except Exception:             # <<<<<<<<<<<<<<
@@ -15139,7 +15407,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_umath(void) {
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_GOTREF(__pyx_t_7);
 
-      /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1044
+      /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1044
  *         _import_umath()
  *     except Exception:
  *         raise ImportError("numpy.core.umath failed to import")             # <<<<<<<<<<<<<<
@@ -15155,7 +15423,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_umath(void) {
     goto __pyx_L5_except_error;
     __pyx_L5_except_error:;
 
-    /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1041
+    /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1041
  * 
  * cdef inline int import_umath() except -1:
  *     try:             # <<<<<<<<<<<<<<
@@ -15170,7 +15438,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_umath(void) {
     __pyx_L8_try_end:;
   }
 
-  /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1040
+  /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1040
  *         raise ImportError("numpy.core.multiarray failed to import")
  * 
  * cdef inline int import_umath() except -1:             # <<<<<<<<<<<<<<
@@ -15193,7 +15461,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_umath(void) {
   return __pyx_r;
 }
 
-/* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1046
+/* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1046
  *         raise ImportError("numpy.core.umath failed to import")
  * 
  * cdef inline int import_ufunc() except -1:             # <<<<<<<<<<<<<<
@@ -15214,7 +15482,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_ufunc(void) {
   PyObject *__pyx_t_8 = NULL;
   __Pyx_RefNannySetupContext("import_ufunc", 0);
 
-  /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1047
+  /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1047
  * 
  * cdef inline int import_ufunc() except -1:
  *     try:             # <<<<<<<<<<<<<<
@@ -15230,7 +15498,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_ufunc(void) {
     __Pyx_XGOTREF(__pyx_t_3);
     /*try:*/ {
 
-      /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1048
+      /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1048
  * cdef inline int import_ufunc() except -1:
  *     try:
  *         _import_umath()             # <<<<<<<<<<<<<<
@@ -15239,7 +15507,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_ufunc(void) {
  */
       __pyx_t_4 = _import_umath(); if (unlikely(__pyx_t_4 == ((int)-1))) __PYX_ERR(3, 1048, __pyx_L3_error)
 
-      /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1047
+      /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1047
  * 
  * cdef inline int import_ufunc() except -1:
  *     try:             # <<<<<<<<<<<<<<
@@ -15253,7 +15521,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_ufunc(void) {
     goto __pyx_L8_try_end;
     __pyx_L3_error:;
 
-    /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1049
+    /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1049
  *     try:
  *         _import_umath()
  *     except Exception:             # <<<<<<<<<<<<<<
@@ -15267,7 +15535,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_ufunc(void) {
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_GOTREF(__pyx_t_7);
 
-      /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1050
+      /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1050
  *         _import_umath()
  *     except Exception:
  *         raise ImportError("numpy.core.umath failed to import")             # <<<<<<<<<<<<<<
@@ -15281,7 +15549,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_ufunc(void) {
     goto __pyx_L5_except_error;
     __pyx_L5_except_error:;
 
-    /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1047
+    /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1047
  * 
  * cdef inline int import_ufunc() except -1:
  *     try:             # <<<<<<<<<<<<<<
@@ -15296,7 +15564,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_ufunc(void) {
     __pyx_L8_try_end:;
   }
 
-  /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1046
+  /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1046
  *         raise ImportError("numpy.core.umath failed to import")
  * 
  * cdef inline int import_ufunc() except -1:             # <<<<<<<<<<<<<<
@@ -15440,6 +15708,20 @@ static int __pyx_setprop_6uplift_4tree_9_splitter_8Splitter_min_weight_leaf(PyOb
   }
 }
 
+static PyObject *__pyx_getprop_6uplift_4tree_9_splitter_8Splitter_stat_param(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_6uplift_4tree_9_splitter_8Splitter_10stat_param_1__get__(o);
+}
+
+static int __pyx_setprop_6uplift_4tree_9_splitter_8Splitter_stat_param(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
+  if (v) {
+    return __pyx_pw_6uplift_4tree_9_splitter_8Splitter_10stat_param_3__set__(o, v);
+  }
+  else {
+    PyErr_SetString(PyExc_NotImplementedError, "__del__");
+    return -1;
+  }
+}
+
 static PyMethodDef __pyx_methods_6uplift_4tree_9_splitter_Splitter[] = {
   {"__getstate__", (PyCFunction)__pyx_pw_6uplift_4tree_9_splitter_8Splitter_5__getstate__, METH_NOARGS, 0},
   {"__setstate__", (PyCFunction)__pyx_pw_6uplift_4tree_9_splitter_8Splitter_7__setstate__, METH_O, 0},
@@ -15453,6 +15735,7 @@ static struct PyGetSetDef __pyx_getsets_6uplift_4tree_9_splitter_Splitter[] = {
   {(char *)"max_features", __pyx_getprop_6uplift_4tree_9_splitter_8Splitter_max_features, __pyx_setprop_6uplift_4tree_9_splitter_8Splitter_max_features, (char *)0, 0},
   {(char *)"min_samples_leaf", __pyx_getprop_6uplift_4tree_9_splitter_8Splitter_min_samples_leaf, __pyx_setprop_6uplift_4tree_9_splitter_8Splitter_min_samples_leaf, (char *)0, 0},
   {(char *)"min_weight_leaf", __pyx_getprop_6uplift_4tree_9_splitter_8Splitter_min_weight_leaf, __pyx_setprop_6uplift_4tree_9_splitter_8Splitter_min_weight_leaf, (char *)0, 0},
+  {(char *)"stat_param", __pyx_getprop_6uplift_4tree_9_splitter_8Splitter_stat_param, __pyx_setprop_6uplift_4tree_9_splitter_8Splitter_stat_param, (char *)0, 0},
   {0, 0, 0, 0, 0}
 };
 
@@ -16195,15 +16478,16 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_setstate, __pyx_k_setstate, sizeof(__pyx_k_setstate), 0, 0, 1, 1},
   {&__pyx_n_s_setstate_cython, __pyx_k_setstate_cython, sizeof(__pyx_k_setstate_cython), 0, 0, 1, 1},
   {&__pyx_n_s_shape, __pyx_k_shape, sizeof(__pyx_k_shape), 0, 0, 1, 1},
+  {&__pyx_n_s_stat_param, __pyx_k_stat_param, sizeof(__pyx_k_stat_param), 0, 0, 1, 1},
   {&__pyx_n_s_strides, __pyx_k_strides, sizeof(__pyx_k_strides), 0, 0, 1, 1},
   {&__pyx_n_s_test, __pyx_k_test, sizeof(__pyx_k_test), 0, 0, 1, 1},
   {&__pyx_kp_u_unknown_dtype_code_in_numpy_pxd, __pyx_k_unknown_dtype_code_in_numpy_pxd, sizeof(__pyx_k_unknown_dtype_code_in_numpy_pxd), 0, 1, 0, 0},
   {0, 0, 0, 0, 0, 0, 0}
 };
 static CYTHON_SMALL_CODE int __Pyx_InitCachedBuiltins(void) {
-  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 140, __pyx_L1_error)
+  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 152, __pyx_L1_error)
   __pyx_builtin_TypeError = __Pyx_GetBuiltinName(__pyx_n_s_TypeError); if (!__pyx_builtin_TypeError) __PYX_ERR(1, 2, __pyx_L1_error)
-  __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_n_s_ValueError); if (!__pyx_builtin_ValueError) __PYX_ERR(0, 866, __pyx_L1_error)
+  __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_n_s_ValueError); if (!__pyx_builtin_ValueError) __PYX_ERR(0, 902, __pyx_L1_error)
   __pyx_builtin_RuntimeError = __Pyx_GetBuiltinName(__pyx_n_s_RuntimeError); if (!__pyx_builtin_RuntimeError) __PYX_ERR(3, 856, __pyx_L1_error)
   __pyx_builtin_ImportError = __Pyx_GetBuiltinName(__pyx_n_s_ImportError); if (!__pyx_builtin_ImportError) __PYX_ERR(3, 1038, __pyx_L1_error)
   return 0;
@@ -16253,14 +16537,14 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__4);
   __Pyx_GIVEREF(__pyx_tuple__4);
 
-  /* "uplift/tree/_splitter.pyx":866
+  /* "uplift/tree/_splitter.pyx":902
  * 
  *         if not isinstance(X, csc_matrix):
  *             raise ValueError("X should be in csc format")             # <<<<<<<<<<<<<<
  * 
  *         cdef SIZE_t* samples = self.samples
  */
-  __pyx_tuple__5 = PyTuple_Pack(1, __pyx_kp_s_X_should_be_in_csc_format); if (unlikely(!__pyx_tuple__5)) __PYX_ERR(0, 866, __pyx_L1_error)
+  __pyx_tuple__5 = PyTuple_Pack(1, __pyx_kp_s_X_should_be_in_csc_format); if (unlikely(!__pyx_tuple__5)) __PYX_ERR(0, 902, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__5);
   __Pyx_GIVEREF(__pyx_tuple__5);
 
@@ -16283,7 +16567,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__7);
   __Pyx_GIVEREF(__pyx_tuple__7);
 
-  /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":272
+  /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":272
  *             if ((flags & pybuf.PyBUF_C_CONTIGUOUS == pybuf.PyBUF_C_CONTIGUOUS)
  *                 and not PyArray_CHKFLAGS(self, NPY_ARRAY_C_CONTIGUOUS)):
  *                 raise ValueError(u"ndarray is not C contiguous")             # <<<<<<<<<<<<<<
@@ -16294,7 +16578,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__8);
   __Pyx_GIVEREF(__pyx_tuple__8);
 
-  /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":276
+  /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":276
  *             if ((flags & pybuf.PyBUF_F_CONTIGUOUS == pybuf.PyBUF_F_CONTIGUOUS)
  *                 and not PyArray_CHKFLAGS(self, NPY_ARRAY_F_CONTIGUOUS)):
  *                 raise ValueError(u"ndarray is not Fortran contiguous")             # <<<<<<<<<<<<<<
@@ -16305,7 +16589,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__9);
   __Pyx_GIVEREF(__pyx_tuple__9);
 
-  /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":306
+  /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":306
  *                 if ((descr.byteorder == c'>' and little_endian) or
  *                     (descr.byteorder == c'<' and not little_endian)):
  *                     raise ValueError(u"Non-native byte order not supported")             # <<<<<<<<<<<<<<
@@ -16316,7 +16600,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__10);
   __Pyx_GIVEREF(__pyx_tuple__10);
 
-  /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":856
+  /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":856
  * 
  *         if (end - f) - <int>(new_offset - offset[0]) < 15:
  *             raise RuntimeError(u"Format string allocated too short, see comment in numpy.pxd")             # <<<<<<<<<<<<<<
@@ -16327,7 +16611,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__11);
   __Pyx_GIVEREF(__pyx_tuple__11);
 
-  /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":880
+  /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":880
  *             t = child.type_num
  *             if end - f < 5:
  *                 raise RuntimeError(u"Format string allocated too short.")             # <<<<<<<<<<<<<<
@@ -16338,7 +16622,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__12);
   __Pyx_GIVEREF(__pyx_tuple__12);
 
-  /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1038
+  /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1038
  *         _import_array()
  *     except Exception:
  *         raise ImportError("numpy.core.multiarray failed to import")             # <<<<<<<<<<<<<<
@@ -16349,7 +16633,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__13);
   __Pyx_GIVEREF(__pyx_tuple__13);
 
-  /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1044
+  /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1044
  *         _import_umath()
  *     except Exception:
  *         raise ImportError("numpy.core.umath failed to import")             # <<<<<<<<<<<<<<
@@ -16416,59 +16700,59 @@ static int __Pyx_modinit_type_init_code(void) {
   __pyx_vtable_6uplift_4tree_9_splitter_Splitter.node_split = (void (*)(struct __pyx_obj_6uplift_4tree_9_splitter_Splitter *, double, struct __pyx_t_6uplift_4tree_9_splitter_SplitRecord *, __pyx_t_6uplift_4tree_9_splitter_SIZE_t *))__pyx_f_6uplift_4tree_9_splitter_8Splitter_node_split;
   __pyx_vtable_6uplift_4tree_9_splitter_Splitter.node_value = (void (*)(struct __pyx_obj_6uplift_4tree_9_splitter_Splitter *, double *))__pyx_f_6uplift_4tree_9_splitter_8Splitter_node_value;
   __pyx_vtable_6uplift_4tree_9_splitter_Splitter.node_impurity = (double (*)(struct __pyx_obj_6uplift_4tree_9_splitter_Splitter *))__pyx_f_6uplift_4tree_9_splitter_8Splitter_node_impurity;
-  if (PyType_Ready(&__pyx_type_6uplift_4tree_9_splitter_Splitter) < 0) __PYX_ERR(0, 41, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_6uplift_4tree_9_splitter_Splitter) < 0) __PYX_ERR(0, 51, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_6uplift_4tree_9_splitter_Splitter.tp_print = 0;
   #endif
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_6uplift_4tree_9_splitter_Splitter.tp_dictoffset && __pyx_type_6uplift_4tree_9_splitter_Splitter.tp_getattro == PyObject_GenericGetAttr)) {
     __pyx_type_6uplift_4tree_9_splitter_Splitter.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (__Pyx_SetVtable(__pyx_type_6uplift_4tree_9_splitter_Splitter.tp_dict, __pyx_vtabptr_6uplift_4tree_9_splitter_Splitter) < 0) __PYX_ERR(0, 41, __pyx_L1_error)
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_Splitter, (PyObject *)&__pyx_type_6uplift_4tree_9_splitter_Splitter) < 0) __PYX_ERR(0, 41, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_6uplift_4tree_9_splitter_Splitter) < 0) __PYX_ERR(0, 41, __pyx_L1_error)
+  if (__Pyx_SetVtable(__pyx_type_6uplift_4tree_9_splitter_Splitter.tp_dict, __pyx_vtabptr_6uplift_4tree_9_splitter_Splitter) < 0) __PYX_ERR(0, 51, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_Splitter, (PyObject *)&__pyx_type_6uplift_4tree_9_splitter_Splitter) < 0) __PYX_ERR(0, 51, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_6uplift_4tree_9_splitter_Splitter) < 0) __PYX_ERR(0, 51, __pyx_L1_error)
   __pyx_ptype_6uplift_4tree_9_splitter_Splitter = &__pyx_type_6uplift_4tree_9_splitter_Splitter;
   __pyx_vtabptr_6uplift_4tree_9_splitter_BaseDenseSplitter = &__pyx_vtable_6uplift_4tree_9_splitter_BaseDenseSplitter;
   __pyx_vtable_6uplift_4tree_9_splitter_BaseDenseSplitter.__pyx_base = *__pyx_vtabptr_6uplift_4tree_9_splitter_Splitter;
   __pyx_vtable_6uplift_4tree_9_splitter_BaseDenseSplitter.__pyx_base.init = (void (*)(struct __pyx_obj_6uplift_4tree_9_splitter_Splitter *, PyObject *, PyArrayObject *, __pyx_t_6uplift_4tree_9_splitter_DOUBLE_t *, struct __pyx_opt_args_6uplift_4tree_9_splitter_8Splitter_init *__pyx_optional_args))__pyx_f_6uplift_4tree_9_splitter_17BaseDenseSplitter_init;
   __pyx_type_6uplift_4tree_9_splitter_BaseDenseSplitter.tp_base = __pyx_ptype_6uplift_4tree_9_splitter_Splitter;
-  if (PyType_Ready(&__pyx_type_6uplift_4tree_9_splitter_BaseDenseSplitter) < 0) __PYX_ERR(0, 219, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_6uplift_4tree_9_splitter_BaseDenseSplitter) < 0) __PYX_ERR(0, 231, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_6uplift_4tree_9_splitter_BaseDenseSplitter.tp_print = 0;
   #endif
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_6uplift_4tree_9_splitter_BaseDenseSplitter.tp_dictoffset && __pyx_type_6uplift_4tree_9_splitter_BaseDenseSplitter.tp_getattro == PyObject_GenericGetAttr)) {
     __pyx_type_6uplift_4tree_9_splitter_BaseDenseSplitter.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (__Pyx_SetVtable(__pyx_type_6uplift_4tree_9_splitter_BaseDenseSplitter.tp_dict, __pyx_vtabptr_6uplift_4tree_9_splitter_BaseDenseSplitter) < 0) __PYX_ERR(0, 219, __pyx_L1_error)
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_BaseDenseSplitter, (PyObject *)&__pyx_type_6uplift_4tree_9_splitter_BaseDenseSplitter) < 0) __PYX_ERR(0, 219, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_6uplift_4tree_9_splitter_BaseDenseSplitter) < 0) __PYX_ERR(0, 219, __pyx_L1_error)
+  if (__Pyx_SetVtable(__pyx_type_6uplift_4tree_9_splitter_BaseDenseSplitter.tp_dict, __pyx_vtabptr_6uplift_4tree_9_splitter_BaseDenseSplitter) < 0) __PYX_ERR(0, 231, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_BaseDenseSplitter, (PyObject *)&__pyx_type_6uplift_4tree_9_splitter_BaseDenseSplitter) < 0) __PYX_ERR(0, 231, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_6uplift_4tree_9_splitter_BaseDenseSplitter) < 0) __PYX_ERR(0, 231, __pyx_L1_error)
   __pyx_ptype_6uplift_4tree_9_splitter_BaseDenseSplitter = &__pyx_type_6uplift_4tree_9_splitter_BaseDenseSplitter;
   __pyx_vtabptr_6uplift_4tree_9_splitter_BestSplitter = &__pyx_vtable_6uplift_4tree_9_splitter_BestSplitter;
   __pyx_vtable_6uplift_4tree_9_splitter_BestSplitter.__pyx_base = *__pyx_vtabptr_6uplift_4tree_9_splitter_BaseDenseSplitter;
   __pyx_vtable_6uplift_4tree_9_splitter_BestSplitter.__pyx_base.__pyx_base.node_split = (void (*)(struct __pyx_obj_6uplift_4tree_9_splitter_Splitter *, double, struct __pyx_t_6uplift_4tree_9_splitter_SplitRecord *, __pyx_t_6uplift_4tree_9_splitter_SIZE_t *))__pyx_f_6uplift_4tree_9_splitter_12BestSplitter_node_split;
   __pyx_type_6uplift_4tree_9_splitter_BestSplitter.tp_base = __pyx_ptype_6uplift_4tree_9_splitter_BaseDenseSplitter;
-  if (PyType_Ready(&__pyx_type_6uplift_4tree_9_splitter_BestSplitter) < 0) __PYX_ERR(0, 275, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_6uplift_4tree_9_splitter_BestSplitter) < 0) __PYX_ERR(0, 288, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_6uplift_4tree_9_splitter_BestSplitter.tp_print = 0;
   #endif
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_6uplift_4tree_9_splitter_BestSplitter.tp_dictoffset && __pyx_type_6uplift_4tree_9_splitter_BestSplitter.tp_getattro == PyObject_GenericGetAttr)) {
     __pyx_type_6uplift_4tree_9_splitter_BestSplitter.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (__Pyx_SetVtable(__pyx_type_6uplift_4tree_9_splitter_BestSplitter.tp_dict, __pyx_vtabptr_6uplift_4tree_9_splitter_BestSplitter) < 0) __PYX_ERR(0, 275, __pyx_L1_error)
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_BestSplitter, (PyObject *)&__pyx_type_6uplift_4tree_9_splitter_BestSplitter) < 0) __PYX_ERR(0, 275, __pyx_L1_error)
+  if (__Pyx_SetVtable(__pyx_type_6uplift_4tree_9_splitter_BestSplitter.tp_dict, __pyx_vtabptr_6uplift_4tree_9_splitter_BestSplitter) < 0) __PYX_ERR(0, 288, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_BestSplitter, (PyObject *)&__pyx_type_6uplift_4tree_9_splitter_BestSplitter) < 0) __PYX_ERR(0, 288, __pyx_L1_error)
   __pyx_ptype_6uplift_4tree_9_splitter_BestSplitter = &__pyx_type_6uplift_4tree_9_splitter_BestSplitter;
   __pyx_vtabptr_6uplift_4tree_9_splitter_RandomSplitter = &__pyx_vtable_6uplift_4tree_9_splitter_RandomSplitter;
   __pyx_vtable_6uplift_4tree_9_splitter_RandomSplitter.__pyx_base = *__pyx_vtabptr_6uplift_4tree_9_splitter_BaseDenseSplitter;
   __pyx_vtable_6uplift_4tree_9_splitter_RandomSplitter.__pyx_base.__pyx_base.node_split = (void (*)(struct __pyx_obj_6uplift_4tree_9_splitter_Splitter *, double, struct __pyx_t_6uplift_4tree_9_splitter_SplitRecord *, __pyx_t_6uplift_4tree_9_splitter_SIZE_t *))__pyx_f_6uplift_4tree_9_splitter_14RandomSplitter_node_split;
   __pyx_type_6uplift_4tree_9_splitter_RandomSplitter.tp_base = __pyx_ptype_6uplift_4tree_9_splitter_BaseDenseSplitter;
-  if (PyType_Ready(&__pyx_type_6uplift_4tree_9_splitter_RandomSplitter) < 0) __PYX_ERR(0, 611, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_6uplift_4tree_9_splitter_RandomSplitter) < 0) __PYX_ERR(0, 640, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_6uplift_4tree_9_splitter_RandomSplitter.tp_print = 0;
   #endif
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_6uplift_4tree_9_splitter_RandomSplitter.tp_dictoffset && __pyx_type_6uplift_4tree_9_splitter_RandomSplitter.tp_getattro == PyObject_GenericGetAttr)) {
     __pyx_type_6uplift_4tree_9_splitter_RandomSplitter.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (__Pyx_SetVtable(__pyx_type_6uplift_4tree_9_splitter_RandomSplitter.tp_dict, __pyx_vtabptr_6uplift_4tree_9_splitter_RandomSplitter) < 0) __PYX_ERR(0, 611, __pyx_L1_error)
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_RandomSplitter, (PyObject *)&__pyx_type_6uplift_4tree_9_splitter_RandomSplitter) < 0) __PYX_ERR(0, 611, __pyx_L1_error)
+  if (__Pyx_SetVtable(__pyx_type_6uplift_4tree_9_splitter_RandomSplitter.tp_dict, __pyx_vtabptr_6uplift_4tree_9_splitter_RandomSplitter) < 0) __PYX_ERR(0, 640, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_RandomSplitter, (PyObject *)&__pyx_type_6uplift_4tree_9_splitter_RandomSplitter) < 0) __PYX_ERR(0, 640, __pyx_L1_error)
   __pyx_ptype_6uplift_4tree_9_splitter_RandomSplitter = &__pyx_type_6uplift_4tree_9_splitter_RandomSplitter;
   __pyx_vtabptr_6uplift_4tree_9_splitter_BaseSparseSplitter = &__pyx_vtable_6uplift_4tree_9_splitter_BaseSparseSplitter;
   __pyx_vtable_6uplift_4tree_9_splitter_BaseSparseSplitter.__pyx_base = *__pyx_vtabptr_6uplift_4tree_9_splitter_Splitter;
@@ -16476,44 +16760,44 @@ static int __Pyx_modinit_type_init_code(void) {
   __pyx_vtable_6uplift_4tree_9_splitter_BaseSparseSplitter._partition = (__pyx_t_6uplift_4tree_9_splitter_SIZE_t (*)(struct __pyx_obj_6uplift_4tree_9_splitter_BaseSparseSplitter *, double, __pyx_t_6uplift_4tree_9_splitter_SIZE_t, __pyx_t_6uplift_4tree_9_splitter_SIZE_t, __pyx_t_6uplift_4tree_9_splitter_SIZE_t))__pyx_f_6uplift_4tree_9_splitter_18BaseSparseSplitter__partition;
   __pyx_vtable_6uplift_4tree_9_splitter_BaseSparseSplitter.extract_nnz = (void (*)(struct __pyx_obj_6uplift_4tree_9_splitter_BaseSparseSplitter *, __pyx_t_6uplift_4tree_9_splitter_SIZE_t, __pyx_t_6uplift_4tree_9_splitter_SIZE_t *, __pyx_t_6uplift_4tree_9_splitter_SIZE_t *, int *))__pyx_f_6uplift_4tree_9_splitter_18BaseSparseSplitter_extract_nnz;
   __pyx_type_6uplift_4tree_9_splitter_BaseSparseSplitter.tp_base = __pyx_ptype_6uplift_4tree_9_splitter_Splitter;
-  if (PyType_Ready(&__pyx_type_6uplift_4tree_9_splitter_BaseSparseSplitter) < 0) __PYX_ERR(0, 825, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_6uplift_4tree_9_splitter_BaseSparseSplitter) < 0) __PYX_ERR(0, 861, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_6uplift_4tree_9_splitter_BaseSparseSplitter.tp_print = 0;
   #endif
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_6uplift_4tree_9_splitter_BaseSparseSplitter.tp_dictoffset && __pyx_type_6uplift_4tree_9_splitter_BaseSparseSplitter.tp_getattro == PyObject_GenericGetAttr)) {
     __pyx_type_6uplift_4tree_9_splitter_BaseSparseSplitter.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (__Pyx_SetVtable(__pyx_type_6uplift_4tree_9_splitter_BaseSparseSplitter.tp_dict, __pyx_vtabptr_6uplift_4tree_9_splitter_BaseSparseSplitter) < 0) __PYX_ERR(0, 825, __pyx_L1_error)
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_BaseSparseSplitter, (PyObject *)&__pyx_type_6uplift_4tree_9_splitter_BaseSparseSplitter) < 0) __PYX_ERR(0, 825, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_6uplift_4tree_9_splitter_BaseSparseSplitter) < 0) __PYX_ERR(0, 825, __pyx_L1_error)
+  if (__Pyx_SetVtable(__pyx_type_6uplift_4tree_9_splitter_BaseSparseSplitter.tp_dict, __pyx_vtabptr_6uplift_4tree_9_splitter_BaseSparseSplitter) < 0) __PYX_ERR(0, 861, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_BaseSparseSplitter, (PyObject *)&__pyx_type_6uplift_4tree_9_splitter_BaseSparseSplitter) < 0) __PYX_ERR(0, 861, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_6uplift_4tree_9_splitter_BaseSparseSplitter) < 0) __PYX_ERR(0, 861, __pyx_L1_error)
   __pyx_ptype_6uplift_4tree_9_splitter_BaseSparseSplitter = &__pyx_type_6uplift_4tree_9_splitter_BaseSparseSplitter;
   __pyx_vtabptr_6uplift_4tree_9_splitter_BestSparseSplitter = &__pyx_vtable_6uplift_4tree_9_splitter_BestSparseSplitter;
   __pyx_vtable_6uplift_4tree_9_splitter_BestSparseSplitter.__pyx_base = *__pyx_vtabptr_6uplift_4tree_9_splitter_BaseSparseSplitter;
   __pyx_vtable_6uplift_4tree_9_splitter_BestSparseSplitter.__pyx_base.__pyx_base.node_split = (void (*)(struct __pyx_obj_6uplift_4tree_9_splitter_Splitter *, double, struct __pyx_t_6uplift_4tree_9_splitter_SplitRecord *, __pyx_t_6uplift_4tree_9_splitter_SIZE_t *))__pyx_f_6uplift_4tree_9_splitter_18BestSparseSplitter_node_split;
   __pyx_type_6uplift_4tree_9_splitter_BestSparseSplitter.tp_base = __pyx_ptype_6uplift_4tree_9_splitter_BaseSparseSplitter;
-  if (PyType_Ready(&__pyx_type_6uplift_4tree_9_splitter_BestSparseSplitter) < 0) __PYX_ERR(0, 1145, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_6uplift_4tree_9_splitter_BestSparseSplitter) < 0) __PYX_ERR(0, 1181, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_6uplift_4tree_9_splitter_BestSparseSplitter.tp_print = 0;
   #endif
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_6uplift_4tree_9_splitter_BestSparseSplitter.tp_dictoffset && __pyx_type_6uplift_4tree_9_splitter_BestSparseSplitter.tp_getattro == PyObject_GenericGetAttr)) {
     __pyx_type_6uplift_4tree_9_splitter_BestSparseSplitter.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (__Pyx_SetVtable(__pyx_type_6uplift_4tree_9_splitter_BestSparseSplitter.tp_dict, __pyx_vtabptr_6uplift_4tree_9_splitter_BestSparseSplitter) < 0) __PYX_ERR(0, 1145, __pyx_L1_error)
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_BestSparseSplitter, (PyObject *)&__pyx_type_6uplift_4tree_9_splitter_BestSparseSplitter) < 0) __PYX_ERR(0, 1145, __pyx_L1_error)
+  if (__Pyx_SetVtable(__pyx_type_6uplift_4tree_9_splitter_BestSparseSplitter.tp_dict, __pyx_vtabptr_6uplift_4tree_9_splitter_BestSparseSplitter) < 0) __PYX_ERR(0, 1181, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_BestSparseSplitter, (PyObject *)&__pyx_type_6uplift_4tree_9_splitter_BestSparseSplitter) < 0) __PYX_ERR(0, 1181, __pyx_L1_error)
   __pyx_ptype_6uplift_4tree_9_splitter_BestSparseSplitter = &__pyx_type_6uplift_4tree_9_splitter_BestSparseSplitter;
   __pyx_vtabptr_6uplift_4tree_9_splitter_RandomSparseSplitter = &__pyx_vtable_6uplift_4tree_9_splitter_RandomSparseSplitter;
   __pyx_vtable_6uplift_4tree_9_splitter_RandomSparseSplitter.__pyx_base = *__pyx_vtabptr_6uplift_4tree_9_splitter_BaseSparseSplitter;
   __pyx_vtable_6uplift_4tree_9_splitter_RandomSparseSplitter.__pyx_base.__pyx_base.node_split = (void (*)(struct __pyx_obj_6uplift_4tree_9_splitter_Splitter *, double, struct __pyx_t_6uplift_4tree_9_splitter_SplitRecord *, __pyx_t_6uplift_4tree_9_splitter_SIZE_t *))__pyx_f_6uplift_4tree_9_splitter_20RandomSparseSplitter_node_split;
   __pyx_type_6uplift_4tree_9_splitter_RandomSparseSplitter.tp_base = __pyx_ptype_6uplift_4tree_9_splitter_BaseSparseSplitter;
-  if (PyType_Ready(&__pyx_type_6uplift_4tree_9_splitter_RandomSparseSplitter) < 0) __PYX_ERR(0, 1372, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_6uplift_4tree_9_splitter_RandomSparseSplitter) < 0) __PYX_ERR(0, 1413, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_6uplift_4tree_9_splitter_RandomSparseSplitter.tp_print = 0;
   #endif
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_6uplift_4tree_9_splitter_RandomSparseSplitter.tp_dictoffset && __pyx_type_6uplift_4tree_9_splitter_RandomSparseSplitter.tp_getattro == PyObject_GenericGetAttr)) {
     __pyx_type_6uplift_4tree_9_splitter_RandomSparseSplitter.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (__Pyx_SetVtable(__pyx_type_6uplift_4tree_9_splitter_RandomSparseSplitter.tp_dict, __pyx_vtabptr_6uplift_4tree_9_splitter_RandomSparseSplitter) < 0) __PYX_ERR(0, 1372, __pyx_L1_error)
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_RandomSparseSplitter, (PyObject *)&__pyx_type_6uplift_4tree_9_splitter_RandomSparseSplitter) < 0) __PYX_ERR(0, 1372, __pyx_L1_error)
+  if (__Pyx_SetVtable(__pyx_type_6uplift_4tree_9_splitter_RandomSparseSplitter.tp_dict, __pyx_vtabptr_6uplift_4tree_9_splitter_RandomSparseSplitter) < 0) __PYX_ERR(0, 1413, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_RandomSparseSplitter, (PyObject *)&__pyx_type_6uplift_4tree_9_splitter_RandomSparseSplitter) < 0) __PYX_ERR(0, 1413, __pyx_L1_error)
   __pyx_ptype_6uplift_4tree_9_splitter_RandomSparseSplitter = &__pyx_type_6uplift_4tree_9_splitter_RandomSparseSplitter;
   __Pyx_RefNannyFinishContext();
   return 0;
@@ -16538,6 +16822,16 @@ static int __Pyx_modinit_type_import_code(void) {
   __Pyx_ImportType_CheckSize_Warn);
    if (!__pyx_ptype_7cpython_4type_type) __PYX_ERR(4, 9, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_1 = PyImport_ImportModule(__Pyx_BUILTIN_MODULE_NAME); if (unlikely(!__pyx_t_1)) __PYX_ERR(5, 8, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_ptype_7cpython_4bool_bool = __Pyx_ImportType(__pyx_t_1, __Pyx_BUILTIN_MODULE_NAME, "bool", sizeof(PyBoolObject), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_7cpython_4bool_bool) __PYX_ERR(5, 8, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_1 = PyImport_ImportModule(__Pyx_BUILTIN_MODULE_NAME); if (unlikely(!__pyx_t_1)) __PYX_ERR(6, 15, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_ptype_7cpython_7complex_complex = __Pyx_ImportType(__pyx_t_1, __Pyx_BUILTIN_MODULE_NAME, "complex", sizeof(PyComplexObject), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_7cpython_7complex_complex) __PYX_ERR(6, 15, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_1 = PyImport_ImportModule("numpy"); if (unlikely(!__pyx_t_1)) __PYX_ERR(3, 206, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_ptype_5numpy_dtype = __Pyx_ImportType(__pyx_t_1, "numpy", "dtype", sizeof(PyArray_Descr), __Pyx_ImportType_CheckSize_Ignore);
@@ -16551,20 +16845,20 @@ static int __Pyx_modinit_type_import_code(void) {
   __pyx_ptype_5numpy_ufunc = __Pyx_ImportType(__pyx_t_1, "numpy", "ufunc", sizeof(PyUFuncObject), __Pyx_ImportType_CheckSize_Warn);
    if (!__pyx_ptype_5numpy_ufunc) __PYX_ERR(3, 918, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyImport_ImportModule("uplift.tree._criterion"); if (unlikely(!__pyx_t_1)) __PYX_ERR(5, 13, __pyx_L1_error)
+  __pyx_t_1 = PyImport_ImportModule("uplift.tree._criterion"); if (unlikely(!__pyx_t_1)) __PYX_ERR(7, 21, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_ptype_6uplift_4tree_10_criterion_Criterion = __Pyx_ImportType(__pyx_t_1, "uplift.tree._criterion", "Criterion", sizeof(struct __pyx_obj_6uplift_4tree_10_criterion_Criterion), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_6uplift_4tree_10_criterion_Criterion) __PYX_ERR(5, 13, __pyx_L1_error)
-  __pyx_vtabptr_6uplift_4tree_10_criterion_Criterion = (struct __pyx_vtabstruct_6uplift_4tree_10_criterion_Criterion*)__Pyx_GetVtable(__pyx_ptype_6uplift_4tree_10_criterion_Criterion->tp_dict); if (unlikely(!__pyx_vtabptr_6uplift_4tree_10_criterion_Criterion)) __PYX_ERR(5, 13, __pyx_L1_error)
+   if (!__pyx_ptype_6uplift_4tree_10_criterion_Criterion) __PYX_ERR(7, 21, __pyx_L1_error)
+  __pyx_vtabptr_6uplift_4tree_10_criterion_Criterion = (struct __pyx_vtabstruct_6uplift_4tree_10_criterion_Criterion*)__Pyx_GetVtable(__pyx_ptype_6uplift_4tree_10_criterion_Criterion->tp_dict); if (unlikely(!__pyx_vtabptr_6uplift_4tree_10_criterion_Criterion)) __PYX_ERR(7, 21, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyImport_ImportModule("uplift.tree._utils"); if (unlikely(!__pyx_t_1)) __PYX_ERR(6, 62, __pyx_L1_error)
+  __pyx_t_1 = PyImport_ImportModule("uplift.tree._utils"); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 67, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_ptype_6uplift_4tree_6_utils_Stack = __Pyx_ImportType(__pyx_t_1, "uplift.tree._utils", "Stack", sizeof(struct __pyx_obj_6uplift_4tree_6_utils_Stack), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_6uplift_4tree_6_utils_Stack) __PYX_ERR(6, 62, __pyx_L1_error)
-  __pyx_vtabptr_6uplift_4tree_6_utils_Stack = (struct __pyx_vtabstruct_6uplift_4tree_6_utils_Stack*)__Pyx_GetVtable(__pyx_ptype_6uplift_4tree_6_utils_Stack->tp_dict); if (unlikely(!__pyx_vtabptr_6uplift_4tree_6_utils_Stack)) __PYX_ERR(6, 62, __pyx_L1_error)
+   if (!__pyx_ptype_6uplift_4tree_6_utils_Stack) __PYX_ERR(8, 67, __pyx_L1_error)
+  __pyx_vtabptr_6uplift_4tree_6_utils_Stack = (struct __pyx_vtabstruct_6uplift_4tree_6_utils_Stack*)__Pyx_GetVtable(__pyx_ptype_6uplift_4tree_6_utils_Stack->tp_dict); if (unlikely(!__pyx_vtabptr_6uplift_4tree_6_utils_Stack)) __PYX_ERR(8, 67, __pyx_L1_error)
   __pyx_ptype_6uplift_4tree_6_utils_PriorityHeap = __Pyx_ImportType(__pyx_t_1, "uplift.tree._utils", "PriorityHeap", sizeof(struct __pyx_obj_6uplift_4tree_6_utils_PriorityHeap), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_6uplift_4tree_6_utils_PriorityHeap) __PYX_ERR(6, 91, __pyx_L1_error)
-  __pyx_vtabptr_6uplift_4tree_6_utils_PriorityHeap = (struct __pyx_vtabstruct_6uplift_4tree_6_utils_PriorityHeap*)__Pyx_GetVtable(__pyx_ptype_6uplift_4tree_6_utils_PriorityHeap->tp_dict); if (unlikely(!__pyx_vtabptr_6uplift_4tree_6_utils_PriorityHeap)) __PYX_ERR(6, 91, __pyx_L1_error)
+   if (!__pyx_ptype_6uplift_4tree_6_utils_PriorityHeap) __PYX_ERR(8, 96, __pyx_L1_error)
+  __pyx_vtabptr_6uplift_4tree_6_utils_PriorityHeap = (struct __pyx_vtabstruct_6uplift_4tree_6_utils_PriorityHeap*)__Pyx_GetVtable(__pyx_ptype_6uplift_4tree_6_utils_PriorityHeap->tp_dict); if (unlikely(!__pyx_vtabptr_6uplift_4tree_6_utils_PriorityHeap)) __PYX_ERR(8, 96, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_RefNannyFinishContext();
   return 0;
@@ -16803,65 +17097,83 @@ if (!__Pyx_RefNanny) {
   if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
 
-  /* "uplift/tree/_splitter.pyx":12
- * from libc.string cimport memset
+  /* "uplift/tree/_splitter.pyx":17
+ * from libc.math cimport fabs
  * 
  * import numpy as np             # <<<<<<<<<<<<<<
  * cimport numpy as np
  * np.import_array()
  */
-  __pyx_t_1 = __Pyx_Import(__pyx_n_s_numpy, 0, -1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_Import(__pyx_n_s_numpy, 0, -1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 17, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_np, __pyx_t_1) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_np, __pyx_t_1) < 0) __PYX_ERR(0, 17, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "uplift/tree/_splitter.pyx":14
+  /* "uplift/tree/_splitter.pyx":19
  * import numpy as np
  * cimport numpy as np
  * np.import_array()             # <<<<<<<<<<<<<<
  * 
- * from scipy.sparse import csc_matrix
+ * 
  */
-  __pyx_t_2 = __pyx_f_5numpy_import_array(); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 14, __pyx_L1_error)
+  __pyx_t_2 = __pyx_f_5numpy_import_array(); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 19, __pyx_L1_error)
 
-  /* "uplift/tree/_splitter.pyx":16
- * np.import_array()
+  /* "uplift/tree/_splitter.pyx":22
+ * 
  * 
  * from scipy.sparse import csc_matrix             # <<<<<<<<<<<<<<
  * 
  * from ._utils cimport log
  */
-  __pyx_t_1 = PyList_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 16, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 22, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(__pyx_n_s_csc_matrix);
   __Pyx_GIVEREF(__pyx_n_s_csc_matrix);
   PyList_SET_ITEM(__pyx_t_1, 0, __pyx_n_s_csc_matrix);
-  __pyx_t_3 = __Pyx_Import(__pyx_n_s_scipy_sparse, __pyx_t_1, -1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 16, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_Import(__pyx_n_s_scipy_sparse, __pyx_t_1, -1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 22, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_3, __pyx_n_s_csc_matrix); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 16, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_3, __pyx_n_s_csc_matrix); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 22, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_csc_matrix, __pyx_t_1) < 0) __PYX_ERR(0, 16, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_csc_matrix, __pyx_t_1) < 0) __PYX_ERR(0, 22, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "uplift/tree/_splitter.pyx":24
+  /* "uplift/tree/_splitter.pyx":30
  * from ._utils cimport safe_realloc
  * 
  * cdef double INFINITY = np.inf             # <<<<<<<<<<<<<<
  * 
- * # Mitigate precision differences between 32 bit and 64 bit
+ * cdef int MIN_STAT_PARAMETR = 10000
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 24, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 30, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_inf); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 24, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_inf); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 30, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_4 = __pyx_PyFloat_AsDouble(__pyx_t_1); if (unlikely((__pyx_t_4 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 24, __pyx_L1_error)
+  __pyx_t_4 = __pyx_PyFloat_AsDouble(__pyx_t_1); if (unlikely((__pyx_t_4 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 30, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_6uplift_4tree_9_splitter_INFINITY = __pyx_t_4;
 
-  /* "uplift/tree/_splitter.pyx":27
+  /* "uplift/tree/_splitter.pyx":32
+ * cdef double INFINITY = np.inf
+ * 
+ * cdef int MIN_STAT_PARAMETR = 10000             # <<<<<<<<<<<<<<
+ * cdef int STAT = 0
+ * 
+ */
+  __pyx_v_6uplift_4tree_9_splitter_MIN_STAT_PARAMETR = 0x2710;
+
+  /* "uplift/tree/_splitter.pyx":33
+ * 
+ * cdef int MIN_STAT_PARAMETR = 10000
+ * cdef int STAT = 0             # <<<<<<<<<<<<<<
+ * 
+ * 
+ */
+  __pyx_v_6uplift_4tree_9_splitter_STAT = 0;
+
+  /* "uplift/tree/_splitter.pyx":37
  * 
  * # Mitigate precision differences between 32 bit and 64 bit
  * cdef DTYPE_t FEATURE_THRESHOLD = 1e-7             # <<<<<<<<<<<<<<
@@ -16870,7 +17182,7 @@ if (!__Pyx_RefNanny) {
  */
   __pyx_v_6uplift_4tree_9_splitter_FEATURE_THRESHOLD = 1e-7;
 
-  /* "uplift/tree/_splitter.pyx":31
+  /* "uplift/tree/_splitter.pyx":41
  * # Constant to switch between algorithm non zero value extract algorithm
  * # in SparseSplitter
  * cdef DTYPE_t EXTRACT_NNZ_SWITCH = 0.1             # <<<<<<<<<<<<<<
@@ -16889,7 +17201,7 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_test, __pyx_t_1) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "c:/python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1046
+  /* "C:/Python38/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1046
  *         raise ImportError("numpy.core.umath failed to import")
  * 
  * cdef inline int import_ufunc() except -1:             # <<<<<<<<<<<<<<

@@ -1,4 +1,8 @@
-
+# Authors: Paulius Sarka <paulius.sarka@gmail.com>
+#
+# Based on sklearn/tree/tree.py (BSD 3 clause)
+#
+# Licence: BSD 3 clause
 from abc import ABC
 from abc import abstractmethod
 from math import ceil
@@ -38,7 +42,8 @@ CRITERIA_CLF = {"gini": _criterion.Gini,
                 "entropy": _criterion.Entropy,
                 "uplift_gini": _criterion.UpliftGini,
                 "uplift_entropy": _criterion.UpliftEntropy,
-                "uplift_RadcliffeSurry":_criterion.UpliftRadcliffeSurryTSplit}
+                "uplift_RadcliffeSurry": _criterion.UpliftRadcliffeSurryTSplit,
+                "stat_test": _criterion.StatTest}
 
 CRITERIA_REG = {"mse": _criterion.MSE, "friedman_mse": _criterion.FriedmanMSE}
 
@@ -71,7 +76,7 @@ class BaseDecisionTree(ABC, BaseEstimator):
                  max_leaf_nodes,
                  random_state,
                  class_weight=None,
-                 presort=False):
+                 presort=False,stat_param =10000):
         self.criterion = criterion
         self.splitter = splitter
         self.max_depth = max_depth
@@ -83,6 +88,7 @@ class BaseDecisionTree(ABC, BaseEstimator):
         self.max_leaf_nodes = max_leaf_nodes
         self.class_weight = class_weight
         self.presort = presort
+        self.stat_param = stat_param
 
         self.n_features_ = None
         self.n_outputs_ = None
@@ -207,6 +213,8 @@ class BaseDecisionTree(ABC, BaseEstimator):
             min_samples_leaf = self.min_samples_leaf
         else:  # float
             min_samples_leaf = int(ceil(self.min_samples_leaf * n_samples))
+
+        stat_param = self.stat_param
 
         if isinstance(self.min_samples_split, (numbers.Integral, np.integer)):
             min_samples_split = self.min_samples_split
@@ -340,7 +348,7 @@ class BaseDecisionTree(ABC, BaseEstimator):
                                                 min_samples_leaf,
                                                 min_weight_leaf,
                                                 random_state,
-                                                self.presort)
+                                                self.presort,stat_param)
 
         self.tree_ = Tree(self.n_features_, self.n_classes_, self.n_outputs_)
 
@@ -349,13 +357,13 @@ class BaseDecisionTree(ABC, BaseEstimator):
             builder = DepthFirstTreeBuilder(splitter, min_samples_split,
                                             min_samples_leaf,
                                             min_weight_leaf,
-                                            max_depth)
+                                            max_depth, stat_param)
         else:
             builder = BestFirstTreeBuilder(splitter, min_samples_split,
                                            min_samples_leaf,
                                            min_weight_leaf,
                                            max_depth,
-                                           max_leaf_nodes)
+                                           max_leaf_nodes,stat_param)
 
         builder.build(self.tree_, X, y, sample_weight, X_idx_sorted)
 
@@ -612,7 +620,7 @@ class DecisionTreeClassifier(BaseDecisionTree, ClassifierMixin):
                  random_state=None,
                  max_leaf_nodes=None,
                  class_weight=None,
-                 presort=False):
+                 presort=False,stat_param=10000):
         super(DecisionTreeClassifier, self).__init__(
             criterion=criterion,
             splitter=splitter,
@@ -624,7 +632,7 @@ class DecisionTreeClassifier(BaseDecisionTree, ClassifierMixin):
             max_leaf_nodes=max_leaf_nodes,
             class_weight=class_weight,
             random_state=random_state,
-            presort=presort)
+            presort=presort,stat_param =stat_param)
 
     def predict_uplift(self, X, check_input=True):
         """Predict uplift for X.
@@ -817,7 +825,7 @@ class DecisionTreeRegressor(BaseDecisionTree, RegressorMixin):
                  max_features=None,
                  random_state=None,
                  max_leaf_nodes=None,
-                 presort=False):
+                 presort=False,stat_param=10000):
         super(DecisionTreeRegressor, self).__init__(
             criterion=criterion,
             splitter=splitter,
@@ -828,7 +836,7 @@ class DecisionTreeRegressor(BaseDecisionTree, RegressorMixin):
             max_features=max_features,
             max_leaf_nodes=max_leaf_nodes,
             random_state=random_state,
-            presort=presort)
+            presort=presort,stat_param=stat_param)
 
 
 class ExtraTreeClassifier(DecisionTreeClassifier):
@@ -865,7 +873,7 @@ class ExtraTreeClassifier(DecisionTreeClassifier):
                  max_features="auto",
                  random_state=None,
                  max_leaf_nodes=None,
-                 class_weight=None):
+                 class_weight=None,stat_param=10000):
         super(ExtraTreeClassifier, self).__init__(
             criterion=criterion,
             splitter=splitter,
@@ -876,7 +884,7 @@ class ExtraTreeClassifier(DecisionTreeClassifier):
             max_features=max_features,
             max_leaf_nodes=max_leaf_nodes,
             class_weight=class_weight,
-            random_state=random_state)
+            random_state=random_state,stat_param = stat_param)
 
 
 class ExtraTreeRegressor(DecisionTreeRegressor):
@@ -912,7 +920,7 @@ class ExtraTreeRegressor(DecisionTreeRegressor):
                  min_weight_fraction_leaf=0.,
                  max_features="auto",
                  random_state=None,
-                 max_leaf_nodes=None):
+                 max_leaf_nodes=None,stat_param=10000):
         super(ExtraTreeRegressor, self).__init__(
             criterion=criterion,
             splitter=splitter,
@@ -922,4 +930,4 @@ class ExtraTreeRegressor(DecisionTreeRegressor):
             min_weight_fraction_leaf=min_weight_fraction_leaf,
             max_features=max_features,
             max_leaf_nodes=max_leaf_nodes,
-            random_state=random_state)
+            random_state=random_state,stat_param = stat_param)
