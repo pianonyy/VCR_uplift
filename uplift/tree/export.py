@@ -2,18 +2,102 @@
 This module defines export functions for decision trees.
 """
 
-# Authors: Gilles Louppe <g.louppe@gmail.com>
-#          Peter Prettenhofer <peter.prettenhofer@gmail.com>
-#          Brian Holt <bdholt1@gmail.com>
-#          Noel Dawe <noel@dawe.me>
-#          Satrajit Gosh <satrajit.ghosh@gmail.com>
-#          Trevor Stephens <trev.stephens@gmail.com>
-# Licence: BSD 3 clause
+
 
 import numpy as np
 
 from . import _criterion
 from . import _tree
+
+from sklearn.model_selection import train_test_split
+import numpy as np
+import pandas as pd
+
+def feature_importance(df_dataset, features, num_bins):
+""" Analyse given features in df_dataset and makes descending list of them according to their importance score.
+    
+    Parameters
+    ----------
+    df_dataset : pandas dataframe, using following style:
+    (features(size: n_d),target(size: 1_d),treatmet(size: 1_d))
+
+    features : list, names of using features
+    num_bins : int, for continious features, making steps like (0,10)...(90,100) if num_bins = 10
+    and we have feature, measuring in (0,100) 
+    Notes
+    -----
+    
+    """
+
+    dict_feat ={}
+    indices_train, indices_test = train_test_split(
+         df_dataset.index,
+         test_size=0.3,
+         random_state = 12)
+    regularization = 1.0
+
+    for name_feature in features:
+        df_features_imp = df_dataset.sort_values(name_feature)
+        df_features_imp = df_dataset.reset_index(drop=True)
+        
+        indices_train_bins = np.array_split(indices_train, num_bins)
+        indices_test_bins = np.array_split(indices_test, num_bins)
+        NIV = 0
+        penalty = 0
+        for i in range(0, num_bins):
+            group_train = df_features_imp.iloc[indices_train_bins[i]]
+            group_test = df_features_imp.iloc[indices_test_bins[i]]
+
+            number_of_treat = (group_train.loc[ (group_train['treatment'] == 1) ]).shape[0]
+            number_of_control = (group_train.loc[ (group_train['treatment'] == 0) ]).shape[0]
+
+            number_of_succ_treat = (group_train.loc[(group_train['visit'] == 1) & (group_train['treatment'] == 1)]).shape[0]
+            number_of_succ_control = (group_train.loc[(group_train['visit'] == 1) & (group_train['treatment'] == 0)]).shape[0]
+
+            number_of_fail_control = (group_train.loc[(group_train['visit'] == 0) & (group_train['treatment'] == 0)]).shape[0]
+            number_of_fail_treat = (group_train.loc[(group_train['visit'] == 0) & (group_train['treatment'] == 1)]).shape[0]
+            #print("treat",number_of_treat,"control",number_of_control,"succ_treat", number_of_succ_treat, "succ_control", number_of_succ_control,"fail_treat", number_of_fail_treat,"fail_control",number_of_fail_control)
+
+            succ_rate_treat = number_of_succ_treat / number_of_treat
+            fail_rate_treat = number_of_fail_treat / number_of_treat
+
+            succ_rate_control = number_of_succ_control / number_of_control 
+            fail_rate_control = number_of_fail_control / number_of_control 
+            
+            up = (succ_rate_treat + regularization) / (fail_rate_treat + (2 * regularization))
+            down = (succ_rate_control + regularization) / (fail_rate_control + (2 * regularization))
+            
+            NWOE_train = np.log(up / down)
+            
+            NIV += (succ_rate_treat * fail_rate_control - fail_rate_treat * succ_rate_control) * NWOE_train
+            
+            number_of_treat = (group_test.loc[ (group_test['treatment'] == 1) ]).shape[0]
+            number_of_control = (group_test.loc[ (group_test['treatment'] == 0) ]).shape[0]
+
+            number_of_succ_treat = (group_test.loc[(group_test['visit'] == 1) & (group_test['treatment'] == 1)]).shape[0]
+            number_of_succ_control = (group_test.loc[(group_test['visit'] == 1) & (group_test['treatment'] == 0)]).shape[0]
+
+            number_of_fail_control = (group_test.loc[(group_test['visit'] == 0) & (group_test['treatment'] == 0)]).shape[0]
+            number_of_fail_treat = (group_test.loc[(group_test['visit'] == 0) & (group_test['treatment'] == 1)]).shape[0]
+            #print("treat",number_of_treat,"control",number_of_control,"succ_treat", number_of_succ_treat, "succ_control", number_of_succ_control,"fail_treat", number_of_fail_treat,"fail_control",number_of_fail_control)
+
+            succ_rate_treat = number_of_succ_treat / number_of_treat
+            fail_rate_treat = number_of_fail_treat / number_of_treat
+
+            succ_rate_control = number_of_succ_control / number_of_control 
+            fail_rate_control = number_of_fail_control / number_of_control 
+            
+            up = (succ_rate_treat + regularization) / (fail_rate_treat + (2 * regularization))
+            down = (succ_rate_control + regularization) / (fail_rate_control + (2 * regularization))
+            
+            NWOE_test = np.log(up / down)
+            
+            w = abs(NWOE_train-NWOE_test)
+            penalty += (succ_rate_treat * fail_rate_control - fail_rate_treat * succ_rate_control) * w
+            
+        
+        dict_feat[name_feature] = NIV - penalty
+    return dict_feat
 
 
 def _color_brew(n):
