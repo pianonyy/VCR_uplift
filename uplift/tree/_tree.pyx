@@ -2,18 +2,7 @@
 # cython: boundscheck=False
 # cython: wraparound=False
 
-# Authors: Gilles Louppe <g.louppe@gmail.com>
-#          Peter Prettenhofer <peter.prettenhofer@gmail.com>
-#          Brian Holt <bdholt1@gmail.com>
-#          Noel Dawe <noel@dawe.me>
-#          Satrajit Gosh <satrajit.ghosh@gmail.com>
-#          Lars Buitinck
-#          Arnaud Joly <arnaud.v.joly@gmail.com>
-#          Joel Nothman <joel.nothman@gmail.com>
-#          Fares Hedayati <fares.hedayati@gmail.com>
-#          Jacob Schreiber <jmschreiber91@gmail.com>
-#
-# Licence: BSD 3 clause
+
 
 from cpython cimport Py_INCREF, PyObject
 
@@ -131,12 +120,13 @@ cdef class DepthFirstTreeBuilder(TreeBuilder):
 
     def __cinit__(self, Splitter splitter, SIZE_t min_samples_split,
                   SIZE_t min_samples_leaf, double min_weight_leaf,
-                  SIZE_t max_depth):
+                  SIZE_t max_depth,double stat_param):
         self.splitter = splitter
         self.min_samples_split = min_samples_split
         self.min_samples_leaf = min_samples_leaf
         self.min_weight_leaf = min_weight_leaf
         self.max_depth = max_depth
+        self.stat_param = stat_param
 
     cpdef build(self, Tree tree, object X, np.ndarray y,
                 np.ndarray sample_weight=None,
@@ -166,6 +156,7 @@ cdef class DepthFirstTreeBuilder(TreeBuilder):
         cdef SIZE_t min_samples_leaf = self.min_samples_leaf
         cdef double min_weight_leaf = self.min_weight_leaf
         cdef SIZE_t min_samples_split = self.min_samples_split
+        cdef double stat_param = self.stat_param
 
         # Recursive partition (without actual recursion)
         splitter.init(X, y, sample_weight_ptr, X_idx_sorted)
@@ -217,7 +208,7 @@ cdef class DepthFirstTreeBuilder(TreeBuilder):
                 is_leaf = ((depth >= max_depth) or
                            (n_node_samples < min_samples_split) or
                            (n_node_samples < 2 * min_samples_leaf) or
-                           (weighted_n_node_samples < min_weight_leaf))
+                           (weighted_n_node_samples < min_weight_leaf) )
 
                 if first:
                     impurity = splitter.node_impurity()
@@ -289,13 +280,14 @@ cdef class BestFirstTreeBuilder(TreeBuilder):
 
     def __cinit__(self, Splitter splitter, SIZE_t min_samples_split,
                   SIZE_t min_samples_leaf,  min_weight_leaf,
-                  SIZE_t max_depth, SIZE_t max_leaf_nodes):
+                  SIZE_t max_depth, SIZE_t max_leaf_nodes, double stat_param):
         self.splitter = splitter
         self.min_samples_split = min_samples_split
         self.min_samples_leaf = min_samples_leaf
         self.min_weight_leaf = min_weight_leaf
         self.max_depth = max_depth
         self.max_leaf_nodes = max_leaf_nodes
+        self.stat_param = stat_param
 
     cpdef build(self, Tree tree, object X, np.ndarray y,
                 np.ndarray sample_weight=None,
@@ -315,6 +307,7 @@ cdef class BestFirstTreeBuilder(TreeBuilder):
         cdef SIZE_t min_samples_leaf = self.min_samples_leaf
         cdef double min_weight_leaf = self.min_weight_leaf
         cdef SIZE_t min_samples_split = self.min_samples_split
+        cdef double stat_param = stat_param
 
         # Recursive partition (without actual recursion)
         splitter.init(X, y, sample_weight_ptr, X_idx_sorted)
