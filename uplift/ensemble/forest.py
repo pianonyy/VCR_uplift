@@ -813,14 +813,14 @@ class RandomForestClassifier(ForestClassifier):
                  random_state=None,
                  verbose=0,
                  warm_start=False,
-                 class_weight=None,stat_param=1000.0):
+                 class_weight=None):
         super(RandomForestClassifier, self).__init__(
             base_estimator=DecisionTreeClassifier(),
             n_estimators=n_estimators,
             estimator_params=("criterion", "max_depth", "min_samples_split",
                               "min_samples_leaf", "min_weight_fraction_leaf",
                               "max_features", "max_leaf_nodes",
-                              "random_state","stat_param"),
+                              "random_state"),
             bootstrap=bootstrap,
             oob_score=oob_score,
             n_jobs=n_jobs,
@@ -836,7 +836,6 @@ class RandomForestClassifier(ForestClassifier):
         self.min_weight_fraction_leaf = min_weight_fraction_leaf
         self.max_features = max_features
         self.max_leaf_nodes = max_leaf_nodes
-        self.stat_param=stat_param
 
 
 class RandomForestRegressor(ForestRegressor):
@@ -976,14 +975,14 @@ class RandomForestRegressor(ForestRegressor):
                  n_jobs=1,
                  random_state=None,
                  verbose=0,
-                 warm_start=False,stat_param=1000.0):
+                 warm_start=False):
         super(RandomForestRegressor, self).__init__(
             base_estimator=DecisionTreeRegressor(),
             n_estimators=n_estimators,
             estimator_params=("criterion", "max_depth", "min_samples_split",
                               "min_samples_leaf", "min_weight_fraction_leaf",
                               "max_features", "max_leaf_nodes",
-                              "random_state","stat_param"),
+                              "random_state"),
             bootstrap=bootstrap,
             oob_score=oob_score,
             n_jobs=n_jobs,
@@ -998,7 +997,6 @@ class RandomForestRegressor(ForestRegressor):
         self.min_weight_fraction_leaf = min_weight_fraction_leaf
         self.max_features = max_features
         self.max_leaf_nodes = max_leaf_nodes
-        self.stat_param=stat_param
 
 
 class ExtraTreesClassifier(ForestClassifier):
@@ -1169,14 +1167,14 @@ class ExtraTreesClassifier(ForestClassifier):
                  random_state=None,
                  verbose=0,
                  warm_start=False,
-                 class_weight=None,stat_param=1000.0):
+                 class_weight=None):
         super(ExtraTreesClassifier, self).__init__(
             base_estimator=ExtraTreeClassifier(),
             n_estimators=n_estimators,
             estimator_params=("criterion", "max_depth", "min_samples_split",
                               "min_samples_leaf", "min_weight_fraction_leaf",
                               "max_features", "max_leaf_nodes",
-                              "random_state", "stat_param"),
+                              "random_state"),
             bootstrap=bootstrap,
             oob_score=oob_score,
             n_jobs=n_jobs,
@@ -1192,7 +1190,6 @@ class ExtraTreesClassifier(ForestClassifier):
         self.min_weight_fraction_leaf = min_weight_fraction_leaf
         self.max_features = max_features
         self.max_leaf_nodes = max_leaf_nodes
-        self.stat_param = stat_param
 
 
 class ExtraTreesRegressor(ForestRegressor):
@@ -1331,14 +1328,14 @@ class ExtraTreesRegressor(ForestRegressor):
                  n_jobs=1,
                  random_state=None,
                  verbose=0,
-                 warm_start=False,stat_param=1000.0):
+                 warm_start=False):
         super(ExtraTreesRegressor, self).__init__(
             base_estimator=ExtraTreeRegressor(),
             n_estimators=n_estimators,
             estimator_params=("criterion", "max_depth", "min_samples_split",
                               "min_samples_leaf", "min_weight_fraction_leaf",
                               "max_features", "max_leaf_nodes",
-                              "random_state","stat_param"),
+                              "random_state"),
             bootstrap=bootstrap,
             oob_score=oob_score,
             n_jobs=n_jobs,
@@ -1353,7 +1350,6 @@ class ExtraTreesRegressor(ForestRegressor):
         self.min_weight_fraction_leaf = min_weight_fraction_leaf
         self.max_features = max_features
         self.max_leaf_nodes = max_leaf_nodes
-        self.stat_param = stat_param
 
 
 class RandomTreesEmbedding(BaseForest):
@@ -1456,14 +1452,14 @@ class RandomTreesEmbedding(BaseForest):
                  n_jobs=1,
                  random_state=None,
                  verbose=0,
-                 warm_start=False,stat_param = 1000.0):
+                 warm_start=False):
         super(RandomTreesEmbedding, self).__init__(
             base_estimator=ExtraTreeRegressor(),
             n_estimators=n_estimators,
             estimator_params=("criterion", "max_depth", "min_samples_split",
                               "min_samples_leaf", "min_weight_fraction_leaf",
                               "max_features", "max_leaf_nodes",
-                              "random_state","stat_param"),
+                              "random_state"),
             bootstrap=False,
             oob_score=False,
             n_jobs=n_jobs,
@@ -1479,7 +1475,6 @@ class RandomTreesEmbedding(BaseForest):
         self.max_features = 1
         self.max_leaf_nodes = max_leaf_nodes
         self.sparse_output = sparse_output
-        self.stat_param=stat_param
 
     def _set_oob_score(self, X, y):
         raise NotImplementedError("OOB score not supported by tree embedding")
