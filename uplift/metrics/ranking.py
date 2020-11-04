@@ -42,26 +42,19 @@ def qini_curve(y_true, uplift, treatment): #think about names uplift score?
 
     return num_all, curve_values
 
-def perfect_qini_curve(y_true, treatment, negative_effect=True):
+def perfect_qini_curve(y_true, treatment):
   
     check_consistent_length(y_true, treatment)
     n_samples = len(y_true)
 
     y_true, treatment = np.array(y_true), np.array(treatment)
 
-    if not isinstance(negative_effect, bool):
-        raise TypeError(f'Negative_effects flag should be bool, got: {type(negative_effect)}')
-
-    # express an ideal uplift curve through y_true and treatment
-    if negative_effect:
-        x_perfect, y_perfect = qini_curve(
+    
+    
+    x_perfect, y_perfect = qini_curve(
             y_true, y_true * treatment - y_true * (1 - treatment), treatment
-        )
-    else:
-        ratio_random = (y_true[treatment == 1].sum() - len(y_true[treatment == 1]) *
-                        y_true[treatment == 0].sum() / len(y_true[treatment == 0]))
-
-        x_perfect, y_perfect = np.array([0, ratio_random, n_samples]), np.array([0, ratio_random, ratio_random])
+    )
+    
 
     return x_perfect, y_perfect
 

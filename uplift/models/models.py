@@ -96,7 +96,7 @@ class ClassTransformation(BaseEstimator):
 
 class TwoModels(BaseEstimator):
     
-    def __init__(self, estimator_trmnt, estimator_ctrl, method='vanilla'):
+    def __init__(self, estimator_trmnt, estimator_ctrl, method='two_independent'):
         self.estimator_trmnt = estimator_trmnt
         self.estimator_ctrl = estimator_ctrl
         self.method = method
@@ -104,7 +104,7 @@ class TwoModels(BaseEstimator):
         self.ctrl_preds_ = None
         self._type_of_target = None
 
-        all_methods = ['vanilla', 'ddr_control', 'ddr_treatment']
+        all_methods = ['two_independent', 'two_dependent_control', 'two_dependent_treatment']
         if method not in all_methods:
             raise ValueError("Two models approach supports only methods in %s, got"
                              " %s." % (all_methods, method))
@@ -125,7 +125,7 @@ class TwoModels(BaseEstimator):
         if estimator_ctrl_fit_params is None:
             estimator_ctrl_fit_params = {}
 
-        if self.method == 'vanilla':
+        if self.method == 'two_independent':
             self.estimator_ctrl.fit(
                 X_ctrl, y_ctrl, **estimator_ctrl_fit_params
             )
@@ -133,19 +133,19 @@ class TwoModels(BaseEstimator):
                 X_trmnt, y_trmnt, **estimator_trmnt_fit_params
             )
 
-        if self.method == 'ddr_control':
+        if self.method == 'two_dependent_control':
             self.estimator_ctrl.fit(
                 X_ctrl, y_ctrl, **estimator_ctrl_fit_params
             )
             if self._type_of_target == 'binary':
-                ddr_control = self.estimator_ctrl.predict_proba(X_trmnt)[:, 1]
+                two_dependent_control = self.estimator_ctrl.predict_proba(X_trmnt)[:, 1]
             else:
-                ddr_control = self.estimator_ctrl.predict_(X_trmnt)
+                two_dependent_control = self.estimator_ctrl.predict_(X_trmnt)
 
             if isinstance(X_trmnt, np.ndarray):
-                X_trmnt_mod = np.column_stack((X_trmnt, ddr_control))
+                X_trmnt_mod = np.column_stack((X_trmnt, two_dependent_control))
             elif isinstance(X_trmnt, pd.core.frame.DataFrame):
-                X_trmnt_mod = X_trmnt.assign(ddr_control=ddr_control)
+                X_trmnt_mod = X_trmnt.assign(two_dependent_control=two_dependent_control)
             else:
                 raise TypeError("Expected numpy.ndarray or pandas.DataFrame, got %s" % type(X_trmnt))
 
@@ -153,19 +153,19 @@ class TwoModels(BaseEstimator):
                 X_trmnt_mod, y_trmnt, **estimator_trmnt_fit_params
             )
 
-        if self.method == 'ddr_treatment':
+        if self.method == 'two_dependent_treatment':
             self.estimator_trmnt.fit(
                 X_trmnt, y_trmnt, **estimator_trmnt_fit_params
             )
             if self._type_of_target == 'binary':
-                ddr_treatment = self.estimator_trmnt.predict_proba(X_ctrl)[:, 1]
+                two_dependent_treatment = self.estimator_trmnt.predict_proba(X_ctrl)[:, 1]
             else:
-                ddr_treatment = self.estimator_trmnt.predict(X_ctrl)[:, 1]
+                two_dependent_treatment = self.estimator_trmnt.predict(X_ctrl)[:, 1]
 
             if isinstance(X_ctrl, np.ndarray):
-                X_ctrl_mod = np.column_stack((X_ctrl, ddr_treatment))
+                X_ctrl_mod = np.column_stack((X_ctrl, two_dependent_treatment))
             elif isinstance(X_trmnt, pd.core.frame.DataFrame):
-                X_ctrl_mod = X_ctrl.assign(ddr_treatment=ddr_treatment)
+                X_ctrl_mod = X_ctrl.assign(two_dependent_treatment=two_dependent_treatment)
             else:
                 raise TypeError("Expected numpy.ndarray or pandas.DataFrame, got %s" % type(X_ctrl))
 
@@ -177,7 +177,7 @@ class TwoModels(BaseEstimator):
 
     def predict(self, X):
      
-        if self.method == 'ddr_control':
+        if self.method == 'two_dependent_control':
             if self._type_of_target == 'binary':
                 self.ctrl_preds_ = self.estimator_ctrl.predict_proba(X)[:, 1]
             else:
@@ -186,12 +186,12 @@ class TwoModels(BaseEstimator):
             if isinstance(X, np.ndarray):
                 X_mod = np.column_stack((X, self.ctrl_preds_))
             elif isinstance(X, pd.core.frame.DataFrame):
-                X_mod = X.assign(ddr_control=self.ctrl_preds_)
+                X_mod = X.assign(two_dependent_control=self.ctrl_preds_)
             else:
                 raise TypeError("Expected numpy.ndarray or pandas.DataFrame, got %s" % type(X_mod))
             self.trmnt_preds_ = self.estimator_trmnt.predict_proba(X_mod)[:, 1]
 
-        elif self.method == 'ddr_treatment':
+        elif self.method == 'two_dependent_treatment':
             if self._type_of_target == 'binary':
                 self.trmnt_preds_ = self.estimator_trmnt.predict_proba(X)[:, 1]
             else:
@@ -200,7 +200,7 @@ class TwoModels(BaseEstimator):
             if isinstance(X, np.ndarray):
                 X_mod = np.column_stack((X, self.trmnt_preds_))
             elif isinstance(X, pd.core.frame.DataFrame):
-                X_mod = X.assign(ddr_treatment=self.trmnt_preds_)
+                X_mod = X.assign(two_dependent_treatment=self.trmnt_preds_)
             else:
                 raise TypeError("Expected numpy.ndarray or pandas.DataFrame, got %s" % type(X_mod))
             self.ctrl_preds_ = self.estimator_ctrl.predict_proba(X_mod)[:, 1]

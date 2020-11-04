@@ -28,7 +28,7 @@ def feature_importance(df_dataset, features, num_bins):
     -----
     
     """
-
+    
     dict_feat ={}
     indices_train, indices_test = train_test_split(
          df_dataset.index,
