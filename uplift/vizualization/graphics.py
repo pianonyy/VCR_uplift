@@ -26,8 +26,7 @@ def plot_qini_curve(y_reactions, uplift_score, treatment, random=True, perfect=T
     if perfect:
         x_perfect, y_perfect = perfect_qini_curve(y_reactions, treatment)
         pylab.plot(x_perfect, y_perfect, label='Perfect model', color='Red')
-        
-    pylab.fill_between(x_actual,y_baseline,y_actual,color="red")
+
     pylab.grid(True)
     pylab.xlabel('Treat num')
     pylab.ylabel('Uplift reactions')

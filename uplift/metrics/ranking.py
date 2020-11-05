@@ -24,7 +24,7 @@ def qini_curve(y_true, uplift, treatment): #think about names uplift score?
     distinct_value_indices = np.where(np.diff(uplift))[0]
     threshold_indices = np.r_[distinct_value_indices, uplift.size - 1]
 
-    #print(threshold_indices.size)
+    print(threshold_indices.size)
 
     num_trmnt = stable_cumsum(treatment)[threshold_indices]
     y_trmnt = stable_cumsum(y_true_trmnt)[threshold_indices]
@@ -66,22 +66,17 @@ def qini_auc_score(y_true, uplift, treatment, negative_effect=True):
 
     y_true, uplift, treatment = np.array(y_true), np.array(uplift), np.array(treatment)
 
-    treatment_count = np.count_nonzero(treatment == 1)
+   
 
-
-    x_model, y_model = qini_curve(y_true, uplift, treatment)
-    x_perfect, y_perfect = perfect_qini_curve(y_true, treatment)
+    x_actual, y_actual = qini_curve(y_true, uplift, treatment)
+    x_perfect, y_perfect = perfect_qini_curve(y_true, treatment, negative_effect)
     x_baseline, y_baseline = np.array([0, x_perfect[-1]]), np.array([0, y_perfect[-1]])
-    
-    # print(np.size(treatment))
-    #x_baseline, y_baseline = np.array([np.arange(0, np.size(treatment))]), np.array([0, y_perfect[-1]])
-    
 
     auc_score_baseline = auc(x_baseline, y_baseline)
     auc_score_perfect = auc(x_perfect, y_perfect) - auc_score_baseline
-    auc_score_model = auc(x_model, y_model) - auc_score_baseline
+    auc_score_actual = auc(x_actual, y_actual) - auc_score_baseline
 
-    return auc_score_model
+    return auc_score_actual / auc_score_perfect
 
 
 
