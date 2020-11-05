@@ -12,33 +12,35 @@ from . import _tree
 from sklearn.model_selection import train_test_split
 import numpy as np
 import pandas as pd
+import matplotlib.pyplot as plt
 
-def feature_importance(df_dataset, features, num_bins):
-""" Analyse given features in df_dataset and makes descending list of them according to their importance score.
-    
-    Parameters
-    ----------
-    df_dataset : pandas dataframe, using following style:
-    (features(size: n_d),target(size: 1_d),treatmet(size: 1_d))
 
-    features : list, names of using features
-    num_bins : int, for continious features, making steps like (0,10)...(90,100) if num_bins = 10
-    and we have feature, measuring in (0,100) 
-    Notes
-    -----
+def feature_importance(df_features_imp, features, num_bins,regularization, penalty):
+    # Analyse given features in df_dataset and makes descending list of them according to their importance score.
     
-    """
-    
+    # Parameters
+    # ----------
+    # df_dataset : pandas dataframe, using following style:
+    # (features(size: n_d),target(size: 1_d),treatmet(size: 1_d))
+
+    # features : list, names of using features
+    # num_bins : int, for continious features, making steps like (0,10)...(90,100) if num_bins = 10
+    # and we have feature, measuring in (0,100)
+    # Returns:
+    # dict of scoref features and draw the plot
+
     dict_feat ={}
+
     indices_train, indices_test = train_test_split(
-         df_dataset.index,
+         df_features_imp.index,
          test_size=0.3,
-         random_state = 12)
-    regularization = 1.0
+         random_state = 12
+    )
+    
 
     for name_feature in features:
-        df_features_imp = df_dataset.sort_values(name_feature)
-        df_features_imp = df_dataset.reset_index(drop=True)
+        df_features_imp = df_features_imp.sort_values(name_feature)
+        df_features_imp = df_features_imp.reset_index(drop=True)
         
         indices_train_bins = np.array_split(indices_train, num_bins)
         indices_test_bins = np.array_split(indices_test, num_bins)
@@ -95,8 +97,25 @@ def feature_importance(df_dataset, features, num_bins):
             w = abs(NWOE_train-NWOE_test)
             penalty += (succ_rate_treat * fail_rate_control - fail_rate_treat * succ_rate_control) * w
             
-        
-        dict_feat[name_feature] = NIV - penalty
+        if penalty:
+            dict_feat[name_feature] = NIV - penalty
+        else:
+            dict_feat[name_feature] = NIV
+
+    height = []
+    features =[]
+    list_d = list(dict_feat.items())
+    list_d.sort(key=lambda i: i[1],reverse=True)
+    for i in list_d:
+        height.append(i[1])
+        features.append(i[0])
+    
+    y_pos = np.arange(len(features))
+ 
+    plt.barh(y_pos, height)
+    plt.yticks(y_pos, features)
+    plt.show()
+
     return dict_feat
 
 
