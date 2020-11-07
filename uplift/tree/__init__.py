@@ -10,6 +10,7 @@ from .tree import ExtraTreeClassifier
 from .tree import ExtraTreeRegressor
 from .export import export_graphviz
 from .export import feature_importance
+from .export import uplift_adaboost
 
 
 __all__ = ["DecisionTreeClassifier", "DecisionTreeRegressor",

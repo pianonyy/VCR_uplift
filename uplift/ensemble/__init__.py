@@ -9,3 +9,5 @@ from uplift.ensemble.bagging import BaggingRegressor
 
 from uplift.ensemble import bagging
 from uplift.ensemble import forest
+
+from uplift.ensemble.uplift_adaboost import uplift_adaboost
