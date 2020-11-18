@@ -14,6 +14,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.utils.validation import check_consistent_length
+from goto import with_goto
 
 def error(group_type, X, Y):
     Y=np.array(Y)
@@ -34,7 +35,7 @@ def uplift_adaboost(n_estimators, estimator, X_train, Y_train, treatment_train):
     
 
     check_consistent_length(X_train, Y_train, treatment_train)
-    
+    #check_consistent_length(X_test, Y_test, treatment_test)
 
     treat_records_x = X_train[treatment_train == 1] 
     control_records_x = X_train[treatment_train == 0]
@@ -53,9 +54,10 @@ def uplift_adaboost(n_estimators, estimator, X_train, Y_train, treatment_train):
 
     #weight_array_list_control.append(control_weights)
     #weight_array_list_treatment.append(treatment_weights)
-    
+    sum_all = np.zeros(X_train.shape[0])
+    sum_logs = np.zeros(X_train.shape[0])
     for i in range(0,n_estimators):
-        
+        label .begin
         treat_weights = treat_weights / (treat_weights.sum() + control_weights.sum())
         control_weights = control_weights / (treat_weights.sum() + control_weights.sum())
         #add weights to X_train
@@ -71,9 +73,10 @@ def uplift_adaboost(n_estimators, estimator, X_train, Y_train, treatment_train):
         
         uplift_score_t = estimator.predict_uplift(treat_records_x)
         uplift_score_c = estimator.predict_uplift(control_records_x)
-
+        
         treat_records_x['uplift_score'] = uplift_score_t
         control_records_x['uplift_score'] = uplift_score_c
+        all_records = pd.concat([treat_records_x,control_records_x])
         
         error_T = error(group_type = 'treat',X = treat_records_x, Y = treat_records_y)
         error_C = error(group_type ='control', X = control_records_x,Y =control_records_x)
@@ -93,17 +96,20 @@ def uplift_adaboost(n_estimators, estimator, X_train, Y_train, treatment_train):
         #compute betas (d)
         beta = total_error / (1 - total_error)
         if (beta == 1) or (treat_error <=0 or treat_error >= 0.5) or (treat_error <= 0 or treat_error >= 0.5):
-            treat_weights = np.random.normal(loc=0.5, scale=0.5,size = treat_records_x.shape[0])
-            control_weights = np.random.normal(loc=0.5, scale=0.5,size = control_records_x.shape[0])
-            continue
+            treat_weights = np.random.exponential(size = treat_records_x.shape[0])
+            control_weights = np.random.exponential(size = control_records_x.shape[0])
+            
+            goto .begin
             
         #update weights (f) (g)
         
         treat_weights = treat_weights * (beta ** ((treat_records_x['uplift_score'] == treat_records_y).astype(int)))
         control_weights = control_weights * (beta ** ((control_records_x['uplift_score'] == (1 - control_records_y)).astype(int)))
         
-        total_betas.append(beta)
-    print(total_betas)
+        sum_logs += np.log(1 / beta)
+        sum_all += np.log(1 / beta) * (all_records['uplift_score'] > 0).astype(int)
+        
+    return (sum_all >= 0.5 * sum_logs)
 
 def feature_importance(df_features_imp, features, num_bins,regularization, penalty):
     # Analyse given features in df_dataset and makes descending list of them according to their importance score.
