@@ -6,7 +6,7 @@ from sklearn.utils.validation import check_consistent_length
 from sklearn.utils.multiclass import type_of_target
 
 
-class SoloModel(BaseEstimator):
+class OneModel(BaseEstimator):
     
 
     def __init__(self, estimator):
@@ -76,9 +76,7 @@ class ClassTransformation(BaseEstimator):
         _, treatment_counts = np.unique(treatment, return_counts=True)
         if treatment_counts[0] != treatment_counts[1]:
             warnings.warn(
-                "It is recommended to use this approach on treatment balanced data. Current sample size is unbalanced.",
-                category=UserWarning,
-                stacklevel=2
+                "sample size is not balanced."
             )
 
         y_mod = (np.array(y) == np.array(treatment)).astype(int)
