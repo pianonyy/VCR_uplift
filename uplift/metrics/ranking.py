@@ -313,4 +313,4 @@ def Kendall_rank_correlation(y_true, uplift, treatment, strategy='overall', bins
 
     print("Kendal uplift rank correlation = ", tau, "with p_value = ", p_value)
     
-    return df
+    return tau, p_value
