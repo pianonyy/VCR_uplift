@@ -262,9 +262,7 @@ def Kendall_rank_correlation(y_true, uplift, treatment, strategy='overall', bins
         raise ValueError(f'Response rate supports only calculating methods in {strategy_methods},'
                          f' got {strategy}.')
 
-    if not isinstance(total, bool):
-        raise ValueError(f'Flag total should be bool: True or False.'
-                         f' Invalid value total: {total}')
+    
 
     if not isinstance(std, bool):
         raise ValueError(f'Flag std should be bool: True or False.'
