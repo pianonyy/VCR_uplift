@@ -1,4 +1,4 @@
-# UPLIFT_modeling
+# VCR_uplift
 
 pip install -e .
 
